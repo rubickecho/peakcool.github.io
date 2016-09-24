@@ -1,15 +1,32 @@
 # Site settings
-title: Your awesome title
-motto: Your motto
-email: your-email@domain.com
+title: peakcool | 个人博客
+motto: 群山不需要齐整,参差方显气度。
+email: tlc852@qq.com
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://rmogo.com" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+  line_numbers: true
+
+paginate: 10
+paginate_path: "page:num"
+
+gems:
+  - jemoji
+  - jekyll-sitemap
+  - jekyll-paginate
