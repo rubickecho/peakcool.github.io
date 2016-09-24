@@ -4,10 +4,10 @@
     <title>peakcool | 个人博客</title>
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </description>
-    <link>http://rmogo.com/</link>
-    <atom:link href="http://rmogo.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 24 Sep 2016 12:43:32 +0800</pubDate>
-    <lastBuildDate>Sat, 24 Sep 2016 12:43:32 +0800</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 24 Sep 2016 12:47:11 +0800</pubDate>
+    <lastBuildDate>Sat, 24 Sep 2016 12:47:11 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -28,8 +28,8 @@
 
 </description>
         <pubDate>Sat, 09 Apr 2016 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2016/04/09/welcome-to1111-jekyll.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2016/04/09/welcome-to1111-jekyll.html</guid>
+        <link>/jekyll/update/2016/04/09/welcome-to1111-jekyll.html</link>
+        <guid isPermaLink="true">/jekyll/update/2016/04/09/welcome-to1111-jekyll.html</guid>
         
         
         <category>jekyll</category>
@@ -56,8 +56,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC.html</guid>
         
         
         <category>jekyll</category>
@@ -84,8 +84,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-9.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-9.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-9.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-9.html</guid>
         
         
         <category>jekyll</category>
@@ -112,8 +112,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-8.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-8.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-8.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-8.html</guid>
         
         
         <category>jekyll</category>
@@ -140,8 +140,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-7.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-7.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-7.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-7.html</guid>
         
         
         <category>jekyll</category>
@@ -168,8 +168,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-6.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-6.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-6.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-6.html</guid>
         
         
         <category>jekyll</category>
@@ -196,8 +196,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-5.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-5.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-5.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-5.html</guid>
         
         
         <category>jekyll</category>
@@ -224,8 +224,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-4.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-4.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-4.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-4.html</guid>
         
         
         <category>jekyll</category>
@@ -252,8 +252,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-3.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-3.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-3.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-3.html</guid>
         
         
         <category>jekyll</category>
@@ -280,8 +280,8 @@
 
 </description>
         <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-2.html</link>
-        <guid isPermaLink="true">http://rmogo.com/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-2.html</guid>
+        <link>/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-2.html</link>
+        <guid isPermaLink="true">/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-2.html</guid>
         
         
         <category>jekyll</category>
