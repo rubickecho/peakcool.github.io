@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>HTML5复习小结</title>
+  <meta name="description" content="HTML5复习小结">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/01/13/html5-e5-a4-8d-e4-b9-a0-e5-b0-8f-e7-bb-93.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/jekyll" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/jekyllrb" title="Twitter">
+					<img width="19px" height="19px" src="/images/twitter.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="post-title">HTML5复习小结</h1>
+    <p class="post-meta">Jan 13, 2016 • tangliangcheng</p>
+  </header>
+
+  <article class="post-content">
+    <h2 id="html5">HTML5复习小结</h2>
+
+<h3 id="canvas">1.canvas绘制</h3>
+
+<blockquote>**步骤**
+
+&gt; 
+&gt; 
+	
+&gt;   * 添加canvas元素，定义id和范围
+&gt; 
+	
+&gt;   * js里获取canvas元素
+&gt; 
+	
+&gt;   * 通过getContext()方法获取2D绘制环境
+&gt; 
+	
+&gt;   * 通过不同的函数进行图形绘制
+&gt; 
+
+**坐标定位**
+
+&gt; 
+&gt; 
+	
+&gt;   * 绘制的图形定位都是以canvas的左上角为(0,0)原点
+&gt; 
+
+**绘制直线**
+
+&gt; 
+&gt; 
+	
+&gt;   * moveTo(): 规定起始点
+&gt; 
+	
+&gt;   * lineTo(): 从起点绘制到规定坐标的直线
+&gt; 
+	
+&gt;   * stroke(): 实现绘制直线的功能
+&gt; 
+	
+&gt;   * fill(): 实现填充功能
+&gt; 
+
+**实例：绘制一个三角形**
+
+html代码</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;&lt;body&gt;
+    &lt;canvas id="canvas"&gt;&lt;/canvas&gt;
+&lt;/body&gt;&lt;/code&gt;
+</code></pre>
+</div>
+
+<blockquote>js代码</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;window.onload = function(){
+  var canvas =  document.getElementById("canvas");
+  canvas.width = 800;
+  canvas.height = 800;
+  var context  = canvas.getContext('2d');
+
+  context.strokeStyle = "red";
+  context.moveTo(100, 100);
+  context.lineTo(200, 100);
+  context.lineTo(150,50);
+  context.lineTo(100,100);
+  context.stroke();
+};
+
+&lt;img src="http://115.28.108.2/wordpress/wp-content/uploads/2016/01/屏幕快照-2016-01-13-下午2.36.29.png" alt="屏幕快照 2016-01-13 下午2.36.29" height="160" class="alignnone size-full wp-image-121" width="227"&gt;&lt;/img&gt;
+&lt;/code&gt;
+</code></pre>
+</div>
+
+<blockquote>**绘制矩形**
+
+&gt; 
+&gt; 
+	
+&gt;   * fillStyle():设置矩形填充颜色。
+&gt; 
+	
+&gt;   * fillRect(x,y,width,height)。
+&gt; 
+	
+&gt;   * strokeStyle():设置矩形轮廓颜色。
+&gt; 
+	
+&gt;   * strokeRect(x,y,width,height)。
+&gt; 
+
+**绘制圆形(弧形)**
+
+&gt; 
+&gt; 
+	
+&gt;   * beginPath():开始绘制路线
+&gt; 
+	
+&gt;   * arc(x,y,radius,startAngle,endAngle,anticlockwise)
+设置绘制的中心点，半径，起始角度，结束角度和绘制方向。
+&gt; 
+
+**贝塞尔曲线**
+
+二次贝塞尔曲线
+
+&gt; 
+&gt; 
+	
+&gt;   * quadraticCurveTo(cp1x,cp1y,x,y)
+cp1x,cp1y 表示一个控制点坐标;x,y代表终点坐标。
+&gt; 
+
+三次贝塞尔曲线
+
+	
+&gt;   * bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y)
+cp1x,cp1y和cp2x,cp2y分别代表
+两个控制点。
+&gt; 
+
+**实例1：绘制一个五角星**</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;window.onload = function() {
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext('2d');
+    drawStar(context, 120, 120, 80, 30, 10, "yellow", 0);
+}
+
+function drawStar(context, x, y, R, r, width, color, rotation) {
+
+    context.beginPath();
+    for (var i = 0; i &lt; 5; i++) {
+        context.lineTo(Math.cos((18 + i * 72 - rotation) / 180 * Math.PI) * R + x, -Math.sin((18 + i * 72 - rotation) / 180 * Math.PI) * R + y);
+        context.lineTo(Math.cos((54 + i * 72 - rotation) / 180 * Math.PI) * r + x, -Math.sin((54 + i * 72 - rotation) / 180 * Math.PI) * r + y);
+    }
+    context.closePath();
+    context.lineWidth = width;
+    context.fillStyle = color;
+    context.fill();
+}
+
+&lt;img src="http://115.28.108.2/wordpress/wp-content/uploads/2016/01/屏幕快照-2016-01-13-下午9.16.40.png" alt="屏幕快照 2016-01-13 下午9.16.40" height="198" class="alignnone size-full wp-image-122" width="199"&gt;&lt;/img&gt;
+&lt;/code&gt;
+</code></pre>
+</div>
+
+<blockquote>**实例2:绘制宝马标志**</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;window.onload = function() {
+    var canvas = document.getElementById("canvas");
+    canvas.width = 800;
+    canvas.height = 800;
+    var context = canvas.getContext('2d');
+
+    //圆心坐标x,y  内圆半径r  外圆半径R
+    var x = 100;
+    var y = 100;
+    var r = 100;
+    var R = r + 50;
+    var colors = Array("#87CEFA", "#FAFAFA", "#000");
+
+    context.beginPath();
+    context.translate(100, 100);
+    context.arc(x, y, R, 0, Math.PI * 2);
+    line_gra = context.createLinearGradient(-10, -10,20, 50);
+    line_gra.addColorStop(0, "#ddd");
+    line_gra.addColorStop(1, "#262626");
+    context.lineWidth = 3;
+    context.strokeStyle = "#000";
+    context.fillStyle = line_gra;
+    context.closePath();
+    context.stroke();
+    context.fill();
+
+    drawBigRound(context, x, y, r, 53, "#ADD8E6", 7);
+    drawBm(context, x, y, r, colors);
+    drawBigRound(context, x, y, r, 3, "#9FB6CD", 5);
+
+    context.beginPath();
+    context.fillStyle = "#fff";
+    context.font = "bold 40px verdana";
+    context.fillText("M", 80, -10);
+    context.rotate(Math.PI / 6);
+    context.fillText("W", 125, -75);
+    context.rotate(-(Math.PI / 2));
+    context.fillText("B", 0, 35);
+    context.restore();
+
+}
+
+function drawBm(context, x, y, r, colors) {
+    var color;
+    for (var i = 0; i &lt; 4; i++) {
+        context.beginPath();
+        context.moveTo(x, y);
+        context.arc(x, y, r, Math.PI * i / 2, Math.PI * (i + 1) / 2);
+        if (i == 0 || i == 2) {
+            color = colors[0];
+        } else {
+            color = colors[1];
+        }
+        context.fillStyle = color;
+        context.lineWidth = 2;
+        context.strokeStyle = colors[2];
+        context.closePath();
+        context.fill();
+        context.stroke();
+    }
+
+}
+
+function drawBigRound(context, x, y, r, addr, color, lineWidth) {
+    context.beginPath();
+    context.arc(x, y, r + addr, 0, Math.PI * 2);
+    context.lineWidth = lineWidth;
+    context.strokeStyle = color;
+    context.closePath();
+    context.stroke();
+}
+
+&lt;img src="http://115.28.108.2/wordpress/wp-content/uploads/2016/01/屏幕快照-2016-01-13-下午9.18.14.png" alt="屏幕快照 2016-01-13 下午9.18.14" height="323" class="alignnone size-full wp-image-123" width="317"&gt;&lt;/img&gt;
+&lt;/code&gt;
+</code></pre>
+</div>
+
+<h3 id="css3--box-shadow">2.CSS3 阴影 box-shadow</h3>
+
+<blockquote>**box-shadow: h-shadow v-shadow blur spread color inset;**
+
+&gt; 
+&gt; 
+	
+&gt;   * h-shadow 必需。水平阴影的位置。允许负值。
+&gt; 
+	
+&gt;   * v-shadow 必需。垂直阴影的位置。允许负值。
+&gt; 
+	
+&gt;   * blur 可选。模糊距离。
+&gt; 
+	
+&gt;   * spread 可选。阴影的尺寸。
+&gt; 
+	
+&gt;   * color 可选。阴影的颜色。请参阅 CSS 颜色值。
+&gt; 
+	
+&gt;   * inset 可选。将外部阴影 (outset) 改为内部阴影。
+&gt; 
+
+</blockquote>
+
+<h3 id="css3-transform">3.CSS3 transform属性</h3>
+
+<blockquote>**transform: none|transform-functions;**
+
+&gt; 
+&gt; 
+	
+&gt;   * transform:rotate()： 旋转,deg是度的意思
+
+&gt;     
+&gt;     <code class="language-none">  transform: rotate(-10deg);</code>
+&gt; 
+&gt; 
+
+&gt; 
+	
+&gt;   * transform:skew()： 倾斜
+
+&gt;     
+&gt;     <code class="language-none">  transform:skew(20deg);</code>
+&gt; 
+&gt; 
+
+&gt; 
+	
+&gt;   * transform:scale()： 缩放,x方向2倍，y方向1.5倍
+
+&gt;     
+&gt;     <code class="language-none">  transform: scale(2, 1.5);</code>
+&gt; 
+&gt; 
+
+&gt; 
+	
+&gt;   * transform:translate()： 平移,x方向平移120px，y方向平移10px
+
+&gt;     
+&gt;     <code class="language-none">  transform:translate(120px,10px);</code>
+&gt; 
+&gt; 
+
+&gt; 
+
+</blockquote>
+
+<h3 id="css3-transtion">4.CSS3 transtion属性</h3>
+
+<blockquote>**transition: property duration timing-function delay;**
+
+&gt; 
+&gt; 
+	
+&gt;   * transition-property 规定设置过渡效果的 CSS 属性的名称。
+&gt; 
+	
+&gt;   * transition-duration 规定完成过渡效果需要多少秒或毫秒。
+&gt; 
+	
+&gt;   * transition-timing-function 规定速度效果的速度曲线。
+&gt; 
+	
+&gt;   * transition-delay 定义过渡效果何时开始。
+&gt; 
+
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;div
+{
+    width:100px;
+    transition: width 2s;
+    -moz-transition: width 2s; /* Firefox 4 */
+    -webkit-transition: width 2s; /* Safari 和 Chrome */
+    -o-transition: width 2s; /* Opera */
+}&lt;/code&gt;
+</code></pre>
+</div>
+
+  </article>
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2015 Pithy Theme by Pawpaw.
+</footer>
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>PHP基础篇之变量常量</title>
+  <meta name="description" content="变量">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/03/php-e5-9f-ba-e7-a1-80-e7-af-87-e4-b9-8b-e5-8f-98-e9-87-8f-e5-b8-b8-e9-87-8f.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/jekyll" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/jekyllrb" title="Twitter">
+					<img width="19px" height="19px" src="/images/twitter.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="post-title">PHP基础篇之变量常量</h1>
+    <p class="post-meta">May 3, 2016 • tangliangcheng</p>
+  </header>
+
+  <article class="post-content">
+    <h2 id="section">变量</h2>
+
+<p>php中变量名都是跟在美元符号$后面</p>
+
+<p>变量名由字母或者下划线开头，后面跟上任意数量的字母，数字，或者下划线。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $name = "Tom";
+php &gt; $NAME = "Jack";
+php &gt; echo $name;
+Tom
+php &gt; echo $NAME; //变量名区分大小写
+Jack&lt;/code&gt;
+</code></pre>
+</div>
+
+<h4 id="section-1">1. 变量的赋值</h4>
+
+<ul>
+  <li><strong>直接赋值</strong></li>
+</ul>
+
+<p>当一个变量的值赋予另外一个变量时，改变其中一个变量的值，将不会影响到另外一个变量</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $a = 10;
+php &gt; $b = $a;
+php &gt; $a = 5;
+php &gt; echo 'a的值为:'.$a."\n".'b的值为'.$b;
+a的值为:5
+b的值为10&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li><strong>引用赋值</strong></li>
+</ul>
+
+<p>改动新的变量将影响到原始变量，改变原始变量也会影响到新的变量，使用引用赋值需在变量名面前加&amp;符号。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $a = 10;
+php &gt; $b = $a;
+php &gt; $c = &amp;$a;
+php &gt; $a = 5;
+php &gt; echo "a的值为$a\n"."b的值为$b\n"."c的值为$c";
+a的值为5
+b的值为10
+c的值为5&lt;/code&gt;
+</code></pre>
+</div>
+
+<h4 id="section-2">2. 变量的操作</h4>
+
+<ul>
+  <li><strong>是否声明</strong></li>
+</ul>
+
+<p>bool isset ( mixed $var )</p>
+
+<p>如果$var存在即返回true，不存在返回false。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; var_dump(isset($sex));
+bool(false)
+php &gt; $sex = "man";
+php &gt; var_dump(isset($sex));
+bool(true)&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li><strong>是否为空</strong></li>
+</ul>
+
+<p>bool empty ( mixed $var )</p>
+
+<p>如果$var是非空或者非零，返回false；” “、0、”0”、NULL、FALSE、array()，以及没有任何属性的对象都将被认为是空的，如果 var 为空，则返回 TRUE。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;bool(true)
+php &gt; $name = "Tom";
+php &gt; var_dump(empty($name));
+bool(false)&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li><strong>释放变量</strong></li>
+</ul>
+
+<p>void unset ( mixed $var [, mixed $var [, $… ]] )</p>
+
+<p>销毁指定变量$var。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $name = "tom";
+php &gt; var_dump(isset($name));
+bool(true)
+php &gt; unset($name);
+php &gt; var_dump(isset($name));
+bool(false)&lt;/code&gt;
+</code></pre>
+</div>
+
+<h4 id="section-3">3. 全局变量</h4>
+
+<ul>
+  <li>
+    <p><strong>global 关键字</strong></p>
+
+    <p><code class="language-none"><?php
+$a = 1;
+$b = 2;
+function Sum()
+{
+    global $a, $b;
+    $b = $a + $b;
+}
+Sum();
+echo $b;
+?></code></p>
+
+    <p>输出结果:3&lt;/code&gt;</p>
+  </li>
+  <li>
+    <p><strong>$GLOBALS 数组</strong></p>
+
+    <p><code class="language-none"><?php
+$a = 1;
+$b = 2;
+function Sum()
+{
+    $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
+}
+Sum();
+echo $b;
+?></code></p>
+
+    <p>输出结果:3&lt;/code&gt;</p>
+  </li>
+</ul>
+
+<h4 id="section-4">4. 静态变量</h4>
+
+<p>static $var</p>
+
+<p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值不丢失。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;function test()
+{
+    static $count = 0;
+    $count++;
+    echo $count;
+    if ($count &lt; 10) {
+        test();
+    }
+    $count--;
+}
+test();
+
+输出结果:12345678910&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>##</p>
+
+<h3 id="section-5">常量</h3>
+
+<p>常量是简单值的标识符，对大小写敏感，标识符总是大写的。</p>
+
+<p><strong>定义常量:</strong> define ( ‘标识符’ , ‘对应值’ )</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; define("NAME",'tom');
+php &gt; echo NAME;
+tom&lt;/code&gt;
+</code></pre>
+</div>
+
+<p><strong>系统常量</strong></p>
+
+<p><img src="http://www.rmogo.com/wp-content/uploads/2016/05/屏幕快照-2016-05-03-上午9.36.30.png" alt="屏幕快照 2016-05-03 上午9.36.30" /></p>
+
+  </article>
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2015 Pithy Theme by Pawpaw.
+</footer>
+
+    
+  </body>
+
+</html>

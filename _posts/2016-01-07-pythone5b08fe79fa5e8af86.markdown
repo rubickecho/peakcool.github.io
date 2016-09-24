@@ -1,0 +1,362 @@
+---
+author: tangliangcheng
+comments: true
+date: 2016-01-07 14:15:59+00:00
+layout: post
+link: http://www.rmogo.com/wordpress/2016/01/07/python%e5%b0%8f%e7%9f%a5%e8%af%86/
+slug: python%e5%b0%8f%e7%9f%a5%e8%af%86
+title: Python小知识
+wordpress_id: 76
+categories:
+- 技术分享
+---
+
+## Python小知识
+
+
+
+
+#### 1.列表
+
+
+
+
+<blockquote>seq = [1,2,3,4,5,6,7,8,9,10]
+
+seq = [::-1]</blockquote>
+
+
+
+    
+    <code class="language-none">>>> [10,9,8,7,6,5,4,3,2,1]</code>
+
+
+
+
+#### 2.Python用于从列表中找出某个值第一个匹配项的索引位置的方法
+
+
+
+
+<blockquote>查找seq列表中2的位置
+
+seq.index(2)</blockquote>
+
+
+
+    
+    <code class="language-none">>>> 1</code>
+
+
+
+
+#### 3.字符串相加
+
+
+
+
+<blockquote>var = '2' + '5'
+
+print var</blockquote>
+
+
+
+    
+    <code class="language-none">>>> 25</code>
+
+
+
+
+<blockquote>type(var)</blockquote>
+
+
+
+    
+    <code class="language-none">>>><type 'str'></code>
+
+
+
+
+#### 4.元祖
+
+
+
+
+<blockquote>3 * (40 + 2,)</blockquote>
+
+
+
+    
+    <code class="language-none">>>> (42, 42, 42)</code>
+
+
+
+
+#### 5.lambda函数
+
+
+
+
+<blockquote>python lambda是在python中使用lambda来创建匿名函数，而用def创建的方法是有名称的，除了从表面上的方法名不一样外，python lambda还有哪些和def不一样呢？
+
+1.python lambda会创建一个函数对象，但不会把这个函数对象赋给一个标识符，而def则会把函数对象赋值给一个变量。
+
+2.python lambda它只是一个表达式，而def则是一个语句。
+
+下面是python lambda的格式，看起来好精简阿。
+lambda x: print x
+
+如果你在python 列表解析里用到python lambda，我感觉意义不是很大，因为python lambda它会创建一个函数对象，但马上又给丢弃了，因为你没有使用它的返回值，即那个函数对象。也正是由于lambda只是一个表达式，它可以直接作为python 列表或python 字典的成员，比如：
+
+在这个地方没有办法用def语句直接代替。因为def是语句，不是表达式不能嵌套在里面，lambda表达式在“：”后只能有一个表达式。也就是说，在def中，用return可以返回的也可以放在lambda后面，不能用return返回的也不能定义在python lambda后面。因此，像if或for或print这种语句就不能用于lambda中，lambda一般只用来定义简单的函数。</blockquote>
+
+
+
+    
+    <code class="language-none">>>> info = [lambda a: a ** 3, lambda b: b ** 3]
+    >>> info[0](2)
+    >>> 8</code>
+
+
+
+
+#### 6.字典
+
+
+
+
+<blockquote>**1.从字典中取值，当键不存在时不想处理异常 dict.get(key, default=None)**
+
+下面是详细参数：
+
+> 
+> 
+	
+>   * key：key在字典中查找。
+> 
+	
+>   * default：在key不存在的情况下返回值None。
+> 
+
+</blockquote>
+
+
+
+    
+    <code class="language-none">>>> d = {}
+    >>> d.get('name','none')
+    >>> none</code>
+
+
+
+
+<blockquote>**2.从字典中取值，若找到则删除；当键不存在时不想处理异常 dics.pop('key', 'not found')**</blockquote>
+
+
+
+    
+    <code class="language-none">>>> d = {'a':1,'b':2,'c':3}
+    >>> d.pop(1,"not found")
+    >>> 'nont found'
+    >>> d.pop('a','not found')
+    >>> d
+    >>> {'b':2,'c':3}</code>
+
+
+
+
+<blockquote>**_字典内置函数&方法_**
+
+**Python字典包含了以下内置函数**
+
+> 
+> 
+	
+>   * cmp(dict1, dict2)：比较两个字典元素。
+> 
+	
+>   * len(dict)：计算字典元素个数，即键的总数。
+> 
+	
+>   * str(dict)：输出字典可打印的字符串表示。
+> 
+	
+>   * type(variable)：返回输入的变量类型，如果变量是字典就返回字典类型。
+> 
+
+**Python字典包含了以下内置方法**
+
+> 
+> 
+	
+>   * radiansdict.clear()：删除字典内所有元素
+> 
+	
+>   * radiansdict.copy()：返回一个字典的浅复制
+> 
+	
+>   * radiansdict.fromkeys()：创建一个新字典，以序列seq中元素做字典的键，val为字典所有键对应的初始值
+> 
+	
+>   * radiansdict.get(key, default=None)：返回指定键的值，如果值不在字典中返回default值
+> 
+	
+>   * radiansdict.has_key(key)：如果键在字典dict里返回true，否则返回false
+> 
+	
+>   * radiansdict.items()：以列表返回可遍历的(键, 值) 元组数组
+> 
+	
+>   * radiansdict.keys()：以列表返回一个字典所有的键
+> 
+	
+>   * radiansdict.setdefault(key, default=None)：和get()类似, 但如果键不已经存在于字典中，将会添加键并将值设为default
+> 
+	
+>   * radiansdict.update(dict2)：把字典dict2的键/值对更新到dict里
+> 
+	
+>   * radiansdict.values()：以列表返回字典中的所有值
+> 
+
+</blockquote>
+
+
+
+
+#### 7.range函数
+
+
+
+
+<blockquote>如果你需要一个数值序列，使用内建函数range() 会很方便，它产生等差级数序列，默认情况下，range() 的起始值是 0</blockquote>
+
+
+
+    
+    <code class="language-none">>>> x = sum(range(5))
+    >>> print x
+    >>> 10</code>
+
+
+
+
+#### 8.下面输出的结果为
+
+
+
+
+<blockquote>a = 1
+
+b = 2
+
+a,b = b,a
+
+print "%d %d" % (a,b)</blockquote>
+
+
+
+    
+    <code class="language-none">>>> 2 1</code>
+
+
+
+
+<blockquote>x, y = 4, 3
+
+smaller = x if x < y else y
+
+smaller</blockquote>
+
+
+
+    
+    <code class="language-none">>>> 3</code>
+
+
+
+
+<blockquote>li = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+new_li = [i * i for i in li if i % 2 == 0]
+
+new_li</blockquote>
+
+
+
+    
+    <code class="language-none">[4, 16, 36, 64, 100]</code>
+
+
+
+
+<blockquote>ls = [1,2,3,4,5,6]
+
+ls = [0:-1]</blockquote>
+
+
+
+    
+    <code class="language-none">[1,2,3,4,5]</code>
+
+
+
+
+#### 9.函数
+
+
+
+    
+    <code class="language-none">>>> def fz(x,*args,**kargs):
+        print x
+        print args
+        print kargs
+    >>> fz(1,23,3,y=20,z=30)
+    >>> 1
+        (23, 3)
+        {'y': 20, 'z': 30}</code>
+
+
+
+
+#### 10.Python中的可变数据类型有与不可变数据类型
+
+
+
+
+<blockquote>不可变类型：string,integer,tuple
+
+可变类型：list,dict</blockquote>
+
+
+
+
+#### 其他
+
+
+
+
+<blockquote>
+
+> 
+> 
+	
+>   * Python中类属性分为私有属性和公有属性。
+> 
+	
+>   * Python中空列表（[]）为假值。
+> 
+	
+>   * python中表达式：f = open('test.txt', 'r')，表示读模式打开文件。
+> 
+	
+>   * python的程序由包（package）、模块（module）和函数组成。
+> 
+	
+>   * Python函数实际参数与形式参数。
+> 
+	
+>   * 类的属性是对数据的封装，而类的方法则表示对象具有的行为。
+> 
+
+</blockquote>

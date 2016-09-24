@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>PHP小知识</title>
+  <meta name="description" content="PHP小知识">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2015/12/29/php-e5-b0-8f-e7-9f-a5-e8-af-86.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/jekyll" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/jekyllrb" title="Twitter">
+					<img width="19px" height="19px" src="/images/twitter.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="post-title">PHP小知识</h1>
+    <p class="post-meta">Dec 29, 2015 • tangliangcheng</p>
+  </header>
+
+  <article class="post-content">
+    <h3 id="php">PHP小知识</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>1.break</td>
+      <td>continue 后面加参数表示结束循环层数</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>2.导入文件include require功能一样，但发生错误的级别不一样，include是Warning，下面的代码仍然会执行；
+require是Fatal error， 下面的代码不会执行。</p>
+
+<p>3.return</p>
+
+<ul>
+  <li>
+    <p>在函数中使用</p>
+  </li>
+  <li>
+    <p>在函数外使用
+相当于停止脚本之行</p>
+  </li>
+</ul>
+
+<p>利用这一特性制作项目的配置文件</p>
+
+<p>4.foreach结束后不会在使用到源数组的前提下，可以考虑foreach判定体内提取出的数组单项命名和源数组名相同。</p>
+
+<p>5.php中单双引号，单引号效率会更高，生成的opcods数量和scanning阶段，单引号都更少。</p>
+
+<p>6.浮点数 0.58 * 100 = 57.999999999
+因为看似有穷(0.58)的小数，在计算机的二进制表示里是无穷的。</p>
+
+<p>7.在strlen计算时，对待一个utf-8的中文字符是三个长度，所以“中文a字1符”；在mb_strlen计算时，选定内码为utf-8，则会将一个中文字符当作长度1计算。</p>
+
+<p>8.php提交表单后控制缓存：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt; 1．使用header头设置缓存控制头Cache-control。
+ PHP代码
+ header('Cache-control: private, must-revalidate');  //支持页面回跳
+
+ 2．使用session_cache_limiter方法。
+ PHP代码
+ session_cache_limiter('private, must-revalidate'); //要写在               session_start方法之前&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>9.POST传值和GET传值的区别：</p>
+
+<ul>
+  <li>
+    <p>相同点：页面上使用POST方法和GET方法都可以获得传递过来的值。</p>
+  </li>
+  <li>
+    <p>不同点：GET：提交的数据类型是文本，POST：可以为文本和二进制数据。</p>
+  </li>
+  <li>
+    <p>GET:传值长度是有限制的，而POST没有。</p>
+  </li>
+  <li>
+    <p>GET提交的消息URL是可以看见的，POST看不见。</p>
+  </li>
+  <li>
+    <p>GET传值会被浏览器缓存，POST不会。</p>
+  </li>
+  <li>
+    <p>GET执行效率较快，而安全性较差；POST执行效率较慢，但安全性好。</p>
+  </li>
+  <li>
+    <p>一般表单传值是用POST，动作参数传值可以采用GET。</p>
+  </li>
+</ul>
+
+<p>10.将数组内容还原成变量 extract($arr)</p>
+
+<p>11.架构顺序，先工厂模式设计，再根据工厂模式进行类的编写。</p>
+
+<p>12.类名在php中是一个全局变量，静态属性可以使用 类名::静态变量 类名::方法()来调用</p>
+
+  </article>
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2015 Pithy Theme by Pawpaw.
+</footer>
+
+    
+  </body>
+
+</html>

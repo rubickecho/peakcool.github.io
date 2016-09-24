@@ -4,289 +4,2177 @@
     <title>peakcool | 个人博客</title>
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </description>
-    <link>http://bravelife.top/</link>
-    <atom:link href="http://bravelife.top/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 24 Sep 2016 21:27:07 +0800</pubDate>
-    <lastBuildDate>Sat, 24 Sep 2016 21:27:07 +0800</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 24 Sep 2016 23:31:30 +0800</pubDate>
+    <lastBuildDate>Sat, 24 Sep 2016 23:31:30 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>2016-5 开发总结</title>
+        <description>&lt;h2 id=&quot;carbon&quot;&gt;1、Carbon时间类库&lt;/h2&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;这个是laravel御用类库，用起来非常的方便。&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;官网地址: &lt;a href=&quot;http://carbon.nesbot.com&quot;&gt;http://carbon.nesbot.com&lt;/a&gt;&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;Git地址: &lt;a href=&quot;https://github.com/briannesbitt/Carbon&quot;&gt;https://github.com/briannesbitt/Carbon&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;section&quot;&gt;用法：&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;引用&lt;/p&gt;
+
+    &lt;p&gt;&lt;code&gt;use Carbon\Carbon;&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;基本操作&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;echo (new Carbon('first day of December 2008'))-&amp;gt;addWeeks(2);     // 2008-12-15 00:00:00
+echo Carbon::parse('first day of December 2008')-&amp;gt;addWeeks(2);    // 2008-12-15 00:00:00&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;$now = Carbon::now();
+echo $now;                               // 2015-11-11 12:38:36
+$today = Carbon::today();
+echo $today;                             // 2015-11-11 00:00:00
+$tomorrow = Carbon::tomorrow(‘Europe/London’);
+echo $tomorrow;                          // 2015-11-12 00:00:00
+$yesterday = Carbon::yesterday();
+echo $yesterday;                         // 2015-11-10 00:00:00&lt;/p&gt;
+
+    &lt;p&gt;echo Carbon::createFromFormat(‘Y-m-d H’, ‘1975-05-21 22’)-&amp;gt;toDateTimeString(); // 1975-05-21 22:00:00&amp;lt;/code&amp;gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;image&quot;&gt;2、Image类库&lt;/h3&gt;
+
+&lt;p&gt;Intervention Image 是一个PHP图片操作处理库，为图片创建、修改及压缩等处理提供了便捷方式。此外，还提供了服务提供者和门面以便集成到Laravel应用中。&lt;/p&gt;
+
+&lt;p&gt;官网地址: &lt;a href=&quot;http://image.intervention.io&quot;&gt;http://image.intervention.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Git地址: &lt;a href=&quot;https://github.com/Intervention/image&quot;&gt;https://github.com/Intervention/image&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;用法:&lt;/h4&gt;
+
+&lt;p&gt;Laravel学院: &lt;a href=&quot;http://laravelacademy.org/post/3585.html&quot;&gt;http://laravelacademy.org/post/3585.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;curl&quot;&gt;3、curl网站开发命令&lt;/h3&gt;
+
+&lt;p&gt;阮一峰网络日志 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/09/curl.html&quot;&gt;http://www.ruanyifeng.com/blog/2011/09/curl.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;em&gt;curl -v&lt;/em&gt;&lt;/strong&gt; 查看通信过程&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;~ curl -v www.sina.com&lt;/code&gt;&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Rebuilt URL to: www.sina.com/&lt;/li&gt;
+      &lt;li&gt;Trying 202.108.33.71…&lt;/li&gt;
+      &lt;li&gt;Connected to www.sina.com (202.108.33.71) port 80 (#0)
+        &lt;blockquote&gt;
+          &lt;p&gt;GET / HTTP/1.1
+Host: www.sina.com
+User-Agent: curl/7.43.0
+Accept: &lt;em&gt;/&lt;/em&gt;&lt;/p&gt;
+
+          &lt;p&gt;&amp;lt; HTTP/1.1 301 Moved Permanently
+&amp;lt; Server: nginx
+&amp;lt; Date: Thu, 12 May 2016 11:57:45 GMT
+&amp;lt; Content-Type: text/html
+&amp;lt; Location: http://www.sina.com.cn/
+&amp;lt; Expires: Thu, 12 May 2016 11:59:45 GMT
+&amp;lt; Cache-Control: max-age=120
+&amp;lt; Age: 49
+&amp;lt; Content-Length: 178
+&amp;lt; X-Cache: HIT from xd33-71.sina.com.cn
+&amp;lt;&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;html&gt;
+&lt;head&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;
+&lt;body bgcolor=&quot;white&quot;&gt;
+&lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;
+&lt;hr /&gt;&lt;center&gt;nginx&lt;/center&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Connection #0 to host www.sina.com left intact&amp;lt;/code&amp;gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;表单通信&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;curl -X GET http://localhost/form.php?data=1&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;curl -X POST --data &quot;data=1&quot; http://localhost/form.php&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 </description>
-        <pubDate>Sat, 09 Apr 2016 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2016/04/09/welcome-to1111-jekyll.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2016/04/09/welcome-to1111-jekyll.html</guid>
+        <pubDate>Thu, 12 May 2016 20:26:39 +0800</pubDate>
+        <link>/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/12/2016-5-e5-bc-80-e5-8f-91-e6-80-bb-e7-bb-93.html</link>
+        <guid isPermaLink="true">/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/12/2016-5-e5-bc-80-e5-8f-91-e6-80-bb-e7-bb-93.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>技术分享</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>PHP基础篇之变量常量</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;变量&lt;/h2&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;php中变量名都是跟在美元符号$后面&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;变量名由字母或者下划线开头，后面跟上任意数量的字母，数字，或者下划线。&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $name = &quot;Tom&quot;;
+php &amp;gt; $NAME = &quot;Jack&quot;;
+php &amp;gt; echo $name;
+Tom
+php &amp;gt; echo $NAME; //变量名区分大小写
+Jack&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&quot;section-1&quot;&gt;1. 变量的赋值&lt;/h4&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;直接赋值&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;当一个变量的值赋予另外一个变量时，改变其中一个变量的值，将不会影响到另外一个变量&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $a = 10;
+php &amp;gt; $b = $a;
+php &amp;gt; $a = 5;
+php &amp;gt; echo 'a的值为:'.$a.&quot;\n&quot;.'b的值为'.$b;
+a的值为:5
+b的值为10&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;引用赋值&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;改动新的变量将影响到原始变量，改变原始变量也会影响到新的变量，使用引用赋值需在变量名面前加&amp;amp;符号。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $a = 10;
+php &amp;gt; $b = $a;
+php &amp;gt; $c = &amp;amp;$a;
+php &amp;gt; $a = 5;
+php &amp;gt; echo &quot;a的值为$a\n&quot;.&quot;b的值为$b\n&quot;.&quot;c的值为$c&quot;;
+a的值为5
+b的值为10
+c的值为5&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;2. 变量的操作&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;是否声明&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;bool isset ( mixed $var )&lt;/p&gt;
+
+&lt;p&gt;如果$var存在即返回true，不存在返回false。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; var_dump(isset($sex));
+bool(false)
+php &amp;gt; $sex = &quot;man&quot;;
+php &amp;gt; var_dump(isset($sex));
+bool(true)&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;是否为空&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;bool empty ( mixed $var )&lt;/p&gt;
+
+&lt;p&gt;如果$var是非空或者非零，返回false；” “、0、”0”、NULL、FALSE、array()，以及没有任何属性的对象都将被认为是空的，如果 var 为空，则返回 TRUE。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;bool(true)
+php &amp;gt; $name = &quot;Tom&quot;;
+php &amp;gt; var_dump(empty($name));
+bool(false)&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;释放变量&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;void unset ( mixed $var [, mixed $var [, $… ]] )&lt;/p&gt;
+
+&lt;p&gt;销毁指定变量$var。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $name = &quot;tom&quot;;
+php &amp;gt; var_dump(isset($name));
+bool(true)
+php &amp;gt; unset($name);
+php &amp;gt; var_dump(isset($name));
+bool(false)&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;3. 全局变量&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;global 关键字&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;&lt;?php
+$a = 1;
+$b = 2;
+function Sum()
+{
+    global $a, $b;
+    $b = $a + $b;
+}
+Sum();
+echo $b;
+?&gt;&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;输出结果:3&amp;lt;/code&amp;gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;$GLOBALS 数组&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;&lt;?php
+$a = 1;
+$b = 2;
+function Sum()
+{
+    $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
+}
+Sum();
+echo $b;
+?&gt;&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;输出结果:3&amp;lt;/code&amp;gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;4. 静态变量&lt;/h4&gt;
+
+&lt;p&gt;static $var&lt;/p&gt;
+
+&lt;p&gt;静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值不丢失。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;function test()
+{
+    static $count = 0;
+    $count++;
+    echo $count;
+    if ($count &amp;lt; 10) {
+        test();
+    }
+    $count--;
+}
+test();
+
+输出结果:12345678910&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;h3 id=&quot;section-5&quot;&gt;常量&lt;/h3&gt;
+
+&lt;p&gt;常量是简单值的标识符，对大小写敏感，标识符总是大写的。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;定义常量:&lt;/strong&gt; define ( ‘标识符’ , ‘对应值’ )&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; define(&quot;NAME&quot;,'tom');
+php &amp;gt; echo NAME;
+tom&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;系统常量&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://www.rmogo.com/wp-content/uploads/2016/05/屏幕快照-2016-05-03-上午9.36.30.png&quot; alt=&quot;屏幕快照 2016-05-03 上午9.36.30&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC.html</guid>
+        <pubDate>Tue, 03 May 2016 10:00:34 +0800</pubDate>
+        <link>/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/03/php-e5-9f-ba-e7-a1-80-e7-af-87-e4-b9-8b-e5-8f-98-e9-87-8f-e5-b8-b8-e9-87-8f.html</link>
+        <guid isPermaLink="true">/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/03/php-e5-9f-ba-e7-a1-80-e7-af-87-e4-b9-8b-e5-8f-98-e9-87-8f-e5-b8-b8-e9-87-8f.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>技术分享</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>PHP基础篇之数组</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;定义&lt;/h2&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;php中的数组array就是一个有序映射，把 value（值） 关联到 key（键）。&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;array()函数声明数组&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom',1 =&amp;gt; 'Hello');
+php &amp;gt; echo $arr['name'];
+Tom
+php &amp;gt; echo $arr[1];
+Hello &lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;直接为数组元素赋值&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr['name'] = 'Tom';
+php &amp;gt; $arr[1] = 'World';
+php &amp;gt; print_r($arr);
+Array
+(
+    [name] =&amp;gt; Tom
+    [1] =&amp;gt; World
+)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;键(key)可以是一个整数(integer)或字符串(string),不能用数组和对象作为键(key)。这样做会导致一个警告：Illegal offset type。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;值(value) 可以是任意类型的值。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;数组的简单操作&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;用方括号的语法新建／修改，即给变量名加上一对空的方括号（“[]”）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;删除数组或删除数组的一个键名/值对，用unset()&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom','age' =&amp;gt; 12);
+php &amp;gt; print_r($arr);
+Array
+(
+    [name] =&amp;gt; Tom
+    [age] =&amp;gt; 12
+)
+php &amp;gt; $arr['name'] = 'Jack';
+php &amp;gt; $arr['id'] = 999;
+php &amp;gt; print_r($arr);
+Array
+(
+    [name] =&amp;gt; Jack
+    [age] =&amp;gt; 12
+    [id] =&amp;gt; 999
+)
+php &amp;gt; unset($arr);
+php &amp;gt; print_r($arr);&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;Notice: Undefined variable: arr in php shell code on line 1 //未定义$arr&amp;lt;/code&amp;gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;遍历数组foreach($array as $key =&amp;gt; $value)&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array(1 =&amp;gt; 'Tom', 2 =&amp;gt; 'Jack', 3 =&amp;gt; 'Lucy');
+php &amp;gt; foreach($arr as $key =&amp;gt; $value){
+        echo $key.'=&amp;gt;'.$value.&quot;\n&quot;;
+        }
+1=&amp;gt;Tom
+2=&amp;gt;Jack
+3=&amp;gt;Lucy&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;unset()函数允许删除数组中的某个键，但要注意数组将不会重建索引。重建索引可以使用函数array_values()&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;    php &amp;gt; $arr = array(1 =&amp;gt; 'Tom', 2 =&amp;gt; 'Jack', 3 =&amp;gt; 'Lucy');
+    php &amp;gt; unset($arr[2]);
+    php &amp;gt; print_r($arr);
+    Array
+    (
+        [1] =&amp;gt; Tom
+        [3] =&amp;gt; Lucy
+    )
+    php &amp;gt; print_r(array_values($arr));
+    Array
+    (
+        [0] =&amp;gt; Tom
+        [1] =&amp;gt; Lucy
+    )&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;数组常用函数&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;array_combine&lt;/strong&gt; 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值array array_combine ( array $keys , array $values )&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','Lucy');
+php &amp;gt; $arr2 = array('football','basketball','tennis');
+php &amp;gt; print_r(array_combin($arr,$arr2));
+Array
+(
+    [Tom] =&amp;gt; football
+    [Jack] =&amp;gt; basketball
+    [Lucy] =&amp;gt; tennis
+)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;array_count_values&lt;/strong&gt; 统计数组中所有的值出现的次数array array_count_values ( array $input )&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','football','Jack','football');
+php &amp;gt; print_r(array_count_values($arr));
+Array
+(
+    [Tom] =&amp;gt; 1
+    [Jack] =&amp;gt; 2
+    [football] =&amp;gt; 2
+)   &lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;array_diff&lt;/strong&gt; 计算数组的差集array array_diff ( array $array1 , array $array2 [, array $ … ] )&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','Lucy','Mark');
+php &amp;gt; $arr2 = array('Jack','Tom','Mark');
+php &amp;gt; print_r( array_diff($arr,$arr2));
+Array
+(
+    [2] =&amp;gt; Lucy
+)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; array_diff()返回一个数组，该数组包括了所有在 $arr1 中但是不在任何其它参数数组中的值。注意键名保留不变。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;array_flip&lt;/strong&gt; 交换数组中的键和值array array_flip ( array $trans )&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom' =&amp;gt; 'football','Jack' =&amp;gt; 'basketball','Lucy' =&amp;gt;         'tennis');
+php &amp;gt; print_r (array_flip($arr));
+Array
+(
+    [football] =&amp;gt; Tom
+    [basketball] =&amp;gt; Jack
+    [tennis] =&amp;gt; Lucy
+)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; 如果同一个值出现多次，则最后一个键名将作为它的值，所有其它的都将丢失。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;array_keys&lt;/strong&gt; 返回数组中所有的键名array array_keys ( array $input [, mixed $search_value [, bool $strict ]] )如果指定了可选参数 search_value，则只返回该值的键名。&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','football','Jack','football');
+php &amp;gt; print_r (array_keys($arr));
+Array
+(
+    [0] =&amp;gt; 0
+    [1] =&amp;gt; 1
+    [2] =&amp;gt; 2
+    [3] =&amp;gt; 3
+    [4] =&amp;gt; 4
+)
+php &amp;gt; print_r (array_keys($arr,'football'));
+Array
+(
+    [0] =&amp;gt; 2
+    [1] =&amp;gt; 4
+)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;in_array&lt;/strong&gt; 检查数组中是否存在某个值bool in_array ( mixed $needle , array $haystack [, bool $strict ] )如果第三个参数 strict 的值为 TRUE 则 in_array() 函数还会检查 needle 的类型是否和 haystack 中的相同。&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','football');
+php &amp;gt; echo in_array('Tom',$arr);
+1 //1即表示true&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;array_merge&lt;/strong&gt; 合并一个或多个数组array array_merge ( array $array1 [, array $array2 [, array $… ]] )如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom','age' =&amp;gt; 12,6 =&amp;gt; 'red');
+php &amp;gt; $arr2 = array('class' =&amp;gt; 3, 6 =&amp;gt; 'black');
+php &amp;gt; print_r ( array_merge($arr,$arr2));
+Array
+(
+    [name] =&amp;gt; Tom
+    [age] =&amp;gt; 12
+    [0] =&amp;gt; red
+    [class] =&amp;gt; 3
+    [1] =&amp;gt; black
+)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;array_unique&lt;/strong&gt; 移除数组中重复的值array array_unique ( array $array )注意键名保留不变。&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom', 12,'name' =&amp;gt; 'Jack','red','12');
+php &amp;gt; var_dump(array_unique($arr));
+array(3) {
+    [&quot;name&quot;] =&amp;gt; string(4) &quot;Jack&quot;
+    [0] =&amp;gt; int(12)
+    [1] =&amp;gt; string(3) &quot;red&quot;
+}&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;count&lt;/strong&gt; 计算数组中元素个数int count( $array )&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','Lucy');
+php &amp;gt; var_dump(count($arr));
+int(3)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;sort&lt;/strong&gt; 数组排序bool sort ( array &amp;amp;$array [, int $sort_flags ] )此函数将为 array 中的元素赋与新的键名。这将删除原有的键名，而不是仅仅将键名重新排序。成功返回true，失败返回false。&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;$arr = array('Tom','Jack','Lucy');
+sort($arr);
+php &amp;gt; foreach($arr as $k =&amp;gt; $v){ echo $k.' =&amp;gt; '.$v.&quot;\n&quot;;}
+0 =&amp;gt; Jack
+1 =&amp;gt; Lucy
+2 =&amp;gt; Tom&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; 对一些有混合类型的值的数组排序时要小心，sotr()会产生不可预知的效果。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;我是一名php初学者，在学习的时候写了这些总结和大家分享，有不恰当的地方欢迎大家多多指正，我也会虚心的接受大家的建议，希望和大家共同进步。&lt;/p&gt;
+
+&lt;hr /&gt;
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-9.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-9.html</guid>
+        <pubDate>Wed, 27 Apr 2016 22:52:19 +0800</pubDate>
+        <link>/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/27/php-e5-9f-ba-e7-a1-80-e7-af-87-e4-b9-8b-e6-95-b0-e7-bb-84.html</link>
+        <guid isPermaLink="true">/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/27/php-e5-9f-ba-e7-a1-80-e7-af-87-e4-b9-8b-e6-95-b0-e7-bb-84.html</guid>
+        
+        <category>php</category>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>技术分享</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>PHP程序员的技术成长规划</title>
+        <description>&lt;p&gt;转载自:  &lt;a href=&quot;http://blog.jobbole.com/100064/&quot;&gt;伯乐在线&lt;/a&gt;   原文出处： &lt;a href=&quot;http://blog.csdn.net/heiyeshuwu/article/details/40098043&quot;&gt;黑夜路人&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;按照了解的很多PHP/LNMP程序员的发展轨迹，结合个人经验体会，抽象出很多程序员对未来的迷漫，特别对技术学习的盲目和慌乱，简单梳理了这个每个阶段PHP程序员的技术要求，来帮助很多PHP程序做对照设定学习成长目标。&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;本文按照目前主流技术做了一个基本的梳理，整个是假设PHP程序员不是基础非常扎实的情况进行的设定，并且所有设定都非常具体明确清晰，可能会让人觉得不适，请理解仅代表一家之言。（未来技术变化不在讨论范围）&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;php&quot;&gt;第一阶段：基础阶段（基础PHP程序员）&lt;/h2&gt;
 
+&lt;p&gt;&lt;strong&gt;重点&lt;/strong&gt;：把LNMP搞熟练（核心是安装配置基本操作）
+&lt;strong&gt;目标&lt;/strong&gt;：能够完成基本的LNMP系统安装，简单配置维护；能够做基本的简单系统的PHP开发；能够在PHP中型系统中支持某个PHP功能模块的开发。
+&lt;strong&gt;时间&lt;/strong&gt;：完成本阶段的时间因人而异，有的成长快半年一年就过了，成长慢的两三年也有。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1.Linux：&lt;/strong&gt;
+基本命令、操作、启动、基本服务配置（包括rpm安装文件，各种服务配置等）；会写简单的shell脚本和awk/sed 脚本命令等。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2.Nginx：&lt;/strong&gt;
+做到能够安装配置nginx+php，知道基本的nginx核心配置选项，知道 server/fastcgi_pass/access_log 等基础配置，目标是能够让nginx+php_fpm顺利工作。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3.MySQL：&lt;/strong&gt;
+会自己搭建mysql，知道基本的mysql配置选项；知道innodb和myisam的区别，知道针对InnoDB和MyISAM两个引擎的不同配置选项；知道基本的两个引擎的差异和选择上面的区别；能够纯手工编译搭建一个MySQL数据库并且配置好编码等正常稳定运行；核心主旨是能够搭建一个可运行的MySQL数据库。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4.PHP：&lt;/strong&gt;
+基本语法数组、字符串、数据库、XML、Socket、GD/ImageMgk图片处理等等；熟悉各种跟MySQL操作链接的api（mysql/mysqli/PDO)，知道各种编码问题的解决；知道常规熟练使用的PHP框架（ThinkPHP、Zendframework、Yii、Yaf等）；了解基本MVC的运行机制和为什么这么做，稍微知道不同的PHP框架之间的区别；能够快速学习一个MVC框架。能够知道开发工程中的文件目录组织，有基本的良好的代码结构和风格，能够完成小系统的开发和中型系统中某个模块的开发工作。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5.前端：&lt;/strong&gt;
+如果条件时间允许，可以适当学习下 HTML/CSS/JS 等相关知识，知道什么web标准，div+css的web/wap页面模式，知道HTML5和HTML4的区别；了解一些基本的前端只是和JS框架（jQuery之类的）；了解一些基本的JavaScript编程知识；（本项不是必须项，如果有时间，稍微了解一下是可以的，不过不建议作为重点，除非个人有强烈兴趣）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6.系统设计：&lt;/strong&gt;
+能够完成小型系统的基本设计，包括简单的数据库设计，能够完成基本的：浏览器 -&amp;gt; Nginx+PHP -&amp;gt; 数据库 架构的设计开发工作；能够支撑每天几十万到数百万流量网站的开发维护工作；&lt;/p&gt;
+
+&lt;h2 id=&quot;php-1&quot;&gt;第二阶段：提高阶段 （中级PHP程序员）&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;重点：&lt;/strong&gt;提高针对LNMP的技能，能够更全面的对LNMP有熟练的应用。
+&lt;strong&gt;目标：&lt;/strong&gt;能够随时随地搭建好LNMP环境，快速完成常规配置；能够追查解决大部分遇到的开发和线上环境的问题；能够独立承担中型系统的构架和开发工作；能够在大型系统中承担某个中型模块的开发工作；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Linux:&lt;/strong&gt;
+在第一阶段的基础上面，能够流畅的使用Shell脚本来完成很多自动化的工作；awk/sed/perl 也操作的不错，能够完成很多文本处理和数据统计等工作；基本能够安装大部分非特殊的Linux程序（包括各种库、包、第三方依赖等等，比如MongoDB/Redis/Sphinx/Luncene/SVN之类的）；了解基本的Linux服务，知道如何查看Linux的性能指标数据，知道基本的Linux下面的问题跟踪等。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Nginx:&lt;/strong&gt;
+在第一阶段的基础上面，了解复杂一些的Nginx配置；包括 多核配置、events、proxy_pass，sendfile/tcp_*配置，知道超时等相关配置和性能影响；知道nginx除了web server，还能够承担代理服务器、反向静态服务器等配置；知道基本的nginx配置调优；知道如何配置权限、编译一个nginx扩展到nginx；知道基本的nginx运行原理（master/worker机制，epoll），知道为什么nginx性能比apache性能好等知识；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. MySQL/MongoDB：&lt;/strong&gt;
+在第一阶段的基础上面，在MySQL开发方面，掌握很多小技巧，包括常规SQL优化（group by/order by/rand优化等）；除了能够搭建MySQL，还能够冷热备份MySQL数据，还知道影响innodb/myisam性能的配置选项（比如key_buffer/query_cache/sort_buffer/innodb_buffer_pool_size/innodb_flush_log_at_trx_commit等），也知道这些选项配置成为多少值合适；另外也了解一些特殊的配置选项，比如 知道如何搭建mysql主从同步的环境，知道各个binlog_format的区别；知道MySQL的性能追查，包括slow_log/explain等，还能够知道基本的索引建立处理等知识；原理方面了解基本的MySQL的架构（Server+存储引擎），知道基本的InnoDB/MyISAM索引存储结构和不同（聚簇索引，B树）；知道基本的InnoDB事务处理机制；了解大部分MySQL异常情况的处理方案（或者知道哪儿找到处理方案）。条件允许的情况，建议了解一下NoSQL的代表MongoDB数据库，顺便对比跟MySQL的差别，同事能够在合适的应用场景安全谨慎的使用MongoDB，知道基本的PHP与MongoDB的结合开发。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Redis/Memcached：&lt;/strong&gt;
+在大部分中型系统里面一定会涉及到缓存处理，所以一定要了解基本的缓存；知道Memcached和Redis的异同和应用场景，能够独立安装 Redis/Memcached，了解Memcahed的一些基本特性和限制，比如最大的value值，知道PHP跟他们的使用结合；Redis了解基本工作原理和使用，了解常规的数据类型，知道什么场景应用什么类型，了解Redis的事务等等。原理部分，能够大概了解Memcached的内存结构（slab机制），redis就了解常用数据类型底层实现存储结构（SDS/链表/SkipList/HashTable）等等，顺便了解一下Redis的事务、RDB、AOF等机制更好&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. PHP：&lt;/strong&gt;
+除了第一阶段的能力，安装配置方面能够随意安装PHP和各种第三方扩展的编译安装配置；了解php-fpm的大部分配置选项和含义（如max_requests/max_children/request_terminate_timeout之类的影响性能的配置），知道mod_php/fastcgi的区别；在PHP方面已经能够熟练各种基础技术，还包括各种深入些的PHP，包括对PHP面向对象的深入理解/SPL/语法层面的特殊特性比如反射之类的；在框架方面已经阅读过最少一个以上常规PHP MVC框架的代码了，知道基本PHP框架内部实现机制和设计思想；在PHP开发中已经能够熟练使用常规的设计模式来应用开发（抽象工厂/单例/观察者/命令链/策略/适配器 等模式）；建议开发自己的PHP MVC框架来充分让开发自由化，让自己深入理解MVC模式，也让自己能够在业务项目开发里快速升级；熟悉PHP的各种代码优化方法，熟悉大部分PHP安全方面问题的解决处理；熟悉基本的PHP执行的机制原理（Zend引擎/扩展基本工作机制）；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. C/C++：&lt;/strong&gt;
+开始涉猎一定的C/C++语言，能够写基本的C/C++代码，对基本的C/C++语法熟悉（指针、数组操作、字符串、常规标准API）和数据结构（链表、树、哈希、队列）有一定的熟悉下；对Linux下面的C语言开发有基本的了解概念，会简单的makefile文件编写，能够使用简单的GCC/GDB的程序编译简单调试工作；对基本的网络编程有大概了解。（本项是为了向更高层次打下基础）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. 前端：&lt;/strong&gt;
+在第一阶段的基础上面，熟悉基本的HTTP协议（协议代码200/300/400/500，基本的HTTP交互头）；条件允许，可以在深入写出稍微优雅的HTML+CSS+JavaScript，或者能够大致简单使用某些前端框架（jQuery/YUI/ExtJS/RequireJS/BootStrap之类）；如果条件允许，可以深入学习JavaScript编程，比如闭包机制、DOM处理；再深入些可以读读jQuery源码做深入学习。（本项不做重点学习，除非对前端有兴趣）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8. 系统设计：&lt;/strong&gt;
+能够设计大部分中型系统的网站架构、数据库、基本PHP框架选型；性能测试排查处理等；能够完成类似：浏览器 -&amp;gt; CDN(Squid) -&amp;gt; Nginx+PHP -&amp;gt; 缓存 -&amp;gt; 数据库 结构网站的基本设计开发维护；能够支撑每天数百万到千万流量基本网站的开发维护工作；&lt;/p&gt;
+
+&lt;h2 id=&quot;php-2&quot;&gt;第三阶段：高级阶段 （高级PHP程序员）&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;重点：&lt;/strong&gt;除了基本的LNMP程序，还能够在某个方向或领域有深入学习。（纵深维度发展）
+&lt;strong&gt;目标：&lt;/strong&gt;除了能够完成基本的PHP业务开发，还能够解决大部分深入复杂的技术问题，并且可以独立设计完成中大型的系统设计和开发工作；自己能够独立hold深入某个技术方向，在这块比较专业。（比如在MySQL、Nginx、PHP、Redis等等任一方向深入研究）&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Linux：&lt;/strong&gt;
+除了第二阶段的能力，在Linux下面除了常规的操作和性能监控跟踪，还能够使用很多高级复杂的命令完成工作（watch/tcpdump/starce/ldd/ar等)；在shell脚本方面，已经能够编写比较复杂的shell脚本（超过500行）来协助完成很多包括备份、自动化处理、监控等工作的shell；对awk/sed/perl 等应用已经如火纯青，能够随意操作控制处理文本统计分析各种复杂格式的数据；对Linux内部机制有一些了解，对内核模块加载，启动错误处理等等有个基本的处理；同时对一些其他相关的东西也了解，比如NFS、磁盘管理等等；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Nginx:&lt;/strong&gt;
+在第二阶段的基础上面，已经能够把Nginx操作的很熟练，能够对Nginx进行更深入的运维工作，比如监控、性能优化，复杂问题处理等等；看个人兴趣，更多方面可以考虑侧重在关于Nginx工作原理部分的深入学习，主要表现在阅读源码开始，比如具体的master/worker工作机制，Nginx内部的事件处理，内存管理等等；同时可以学习Nginx扩展的开发，可以定制一些自己私有的扩展；同时可以对Nginx+Lua有一定程度的了解，看看是否可以结合应用出更好模式；这个阶段的要求是对Nginx原理的深入理解，可以考虑成为Nginx方向的深入专业者。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. MySQL/MongoDB：&lt;/strong&gt;
+在第二阶段的基础上面，在MySQL应用方面，除了之前的基本SQL优化，还能够在完成一些复杂操作，比如大批量数据的导入导出，线上大批量数据的更改表结构或者增删索引字段等等高危操作；除了安装配置，已经能够处理更多复杂的MySQL的问题，比如各种问题的追查，主从同步延迟问题的解决、跨机房同步数据方案、MySQL高可用架构等都有涉及了解；对MySQL应用层面，对MySQL的核心关键技术比较熟悉，比如事务机制（隔离级别、锁等）、对触发器、分区等技术有一定了解和应用；对MySQL性能方面，有包括磁盘优化（SAS迁移到SSD）、服务器优化（内存、服务器本身配置）、除了二阶段的其他核心性能优化选项（innodb_log_buffer_size/back_log/table_open_cache/thread_cache_size/innodb_lock_wait_timeout等）、连接池软件选择应用，对show *（show status/show profile）类的操作语句有深入了解，能够完成大部分的性能问题追查；MySQL备份技术的深入熟悉，包括灾备还原、对Binlog的深入理解，冷热备份，多IDC备份等；在MySQL原理方面，有更多了解，比如对MySQL的工作机制开始阅读部分源码，比如对主从同步（复制）技术的源码学习，或者对某个存储引擎（MyISAM/Innodb/TokuDB）等等的源码学习理解，如果条件允许，可以参考CSV引擎开发自己简单的存储引擎来保存一些数据，增强对MySQL的理解；在这个过程，如果自己有兴趣，也可以考虑往DBA方向发展。MongoDB层面，可以考虑比如说在写少读多的情况开始在线上应用MongoDB，或者是做一些线上的数据分析处理的操作，具体场景可以按照工作来，不过核心是要更好的深入理解RMDBS和NoSQL的不同场景下面的应用，如果条件或者兴趣允许，可以开始深入学习一下MongoDB的工作机制。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Redis/Memcached：&lt;/strong&gt;
+在第二阶段的基础上面，能够更深入的应用和学习。因为Memcached不是特别复杂，建议可以把源码进行阅读，特别是内存管理部分，方便深入理解；Redis部分，可以多做一些复杂的数据结构的应用（zset来做排行榜排序操作/事务处理用来保证原子性在秒杀类场景应用之类的使用操作）；多涉及aof等同步机制的学习应用，设计一个高可用的Redis应用架构和集群；建议可以深入的学习一下Redis的源码，把在第二阶段积累的知识都可以应用上，特别可以阅读一下包括核心事件管理、内存管理、内部核心数据结构等充分学习了解一下。如果兴趣允许，可以成为一个Redis方面非常专业的使用者。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;5. PHP：&lt;/strong&gt;
+作为基础核心技能，我们在第二阶段的基础上面，需要有更深入的学习和应用。从基本代码应用上面来说，能够解决在PHP开发中遇到95%的问题，了解大部分PHP的技巧；对大部分的PHP框架能够迅速在一天内上手使用，并且了解各个主流PHP框架的优缺点，能够迅速方便项目开发中做技术选型；在配置方面，除了常规第二阶段会的知识，会了解一些比较偏门的配置选项（php auto_prepend_file/auto_append_file），包括扩展中的一些复杂高级配置和原理（比如memcached扩展配置中的memcache.hash_strategy、apc扩展配置中的apc.mmap_file_mask/apc.slam_defense/apc.file_update_protection之类的）；对php的工作机制比较了解，包括php-fpm工作机制（比如php-fpm在不同配置机器下面开启进程数量计算以及原理），对zend引擎有基本熟悉（vm/gc/stream处理），阅读过基本的PHP内核源码（或者阅读过相关文章），对PHP内部机制的大部分核心数据结构（基础类型/Array/Object）实现有了解，对于核心基础结构（zval/hashtable/gc）有深入学习了解；能够进行基本的PHP扩展开发，了解一些扩展开发的中高级知识（minit/rinit等），熟悉php跟apache/nginx不同的通信交互方式细节（mod_php/fastcgi）；除了开发PHP扩展，可以考虑学习开发Zend扩展，从更底层去了解PHP。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;6. C/C++：&lt;/strong&gt;
+在第二阶段基础上面，能够在C/C++语言方面有更深入的学习了解，能够完成中小型C/C++系统的开发工作；除了基本第二阶段的基础C/C++语法和数据结构，也能够学习一些特殊数据结构（b-tree/rb-tree/skiplist/lsm-tree/trie-tree等）方便在特殊工作中需求；在系统编程方面，熟悉多进程、多线程编程；多进程情况下面了解大部分多进程之间的通信方式，能够灵活选择通信方式（共享内存/信号量/管道等）；多线程编程能够良好的解决锁冲突问题，并且能够进行多线程程序的开发调试工作；同时对网络编程比较熟悉，了解多进程模型/多线程模型/异步网络IO模型的差别和选型，熟悉不同异步网络IO模型的原理和差异（select/poll/epoll/iocp等），并且熟悉常见的异步框架（ACE/ICE/libev/libevent/libuv/Boost.ASIO等）和使用，如果闲暇也可以看看一些国产自己开发的库（比如muduo）；同时能够设计好的高并发程序架构（leader-follow/master-worker等）；了解大部分C/C++后端Server开发中的问题（内存管理、日志打印、高并发、前后端通信协议、服务监控），知道各个后端服务RPC通信问题（struct/http/thirft/protobuf等）；能够更熟络的使用GCC和GDB来开发编译调试程序，在线上程序core掉后能够迅速追查跟踪解决问题；通用模块开发方面，可以积累或者开发一些通用的工具或库（比如异步网络框架、日志库、内存池、线程池等），不过开发后是否应用要谨慎，省的埋坑去追bug；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;7. 前端：&lt;/strong&gt;
+深入了解HTTP协议（包括各个细致协议特殊协议代码和背后原因，比如302静态文件缓存了，502是nginx后面php挂了之类的）；除了之前的前端方面的各种框架应用整合能力，前端方面的学习如果有兴趣可以更深入，表现形式是，可以自己开发一些类似jQuery的前端框架，或者开发一个富文本编辑器之类的比较琐碎考验JavaScript功力；&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;8. 其他领域语言学习：&lt;/strong&gt;
+在基础的PHP/C/C++语言方面有基本积累，建议在当前阶段可以尝试学习不同的编程语言，看个人兴趣爱好，脚本类语言可以学学 Python/Ruby 之类的，函数式编程语言可以试试 Lisp/Haskell/Scala/Erlang 之类的，静态语言可以试试 Java/Golang，数据统计分析可以了解了解R语言，如果想换个视角做后端业务，可以试试 Node.js还有前面提到的跟Nginx结合的Nginx_Lua等。学习不同的语言主要是提升自己的视野和解决问题手段的差异，比如会了解除了进程/线程，还有轻量级协程；比如在跨机器通信场景下面，Erlang的解决方案简单的惊人；比如在不想选择C/C++的情况下，还有类似高效的Erlang/Golang可用等等；主要是提升视野。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;9. 其他专业方向学习：&lt;/strong&gt;
+在本阶段里面，会除了基本的LNMP技能之外，会考虑一些其他领域知识的学习，这些都是可以的，看个人兴趣和长期的目标方向。目前情况能够选择的领域比较多，比如、云计算（分布式存储、分布式计算、虚拟机等），机器学习（数据挖掘、模式识别等，应用到统计、个性化推荐），自然语言处理（中文分词等），搜索引擎技术、图形图像、语音识别等等。除了这些高大上的，也有很多偏工程方面可以学习的地方，比如高性能系统、移动开发（Android/IOS）、计算机安全、嵌入式系统、硬件等方向。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;10. 系统设计：&lt;/strong&gt;
+系统设计在第二阶段的基础之上，能够应用掌握的经验技能，设计出比较复杂的中大型系统，能够解决大部分线上的各种复杂系统的问题，完成类似 浏览器 -&amp;gt; CDN -&amp;gt; 负载均衡 -&amp;gt;接入层 -&amp;gt; Nginx+PHP -&amp;gt; 业务缓存 -&amp;gt; 数据库 -&amp;gt; 各路复杂后端RPC交互（存储后端、逻辑后端、反作弊后端、外部服务） -&amp;gt; 更多后端 酱紫的复杂业务；能够支撑每天数千万到数亿流量网站的正常开发维护工作。&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;第四阶段：架构阶段 （架构师）&lt;/h2&gt;
+
+&lt;p&gt;ps: 暂时不展开讨论，等下次专门撰文来描述补充本部分内容&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;第五阶段：专家阶段（方向领域专家）&lt;/h2&gt;
+
+&lt;p&gt;ps：高大上，这块不展开讨论 ^_^&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;第六阶段：科学家阶段&lt;/h2&gt;
+
+&lt;p&gt;ps：高大上，这块不展开讨论 ^_^&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-8.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-8.html</guid>
+        <pubDate>Tue, 26 Apr 2016 11:23:57 +0800</pubDate>
+        <link>/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/26/php-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e6-8a-80-e6-9c-af-e6-88-90-e9-95-bf-e8-a7-84-e5-88-92.html</link>
+        <guid isPermaLink="true">/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/26/php-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e6-8a-80-e6-9c-af-e6-88-90-e9-95-bf-e8-a7-84-e5-88-92.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>转载收藏</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>PHP之基础篇1</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;一. 基本语法&lt;/h2&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;开始结束标记: “&lt;?php ?&gt;”&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;lt;?php echo &quot;Hello World&quot;?&amp;gt;&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;strong&gt;Note：&lt;/strong&gt;文件末尾的 PHP 代码段结束标记”?&amp;gt;”可以不要，有些情况下当使用 include() 或者 require() 时省略掉会更好些。&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;同java,c一样，php每个语句后需用分号 “ ; “ 结束。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;二. 类型&lt;/h3&gt;
+
+&lt;h4 id=&quot;php8&quot;&gt;php支持的8种基本数据类型&lt;/h4&gt;
+
+&lt;p&gt;四种标量类型:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;boolean (布尔型)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;integer (整型)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;string (字符串)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;float (浮点型)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;两种复合类型:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;array (数组型)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;object (对象)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;两种特殊类型:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;resource (资源)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;null (null)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Note：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;var_dump() 查看表达式值和类型,is_type() 查看某个类型。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;整数溢出,如果给定一个整数或运算结果得出的整数超出int范围(2^32)，将会解释会float。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;string&quot;&gt;三.字符串(string)&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;声明字符串:&lt;/em&gt;&lt;/strong&gt; 字符串通常用单引号或双引号定义。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;在单引号中的变量和特殊含义的字符不会被替换&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $age = 12;
+php &amp;gt; echo &quot;他很高\n他的年龄才$age&quot;;
+他很高
+他的年龄才12；
+php &amp;gt; echo '他很高\n他的年龄才$age';
+他很高\n他的年龄才$age;&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;字符串可以用’.’ (点) 操作符连接起来&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; echo &quot;Hello,&quot;.&quot;World&quot;;
+Hello,World&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;存取和修改字符串中的字符（类似于数组）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello,World&quot;;
+php &amp;gt; echo $str[1];
+e
+php &amp;gt; echo $str{0};
+H&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;其他类型转换为字符串（string）&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在一个值前面加上(string)或者使用strval()函数来转换成字符串型。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $age = 18;
+php &amp;gt; var_dump($age);
+int(18)
+php &amp;gt; $str = (string)$age;
+php &amp;gt; var_dump($str);
+string(2) &quot;18&quot;&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;常用字符串函数&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;字符串替换&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;str_replace ($search , $replace , $subject [, int &amp;amp;$count ])&lt;/p&gt;
+
+&lt;blockquote&gt;$search: 查找替换目标值
+
+$replace: $search的替换值
+
+subject: 执行替换的数组或者字符串
+
+count: 控制匹配和替换的次数&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello,My name is Tom,what is your name?&quot;;
+php &amp;gt; echo str_replace(&quot;name&quot;,&quot;nickname&quot;,$str);
+Hello,My nickname is Tom,what is your nickname?&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;去掉字符串两边空格&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;trim ($str)&lt;/p&gt;
+
+&lt;blockquote&gt;$str: 目标字符串&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;  Hello     &quot;;
+php &amp;gt; echo trim($str);
+Hello&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;去掉字符串中html和php标记&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;strip_tags ($str)&lt;/p&gt;
+
+&lt;blockquote&gt;$str: 目标字符串&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;&amp;lt;td&amp;gt;&amp;lt;p&amp;gt;Hello World&amp;lt;/p&amp;gt;&amp;lt;/td&amp;gt;&quot;;
+php &amp;gt; echo strip_tags($str);
+Hello World&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;将目标字符串重复多次&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;str_repeat ($str,int $num)&lt;/p&gt;
+
+&lt;blockquote&gt;$str: 目标字符串
+
+$num: 重复次数&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello World!!&quot;;
+php &amp;gt; echo str_repeat($str,5);
+Hello World!!Hello World!!Hello World!!Hello World!!Hello World!!&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;返回字符串长度&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;strlen ($str)&lt;/p&gt;
+
+&lt;blockquote&gt;$str: 目标字符串&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello World&quot;;
+php &amp;gt; echo strlen($str);
+11&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;计算字串出现的次数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;substr_count (string $haystack , string $needle )&lt;/p&gt;
+
+&lt;blockquote&gt;$haystack: 目标字符串
+
+$needle: 查找出现次数的字符串&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello World,Hello China&quot;;
+php &amp;gt; echo substr_count($str,&quot;Hello&quot;);
+2&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;截取字符串&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;substr ( string $string , int $start [, int $length ] )&lt;/p&gt;
+
+&lt;blockquote&gt;$string: 目标字符串
+
+$start: 如果 start 是非负数，返回的字符串将从 string 的 start 位置开始，从 0 开始计算。如果 start 是负数，返回的字符串将从 string 结尾处向前数第 start 个字符开始。如果string 的长度小于或等于 start，将返回 FALSE。
+
+$length: 1.如果提供了正数的 length，返回的字符串将从 start 处开始最多包括 length 个字符（取决于 string 的长度）。2.如果提供了负数的 length，那么 string 末尾处的许多字符将会被漏掉（若 start 是负数则从字符串尾部算起）。3.如果 start 不在这段文本中，那么将返回一个空字符串。4.如果提供了值为 0，FALSE 或 NULL 的 length，那么将返回一个空字符串。5.如果没有提供 length，返回的子字符串将从 start 位置开始直到字符串结尾。&lt;/blockquote&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello,World&quot;;
+php &amp;gt; echo substr($str,1);
+ello,World
+php &amp;gt; echo substr($str,1,3);
+ell
+php &amp;gt; echo substr($str,1,-3);
+ello,Wo
+php &amp;gt; echo substr($str,1,10);
+ello,World&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-7.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-7.html</guid>
+        <pubDate>Mon, 25 Apr 2016 21:08:25 +0800</pubDate>
+        <link>/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/25/php-e4-b9-8b-e5-9f-ba-e7-a1-80-e7-af-871.html</link>
+        <guid isPermaLink="true">/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/25/php-e4-b9-8b-e5-9f-ba-e7-a1-80-e7-af-871.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>技术分享</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>程序员的天堂和地狱</title>
+        <description>&lt;p&gt;开发人员梦到天堂里的程序员：每个人都坐在自己的电脑上，一口一口灌着咖啡，眼带血丝……最后的时间限制正在逼近……开发人员惊醒过来，继续睡；&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;又梦到了地狱中的程序员：每个人都在自己的电脑前敲键盘（因为截止时间的逼近），在谩骂客户的同时，大口大口喝咖啡，眼睛里同样布满血丝。&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
+&lt;p&gt;沉睡中的开发人员于是问恰巧出现的天使：“既然如此，那么，天堂的程序员和地狱的程序员之间的区别是什么呢？”“区别在于，”这个天使回答，“天堂里的程序员能够按时完成任务。”&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-6.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-6.html</guid>
+        <pubDate>Mon, 25 Apr 2016 10:13:21 +0800</pubDate>
+        <link>/%E6%9C%AA%E5%88%86%E7%B1%BB/2016/04/25/e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-a4-a9-e5-a0-82-e5-92-8c-e5-9c-b0-e7-8b-b1.html</link>
+        <guid isPermaLink="true">/%E6%9C%AA%E5%88%86%E7%B1%BB/2016/04/25/e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-a4-a9-e5-a0-82-e5-92-8c-e5-9c-b0-e7-8b-b1.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>未分类</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>怎样写好一个类</title>
+        <description>&lt;p&gt;##&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下：&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;&amp;lt;?php
+class Font
+{
+    public $style; // 字体样式
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    public function getStyle()
+    {
+        // code ..
+    }
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+    public function createDiv()
+    {
+        // code ..
+    }
 
+    public function insertFontToDiv()
+    {
+        // code ..
+    }
+}&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这个类中定义了公有的属性”style”，获取Style的方法和另外一些子方法，本来创建这个类是为了围绕「字体」作文章的，但在实现过程中，临时需求的增加使得这个类中多了Div和把字体插入到Div的方法，这是很常见的情况，而这只是个开始，与类无关的代码会越来越多，就像地上本无垃圾，有人丢了第一块垃圾，人们就会跟着丢垃圾一样，最后的结果就是这个类变得不易维护，可读性减低，导致这样的原因就是与类无关的代码破坏了这个类抽象的一致性。&lt;/p&gt;
+
+&lt;p&gt;另外这个类的style属性也有问题，它的类型是public，意味着外部可以随时调用改写，然后外部代码就有了&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$font = new Font;
+$font-&amp;gt;style = 'font-size: 13px';&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;或者：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$font = new Font;
+$font-&amp;gt;style = 'font-weight: both';&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;等等等等，日积月累，某一天，产品走到你面前，微微一笑地对你说：陈工啊，麻烦给每个字体都加上个默认的14px字体大小样式；&lt;/p&gt;
+
+&lt;p&gt;你一脸懵逼带着生无可恋的表情望着产品(他或者她或者它)：……好，请你给我半天或更长的时间来改；&lt;/p&gt;
+
+&lt;p&gt;产品：＃¥％……&amp;amp;＊（&amp;amp;……％＃¥％……&amp;amp;＊；&lt;/p&gt;
+
+&lt;p&gt;你一边查找替换着代码，一边暗骂自己为什么不在Font类中定义个函数来修改style属性，一边还总结着经验告诉自己下次绝不这么傻逼了。程序员总是在一次次的惨痛经验中进步着，但如果有那么一本好书籍或者好导师，真的会少走很多弯路。（再给代码大全打个广告）&lt;/p&gt;
+
+&lt;p&gt;第一段我们讲到抽象的概念，抽象是什么呢？面向对象中有个原则既单一原则，我理解的抽象跟这个单一原则有着千丝万缕的关系；单一原则分为类的单一和方法的单一，比如说，人有吃喝拉撒四种行为，他们即有类的单一原则（人），也有方法的单一原则（吃、喝、拉、撒），这里的「人」就是我们抽象出来的东西，如果你往里面加个飞行的行为，就破坏了类的单一原则和抽象性，来验证下，加入飞行行为之后人就有了「吃、喝、拉、撒、飞行」五个行为，这不是人应该是鸟了。&lt;/p&gt;
+
+&lt;p&gt;「高内聚、低耦合」是写好类的核心思想，抽象（单一性）能帮助我们写出低耦合的代码，那高内聚呢，内聚性会直接表现在我们的代码维护上，当我们写出内聚性很强的代码时，与之关联的维护工作也会变得简单。上面的栗子讲到这个程序员把style属性设为public并且在外部代码中直接修改导致了后面的问题产生；对这些易改变的元素我们应该通过子程序（方法）修改的方式来增强它们的维护性，把所有的变化都控制在类中来增强类的内聚性。&lt;/p&gt;
+
+&lt;p&gt;一切理论都是虚的，实践才是让自己进步的最佳方法，Talk is cheap. Show me the code。&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;转载自：segmentfault Derek_Chan &lt;a href=&quot;https://segmentfault.com/a/1190000004968048&quot;&gt;文章链接&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-5.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-5.html</guid>
+        <pubDate>Thu, 21 Apr 2016 23:18:39 +0800</pubDate>
+        <link>/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/e6-80-8e-e6-a0-b7-e5-86-99-e5-a5-bd-e4-b8-80-e4-b8-aa-e7-b1-bb.html</link>
+        <guid isPermaLink="true">/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/e6-80-8e-e6-a0-b7-e5-86-99-e5-a5-bd-e4-b8-80-e4-b8-aa-e7-b1-bb.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>转载收藏</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>Mamba out</title>
+        <description>&lt;h2 id=&quot;mamba-out&quot;&gt;Mamba out&lt;/h2&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;当终场的哨声响起，斯台普斯球馆华彩尽放，我知道Kobe就要离开他深爱的赛场。&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;这一场，他比任何人都不想下场。&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;这一场，他比任何人都看得重要。&lt;/p&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;缓缓的，站在球场中央。&lt;/p&gt;
 
+&lt;p&gt;全场就这样，听着他的告别。&lt;/p&gt;
+
+&lt;p&gt;一言一语，一字一词。&lt;/p&gt;
+
+&lt;p&gt;不知有多少人偷偷的流下了泪。&lt;/p&gt;
+
+&lt;p&gt;不知有多少人茫然不知所措。&lt;/p&gt;
+
+&lt;p&gt;英雄落幕，Mamba out。&lt;/p&gt;
+
+&lt;p&gt;愿未来岁月安好，Kobe。&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-4.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-4.html</guid>
+        <pubDate>Thu, 14 Apr 2016 14:03:36 +0800</pubDate>
+        <link>/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/2016/04/14/mamba-out.html</link>
+        <guid isPermaLink="true">/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/2016/04/14/mamba-out.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>个人随笔</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>如何高效利用GitHub</title>
+        <description>&lt;p&gt;正是Github，让社会化编程成为现实。本文尝试谈谈GitHub的文化、技巧与影响。&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q1&quot;&gt;Q1：GitHub是什么&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q2&quot;&gt;Q2：GitHub风格&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q3&quot;&gt;Q3: 在GitHub，如何跟牛人学习&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q4&quot;&gt;Q4: 享受纯粹的写作与演讲&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q5&quot;&gt;Q5: 代码帮你找工作&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q6&quot;&gt;Q6: GitHub还在影响一些什么&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q7&quot;&gt;Q7: 除了GitHub，还可以选择什么？&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;h3 id=&quot;q1github&quot;&gt;Q1：GitHub是什么&lt;/h3&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;a1&quot;&gt;A1：一家公司&lt;/h3&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253K1C-0.png&quot; alt=&quot;github&quot; /&gt;&lt;/p&gt;
 
+&lt;p&gt;位于旧金山，由&lt;a href=&quot;https://github.com/defunkt&quot;&gt;Chris Wanstrath&lt;/a&gt;,&lt;a href=&quot;https://github.com/pjhyett&quot;&gt;PJ Hyett&lt;/a&gt;与&lt;a href=&quot;https://github.com/mojombo&quot;&gt;Tom Preston-Werner&lt;/a&gt;三位开发者在2008年4月创办。迄今拥有59名全职员工，主要提供基于git的版本托管服务。&lt;/p&gt;
+
+&lt;p&gt;在此之前，它是由&lt;a href=&quot;https://github.com/mojombo&quot;&gt;Tom&lt;/a&gt;与&lt;a href=&quot;https://github.com/defunkt&quot;&gt;Chris&lt;/a&gt;在本地程序员聚会中，开始的一个用于托管git的项目。正如每个伟大的传奇都开始于一场冒险，Tom在这篇文章&lt;a href=&quot;http://tom.preston-werner.com/2008/10/18/how-i-turned-down-300k.html&quot;&gt;我如何辞掉微软30万年薪邀约，创办GitHub&lt;/a&gt;中谈到：&lt;/p&gt;
+
+&lt;blockquote&gt;当我老去，回顾一生，我想说，“哇，那是一场冒险“；而不是，“哇，我真的很安稳。“&lt;/blockquote&gt;
+
+&lt;p&gt;另一位创始人&lt;a href=&quot;https://github.com/defunkt&quot;&gt;Chris&lt;/a&gt;也详细描述了&lt;a href=&quot;https://gist.github.com/67060&quot;&gt;GitHub初创的前因后果&lt;/a&gt;，他说道：&lt;/p&gt;
+
+&lt;blockquote&gt;Do whatever you want.&lt;/blockquote&gt;
+
+&lt;p&gt;于是，在2008年4月10号这一天，GitHub正式成立。&lt;/p&gt;
+
+&lt;p&gt;目前看来，GitHub这场冒险已经胜出。根据来自&lt;a href=&quot;http://zh.wikipedia.org/wiki/GitHub&quot;&gt;维基百科关于GitHub的描述&lt;/a&gt;，我们可以形象地看出GitHub的增长速度：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253L1b-1.png&quot; alt=&quot;github&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;今天，GitHub已是：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;一个拥有143万开发者的社区。其中不乏Linux发明者&lt;a href=&quot;https://github.com/torvalds&quot;&gt;Torvalds&lt;/a&gt;这样的顶级黑客，以及Rails创始人&lt;a href=&quot;https://github.com/dhh&quot;&gt;DHH&lt;/a&gt;这样的年轻极客。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;这个星球上最流行的开源托管服务。目前已托管431万git项目，不仅越来越多知名开源项目迁入GitHub，比如Ruby on Rails、jQuery、Ruby、Erlang/OTP；近三年流行的开源库往往在GitHub首发，例如：&lt;a href=&quot;https://github.com/twitter/bootstrap&quot;&gt;BootStrap&lt;/a&gt;、&lt;a href=&quot;https://github.com/joyent/node&quot;&gt;Node.js&lt;/a&gt;、&lt;a href=&quot;https://github.com/jashkenas/coffee-script&quot;&gt;CoffeScript&lt;/a&gt;等。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;alexa全球排名414的网站。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;q2github&quot;&gt;Q2：GitHub风格&lt;/h3&gt;
+
+&lt;h3 id=&quot;a2-githubgithub&quot;&gt;A2: GitHub只是GitHub&lt;/h3&gt;
+
+&lt;p&gt;强调敏捷开发与快速原型，而又的确成功的&lt;a href=&quot;http://www.kuqin.com/chuangye/&quot;&gt;创业&lt;/a&gt;团队，常具备一个重要气质：有自己的文化风格。如GitHub，又如&lt;a href=&quot;http://37signals.com/&quot;&gt;37signals&lt;/a&gt;。通过他们的快速开发，向用户证明了团队在技术上的能力，并且时常有惊喜。同时，通过强调特立独行的文化，将对半衰期过短的产品族群的信任转为对GitHub团队的信任。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://en.gravatar.com/&quot;&gt;Gravatars&lt;/a&gt;的创始人（对，就是互联网最流行的头像托管系统）、&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;（对，它就是我近几年用的博客系统）作者、GitHub创始人，现任CTO Tom在&lt;a href=&quot;http://tom.preston-werner.com/2011/03/29/ten-lessons-from-githubs-first-year.html&quot;&gt;GitHub第一年学到的10大教训&lt;/a&gt;、&lt;a href=&quot;http://zh-cn.justin.tv/startupschool/b/272178966&quot;&gt;创业学校演讲&lt;/a&gt;中谈到GitHub文化的方方面面。我尝试将这种风格总结为以下要点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;专注创作，高创意&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;运营良好与较高的内外满意度&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;高利润，较低的融资额或零融资&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;创业公司多半死在钱上，就让我们先从钱谈起：&lt;/p&gt;
+
+&lt;h4 id=&quot;section&quot;&gt;高利润，较低的融资额或者零融资&lt;/h4&gt;
+
+&lt;p&gt;类似于GitHub这样的公司，拿到风险投资很难吗？恰恰相反，创始人&lt;a href=&quot;https://github.com/pjhyett&quot;&gt;PJ Hyett&lt;/a&gt;在Hacker News的&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;一篇评论&lt;/a&gt;中提到，自从GitHub创办以来，已与几十个VC沟通过。但是，直到今天，GitHub的融资额还是为零，并引以为豪。让我们看看GitHub官网的自我介绍：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253KO0-2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;section-1&quot;&gt;运营良好与较高的内外满意度&lt;/h4&gt;
+
+&lt;p&gt;在Quora上有人问道，&lt;a href=&quot;http://www.quora.com/Is-GitHub-looking-to-be-acquired&quot;&gt;GitHub是否寻找被收购？&lt;/a&gt;，还是&lt;a href=&quot;https://github.com/pjhyett&quot;&gt;PJ Hyett&lt;/a&gt;，他的回答是：No。&lt;/p&gt;
+
+&lt;p&gt;GitHub从一开始就运营良好，员工拥有较高满意度，看看这些不太一样的做法：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;每一位GitHub公司的新员工，官方博客将发表文章欢迎。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在GitHub内部，没有经理，需求内容与优先级由项目组自行决策。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;选择自己的工作时间、工作地点。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;员工来自开源社区。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;能开源的尽可能开源。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;富有激情、创意的员工使得GitHub得到了社区的广泛认同，从而拥有极高的客户满意度，并从创业一开始就盈利。一份&lt;a href=&quot;http://www.survs.com/WO/WebObjects/Survs.woa/wa/shareResults?survey=2PIMZGU0&amp;amp;rndm=678J66QRA2&quot;&gt;早期的调查&lt;/a&gt;表明，GitHub很快成为Git托管首选。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-2&quot;&gt;专注创作，高创意&lt;/h4&gt;
+
+&lt;p&gt;GitHub59名全职员工仅有29名员工在本地工作！不仅仅是工作地点的安排富有创意，GitHub员工&lt;a href=&quot;https://github.com/holman&quot;&gt;Holman&lt;/a&gt;, 详细介绍了GitHub的工作方式：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://zachholman.com/posts/how-github-works-hours/&quot;&gt;时间并不能说明什么&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://zachholman.com/posts/how-github-works-asynchronous/&quot;&gt;异步工作方式&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://zachholman.com/posts/how-github-works-creativity/&quot;&gt;创造力很重要&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;q3github&quot;&gt;Q3:在GitHub，如何跟牛人学习&lt;/h3&gt;
+
+&lt;h3 id=&quot;a3&quot;&gt;A3:在学习区刻意练习&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-3&quot;&gt;追随牛人，与他们一起修行&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;修行之道： 关注大师的言行， 跟随大师的举动， 和大师一并修行， 领会大师的意境， 成为真正的大师。 &amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;正如这首&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;禅诗&lt;/a&gt;所言，与其在墙内仰望牛人，不如直接在GitHub：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;watch、fork牛人们&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对他们的项目提交pull request&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;主动给牛人们的项目写wiki或提交测试用例，或者问题&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;还可以帮他们翻译中文&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;GitHub本身建构在git之上，git成为勾搭大师们的必要工具，以下读物成为首选：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://rogerdudler.github.io/git-guide/index.zh.html&quot;&gt;git大白话入门，木有高深内容&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://zh-cn.whygitisbetterthanx.com/&quot;&gt;为什么git胜过X…&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果希望进一步深入，可以阅读已有中文翻译版的材料：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/progit/progit&quot;&gt;progit&lt;/a&gt;：GitHub公司传道士&lt;a href=&quot;https://github.com/schacon&quot;&gt;schacon&lt;/a&gt;所作，已翻译成多国语言，当然，有中文版。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/blynn/gitmagic&quot;&gt;Git Magic&lt;/a&gt;：已有志愿者翻译&lt;a href=&quot;https://github.com/blynn/gitmagic/tree/master/zh_cn&quot;&gt;中文版&lt;/a&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同样，如果希望了解更多GitHub自身的知识，GitHub官方文档值得推荐：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;The GitHub Hep&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-4&quot;&gt;牛人在哪里？&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;GitHub上的代码库本身：尤其是：&lt;a href=&quot;https://github.com/explore&quot;&gt;Explore&lt;/a&gt;、&lt;a href=&quot;https://github.com/popular/watched&quot;&gt;热门关注信息库&lt;/a&gt;两个栏目&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;GitHub官方推荐：&lt;a href=&quot;https://github.com/blog&quot;&gt;GitHub自身的官方博客&lt;/a&gt;与GitHub员工们的个人博客推荐的项目与开发者&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;各类社交媒体上提到的的GitHub库：尤其是&lt;a href=&quot;http://octopart.com/&quot;&gt;Hacker News上提到的GitHub库&lt;/a&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;关于学习的心理学研究，常常会谈到一个术语：&lt;strong&gt;元认知、元学习、元知识&lt;/strong&gt;。是的，关于认知的认知、关于学习的学习、关于知识的知识，你对这些信息的偏好与熟练掌握，会让你在学习一门新东西时更加轻车熟路。&lt;strong&gt;对一手信息进行回溯&lt;/strong&gt;，比如作者、创始人、最初文献出处，总是会让你更容易理解知识。&lt;/p&gt;
+
+&lt;h4 id=&quot;gitstats&quot;&gt;在学习区刻意练习：借助GitStats进行项目统计&lt;/h4&gt;
+
+&lt;p&gt;在&lt;a href=&quot;http://www.yangzhiping.com/tech/learn-program-psychology.html&quot;&gt;如何学习一门新的编程语言？——在学习区刻意练习&lt;/a&gt;中，我已谈过：&lt;/p&gt;
+
+&lt;blockquote&gt;学习编程最好的方式是在学习区刻意练习。&lt;/blockquote&gt;
+
+&lt;p&gt;如何进行自我监督？&lt;/p&gt;
+
+&lt;p&gt;借助于&lt;a href=&quot;https://github.com/trybeee/GitStats&quot;&gt;GitStats&lt;/a&gt;，我们能很好地统计自己的每个项目的工作量，从而看到工作进展。&lt;/p&gt;
+
+&lt;p&gt;用法如下，&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;#复制GitStats项目到本地 cd ~/dev git clone git://github.com/trybeee/GitStats.git python ~/dev/gitstats/git-stats /youproject public  &amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;以下为生成结果示范：&lt;/p&gt;
+
+&lt;p&gt;每周代码提交次数：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253JX1-3.png&quot; alt=&quot;github&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;每天代码提交行数：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253GN1-4.png&quot; alt=&quot;github&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;如果Fork别人的项目或者多人合作项目，最好每人都拥有一个独立分支，然后由项目维护人合并。如何建立自己的分支？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;# 分支的创建和合并 # git branch yourbranch  # git checkout yourbranch    切换到yourbranch  # 开发yourbranch分支，然后开发之后与master分支合并  # git checkout master # git merge yourbranch # git branch -d yourbranch    合并完后删除本地分支 &amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如何将牛人的远程分支更新到自己的本地分支？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;# 查看当前项目下远程 # git remote # 增加新的分支链接，例如 git remote add niuren giturl… # 获取牛人的远程更新 git fetch niuren # 将牛人的远程更新合并到本地分支 git merge niuren/master &amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;section-5&quot;&gt;生产力小技巧&lt;/h4&gt;
+
+&lt;h4 id=&quot;codeshelvergit&quot;&gt;codeshelver：给git库做标签&lt;/h4&gt;
+
+&lt;p&gt;观察的项目如果多了，怎么管理？用&lt;a href=&quot;https://www.codeshelver.com/&quot;&gt;codeshelver&lt;/a&gt;，安装扩展之后，可以对GitHub项目做标签。&lt;/p&gt;
+
+&lt;h4 id=&quot;gollumgitgithubwiki&quot;&gt;gollum：利用git与github做wiki&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/github/gollum&quot;&gt;gollum&lt;/a&gt;是一个基于git的轻型wiki系统。&lt;/p&gt;
+
+&lt;h4 id=&quot;githubwatcher-&quot;&gt;GitHubwatcher: 监测重点项目&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/DAddYE/githubwatcher&quot;&gt;GitHubwatcher&lt;/a&gt;适用于通知不频繁的情景。&lt;/p&gt;
+
+&lt;h4 id=&quot;github&quot;&gt;GitHub官方资源&lt;/h4&gt;
+
+&lt;p&gt;GitHub官方列出了&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;一些有用的脚本与书签&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-6&quot;&gt;社区驱动的安装与配置文件&lt;/h4&gt;
+
+&lt;p&gt;GitHub中各类配置文件层出不穷，一些常用的：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;osh-my-zsh&lt;/a&gt;：将终端从bash改为zsh之后，可考虑安装社区驱动的zsh配置文件，含有多个插件。可参考旧文&lt;a href=&quot;http://www.yangzhiping.com/tech/zsh-oh-my-zsh.html&quot;&gt;zsh与oh-my-zsh&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/GitHub/gitignore&quot;&gt;gitignore&lt;/a&gt;：GitHub官方出品&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/ericpaulbishop/yourchili&quot;&gt;yourchili&lt;/a&gt;:服务器各类安装shell，比如安装nginx等。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;q4-&quot;&gt;Q4: 享受纯粹的写作与演讲&lt;/h3&gt;
+
+&lt;h3 id=&quot;a4&quot;&gt;A4：回归创作的初始&lt;/h3&gt;
+
+&lt;h4 id=&quot;section-7&quot;&gt;写作&lt;/h4&gt;
+
+&lt;p&gt;早在2008年，就有技术图书作者&lt;a href=&quot;https://github.com/blog/91-not-just-code&quot;&gt;通过Git来写作&lt;/a&gt;，以下是示范：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/ManuelKiessling/NodeBeginnerBook&quot;&gt;Node.js初学者教材&lt;/a&gt;，中文版&lt;a href=&quot;http://www.nodebeginner.org/index-zh-cn.html&quot;&gt;在这里&lt;/a&gt;。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/addyosmani/backbone-fundamentals&quot;&gt;backbone基础&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://github.com/cschneid/sinatra-book&quot;&gt;Sinatra教程&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;你能想到的技术前沿话题，大多能在GitHub找到相应的培训材料或者开源图书。&lt;/p&gt;
+
+&lt;p&gt;个人写作照样适用。在前文&lt;a href=&quot;http://www.yangzhiping.com/tech/writing-space.html&quot;&gt;理想的写作环境：Git+GitHub+Markdown+Jekyll&lt;/a&gt;，我已经格外赞美过这些美好事物了。&lt;/p&gt;
+
+&lt;p&gt;暖色调的灯光，足够宽度的工作台，听着清脆的键盘声音，基于Git、GitHub、Markdown与Jekyll来写作，不担心写废与排版，只关注最纯粹的写作，是一种享受。我有时候会想，如果Git、Github、Markdown、Jekyll，再加上Yaml、Json的作者，让这些作者们重新来设计今天互联网基础架构偏文本的部分，会诞生一些什么？&lt;/p&gt;
+
+&lt;h4 id=&quot;section-8&quot;&gt;个人博客&lt;/h4&gt;
+
+&lt;p&gt;借助于&lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;Jekyllbootstrap&lt;/a&gt;，可以在Github上快速搭建一个基于jekyll的博客系统。&lt;/p&gt;
+
+&lt;p&gt;除了这个简单易行的办法之外，还存在一些其他方法，例如：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Jekyll：参考&lt;a href=&quot;http://www.yangzhiping.com/tech/wordpress-to-jekyll.html&quot;&gt;告别wordpress，拥抱jekyll&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Octopress：参考&lt;a href=&quot;http://www.yangzhiping.com/tech/octopress.html&quot;&gt;Ruby开源项目介绍(1)：octopress——像黑客一样写博客&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;GitHub Pages：参考&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;GitHub Pages&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-9&quot;&gt;演讲&lt;/h4&gt;
+
+&lt;p&gt;借助于GitHub，可以享受更纯粹、更酷的演讲。GitHub 2011年收购Ordered List之后，从此可以通过&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;speakerdeck&lt;/a&gt;更好的分享ppt文档。&lt;/p&gt;
+
+&lt;p&gt;我们还可以：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;使用GitHub著名传教士、Progit作者Scott Chacon开发的&lt;a href=&quot;https://github.com/schacon/showoff&quot;&gt;showoff&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;来自开源社区的其他演讲库&lt;a href=&quot;https://github.com/bartaz/impress.js&quot;&gt;impress.js&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;q5-&quot;&gt;Q5: 代码帮你找工作&lt;/h3&gt;
+
+&lt;h3 id=&quot;a5github&quot;&gt;A5：GitHub简历很诚实&lt;/h3&gt;
+
+&lt;p&gt;NumEricR（非GitHub工作人员）基于GitHub Pages功能做了一个简历生成器，使用极其简单，登陆网站&lt;a href=&quot;http://resume.github.io/&quot;&gt;GitHub简历生成器&lt;/a&gt;，填入你的GitHub网站用户名即可。&lt;/p&gt;
+
+&lt;p&gt;fredwu是Ruby中文社区活跃份子，他的开源项目&lt;a href=&quot;https://github.com/fredwu/angel_nest&quot;&gt;angel_nest&lt;/a&gt;，一个天使投资与创业者对接的网站，适合Ruby初学者升级为Ruby中级开发者时学习，也在Hacker News上被&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;热烈讨论&lt;/a&gt;过，让我们来看看他的简历：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://resume.github.io/&quot;&gt;http://resume.GitHub.com/?fredwu&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;正是因为GitHub上的代码无法造假，也容易通过你关注的项目来了解知识面的宽度与深度。现在越来越多知名公司活跃在GitHub，发布开源库并招募各类人才，例如：&lt;a href=&quot;https://github.com/facebook&quot;&gt;Facebook&lt;/a&gt;、&lt;a href=&quot;https://github.com/twitter&quot;&gt;Twitter&lt;/a&gt;、&lt;a href=&quot;https://github.com/yahoo&quot;&gt;Yahoo&lt;/a&gt;…&lt;/p&gt;
+
+&lt;p&gt;开始有了第三方网站提供基于GitHub的人才招聘服务，例如：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://githire.com/&quot;&gt;GitHire&lt;/a&gt;:通过它，可以找出你所在地区的程序员。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.gitalytics.com/&quot;&gt;Gitalytics.com&lt;/a&gt;：通过它，能评估某位程序员在GitHub、LinkedIn、StackOverflow、hackernews等多个网站的影响力。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;q6-github&quot;&gt;Q6: GitHub还在影响一些什么&lt;/h3&gt;
+
+&lt;h3 id=&quot;a6&quot;&gt;A6：让计算机增强人类智慧&lt;/h3&gt;
+
+&lt;p&gt;很多年前，在某个名声显赫的学府中，两位先后拿过图灵奖的牛人有一段对话：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;牛人A：我们要给机器赋予智慧，让他们有自我意识！&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;牛人B：你要给机器做那么多好事？那你打算给人类做点什么呢？&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这段对话来自《失控》。牛人A是&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E9%A9%AC%E6%96%87%C2%B7%E9%97%B5%E6%96%AF%E5%9F%BA&quot;&gt;明斯基&lt;/a&gt;，他最喜欢将人类看做有血肉的机器，他的框架理论成为认知心理学、人工智能入门基础。牛人B则是&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E9%81%93%E6%A0%BC%E6%8B%89%E6%96%AF%C2%B7%E6%81%A9%E6%A0%BC%E5%B0%94%E5%B7%B4%E7%89%B9&quot;&gt;恩格尔巴特&lt;/a&gt;。当明斯基1961年发表他著名的文章&lt;a href=&quot;http://web.media.mit.edu/~minsky/papers/steps.html&quot;&gt;人工智能走向&lt;/a&gt;时，恩格尔巴特还籍籍无名。直到次年，恩格尔巴特发表宏文：&lt;a href=&quot;http://www.dougengelbart.org/pubs/augment-3906.html&quot;&gt;人类智力的增强：一种概念框架&lt;/a&gt;。提出不同于明斯基的另一条增强人类智力的道路：不要尝试发明自动打字的机器，而是尝试发明鼠标，并且他真的发明鼠标成功了！&lt;/p&gt;
+
+&lt;p&gt;从近些年的发展来看，仍然是明斯基占上风，但是，三十年河东，三十年河西，明斯基的人工智能方向又有多少年没有大突破了？相反，来自恩格尔巴特的群件、集体智慧等思想，逐步成为步入Web2.0时代之后的共识。无关对错，可以说，恩格尔巴特为增强人类智力，提供了可行的框架。与其去发明聪明的、昂贵的、功能一体化的智能机器人，还不如发明类似于鼠标这样笨笨的、廉价的、功能单一的人类智慧服务单件。明斯基的机器人很容易陷入死胡同，没有上升到哲学的高度。现在慢慢又回到恩格尔巴特这个方向来了。比如现在IBM开始&lt;a href=&quot;http://www.infoq.com/cn/news/2012/02/0301-hot-weibo&quot;&gt;宣传&lt;/a&gt;的&lt;a href=&quot;http://www.ibm.com/smarterplanet/us/en/business_analytics/article/cognitive_computing.html&quot;&gt;认知计算&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;从git与GitHub设计与解决的问题本质来看，明显加速了代码生产流程，促进了卓越智力产品的诞生。这就是一种典型的web2.0对智力生产流程的改良与人类智慧的增强。同样，某种意义上，小说写作网站也起到类似作用。但是，学术界尤其是社会科学类的智力产品生产似乎还停留在一个古老阶段。在开源领域，好想法层出不穷，极客影响极客，最终产生的是酷玩意。这些酷玩意抛弃浮华，直奔问题本质。那么，&lt;a href=&quot;http://marciovm.com/i-want-a-github-of-science/&quot;&gt;有没有科学界的GitHub？&lt;/a&gt;？&lt;/p&gt;
+
+&lt;p&gt;类似问题层出不穷，以下为其他领域产品不完全名单。&lt;/p&gt;
+
+&lt;h4 id=&quot;section-10&quot;&gt;学术研究&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;除了较早的&lt;a href=&quot;http://arxiv.org/&quot;&gt;arXiv&lt;/a&gt;、&lt;a href=&quot;http://www.plos.org/&quot;&gt;PLoS&lt;/a&gt;之外，较有气象的可以推荐&lt;a href=&quot;http://mendeley.com/&quot;&gt;mendeley&lt;/a&gt;、&lt;a href=&quot;http://doaj.org/&quot;&gt;开放期刊目录&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-11&quot;&gt;数据&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://buzzdata.com/&quot;&gt;buzzdata&lt;/a&gt;:数据分享更容易&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-12&quot;&gt;科学计算&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://opani.com/&quot;&gt;opani&lt;/a&gt;：雏形中，支持R、Python等多种。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;section-13&quot;&gt;教育&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://openstudy.com/&quot;&gt;OpenStudy&lt;/a&gt;：一个社会性学习网络，通过互助来更好地学习，主题涉及到计算机、数学、写作等。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://openhatch.org/&quot;&gt;openhatch&lt;/a&gt;: 通过练习、任务等帮助新手更好地进入开源社区&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;q7github&quot;&gt;Q7:除了GitHub，还可以选择什么？&lt;/h3&gt;
+
+&lt;h3 id=&quot;a7nil&quot;&gt;A7：nil&lt;/h3&gt;
+
+&lt;p&gt;因为进化的需要，多数&lt;a href=&quot;http://zh.wikipedia.org/zh/%E8%A3%B8%E7%8C%BF&quot;&gt;裸猿&lt;/a&gt;存在选择强迫症：哪种程序语言更好？哪个web开发框架更好？当然，最令宅男技术男们羡慕的问题是，高白瘦御姐还是青春小萝莉好？:D&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;中国山寨品是不是更好？（为什么不写他们名字，你懂的，山寨品总是善于争论谁是第一个山寨的，各自的排名先后:D）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;免费的&lt;a href=&quot;https://bitbucket.org/&quot;&gt;BitBucket&lt;/a&gt;是不是更适合Python程序员？&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;作为一名折腾族，我不自己搭建一个&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;gitlabhq&lt;/a&gt;，是不是对不起自己？&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我们可以理解，正是因为无数条分岔路口，让人类不再受制于某种基因、特定疾病、独裁家族，从而拥有无限的可能。但是，这种选择强迫症与远古时代可怜的信息量相比较，&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;今天这个大数据时代，它还会有助于人类作为族群的整体进化与作为个体的幸福吗？&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;今天一位一线城市30岁大学毕业生经历的选择与孔子整个一生经历的选择，纯论数量，谁多谁少？&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;生命如此短暂，为什么总要将青春浪费在不断的选择之中呢？罚你，回头阅读心理学家施瓦茨（&lt;a href=&quot;http://www.swarthmore.edu/SocSci/bschwar1/&quot;&gt;Barry Schwartz&lt;/a&gt;）的TED演讲：&lt;a href=&quot;http://xingfuke.net/xingfuke766&quot;&gt;选择之困惑——为何多即是少&lt;/a&gt;，1百遍啊1百遍。请记住施瓦茨的演讲要点：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;更多的选择不代表更多的自由；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;更多的选择导致决策的延迟和降低的满意感；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;快乐之秘诀，在于降低自己的期望值。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-14&quot;&gt;相关参考&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/writing-space.html&quot;&gt;理想的写作环境：Git+GitHub+Markdown+Jekyll&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/psy/flow.html&quot;&gt;如何提高创作型任务的效率？&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/octopress.html&quot;&gt;Ruby开源项目介绍(1)：Octopress——像黑客一样写博客&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/git.html&quot;&gt;Git与GitHub入门资料&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/wordpress-to-jekyll.html&quot;&gt;告别WordPress，拥抱Jekyll&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;注：转载自阳志平的网志&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html&quot;&gt;http://www.yangzhiping.com/tech/github.html&lt;/a&gt;&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-3.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-3.html</guid>
+        <pubDate>Mon, 14 Mar 2016 09:13:56 +0800</pubDate>
+        <link>/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/14/402.html</link>
+        <guid isPermaLink="true">/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/14/402.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>转载收藏</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>php面试题</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;问题&lt;/h2&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;1． 考虑如下脚本。标记处应该添加什么代码才能让脚本输出字符串 php？&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$alpha = 'abcdefghijklmnopqrstuvwxyz';
+$letters = array(15, 7, 15);
+foreach($letters as $val) {/* 这里应该加入什么 */
+}
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+A．echo chr($val);
+B．echo asc($val);
+C．echo substr($alpha, $val, 2);
+D．echo $alpha{$val};
+E．echo $alpha{$val+1}&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;2． 以下哪一项不能把字符串$s1 和$s2 组成一个字符串？&lt;/p&gt;
 
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．$s1 + $s2
+B．”{$s1}{$s2}”
+C．$s1.$s2
+D．implode(”, array($s1,$s2))
+E．以上都可以&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3． 变量$email 的 值 是 字 符 串&lt;strong&gt;user@example.com&lt;/strong&gt;以 下 哪 项 能 把 字 符 串 转 化 成
+example.com？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．substr($email, strpos($email, “@”));
+B．strstr($email, “@”);
+C．strchr($email, “@”);
+D．substr($email, strpos($email, “@”)+1);
+E．strrpos($email, “@”);&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;4． 给定一个用逗号分隔一组值的字符串，以下哪个函数能在仅调用一次的情况下就把每
+个独立的值放入一个新创建的数组？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．strstr()
+B．不可能只调用一次就完成
+C．extract()
+D．explode()
+E．strtok()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;5． 要比较两个字符串，以下那种方法最万能？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．用 strpos 函数
+B．用==操作符
+C．用 strcasecmp()
+D．用 strcmp()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6． 以下哪个 PCRE 正则表达式能匹配字符串 php&lt;/td&gt;
+      &lt;td&gt;architect？&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．.*
+B．…|………
+C．\d{3}\|\d{8}
+D．[az]{3}\|[az]{9}
+E．[a-z][a-z][a-z]\|\w{9}&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;7． 以下哪些函数能用来验证字符串的完整性？（三选）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．md5()
+B．sha1()
+C．str_rot13()
+D．crypt()
+E．crc32()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;8． 哪个 PHP 函数与以下脚本在 UNIX 系统下执行的效果近似？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;function my_funct ($filename)
+{
+$f = file_get_contents ($filename);
+return explode (&quot;\n&quot;, $f);
+}
+
+A．fopen()
+B．fread()
+C．flock()
+D．split_string()
+E．file()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;9． 基于指定的式样（pattern）把一个字符串分隔开并放入数组，以下哪些函数能做到？（双
+选）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．preg_split()
+B．ereg()
+C．str_split()
+D．explode()
+E．chop()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;10．以下脚本输出什么？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;echo 'Testing ' . 1 + 2 . '45';
+
+A．Testing 1245
+B．Testing 345
+C．Testing 1+245
+D．245
+E．什么都没有&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;11．以下脚本输出什么？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$s = '12345';
+$s[$s[1]] = '2';
+echo $s;
+?&amp;amp;gt;
+A．12345
+B．12245
+C．22345
+D．11345
+E．Array&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;12．方框中的正则表达式能与以下哪些选项匹配？（双选）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;/.*\*123\d/
+A．******123
+B．*****_1234
+C．******1234
+D．_*1234
+E．_*123&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;13．以下哪个比较将返回 true？（双选）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．’1top’ == ’1′
+B．’top’ == 0
+C．’top’ === 0
+D．’a’ == a
+E．123 == ’123′&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;14．如果用+操作符把一个字符串和一个整型数字相加，结果将怎样？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．解释器输出一个类型错误
+B．字符串将被转换成数字，再与整型数字相加
+C．字符串将被丢弃，只保留整型数字
+D．字符串和整型数字将连接成一个新字符串
+E．整形数字将被丢弃，而保留字符串&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;15．考虑如下脚本。假设&lt;strong&gt;http://www.php.net&lt;/strong&gt;能被访问，脚本将输出什么？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$s = file_get_contents (&quot;http://www.php.net&quot;);
+strip_tags ($s, array ('p'));
+echo count ($s);
+
+A．www.php.net的主页的字符数
+B．剔除&amp;lt;br&amp;gt;标签后的www.php.net主页的字符数
+C．1
+D．0
+E．剔除&amp;lt;br&amp;gt;以外的标签后的www.php.net主页的字符数&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;16．哪个函数能不区分大小写得对两个字符串进行二进制比对？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．strcmp()
+B．stricmp()
+C．strcasecmp()
+D．stristr()
+E．以上都不能&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;17．以下哪些函数能把字符串里存储的二进制数据转化成十六进制？（双选）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．encode_hex()
+B．pack()
+C．hex2bin()
+D．bin2hex()
+E．printf()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;18．哪个函数能用来确保一个字符串的字符数总是大于一个指定值？
+答案：&lt;strong&gt;__&lt;/strong&gt;&lt;strong&gt;__&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;19．以下脚本输出什么？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$a = 'able osts indy';
+echo wordwrap ($a, 1, &quot;c&quot;, false);
+
+答案：____________&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;20．以下脚本输出什么？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$x = 'apple';
+echo substr_replace ($x, 'x', 1, 2);
+
+A．x
+B．axle
+C．axxle
+D．applex
+E．xapple&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;答案&lt;/h3&gt;
+
+&lt;p&gt;1．substr 函数能够胜任，但考虑到输出三个字母就需要三次调用该函数，所以排除此方法。
+那么$alpha{$val}和$alpha{$val+1}是仅有的两个可能输出题目要求的字符串的选项。因
+为 0 是数组的第一个索引，所以答案是 D。&lt;/p&gt;
+
+&lt;p&gt;2．除了 A 以外的选项都能输出题目要求的字符串。PHP 中，加号（+）不能把两个字符
+串合并成一个。&lt;/p&gt;
+
+&lt;p&gt;3．substr 函数返回字符串的一部分，而 strpos 函数擅长从一个字符串中找出某个指定的子
+串。同时使用这两个函数将满足题目要求。注意，前一个函数从 0 开始索引，而后者
+不是，因此需要+1。答案是 D。&lt;/p&gt;
+
+&lt;p&gt;4．答案是 D。explode 函数使用一个字符串分隔另一个字符串，并把结果放入一个新建的
+数组。strtok 函数也可以做同样的事，但需要多次调用。&lt;/p&gt;
+
+&lt;p&gt;5．答案是 D。strcmp()提供了安全的字符串比较机制。注意，选项 C 是错的，strcasecmp()
+不是一个“万能”函数，因为它不区分大小写。&lt;/p&gt;
+
+&lt;p&gt;6．选项中没有一个正则表达式能真正代表题目所给字符串的匹配方式，但是选项 A 和 E
+仍然能勉强匹配。选项 A 太普通了，它能够匹配任何字符串，因此答案是 E。&lt;/p&gt;
+
+&lt;p&gt;7． 正确答案是 A，B 和 E。用 crypt()和 str_rot13()来验证一个字符串是否被改变，效率很
+低。crc32()比前面两个函数好些，如果能容忍一些小错误的话，它是个不错的选择。&lt;/p&gt;
+
+&lt;p&gt;8．file 函数将文件的文本内容读入一个数组，每个元素是一行。因此答案 E 正确。也许你
+想知道为什么要把这样一个题目放在讲字符串的章节中，那是为了提醒你每一章的题
+目所包含的知识点并不是绝对严格区分开的，正如写 PHP 脚本时，file 函数不能脱离
+字符串函数单独存在一样。&lt;/p&gt;
+
+&lt;p&gt;9．尽管条件不同，但 preg_split 和 explode 函数都能满足题目要求。ereg()拿一个正则表达
+式匹配一个字符串；str_split()按固定长度分隔字符串；而 chop()则是 rtrim()别名，用来
+移除字符串末尾处的空格。&lt;/p&gt;
+
+&lt;p&gt;10．本题考察你对字符串操作及操作符优先级的认识。连接运算符（.）的优先级比加号（+）
+高。因此 PHP 解释器实际执行的运算可以表示为(‘Testing ‘ . 1) + (2 . ’45′)。由于字符串
+test 1 不是数字，所以加号前面的运算等于 0。加号后面的运算等于 245，PHP 输出的
+结果是 0+245，等于 245，所以答案是 D。&lt;/p&gt;
+
+&lt;p&gt;11．可以用访问数组元素的方式访问字符串中的字符，因此脚本只是把字符串中的第二个
+字符,最终将输出 12245。答案是B。&lt;/p&gt;
+
+&lt;p&gt;12．本题的要点是理解这个正则表达式的含义——从左往右，首先是零个或多个任意字符
+（.&lt;em&gt;），跟着是一个星号（&lt;/em&gt;），然后是 123，最后是一个数字。因此答案是 C 和 D。&lt;/p&gt;
+
+&lt;p&gt;13．B 和 E 正确。选项 B 中，在比较时，字符串 top 等同于数字 0。==操作符不比对数据
+类型，所以将返回 true。答案 E 中，字符串 123 等同于数字 123，比较将返回 true。&lt;/p&gt;
+
+&lt;p&gt;14．字符串将被转换成数字（如果无法发生转换就是 0），然后与整型数字相加。答案是 B。&lt;/p&gt;
+
+&lt;p&gt;15．代码的本意是剔除 &lt;a href=&quot;http://www.php.net&quot;&gt;www.php.net&lt;/a&gt; 主页上除了 p 以外的的所有 HTML 标签。可实际上，
+在代码的最后一行使用了 count 函数，它统计变量中的元素数量，而不是字符串中的字
+符数。由于字符串是标量，对字符串使用 count 函数将永远返回 1。答案是 C。&lt;/p&gt;
+
+&lt;p&gt;16．题目其实就是在描述 strcasecmp 函数的作用，因此答案是 C。&lt;/p&gt;
+
+&lt;p&gt;17．正确答案是 B 和 D。pack 函数能对二进制数据进行复杂的格式化，包括将字符串中的
+字符转化成十六进制表示。bin2hex 函数也有同样的转化功能。注意，printf()能将整数
+转化成十六进制数，但无法转化字符串。&lt;/p&gt;
+
+&lt;p&gt;18．这是在说 str_pad 函数，它可以把字符串填充到指定长度。&lt;/p&gt;
+
+&lt;p&gt;19．脚本将输出 ablecostscindy。wordwrap 函数通常用来把字符串切割成指定长度。然而在
+本题中，长度被设置为 1，因此函数将从空格处切割（第四个参数被设置为 false，因
+此函数不会从单词的中间进行切割）。填充字符串是 c，等于把每个空格都换成了 c。&lt;/p&gt;
+
+&lt;p&gt;20．substr_replace 函数是用一个指定字符串替换原字符串中的某个部分，因此脚本输出
+axle，答案是 B。&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;文件操作&lt;/h2&gt;
+
+&lt;p&gt;你可能觉得PHP的文件操作功能并不怎样，但实际上它对开发者来说非常有用。即使你
+是做网站开发的，学会相关技能也能让你如虎添翼。多亏了流包装器（stream wrappers，将
+在第十章详细介绍），PHP才能够打开并读取远程文件，让在本地使用第三方网站的内容变
+得可能。&lt;/p&gt;
+
+&lt;p&gt;站在更底层的角度，文件输入/输出能完成多种任务。可以用他读取预制文件的内容，
+比如第三方提供的内容；或者通过PHP脚本让浏览器打开一个二进制文件，使得你能更切实
+的控制它。无论如何，本章不仅考验你打开、关闭和读取文件的能力，还考查多进程下进行
+文件操作的基础知识——例如文件锁。&lt;/p&gt;
+
+&lt;h3 id=&quot;phpphp&quot;&gt;php面试题及答案,经典php笔试题与答案&lt;/h3&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;1． 函数__&lt;strong&gt;__能读取文本文件中的一行。读取二进制文件或者其他文件时，应当使用
+__&lt;/strong&gt;__函数。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．fgets(), fseek()
+B．fread(), fgets()
+C．fputs(), fgets()
+D．fgets(), fread()
+E．fread(), fseek()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2． 文件指针能在PHP脚本结束时自动关闭，但你也可以用__&lt;em&gt;&lt;strong&gt;_函数来关闭。
+答案：_&lt;/strong&gt;&lt;/em&gt;&lt;strong&gt;__&lt;/strong&gt;__&lt;/p&gt;
+
+&lt;p&gt;3． 考虑如下PHP脚本，它一行一行的读取并显示某文本文件的内容。在问号处填入什么才
+能使脚本正常运作？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$file = fopen(&quot;test&quot;, &quot;r&quot;);
+while(!feof($file)) {
+echo ????????????;
+}
+fclose($file);
+
+A．file_get_contents($file)
+B．file($file)
+C．read_file($file)
+D．fgets($file)
+E．fread($file)&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;4． 以下哪种方法能保证锁在任何竞争情况下都安全？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．用flock()锁住指定文件
+B．用fopen()在系统的临时文件夹里打开文件
+C．用tempnam()创建一个临时文件
+D．用mkdir()创建一个文件夹来当
+E．用tmpfile()创建一个临时文件&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;5．以下哪个函数能够获得文件的全部内容，并能够用在表达式中？（双选）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．file_get_contents()
+B．fgets()
+C．fopen()
+D．file()
+E．readfile()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;6． 在不把文件内容预加载到变量中的前提下，如何解析一个以特殊格式格式化过的多行文
+件？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．用file()函数把它分割放入数组
+B．用sscanf()
+C．用fscanf()
+D．用fgets()
+E．用fnmatch()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;7．考虑如下脚本，最后文件myfile.txt的内容是什么？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$array = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$f = fopen (&quot;myfile.txt&quot;, &quot;r&quot;);
+for ($i = 0; $i &amp;amp;lt; 50; $i++) {
+fwrite ($f, $array[rand(0, strlen ($array) - 1)]);
+}
+
+A．什么都没有，因为$array实际上是一个字符串，而不是数组
+B．49个随机字符
+C．50个随机字符
+D．41个随机字符
+E．什么都没有，或者文件不存在，脚本输出一个错误&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;8．函数delete是做什么的？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．删除文件
+B．删除文件夹
+C．释放变量
+D．移除数据库记录
+E．没有这个函数！&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;9．考虑如下脚本，哪个PHP函数和它的功能最接近？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;function my_funct ($file_name, $data)
+{
+$f = fopen ($file_name, 'w');
+fwrite ($f, $data);
+fclose ($f);
+}
+
+A．file_get_contents()
+B．file_put_contents()
+C．没有这样的函数
+D．file()
+E．fputs()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;10．如果你的脚本无法正确识别一个存储于另一个平台上的文件的行结尾，你该怎么办？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．改变auto_detect_line_ending的设置
+B．用正则表达式侦测行的最后一个字母
+C．用fpos()
+D．用ftok()
+E．每次读取一个字符&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;11．如果想要可读可写得打开一个文件，该给fopen()传什么参数？（双选）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．w
+B．r
+C．a
+D．+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;12．能够读写常规文件中的二进制数据的函数是__&lt;em&gt;&lt;strong&gt;_，该函数返回的资源能被fgets()使用。
+答案：_&lt;/strong&gt;&lt;/em&gt;&lt;strong&gt;__&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;13．以下哪些函数能读取文件的全部内容？（三选）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．fgets()
+B．file_get_contents()
+C．fread()
+D．readfile()
+E．file()&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;14．哪个函数能够往文本文件中写入一个字符串？
+答案：&lt;strong&gt;__&lt;/strong&gt;&lt;strong&gt;__&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;15．考虑如下脚本。运行时，尽管文件test.txt已经被用unlink()函数删除，脚本仍然输出1,1。
+在脚本的最后添加什么函数才能解决这个问题？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$f = fopen (&quot;test.txt&quot;, &quot;w&quot;);
+fwrite ($f, &quot;test&quot;);
+fclose ($f);
+echo (int) file_exists(&quot;test.txt&quot;) . ', ';
+unlink (&quot;c:\\test.txt&quot;);
+echo (int) file_exists (&quot;test.txt&quot;);
+
+A．clearstatcache()
+B．fflush()
+C．ob_flush()
+D．touch()
+E．以上都不对&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;16．函数__&lt;em&gt;&lt;strong&gt;_能判断一个文件是否可写。
+答案：_&lt;/strong&gt;&lt;/em&gt;&lt;strong&gt;__&lt;/strong&gt;__&lt;/p&gt;
+
+&lt;p&gt;17．以下哪个选项能将文件指针移到开头？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．reset()
+B．fseek(-1)
+C．fseek(0, SEEK_END)
+D．fseek(0, SEEK_SET)
+E．fseek(0, SEEK_CUR)&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;18．stat()和fstat()有什么区别？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;A．stat()基于文件指针工作，fstat()基于路径工作
+B．fstat()基于文件指针工作，stat()基于路径工作
+C．fstat()不能处理文件
+D．stat()不能处理文件
+E．fstat()是stat()的别名&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;19．以下哪个选项准确的描述出了方框中的脚本的作用？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;echo number_format (disk_free_space ('c:\\') /
+disk_total_space('c:\\') * 100, 2) . '%';
+
+A．计算Windows系统C盘的剩余磁盘空间大小
+B．输出一个表示C盘剩余空间所占比例的两位小数
+C．输出C盘剩余容量的byte数
+D．计算C盘总容量与剩余空间的比率
+E．以上都不对&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;20．假设image.jpg存在并能够被PHP读取，调用以下脚本时，浏览器上显示什么？&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;header (&quot;Content-type: image/jpeg&quot;);
+readfile (&quot;image.jpg&quot;);
+
+A．一张JPEG图片
+B．一个二进制文件
+C．下载一个二进制文件
+D．下载一张JPEG图片
+E．一张残破的图片&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;p&gt;##&lt;/p&gt;
+
+&lt;h3 id=&quot;section-3&quot;&gt;答案&lt;/h3&gt;
+
+&lt;p&gt;1． fgets函数主要用来从文本文件中读取一行，当然你也可以指定每次读取的最大长度。
+fread函数主要用来读取二进制数据。答案是D。&lt;/p&gt;
+
+&lt;p&gt;2． 函数fclose能关闭文件指针。&lt;/p&gt;
+
+&lt;p&gt;3． fgets函数能从文件中读取单独一行。因此答案是D。&lt;/p&gt;
+
+&lt;p&gt;4． 正确答案是D。这题很难，而且在实践中不大可能会碰到这样的问题——但这不正是你
+读这本书的原因吗？！你必须记住，flock()使用一种“协议”锁定机制，即所有其他访
+问此文件的进程也必须要使用flock()。如果某个进程没有这么做，竞争就会产生，锁就
+不安全。用mkdir创建一个文件夹能保证任何时刻只有一个进程处理能处理某文件，即
+保证操作的原子性。因此，你可以创建一个临时文件夹并“护”住它，直到I/O操作完成。&lt;/p&gt;
+
+&lt;p&gt;5． 只有file_get_contents和file函数返回文件的全部内容，因此答案是A和D。readfile函数也
+能读取文件的全部内容，但它直接把内容送入了输出缓存，因此不能用在表达式中。&lt;/p&gt;
+
+&lt;p&gt;6． fscanf函数能根据指定格式解析文件内容，因此答案是C。sscanf函数只能用来操作字符
+串。&lt;/p&gt;
+
+&lt;p&gt;7． 答案是E。注意，文件被以r模式打开，即只读模式。因此，如果文件不存在，PHP将输
+出一个错误来指出没有找到文件。如果文件存在，fopen()将被成功调用，但由于是以只
+读方式打开，fwrite()会失败。如果我们用w代替r，脚本就能正常运行，并且myfile.txt
+内将有50个随机字符（记住，可以像访问数组那样使用索引来访问字符串）。&lt;/p&gt;
+
+&lt;p&gt;8． 答案是E。PHP里没有叫delete()的函数。删除文件用unlink()，删除文件夹用rmdir()，数
+据库记录用SQL语句删除，释放变量用unset()。&lt;/p&gt;
+
+&lt;p&gt;9． 脚本实现的功能与file_put_contents()最接近，但这个函数直到PHP5才被引入，因此答案
+是C。&lt;/p&gt;
+
+&lt;p&gt;10．PHP4.3.0开始，php.ini引入了auto_detect_line_endings设置，系统在保存文本文件时能够
+自动侦测行结束符号的类型，因此答案是A。&lt;/p&gt;
+
+&lt;p&gt;11．要可读可写的打开文件，你必须使用r+模式，因此答案是B和D。&lt;/p&gt;
+
+&lt;p&gt;12．这是在说fopen()函数。&lt;/p&gt;
+
+&lt;p&gt;13．正确答案是B，D和E。file，readfile和file_get_contents都能读取文件的全部内容。&lt;/p&gt;
+
+&lt;p&gt;14．fwrite()和fputs()两个函数在这里都可以，而后者其实是前者的别名。在PHP中，写入二
+进制数据和写入字符串没有区别。&lt;/p&gt;
+
+&lt;p&gt;15．PHP会缓存某些文件系统函数的返回值——包括file_exists()，这样能提高脚本处理重复
+操作时的效率。当脚本里有大量删除文件的操作时，缓存很容易就会过时，因此需要清
+理缓存。答案是A。&lt;/p&gt;
+
+&lt;p&gt;16．这是在说is_writeable函数，它返回一个表示文件是否可写的布尔值。&lt;/p&gt;
+
+&lt;p&gt;17．正确答案是D。fseek()用来移动文件指针。SEEK_SET指出偏移量从文件开头开始计算。
+如果没有特别指出，SEEK_SET就是fseek()的默认模式。注意，rewind函数等效于
+fseek(0,SEEK_SET)。&lt;/p&gt;
+
+&lt;p&gt;18．答案是B。fstat函数通过已打开的文件指针取得文件信息，stat()获取指定路径的文件信
+息。&lt;/p&gt;
+
+&lt;p&gt;19．正确答案是B。disk_free_space函数能确定指定设备上（本题中即Windows下的C盘）的
+剩余磁盘空间（单位是byte），而disk_total_space()能确定设备的总容量。两者相除，再
+乘以百分率，最后用number_format()保留两位小数，脚本输出的就是剩余磁盘空间所占
+的比例。最后在加上百分号以防混淆。&lt;/p&gt;
+
+&lt;p&gt;20．答案是E。你注意到两个代码块之间的空行了吗？它将被输出到浏览器上，使得整个图
+片的二进制数据出错。因此浏览器将显示一个破碎的图片（或者是一条信息，指出图片
+出错）。 译者注：原文中两个代码块之间并没有空行，而在我添加了空行之后，也没有
+调试出答案中描述的情况。）
+管理
+日期与时间
+从某一点上来看，几乎所有的网站都需要处理日期与时间。假如你需要收集用户的生
+日，或者记录某个特定事件的发生时间，PHP 的日期函数将很好的帮助你完成任务。
+但是 PHP 的日期/时间管理功能并不完美。它基于 UNIX 时间戳运行，容易受到攻击，
+作为开发者，你必须谨慎处理可能遇到的恶意数据。
+同时，在 Web 上进行日期管理是一件国际性的事务。你必须能依据时区、地区的不同
+来显示对应的日期信息。&lt;/p&gt;
 </description>
-        <pubDate>Thu, 09 Apr 2015 19:23:32 +0800</pubDate>
-        <link>http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-2.html</link>
-        <guid isPermaLink="true">http://bravelife.top/jekyll/update/2015/04/09/welcome-to-jekyll%E5%89%AF%E6%9C%AC-2.html</guid>
+        <pubDate>Wed, 09 Mar 2016 21:25:45 +0800</pubDate>
+        <link>/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/09/php-e9-9d-a2-e8-af-95-e9-a2-98.html</link>
+        <guid isPermaLink="true">/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/09/php-e9-9d-a2-e8-af-95-e9-a2-98.html</guid>
         
         
-        <category>jekyll</category>
-        
-        <category>update</category>
+        <category>转载收藏</category>
         
       </item>
     
