@@ -5,7 +5,7 @@ date: 2016-03-14 01:13:56+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/03/14/402/
 slug: '402'
-title: 如何高效利用GitHub
+title: 如何高效利用GitHub【转载】
 wordpress_id: 402
 categories:
 - 转载收藏

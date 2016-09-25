@@ -5,8 +5,10 @@ date: 2015-12-29 12:11:53+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2015/12/29/chrome%e8%b0%83%e8%af%95%e5%b0%8f%e6%8a%80%e5%b7%a7/
 slug: chrome%e8%b0%83%e8%af%95%e5%b0%8f%e6%8a%80%e5%b7%a7
-title: MAC Chrome调试小技巧
+title: MAC Chrome调试小技巧【转载】
+wordpress_id: 429
 wordpress_id: 40
+excerpt: 除了我们日常使用的调试方法，在Chrome中，其含有一些有意思的方法，有助于提高我们的开发调试效率。
 categories:
 - 转载收藏
 ---

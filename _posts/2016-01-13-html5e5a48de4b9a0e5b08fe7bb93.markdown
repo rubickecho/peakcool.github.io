@@ -5,16 +5,12 @@ date: 2016-01-13 06:42:02+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/01/13/html5%e5%a4%8d%e4%b9%a0%e5%b0%8f%e7%bb%93/
 slug: html5%e5%a4%8d%e4%b9%a0%e5%b0%8f%e7%bb%93
-title: HTML5复习小结
+title: HTML5学习小结
 wordpress_id: 118
+excerpt: HTML5初学习小结和一些小demo。
 categories:
 - 技术分享
 ---
-
-## HTML5复习小结
-
-
-
 
 ### 1.canvas绘制
 

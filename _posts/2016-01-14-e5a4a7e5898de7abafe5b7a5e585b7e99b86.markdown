@@ -5,8 +5,9 @@ date: 2016-01-14 14:43:12+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/01/14/%e5%a4%a7%e5%89%8d%e7%ab%af%e5%b7%a5%e5%85%b7%e9%9b%86/
 slug: '%e5%a4%a7%e5%89%8d%e7%ab%af%e5%b7%a5%e5%85%b7%e9%9b%86'
-title: 大前端工具集
+title: 大前端工具集【转载】
 wordpress_id: 130
+excerpt: 主要内容是一些使用过的库、工具、套路或关注的前端组织等等，反正用 **前端瑞士军刀** 来总结这篇文章再合适不过鸟。
 categories:
 - 转载收藏
 ---

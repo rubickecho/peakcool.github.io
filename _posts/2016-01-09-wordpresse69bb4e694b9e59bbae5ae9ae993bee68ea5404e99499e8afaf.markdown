@@ -10,12 +10,6 @@ wordpress_id: 86
 categories:
 - 技术分享
 ---
-
-## Wordpress更改固定链接404错误
-
-
-
-
 <blockquote>今天在更改wordpress固定链接后，点击文章便会出现找不到文章的404界面，在网上搜索一番后，发现是apache没有开启rewrite模块。
 
 ![a](http://115.28.108.2/wordpress/wp-content/uploads/2016/01/a.png)

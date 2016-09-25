@@ -12,6 +12,9 @@ url: "http://bravelife.top" # the base hostname & protocol for your site
 twitter_username: jekyllrb
 github_username:  jekyll
 
+paginate_path: 'page:num'
+paginate:   10
+
 # Build settings
 markdown: kramdown
 kramdown:
@@ -24,8 +27,7 @@ kramdown:
   enable_coderay: false
   line_numbers: true
 
-paginate: 10
-paginate_path: "page:num"
+
 
 gems:
   - jemoji

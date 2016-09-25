@@ -7,6 +7,7 @@ link: http://www.rmogo.com/wordpress/2016/04/14/mamba-out/
 slug: mamba-out
 title: Mamba out
 wordpress_id: 412
+excerpt: 再见科比，再见青春，再见Black Mamba
 categories:
 - 个人随笔
 ---

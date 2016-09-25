@@ -5,16 +5,12 @@ date: 2016-01-10 07:14:38+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/01/10/openstack%e5%a4%8d%e4%b9%a0%e5%b0%8f%e7%bb%93/
 slug: openstack%e5%a4%8d%e4%b9%a0%e5%b0%8f%e7%bb%93
-title: OpenStack架构复习小结
+title: OpenStack架构学习小结
+excerpt: openstack初学习小结，架构概念，一些常用命令。
 wordpress_id: 96
 categories:
 - 技术分享
 ---
-
-## OpenStack复习小结
-
-
-
 
 ### 1. 关于云计算
 

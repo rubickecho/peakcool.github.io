@@ -5,16 +5,12 @@ date: 2016-01-11 14:37:02+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/01/11/kvm%e5%a4%8d%e4%b9%a0%e5%b0%8f%e7%bb%93/
 slug: kvm%e5%a4%8d%e4%b9%a0%e5%b0%8f%e7%bb%93
-title: Kvm复习小结
+title: Kvm学习小结
 wordpress_id: 111
+excerpt: kvm初学习的一些总结，云计算定义，虚拟化概念，kvm的一些操作命令。
 categories:
 - 技术分享
 ---
-
-# KVM复习小结
-
-
-
 
 ### 1.云计算
 

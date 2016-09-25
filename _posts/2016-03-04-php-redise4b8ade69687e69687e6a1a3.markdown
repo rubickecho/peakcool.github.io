@@ -5,7 +5,7 @@ date: 2016-03-04 06:21:30+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/03/04/php-redis%e4%b8%ad%e6%96%87%e6%96%87%e6%a1%a3/
 slug: php-redis%e4%b8%ad%e6%96%87%e6%96%87%e6%a1%a3
-title: PHP-redis中文文档
+title: PHP-redis中文文档【转载】
 wordpress_id: 162
 categories:
 - 技术分享

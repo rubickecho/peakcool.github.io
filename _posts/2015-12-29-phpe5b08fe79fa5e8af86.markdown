@@ -11,9 +11,6 @@ categories:
 - 技术分享
 ---
 
-### PHP小知识
-
-
 1.break|continue 后面加参数表示结束循环层数
 
 2.导入文件include require功能一样，但发生错误的级别不一样，include是Warning，下面的代码仍然会执行；

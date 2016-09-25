@@ -7,14 +7,10 @@ link: http://www.rmogo.com/wordpress/2016/02/29/redis%e5%ad%a6%e4%b9%a0%e4%b9%8b
 slug: redis%e5%ad%a6%e4%b9%a0%e4%b9%8b%e5%ae%89%e8%a3%85
 title: Redis学习之安装
 wordpress_id: 152
+excerpt: redis起步之安装，Redis的版本选取目前的稳定版本是2.8.9。客户端选用了Redis的java版本jedis2.4.2.
 categories:
 - 技术分享
 ---
-
-## Redis学习
-
-
-
 
 ### 安装redis
 

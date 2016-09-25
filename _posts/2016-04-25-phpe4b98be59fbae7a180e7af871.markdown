@@ -7,6 +7,7 @@ link: http://www.rmogo.com/wordpress/2016/04/25/php%e4%b9%8b%e5%9f%ba%e7%a1%80%e
 slug: php%e4%b9%8b%e5%9f%ba%e7%a1%80%e7%af%871
 title: PHP之基础篇1
 wordpress_id: 427
+excerpt: php基础语法，数据类型，字符串常用方法整理。
 categories:
 - 技术分享
 ---

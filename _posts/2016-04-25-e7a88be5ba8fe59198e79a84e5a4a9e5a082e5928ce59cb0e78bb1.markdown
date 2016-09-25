@@ -5,7 +5,7 @@ date: 2016-04-25 02:13:21+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/04/25/%e7%a8%8b%e5%ba%8f%e5%91%98%e7%9a%84%e5%a4%a9%e5%a0%82%e5%92%8c%e5%9c%b0%e7%8b%b1/
 slug: '%e7%a8%8b%e5%ba%8f%e5%91%98%e7%9a%84%e5%a4%a9%e5%a0%82%e5%92%8c%e5%9c%b0%e7%8b%b1'
-title: 程序员的天堂和地狱
+title: 程序员的天堂和地狱【转载】
 wordpress_id: 425
 categories:
 - 未分类

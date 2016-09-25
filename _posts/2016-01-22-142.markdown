@@ -6,13 +6,11 @@ layout: post
 link: http://www.rmogo.com/wordpress/2016/01/22/142/
 slug: '142'
 title: FIS3的一些配置
+excerpt: 初接触fis3，记录的一些基本配置.
 wordpress_id: 142
 categories:
 - 技术分享
 ---
-
-## FIS3的一些配置
-
 
 今天开始按照着fis3的官方文档学习起来，一点一点地配置。
 

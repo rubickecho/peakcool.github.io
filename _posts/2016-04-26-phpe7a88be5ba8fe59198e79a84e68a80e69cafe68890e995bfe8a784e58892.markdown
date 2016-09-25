@@ -5,19 +5,11 @@ date: 2016-04-26 03:23:57+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/04/26/php%e7%a8%8b%e5%ba%8f%e5%91%98%e7%9a%84%e6%8a%80%e6%9c%af%e6%88%90%e9%95%bf%e8%a7%84%e5%88%92/
 slug: php%e7%a8%8b%e5%ba%8f%e5%91%98%e7%9a%84%e6%8a%80%e6%9c%af%e6%88%90%e9%95%bf%e8%a7%84%e5%88%92
-title: PHP程序员的技术成长规划
+title: PHP程序员的技术成长规划【转载】
 wordpress_id: 429
 categories:
 - 转载收藏
 ---
-
-转载自:  [伯乐在线](http://blog.jobbole.com/100064/)   原文出处： [黑夜路人](http://blog.csdn.net/heiyeshuwu/article/details/40098043)
-
-
-
-* * *
-
-
 
 按照了解的很多PHP/LNMP程序员的发展轨迹，结合个人经验体会，抽象出很多程序员对未来的迷漫，特别对技术学习的盲目和慌乱，简单梳理了这个每个阶段PHP程序员的技术要求，来帮助很多PHP程序做对照设定学习成长目标。
 
@@ -146,3 +138,5 @@ ps：高大上，这块不展开讨论 ^_^
 
 
 ps：高大上，这块不展开讨论 ^_^
+
+转载自:  [伯乐在线](http://blog.jobbole.com/100064/)   原文出处： [黑夜路人](http://blog.csdn.net/heiyeshuwu/article/details/40098043)

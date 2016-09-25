@@ -13,16 +13,11 @@ tags:
 - php
 ---
 
-## 定义
-
-
-
 php中的数组array就是一个有序映射，把 value（值） 关联到 key（键）。
 
 
 
 
-    
   * array()函数声明数组
 
 

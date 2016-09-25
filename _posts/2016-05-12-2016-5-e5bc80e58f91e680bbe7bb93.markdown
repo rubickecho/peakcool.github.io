@@ -11,11 +11,7 @@ categories:
 - 技术分享
 ---
 
-## 1、Carbon时间类库
-
-
-
-这个是laravel御用类库，用起来非常的方便。
+## Carbon时间类库 这个是laravel御用类库，用起来非常的方便
 
 官网地址: [http://carbon.nesbot.com](http://carbon.nesbot.com)
 

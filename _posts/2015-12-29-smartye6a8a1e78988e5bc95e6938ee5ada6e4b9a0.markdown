@@ -6,6 +6,7 @@ layout: post
 link: http://www.rmogo.com/wordpress/2015/12/29/smarty%e6%a8%a1%e7%89%88%e5%bc%95%e6%93%8e%e5%ad%a6%e4%b9%a0/
 slug: smarty%e6%a8%a1%e7%89%88%e5%bc%95%e6%93%8e%e5%ad%a6%e4%b9%a0
 title: smarty模版引擎学习
+excerpt: smarty模版学习的一些简单记录。
 wordpress_id: 49
 categories:
 - 技术分享
