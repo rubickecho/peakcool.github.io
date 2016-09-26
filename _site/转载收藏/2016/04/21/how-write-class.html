@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>怎样写好一个类【转载】</title>
+  <meta name="description" content="代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下：">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/how-write-class.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://bravelife.top/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/jekyll" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/jekyllrb" title="Twitter">
+					<img width="19px" height="19px" src="/images/twitter.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="post-title">怎样写好一个类【转载】</h1>
+    <p class="post-meta">Apr 21, 2016 • tangliangcheng</p>
+  </header>
+
+  <article class="post-content">
+    <p>代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;&lt;?php
+class Font
+{
+    public $style; // 字体样式
+
+    public function getStyle()
+    {
+        // code ..
+    }
+
+    public function createDiv()
+    {
+        // code ..
+    }
+
+    public function insertFontToDiv()
+    {
+        // code ..
+    }
+}&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>这个类中定义了公有的属性”style”，获取Style的方法和另外一些子方法，本来创建这个类是为了围绕「字体」作文章的，但在实现过程中，临时需求的增加使得这个类中多了Div和把字体插入到Div的方法，这是很常见的情况，而这只是个开始，与类无关的代码会越来越多，就像地上本无垃圾，有人丢了第一块垃圾，人们就会跟着丢垃圾一样，最后的结果就是这个类变得不易维护，可读性减低，导致这样的原因就是与类无关的代码破坏了这个类抽象的一致性。</p>
+
+<p>另外这个类的style属性也有问题，它的类型是public，意味着外部可以随时调用改写，然后外部代码就有了</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;$font = new Font;
+$font-&gt;style = 'font-size: 13px';&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>或者：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;$font = new Font;
+$font-&gt;style = 'font-weight: both';&lt;/code&gt;
+</code></pre>
+</div>
+
+<p>等等等等，日积月累，某一天，产品走到你面前，微微一笑地对你说：陈工啊，麻烦给每个字体都加上个默认的14px字体大小样式；</p>
+
+<p>你一脸懵逼带着生无可恋的表情望着产品(他或者她或者它)：……好，请你给我半天或更长的时间来改；</p>
+
+<p>产品：＃¥％……&amp;＊（&amp;……％＃¥％……&amp;＊；</p>
+
+<p>你一边查找替换着代码，一边暗骂自己为什么不在Font类中定义个函数来修改style属性，一边还总结着经验告诉自己下次绝不这么傻逼了。程序员总是在一次次的惨痛经验中进步着，但如果有那么一本好书籍或者好导师，真的会少走很多弯路。（再给代码大全打个广告）</p>
+
+<p>第一段我们讲到抽象的概念，抽象是什么呢？面向对象中有个原则既单一原则，我理解的抽象跟这个单一原则有着千丝万缕的关系；单一原则分为类的单一和方法的单一，比如说，人有吃喝拉撒四种行为，他们即有类的单一原则（人），也有方法的单一原则（吃、喝、拉、撒），这里的「人」就是我们抽象出来的东西，如果你往里面加个飞行的行为，就破坏了类的单一原则和抽象性，来验证下，加入飞行行为之后人就有了「吃、喝、拉、撒、飞行」五个行为，这不是人应该是鸟了。</p>
+
+<p>「高内聚、低耦合」是写好类的核心思想，抽象（单一性）能帮助我们写出低耦合的代码，那高内聚呢，内聚性会直接表现在我们的代码维护上，当我们写出内聚性很强的代码时，与之关联的维护工作也会变得简单。上面的栗子讲到这个程序员把style属性设为public并且在外部代码中直接修改导致了后面的问题产生；对这些易改变的元素我们应该通过子程序（方法）修改的方式来增强它们的维护性，把所有的变化都控制在类中来增强类的内聚性。</p>
+
+<p>一切理论都是虚的，实践才是让自己进步的最佳方法，Talk is cheap. Show me the code。</p>
+
+<p>##</p>
+
+<p>转载自：segmentfault Derek_Chan <a href="https://segmentfault.com/a/1190000004968048">文章链接</a></p>
+
+  </article>
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2015 Pithy Theme by Pawpaw.
+</footer>
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>PHP之基础篇1</title>
+  <meta name="description" content="php基础语法，数据类型，字符串常用方法整理。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/25/php-basics.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://bravelife.top/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/jekyll" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/jekyllrb" title="Twitter">
+					<img width="19px" height="19px" src="/images/twitter.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="post-title">PHP之基础篇1</h1>
+    <p class="post-meta">Apr 25, 2016 • tangliangcheng</p>
+  </header>
+
+  <article class="post-content">
+    <h2 id="section">一. 基本语法</h2>
+
+<ol>
+  <li>开始结束标记: “<?php ?>”</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;&lt;?php echo "Hello World"?&gt;&lt;/code&gt;
+</code></pre>
+</div>
+
+<p><strong>Note：</strong>文件末尾的 PHP 代码段结束标记”?&gt;”可以不要，有些情况下当使用 include() 或者 require() 时省略掉会更好些。</p>
+
+<ol>
+  <li>同java,c一样，php每个语句后需用分号 “ ; “ 结束。</li>
+</ol>
+
+<h3 id="section-1">二. 类型</h3>
+
+<h4 id="php8">php支持的8种基本数据类型</h4>
+
+<p>四种标量类型:</p>
+
+<ul>
+  <li>
+    <p>boolean (布尔型)</p>
+  </li>
+  <li>
+    <p>integer (整型)</p>
+  </li>
+  <li>
+    <p>string (字符串)</p>
+  </li>
+  <li>
+    <p>float (浮点型)</p>
+  </li>
+</ul>
+
+<p>两种复合类型:</p>
+
+<ul>
+  <li>
+    <p>array (数组型)</p>
+  </li>
+  <li>
+    <p>object (对象)</p>
+  </li>
+</ul>
+
+<p>两种特殊类型:</p>
+
+<ul>
+  <li>
+    <p>resource (资源)</p>
+  </li>
+  <li>
+    <p>null (null)</p>
+  </li>
+</ul>
+
+<p><strong>Note：</strong></p>
+
+<ul>
+  <li>
+    <p>var_dump() 查看表达式值和类型,is_type() 查看某个类型。</p>
+  </li>
+  <li>
+    <p>整数溢出,如果给定一个整数或运算结果得出的整数超出int范围(2^32)，将会解释会float。</p>
+  </li>
+</ul>
+
+<h3 id="string">三.字符串(string)</h3>
+
+<p><strong><em>声明字符串:</em></strong> 字符串通常用单引号或双引号定义。</p>
+
+<ol>
+  <li>在单引号中的变量和特殊含义的字符不会被替换</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $age = 12;
+php &gt; echo "他很高\n他的年龄才$age";
+他很高
+他的年龄才12；
+php &gt; echo '他很高\n他的年龄才$age';
+他很高\n他的年龄才$age;&lt;/code&gt;
+</code></pre>
+</div>
+
+<ol>
+  <li>字符串可以用’.’ (点) 操作符连接起来</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; echo "Hello,"."World";
+Hello,World&lt;/code&gt;
+</code></pre>
+</div>
+
+<ol>
+  <li>存取和修改字符串中的字符（类似于数组）</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $str = "Hello,World";
+php &gt; echo $str[1];
+e
+php &gt; echo $str{0};
+H&lt;/code&gt;
+</code></pre>
+</div>
+
+<ol>
+  <li>其他类型转换为字符串（string）</li>
+</ol>
+
+<p>在一个值前面加上(string)或者使用strval()函数来转换成字符串型。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $age = 18;
+php &gt; var_dump($age);
+int(18)
+php &gt; $str = (string)$age;
+php &gt; var_dump($str);
+string(2) "18"&lt;/code&gt;
+</code></pre>
+</div>
+
+<ol>
+  <li>常用字符串函数</li>
+</ol>
+
+<ul>
+  <li>字符串替换</li>
+</ul>
+
+<p>str_replace ($search , $replace , $subject [, int &amp;$count ])</p>
+
+<blockquote>$search: 查找替换目标值
+
+$replace: $search的替换值
+
+subject: 执行替换的数组或者字符串
+
+count: 控制匹配和替换的次数</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $str = "Hello,My name is Tom,what is your name?";
+php &gt; echo str_replace("name","nickname",$str);
+Hello,My nickname is Tom,what is your nickname?&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li>去掉字符串两边空格</li>
+</ul>
+
+<p>trim ($str)</p>
+
+<blockquote>$str: 目标字符串</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $str = "  Hello     ";
+php &gt; echo trim($str);
+Hello&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li>去掉字符串中html和php标记</li>
+</ul>
+
+<p>strip_tags ($str)</p>
+
+<blockquote>$str: 目标字符串</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $str = "&lt;td&gt;&lt;p&gt;Hello World&lt;/p&gt;&lt;/td&gt;";
+php &gt; echo strip_tags($str);
+Hello World&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li>将目标字符串重复多次</li>
+</ul>
+
+<p>str_repeat ($str,int $num)</p>
+
+<blockquote>$str: 目标字符串
+
+$num: 重复次数</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $str = "Hello World!!";
+php &gt; echo str_repeat($str,5);
+Hello World!!Hello World!!Hello World!!Hello World!!Hello World!!&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li>返回字符串长度</li>
+</ul>
+
+<p>strlen ($str)</p>
+
+<blockquote>$str: 目标字符串</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $str = "Hello World";
+php &gt; echo strlen($str);
+11&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li>计算字串出现的次数</li>
+</ul>
+
+<p>substr_count (string $haystack , string $needle )</p>
+
+<blockquote>$haystack: 目标字符串
+
+$needle: 查找出现次数的字符串</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $str = "Hello World,Hello China";
+php &gt; echo substr_count($str,"Hello");
+2&lt;/code&gt;
+</code></pre>
+</div>
+
+<ul>
+  <li>截取字符串</li>
+</ul>
+
+<p>substr ( string $string , int $start [, int $length ] )</p>
+
+<blockquote>$string: 目标字符串
+
+$start: 如果 start 是非负数，返回的字符串将从 string 的 start 位置开始，从 0 开始计算。如果 start 是负数，返回的字符串将从 string 结尾处向前数第 start 个字符开始。如果string 的长度小于或等于 start，将返回 FALSE。
+
+$length: 1.如果提供了正数的 length，返回的字符串将从 start 处开始最多包括 length 个字符（取决于 string 的长度）。2.如果提供了负数的 length，那么 string 末尾处的许多字符将会被漏掉（若 start 是负数则从字符串尾部算起）。3.如果 start 不在这段文本中，那么将返回一个空字符串。4.如果提供了值为 0，FALSE 或 NULL 的 length，那么将返回一个空字符串。5.如果没有提供 length，返回的子字符串将从 start 位置开始直到字符串结尾。</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;php &gt; $str = "Hello,World";
+php &gt; echo substr($str,1);
+ello,World
+php &gt; echo substr($str,1,3);
+ell
+php &gt; echo substr($str,1,-3);
+ello,Wo
+php &gt; echo substr($str,1,10);
+ello,World&lt;/code&gt;
+</code></pre>
+</div>
+
+
+  </article>
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2015 Pithy Theme by Pawpaw.
+</footer>
+
+    
+  </body>
+
+</html>

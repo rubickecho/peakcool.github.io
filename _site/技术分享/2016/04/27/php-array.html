@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>PHP基础篇之数组</title>
+  <meta name="description" content="php中的数组array就是一个有序映射，把 value（值） 关联到 key（键）。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/27/php-array.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://bravelife.top/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/jekyll" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/jekyllrb" title="Twitter">
+					<img width="19px" height="19px" src="/images/twitter.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="post-title">PHP基础篇之数组</h1>
+    <p class="post-meta">Apr 27, 2016 • tangliangcheng</p>
+  </header>
+
+  <article class="post-content">
+    <p>php中的数组array就是一个有序映射，把 value（值） 关联到 key（键）。</p>
+
+<ul>
+  <li>
+    <p>array()函数声明数组</p>
+
+    <p><code class="language-none">php &gt; $arr = array('name' =&gt; 'Tom',1 =&gt; 'Hello');
+php &gt; echo $arr['name'];
+Tom
+php &gt; echo $arr[1];
+Hello </code></p>
+  </li>
+  <li>
+    <p>直接为数组元素赋值</p>
+
+    <p><code class="language-none">php &gt; $arr['name'] = 'Tom';
+php &gt; $arr[1] = 'World';
+php &gt; print_r($arr);
+Array
+(
+    [name] =&gt; Tom
+    [1] =&gt; World
+)</code></p>
+  </li>
+</ul>
+
+<p><strong><em>Note:</em></strong></p>
+
+<ol>
+  <li>
+    <p>键(key)可以是一个整数(integer)或字符串(string),不能用数组和对象作为键(key)。这样做会导致一个警告：Illegal offset type。</p>
+  </li>
+  <li>
+    <p>值(value) 可以是任意类型的值。</p>
+  </li>
+</ol>
+
+<h4 id="section">数组的简单操作</h4>
+
+<ul>
+  <li>
+    <p>用方括号的语法新建／修改，即给变量名加上一对空的方括号（“[]”）</p>
+  </li>
+  <li>
+    <p>删除数组或删除数组的一个键名/值对，用unset()</p>
+
+    <p><code class="language-none">php &gt; $arr = array('name' =&gt; 'Tom','age' =&gt; 12);
+php &gt; print_r($arr);
+Array
+(
+    [name] =&gt; Tom
+    [age] =&gt; 12
+)
+php &gt; $arr['name'] = 'Jack';
+php &gt; $arr['id'] = 999;
+php &gt; print_r($arr);
+Array
+(
+    [name] =&gt; Jack
+    [age] =&gt; 12
+    [id] =&gt; 999
+)
+php &gt; unset($arr);
+php &gt; print_r($arr);</code></p>
+
+    <p>Notice: Undefined variable: arr in php shell code on line 1 //未定义$arr&lt;/code&gt;</p>
+  </li>
+  <li>
+    <p>遍历数组foreach($array as $key =&gt; $value)</p>
+
+    <p><code class="language-none">php &gt; $arr = array(1 =&gt; 'Tom', 2 =&gt; 'Jack', 3 =&gt; 'Lucy');
+php &gt; foreach($arr as $key =&gt; $value){
+        echo $key.'=&gt;'.$value."\n";
+        }
+1=&gt;Tom
+2=&gt;Jack
+3=&gt;Lucy</code></p>
+  </li>
+</ul>
+
+<p><strong><em>Note:</em></strong></p>
+
+<p>unset()函数允许删除数组中的某个键，但要注意数组将不会重建索引。重建索引可以使用函数array_values()</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;    php &gt; $arr = array(1 =&gt; 'Tom', 2 =&gt; 'Jack', 3 =&gt; 'Lucy');
+    php &gt; unset($arr[2]);
+    php &gt; print_r($arr);
+    Array
+    (
+        [1] =&gt; Tom
+        [3] =&gt; Lucy
+    )
+    php &gt; print_r(array_values($arr));
+    Array
+    (
+        [0] =&gt; Tom
+        [1] =&gt; Lucy
+    )&lt;/code&gt;
+</code></pre>
+</div>
+
+<h4 id="section-1">数组常用函数</h4>
+
+<ul>
+  <li>
+    <p><strong>array_combine</strong> 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值array array_combine ( array $keys , array $values )</p>
+
+    <p><code class="language-none">php &gt; $arr = array('Tom','Jack','Lucy');
+php &gt; $arr2 = array('football','basketball','tennis');
+php &gt; print_r(array_combin($arr,$arr2));
+Array
+(
+    [Tom] =&gt; football
+    [Jack] =&gt; basketball
+    [Lucy] =&gt; tennis
+)</code></p>
+  </li>
+  <li>
+    <p><strong>array_count_values</strong> 统计数组中所有的值出现的次数array array_count_values ( array $input )</p>
+
+    <p><code class="language-none">php &gt; $arr = array('Tom','Jack','football','Jack','football');
+php &gt; print_r(array_count_values($arr));
+Array
+(
+    [Tom] =&gt; 1
+    [Jack] =&gt; 2
+    [football] =&gt; 2
+)   </code></p>
+  </li>
+  <li>
+    <p><strong>array_diff</strong> 计算数组的差集array array_diff ( array $array1 , array $array2 [, array $ … ] )</p>
+
+    <p><code class="language-none">php &gt; $arr = array('Tom','Jack','Lucy','Mark');
+php &gt; $arr2 = array('Jack','Tom','Mark');
+php &gt; print_r( array_diff($arr,$arr2));
+Array
+(
+    [2] =&gt; Lucy
+)</code></p>
+  </li>
+</ul>
+
+<p><strong><em>Note:</em></strong> array_diff()返回一个数组，该数组包括了所有在 $arr1 中但是不在任何其它参数数组中的值。注意键名保留不变。</p>
+
+<ul>
+  <li>
+    <p><strong>array_flip</strong> 交换数组中的键和值array array_flip ( array $trans )</p>
+
+    <p><code class="language-none">php &gt; $arr = array('Tom' =&gt; 'football','Jack' =&gt; 'basketball','Lucy' =&gt;         'tennis');
+php &gt; print_r (array_flip($arr));
+Array
+(
+    [football] =&gt; Tom
+    [basketball] =&gt; Jack
+    [tennis] =&gt; Lucy
+)</code></p>
+  </li>
+</ul>
+
+<p><strong><em>Note:</em></strong> 如果同一个值出现多次，则最后一个键名将作为它的值，所有其它的都将丢失。</p>
+
+<ul>
+  <li>
+    <p><strong>array_keys</strong> 返回数组中所有的键名array array_keys ( array $input [, mixed $search_value [, bool $strict ]] )如果指定了可选参数 search_value，则只返回该值的键名。</p>
+
+    <p><code class="language-none">php &gt; $arr = array('Tom','Jack','football','Jack','football');
+php &gt; print_r (array_keys($arr));
+Array
+(
+    [0] =&gt; 0
+    [1] =&gt; 1
+    [2] =&gt; 2
+    [3] =&gt; 3
+    [4] =&gt; 4
+)
+php &gt; print_r (array_keys($arr,'football'));
+Array
+(
+    [0] =&gt; 2
+    [1] =&gt; 4
+)</code></p>
+  </li>
+  <li>
+    <p><strong>in_array</strong> 检查数组中是否存在某个值bool in_array ( mixed $needle , array $haystack [, bool $strict ] )如果第三个参数 strict 的值为 TRUE 则 in_array() 函数还会检查 needle 的类型是否和 haystack 中的相同。</p>
+
+    <p><code class="language-none">php &gt; $arr = array('Tom','Jack','football');
+php &gt; echo in_array('Tom',$arr);
+1 //1即表示true</code></p>
+  </li>
+  <li>
+    <p><strong>array_merge</strong> 合并一个或多个数组array array_merge ( array $array1 [, array $array2 [, array $… ]] )如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。</p>
+
+    <p><code class="language-none">php &gt; $arr = array('name' =&gt; 'Tom','age' =&gt; 12,6 =&gt; 'red');
+php &gt; $arr2 = array('class' =&gt; 3, 6 =&gt; 'black');
+php &gt; print_r ( array_merge($arr,$arr2));
+Array
+(
+    [name] =&gt; Tom
+    [age] =&gt; 12
+    [0] =&gt; red
+    [class] =&gt; 3
+    [1] =&gt; black
+)</code></p>
+  </li>
+  <li>
+    <p><strong>array_unique</strong> 移除数组中重复的值array array_unique ( array $array )注意键名保留不变。</p>
+
+    <p><code class="language-none">php &gt; $arr = array('name' =&gt; 'Tom', 12,'name' =&gt; 'Jack','red','12');
+php &gt; var_dump(array_unique($arr));
+array(3) {
+    ["name"] =&gt; string(4) "Jack"
+    [0] =&gt; int(12)
+    [1] =&gt; string(3) "red"
+}</code></p>
+  </li>
+  <li>
+    <p><strong>count</strong> 计算数组中元素个数int count( $array )</p>
+
+    <p><code class="language-none">php &gt; $arr = array('Tom','Jack','Lucy');
+php &gt; var_dump(count($arr));
+int(3)</code></p>
+  </li>
+  <li>
+    <p><strong>sort</strong> 数组排序bool sort ( array &amp;$array [, int $sort_flags ] )此函数将为 array 中的元素赋与新的键名。这将删除原有的键名，而不是仅仅将键名重新排序。成功返回true，失败返回false。</p>
+
+    <p><code class="language-none">$arr = array('Tom','Jack','Lucy');
+sort($arr);
+php &gt; foreach($arr as $k =&gt; $v){ echo $k.' =&gt; '.$v."\n";}
+0 =&gt; Jack
+1 =&gt; Lucy
+2 =&gt; Tom</code></p>
+  </li>
+</ul>
+
+<p><strong><em>Note:</em></strong> 对一些有混合类型的值的数组排序时要小心，sotr()会产生不可预知的效果。</p>
+
+<hr />
+
+<p>我是一名php初学者，在学习的时候写了这些总结和大家分享，有不恰当的地方欢迎大家多多指正，我也会虚心的接受大家的建议，希望和大家共同进步。</p>
+
+<hr />
+
+  </article>
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2015 Pithy Theme by Pawpaw.
+</footer>
+
+    
+  </body>
+
+</html>

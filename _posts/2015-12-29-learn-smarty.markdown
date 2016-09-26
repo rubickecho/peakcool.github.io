@@ -1,0 +1,91 @@
+---
+author: tangliangcheng
+comments: true
+date: 2015-12-29 13:11:49+00:00
+layout: post
+link: http://www.rmogo.com/wordpress/2015/12/29/smarty%e6%a8%a1%e7%89%88%e5%bc%95%e6%93%8e%e5%ad%a6%e4%b9%a0/
+slug: learn-smarty
+title: smarty模版引擎学习
+excerpt: smarty模版学习的一些简单记录。
+wordpress_id: 49
+categories:
+- 技术分享
+---
+
+1.libs文件目录:
+
+
+
+
+     plugins:放置插件
+
+
+
+
+     Smarty.class.php:主文件，能够调用其他的。
+
+
+
+
+     Smarty.class.phpBC:提升smarty上下（版本）兼容性。
+
+
+
+
+
+
+
+     第一步：引入smarty文件 require(“url”)；
+
+
+
+
+     第二步：实例化smarty类 $smarty = new Smarty();
+
+
+
+
+
+
+
+  ![565cf6a80001f21812800720](http://115.28.108.2/wordpress/wp-content/uploads/2015/12/565cf6a80001f21812800720.jpg)
+
+
+
+
+2.变量调节器
+
+
+
+
+
+
+
+![565e756c0001901712800720](http://115.28.108.2/wordpress/wp-content/uploads/2015/12/565e756c0001901712800720.jpg)
+
+
+
+
+
+
+
+3.框架目录结构
+
+
+
+
+
+
+
+ ![565efbdc0001725f12800720](http://115.28.108.2/wordpress/wp-content/uploads/2015/12/565efbdc0001725f12800720.jpg)
+
+
+
+
+
+
+
+
+
+
+4.HTML里面的内嵌式js代码｛｝会与 smarty边界符｛｝起冲突  可以自定义smarty边界符，也可以{literal}js{/literal}把js代码包裹起来。

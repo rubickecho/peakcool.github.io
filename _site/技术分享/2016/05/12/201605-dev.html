@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>2016-5 开发总结</title>
+  <meta name="description" content="Carbon时间类库 这个是laravel御用类库，用起来非常的方便">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/12/201605-dev.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://bravelife.top/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/jekyll" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/jekyllrb" title="Twitter">
+					<img width="19px" height="19px" src="/images/twitter.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="post-title">2016-5 开发总结</h1>
+    <p class="post-meta">May 12, 2016 • tangliangcheng</p>
+  </header>
+
+  <article class="post-content">
+    <h2 id="carbon-laravel">Carbon时间类库 这个是laravel御用类库，用起来非常的方便</h2>
+
+<p>官网地址: <a href="http://carbon.nesbot.com">http://carbon.nesbot.com</a></p>
+
+<p>Git地址: <a href="https://github.com/briannesbitt/Carbon">https://github.com/briannesbitt/Carbon</a></p>
+
+<h4 id="section">用法：</h4>
+
+<ul>
+  <li>
+    <p>引用</p>
+
+    <p><code>use Carbon\Carbon;</code></p>
+  </li>
+  <li>
+    <p>基本操作</p>
+
+    <p><code class="language-none">echo (new Carbon('first day of December 2008'))-&gt;addWeeks(2);     // 2008-12-15 00:00:00
+echo Carbon::parse('first day of December 2008')-&gt;addWeeks(2);    // 2008-12-15 00:00:00</code></p>
+
+    <p>$now = Carbon::now();
+echo $now;                               // 2015-11-11 12:38:36
+$today = Carbon::today();
+echo $today;                             // 2015-11-11 00:00:00
+$tomorrow = Carbon::tomorrow(‘Europe/London’);
+echo $tomorrow;                          // 2015-11-12 00:00:00
+$yesterday = Carbon::yesterday();
+echo $yesterday;                         // 2015-11-10 00:00:00</p>
+
+    <p>echo Carbon::createFromFormat(‘Y-m-d H’, ‘1975-05-21 22’)-&gt;toDateTimeString(); // 1975-05-21 22:00:00&lt;/code&gt;</p>
+  </li>
+</ul>
+
+<h3 id="image">2、Image类库</h3>
+
+<p>Intervention Image 是一个PHP图片操作处理库，为图片创建、修改及压缩等处理提供了便捷方式。此外，还提供了服务提供者和门面以便集成到Laravel应用中。</p>
+
+<p>官网地址: <a href="http://image.intervention.io">http://image.intervention.io</a></p>
+
+<p>Git地址: <a href="https://github.com/Intervention/image">https://github.com/Intervention/image</a></p>
+
+<h4 id="section-1">用法:</h4>
+
+<p>Laravel学院: <a href="http://laravelacademy.org/post/3585.html">http://laravelacademy.org/post/3585.html</a></p>
+
+<h3 id="curl">3、curl网站开发命令</h3>
+
+<p>阮一峰网络日志 <a href="http://www.ruanyifeng.com/blog/2011/09/curl.html">http://www.ruanyifeng.com/blog/2011/09/curl.html</a></p>
+
+<ul>
+  <li>
+    <p><strong><em>curl -v</em></strong> 查看通信过程</p>
+
+    <p><code class="language-none">~ curl -v www.sina.com</code></p>
+    <ul>
+      <li>Rebuilt URL to: www.sina.com/</li>
+      <li>Trying 202.108.33.71…</li>
+      <li>Connected to www.sina.com (202.108.33.71) port 80 (#0)
+        <blockquote>
+          <p>GET / HTTP/1.1
+Host: www.sina.com
+User-Agent: curl/7.43.0
+Accept: <em>/</em></p>
+
+          <p>&lt; HTTP/1.1 301 Moved Permanently
+&lt; Server: nginx
+&lt; Date: Thu, 12 May 2016 11:57:45 GMT
+&lt; Content-Type: text/html
+&lt; Location: http://www.sina.com.cn/
+&lt; Expires: Thu, 12 May 2016 11:59:45 GMT
+&lt; Cache-Control: max-age=120
+&lt; Age: 49
+&lt; Content-Length: 178
+&lt; X-Cache: HIT from xd33-71.sina.com.cn
+&lt;</p>
+        </blockquote>
+      </li>
+    </ul>
+    <html>
+<head><title>301 Moved Permanently</title></head>
+<body bgcolor="white">
+<center><h1>301 Moved Permanently</h1></center>
+<hr /><center>nginx</center>
+</body>
+</html>
+    <ul>
+      <li>Connection #0 to host www.sina.com left intact&lt;/code&gt;</li>
+    </ul>
+  </li>
+  <li>
+    <p>表单通信</p>
+  </li>
+</ul>
+
+<p><strong>GET</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;curl -X GET http://localhost/form.php?data=1&lt;/code&gt;
+</code></pre>
+</div>
+
+<p><strong>POST</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;curl -X POST --data "data=1" http://localhost/form.php&lt;/code&gt;
+</code></pre>
+</div>
+
+
+  </article>
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2015 Pithy Theme by Pawpaw.
+</footer>
+
+    
+  </body>
+
+</html>

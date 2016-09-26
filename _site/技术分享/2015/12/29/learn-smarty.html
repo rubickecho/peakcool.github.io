@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <title>smarty模版引擎学习</title>
+  <meta name="description" content="smarty模版学习的一些简单记录。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2015/12/29/learn-smarty.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://bravelife.top/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/jekyll" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/jekyllrb" title="Twitter">
+					<img width="19px" height="19px" src="/images/twitter.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+  <br>
+  <header class="post-header">
+    <h1 class="post-title">smarty模版引擎学习</h1>
+    <p class="post-meta">Dec 29, 2015 • tangliangcheng</p>
+  </header>
+
+  <article class="post-content">
+    <p>1.libs文件目录:</p>
+
+<p>     plugins:放置插件</p>
+
+<p>     Smarty.class.php:主文件，能够调用其他的。</p>
+
+<p>     Smarty.class.phpBC:提升smarty上下（版本）兼容性。</p>
+
+<p>     第一步：引入smarty文件 require(“url”)；</p>
+
+<p>     第二步：实例化smarty类 $smarty = new Smarty();</p>
+
+<p>  <img src="http://115.28.108.2/wordpress/wp-content/uploads/2015/12/565cf6a80001f21812800720.jpg" alt="565cf6a80001f21812800720" /></p>
+
+<p>2.变量调节器</p>
+
+<p><img src="http://115.28.108.2/wordpress/wp-content/uploads/2015/12/565e756c0001901712800720.jpg" alt="565e756c0001901712800720" /></p>
+
+<p>3.框架目录结构</p>
+
+<p> <img src="http://115.28.108.2/wordpress/wp-content/uploads/2015/12/565efbdc0001725f12800720.jpg" alt="565efbdc0001725f12800720" /></p>
+
+<p>4.HTML里面的内嵌式js代码｛｝会与 smarty边界符｛｝起冲突  可以自定义smarty边界符，也可以{literal}js{/literal}把js代码包裹起来。</p>
+
+  </article>
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2015 Pithy Theme by Pawpaw.
+</footer>
+
+    
+  </body>
+
+</html>
