@@ -1,14 +1,10 @@
-# Jekyll-Pithy
+## About
 
-Jekyll-Pithy is a theme for Jekyll. Here is [my blog](http://wenva.github.io) which use this theme.
+终于还是下定决心把基于wordpress的博客从简了，第一个想到的就是Github Pages + Jekyll 。
 
-![image](https://raw.githubusercontent.com/smallmuou/Jekyll-Pithy/master/images/Jekyll-Pithy.png)
+wordpress对于我这么懒的人还是难于去管理，而且对于博客还是应该专精于内容，而不是花哨的界面，酷炫的效果。
 
-### Usage
-* Clone it.
-* cd Jekyll-Pithy, and Run "jekyll serve"(You must install [jekyll](http://jekyllrb.com/) first)
-* Open web browser and enter "http://127.0.0.1:4000/", you can see the web page like snapshot above.
-* If you want to host you blog on Github Page, you can follow the steps provide by Github.
+几天的学习，成功的把wordpress的博客迁移过来了，希望大家多多关照，有问题可以反馈到 github lssues 或者邮箱 tanglc12315@gmail.com。
 
 ### License
 The code follows MIT License.
