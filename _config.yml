@@ -9,8 +9,8 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 # url: "http://rmogo.com" # the base hostname & protocol for your site
 url: "http://bravelife.top" # the base hostname & protocol for your site
-twitter_username: jekyllrb
-github_username:  jekyll
+twitter_username: 2085118413/profile?topnav=1&wvr=6&is_all=1
+github_username:  peakcool
 
 paginate_path: 'page:num'
 paginate:   10
