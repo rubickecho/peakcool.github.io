@@ -7,7 +7,6 @@ description: > # this means to ignore newlines until "baseurl:"
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog/
-# url: "http://rmogo.com" # the base hostname & protocol for your site
 url: "http://bravelife.top" # the base hostname & protocol for your site
 twitter_username: 2085118413/profile?topnav=1&wvr=6&is_all=1
 github_username:  peakcool
@@ -26,8 +25,6 @@ kramdown:
   toc_levels: 1..6
   enable_coderay: false
   line_numbers: true
-
-
 
 gems:
   - jemoji
