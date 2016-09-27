@@ -21,14 +21,19 @@ php中的数组array就是一个有序映射，把 value（值） 关联到 key�
   * array()函数声明数组
 
 
+        php > $arr = array('name' => 'Tom',1 => 'Hello');
+        php > echo $arr['name'];
+        Tom
+        php > echo $arr[1];
+        Hello
 
 
     
-    <code class="language-none">php > $arr = array('name' => 'Tom',1 => 'Hello');
-    php > echo $arr['name'];
-    Tom
-    php > echo $arr[1];
-    Hello </code>
+        php > $arr = array('name' => 'Tom',1 => 'Hello');
+        php > echo $arr['name'];
+        Tom
+        php > echo $arr[1];
+        Hello
 
 
 
@@ -41,14 +46,14 @@ php中的数组array就是一个有序映射，把 value（值） 关联到 key�
 
 
     
-    <code class="language-none">php > $arr['name'] = 'Tom';
-    php > $arr[1] = 'World';
-    php > print_r($arr);
-    Array
-    (
-        [name] => Tom
-        [1] => World
-    )</code>
+        php > $arr['name'] = 'Tom';
+        php > $arr[1] = 'World';
+        php > print_r($arr);
+        Array
+        (
+            [name] => Tom
+            [1] => World
+        )
 
 
 

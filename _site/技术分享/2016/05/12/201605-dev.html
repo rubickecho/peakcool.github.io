@@ -9,6 +9,7 @@
   <meta name="description" content="Carbon时间类库 这个是laravel御用类库，用起来非常的方便">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
   <link rel="canonical" href="http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/12/201605-dev.html">
   <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://bravelife.top/feed.xml" />
   <script src="/scripts/jquery-1.11.2.min.js"></script>
@@ -81,29 +82,30 @@
 <h4 id="section">用法：</h4>
 
 <ul>
-  <li>
-    <p>引用</p>
-
-    <p><code>use Carbon\Carbon;</code></p>
-  </li>
-  <li>
-    <p>基本操作</p>
-
-    <p><code class="language-none">echo (new Carbon('first day of December 2008'))-&gt;addWeeks(2);     // 2008-12-15 00:00:00
-echo Carbon::parse('first day of December 2008')-&gt;addWeeks(2);    // 2008-12-15 00:00:00</code></p>
-
-    <p>$now = Carbon::now();
-echo $now;                               // 2015-11-11 12:38:36
-$today = Carbon::today();
-echo $today;                             // 2015-11-11 00:00:00
-$tomorrow = Carbon::tomorrow(‘Europe/London’);
-echo $tomorrow;                          // 2015-11-12 00:00:00
-$yesterday = Carbon::yesterday();
-echo $yesterday;                         // 2015-11-10 00:00:00</p>
-
-    <p>echo Carbon::createFromFormat(‘Y-m-d H’, ‘1975-05-21 22’)-&gt;toDateTimeString(); // 1975-05-21 22:00:00&lt;/code&gt;</p>
-  </li>
+  <li>引用</li>
 </ul>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php">    use Carbon\Carbon;
+    </code></pre></figure>
+
+<ul>
+  <li>基本操作</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+    <span class="k">echo</span> <span class="p">(</span><span class="k">new</span> <span class="nx">Carbon</span><span class="p">(</span><span class="s1">'first day of December 2008'</span><span class="p">))</span><span class="o">-&gt;</span><span class="na">addWeeks</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>     <span class="c1">// 2008-12-15 00:00:00
+</span>    <span class="k">echo</span> <span class="nx">Carbon</span><span class="o">::</span><span class="na">parse</span><span class="p">(</span><span class="s1">'first day of December 2008'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">addWeeks</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>    <span class="c1">// 2008-12-15 00:00:00
+</span>
+    <span class="nv">$now</span> <span class="o">=</span> <span class="nx">Carbon</span><span class="o">::</span><span class="na">now</span><span class="p">();</span>
+    <span class="k">echo</span> <span class="nv">$now</span><span class="p">;</span>                               <span class="c1">// 2015-11-11 12:38:36
+</span>    <span class="nv">$today</span> <span class="o">=</span> <span class="nx">Carbon</span><span class="o">::</span><span class="na">today</span><span class="p">();</span>
+    <span class="k">echo</span> <span class="nv">$today</span><span class="p">;</span>                             <span class="c1">// 2015-11-11 00:00:00
+</span>    <span class="nv">$tomorrow</span> <span class="o">=</span> <span class="nx">Carbon</span><span class="o">::</span><span class="na">tomorrow</span><span class="p">(</span><span class="s1">'Europe/London'</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nv">$tomorrow</span><span class="p">;</span>                          <span class="c1">// 2015-11-12 00:00:00
+</span>    <span class="nv">$yesterday</span> <span class="o">=</span> <span class="nx">Carbon</span><span class="o">::</span><span class="na">yesterday</span><span class="p">();</span>
+    <span class="k">echo</span> <span class="nv">$yesterday</span><span class="p">;</span>                         <span class="c1">// 2015-11-10 00:00:00
+</span>
+    <span class="k">echo</span> <span class="nx">Carbon</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">'Y-m-d H'</span><span class="p">,</span> <span class="s1">'1975-05-21 22'</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toDateTimeString</span><span class="p">();</span> <span class="o">//</span> <span class="mi">1975</span><span class="o">-</span><span class="mo">05</span><span class="o">-</span><span class="mi">21</span> <span class="mi">22</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mo">00</span></code></pre></figure>
 
 <h3 id="image">2、Image类库</h3>
 
@@ -122,59 +124,52 @@ echo $yesterday;                         // 2015-11-10 00:00:00</p>
 <p>阮一峰网络日志 <a href="http://www.ruanyifeng.com/blog/2011/09/curl.html">http://www.ruanyifeng.com/blog/2011/09/curl.html</a></p>
 
 <ul>
-  <li>
-    <p><strong><em>curl -v</em></strong> 查看通信过程</p>
+  <li><strong><em>curl -v</em></strong> 查看通信过程</li>
+</ul>
 
-    <p><code class="language-none">~ curl -v www.sina.com</code></p>
-    <ul>
-      <li>Rebuilt URL to: www.sina.com/</li>
-      <li>Trying 202.108.33.71…</li>
-      <li>Connected to www.sina.com (202.108.33.71) port 80 (#0)
-        <blockquote>
-          <p>GET / HTTP/1.1
-Host: www.sina.com
-User-Agent: curl/7.43.0
-Accept: <em>/</em></p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">    ~ curl -v www.sina.com
+    <span class="k">*</span> Rebuilt URL to: www.sina.com/
+    <span class="k">*</span>   Trying 202.108.33.71...
+    <span class="k">*</span> Connected to www.sina.com <span class="o">(</span>202.108.33.71<span class="o">)</span> port 80 <span class="o">(</span><span class="c">#0)</span>
+    &gt; GET / HTTP/1.1
+    &gt; Host: www.sina.com
+    &gt; User-Agent: curl/7.43.0
+    &gt; Accept: <span class="k">*</span>/<span class="k">*</span>
+    &gt;
+    &lt; HTTP/1.1 301 Moved Permanently
+    &lt; Server: nginx
+    &lt; Date: Thu, 12 May 2016 11:57:45 GMT
+    &lt; Content-Type: text/html
+    &lt; Location: http://www.sina.com.cn/
+    &lt; Expires: Thu, 12 May 2016 11:59:45 GMT
+    &lt; Cache-Control: max-age<span class="o">=</span>120
+    &lt; Age: 49
+    &lt; Content-Length: 178
+    &lt; X-Cache: HIT from xd33-71.sina.com.cn
+    &lt;
+    &lt;html&gt;
+    &lt;head&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;
+    &lt;body <span class="nv">bgcolor</span><span class="o">=</span><span class="s2">"white"</span>&gt;
+    &lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;
+    &lt;hr&gt;&lt;center&gt;nginx&lt;/center&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    <span class="k">*</span> Connection <span class="c">#0 to host www.sina.com left intact</span>
+    </code></pre></figure>
 
-          <p>&lt; HTTP/1.1 301 Moved Permanently
-&lt; Server: nginx
-&lt; Date: Thu, 12 May 2016 11:57:45 GMT
-&lt; Content-Type: text/html
-&lt; Location: http://www.sina.com.cn/
-&lt; Expires: Thu, 12 May 2016 11:59:45 GMT
-&lt; Cache-Control: max-age=120
-&lt; Age: 49
-&lt; Content-Length: 178
-&lt; X-Cache: HIT from xd33-71.sina.com.cn
-&lt;</p>
-        </blockquote>
-      </li>
-    </ul>
-    <html>
-<head><title>301 Moved Permanently</title></head>
-<body bgcolor="white">
-<center><h1>301 Moved Permanently</h1></center>
-<hr /><center>nginx</center>
-</body>
-</html>
-    <ul>
-      <li>Connection #0 to host www.sina.com left intact&lt;/code&gt;</li>
-    </ul>
-  </li>
-  <li>
-    <p>表单通信</p>
-  </li>
+<ul>
+  <li>表单通信</li>
 </ul>
 
 <p><strong>GET</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;curl -X GET http://localhost/form.php?data=1&lt;/code&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -X GET http://localhost/form.php?data=1
 </code></pre>
 </div>
 
 <p><strong>POST</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;curl -X POST --data "data=1" http://localhost/form.php&lt;/code&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -X POST --data "data=1" http://localhost/form.php
 </code></pre>
 </div>
 

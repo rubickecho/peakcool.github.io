@@ -9,6 +9,7 @@
   <meta name="description" content="php中的数组array就是一个有序映射，把 value（值） 关联到 key（键）。">
 
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
   <link rel="canonical" href="http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/27/php-array.html">
   <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://bravelife.top/feed.xml" />
   <script src="/scripts/jquery-1.11.2.min.js"></script>
@@ -78,23 +79,35 @@
   <li>
     <p>array()函数声明数组</p>
 
-    <p><code class="language-none">php &gt; $arr = array('name' =&gt; 'Tom',1 =&gt; 'Hello');
+    <div class="highlighter-rouge"><pre class="highlight"><code>php &gt; $arr = array('name' =&gt; 'Tom',1 =&gt; 'Hello');
 php &gt; echo $arr['name'];
 Tom
 php &gt; echo $arr[1];
-Hello </code></p>
+Hello
+
+
+
+php &gt; $arr = array('name' =&gt; 'Tom',1 =&gt; 'Hello');
+php &gt; echo $arr['name'];
+Tom
+php &gt; echo $arr[1];
+Hello
+</code></pre>
+    </div>
   </li>
   <li>
     <p>直接为数组元素赋值</p>
 
-    <p><code class="language-none">php &gt; $arr['name'] = 'Tom';
+    <div class="highlighter-rouge"><pre class="highlight"><code>php &gt; $arr['name'] = 'Tom';
 php &gt; $arr[1] = 'World';
 php &gt; print_r($arr);
 Array
 (
     [name] =&gt; Tom
     [1] =&gt; World
-)</code></p>
+)
+</code></pre>
+    </div>
   </li>
 </ul>
 

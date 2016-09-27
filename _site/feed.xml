@@ -6,8 +6,8 @@
 </description>
     <link>http://bravelife.top/</link>
     <atom:link href="http://bravelife.top/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Sep 2016 22:01:59 +0800</pubDate>
-    <lastBuildDate>Mon, 26 Sep 2016 22:01:59 +0800</lastBuildDate>
+    <pubDate>Tue, 27 Sep 2016 17:28:35 +0800</pubDate>
+    <lastBuildDate>Tue, 27 Sep 2016 17:28:35 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -21,29 +21,30 @@
 &lt;h4 id=&quot;section&quot;&gt;用法：&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;引用&lt;/p&gt;
-
-    &lt;p&gt;&lt;code&gt;use Carbon\Carbon;&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;基本操作&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;echo (new Carbon('first day of December 2008'))-&amp;gt;addWeeks(2);     // 2008-12-15 00:00:00
-echo Carbon::parse('first day of December 2008')-&amp;gt;addWeeks(2);    // 2008-12-15 00:00:00&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;$now = Carbon::now();
-echo $now;                               // 2015-11-11 12:38:36
-$today = Carbon::today();
-echo $today;                             // 2015-11-11 00:00:00
-$tomorrow = Carbon::tomorrow(‘Europe/London’);
-echo $tomorrow;                          // 2015-11-12 00:00:00
-$yesterday = Carbon::yesterday();
-echo $yesterday;                         // 2015-11-10 00:00:00&lt;/p&gt;
-
-    &lt;p&gt;echo Carbon::createFromFormat(‘Y-m-d H’, ‘1975-05-21 22’)-&amp;gt;toDateTimeString(); // 1975-05-21 22:00:00&amp;lt;/code&amp;gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;引用&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;    use Carbon\Carbon;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;基本操作&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Carbon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'first day of December 2008'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addWeeks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;     &lt;span class=&quot;c1&quot;&gt;// 2008-12-15 00:00:00
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'first day of December 2008'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addWeeks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;// 2008-12-15 00:00:00
+&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$now&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                               &lt;span class=&quot;c1&quot;&gt;// 2015-11-11 12:38:36
+&lt;/span&gt;    &lt;span class=&quot;nv&quot;&gt;$today&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                             &lt;span class=&quot;c1&quot;&gt;// 2015-11-11 00:00:00
+&lt;/span&gt;    &lt;span class=&quot;nv&quot;&gt;$tomorrow&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;tomorrow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Europe/London'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$tomorrow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                          &lt;span class=&quot;c1&quot;&gt;// 2015-11-12 00:00:00
+&lt;/span&gt;    &lt;span class=&quot;nv&quot;&gt;$yesterday&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;yesterday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$yesterday&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;                         &lt;span class=&quot;c1&quot;&gt;// 2015-11-10 00:00:00
+&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Carbon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createFromFormat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Y-m-d H'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1975-05-21 22'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toDateTimeString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1975&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;05&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;image&quot;&gt;2、Image类库&lt;/h3&gt;
 
@@ -62,59 +63,52 @@ echo $yesterday;                         // 2015-11-10 00:00:00&lt;/p&gt;
 &lt;p&gt;阮一峰网络日志 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2011/09/curl.html&quot;&gt;http://www.ruanyifeng.com/blog/2011/09/curl.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;&lt;em&gt;curl -v&lt;/em&gt;&lt;/strong&gt; 查看通信过程&lt;/p&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;curl -v&lt;/em&gt;&lt;/strong&gt; 查看通信过程&lt;/li&gt;
+&lt;/ul&gt;
 
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;~ curl -v www.sina.com&lt;/code&gt;&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Rebuilt URL to: www.sina.com/&lt;/li&gt;
-      &lt;li&gt;Trying 202.108.33.71…&lt;/li&gt;
-      &lt;li&gt;Connected to www.sina.com (202.108.33.71) port 80 (#0)
-        &lt;blockquote&gt;
-          &lt;p&gt;GET / HTTP/1.1
-Host: www.sina.com
-User-Agent: curl/7.43.0
-Accept: &lt;em&gt;/&lt;/em&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    ~ curl -v www.sina.com
+    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Rebuilt URL to: www.sina.com/
+    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;   Trying 202.108.33.71...
+    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Connected to www.sina.com &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;202.108.33.71&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; port 80 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;#0)&lt;/span&gt;
+    &amp;gt; GET / HTTP/1.1
+    &amp;gt; Host: www.sina.com
+    &amp;gt; User-Agent: curl/7.43.0
+    &amp;gt; Accept: &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+    &amp;gt;
+    &amp;lt; HTTP/1.1 301 Moved Permanently
+    &amp;lt; Server: nginx
+    &amp;lt; Date: Thu, 12 May 2016 11:57:45 GMT
+    &amp;lt; Content-Type: text/html
+    &amp;lt; Location: http://www.sina.com.cn/
+    &amp;lt; Expires: Thu, 12 May 2016 11:59:45 GMT
+    &amp;lt; Cache-Control: max-age&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;120
+    &amp;lt; Age: 49
+    &amp;lt; Content-Length: 178
+    &amp;lt; X-Cache: HIT from xd33-71.sina.com.cn
+    &amp;lt;
+    &amp;lt;html&amp;gt;
+    &amp;lt;head&amp;gt;&amp;lt;title&amp;gt;301 Moved Permanently&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;
+    &amp;lt;body &lt;span class=&quot;nv&quot;&gt;bgcolor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;white&quot;&lt;/span&gt;&amp;gt;
+    &amp;lt;center&amp;gt;&amp;lt;h1&amp;gt;301 Moved Permanently&amp;lt;/h1&amp;gt;&amp;lt;/center&amp;gt;
+    &amp;lt;hr&amp;gt;&amp;lt;center&amp;gt;nginx&amp;lt;/center&amp;gt;
+    &amp;lt;/body&amp;gt;
+    &amp;lt;/html&amp;gt;
+    &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; Connection &lt;span class=&quot;c&quot;&gt;#0 to host www.sina.com left intact&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-          &lt;p&gt;&amp;lt; HTTP/1.1 301 Moved Permanently
-&amp;lt; Server: nginx
-&amp;lt; Date: Thu, 12 May 2016 11:57:45 GMT
-&amp;lt; Content-Type: text/html
-&amp;lt; Location: http://www.sina.com.cn/
-&amp;lt; Expires: Thu, 12 May 2016 11:59:45 GMT
-&amp;lt; Cache-Control: max-age=120
-&amp;lt; Age: 49
-&amp;lt; Content-Length: 178
-&amp;lt; X-Cache: HIT from xd33-71.sina.com.cn
-&amp;lt;&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;html&gt;
-&lt;head&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;
-&lt;body bgcolor=&quot;white&quot;&gt;
-&lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;
-&lt;hr /&gt;&lt;center&gt;nginx&lt;/center&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Connection #0 to host www.sina.com left intact&amp;lt;/code&amp;gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;表单通信&lt;/p&gt;
-  &lt;/li&gt;
+&lt;ul&gt;
+  &lt;li&gt;表单通信&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;strong&gt;GET&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;curl -X GET http://localhost/form.php?data=1&amp;lt;/code&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -X GET http://localhost/form.php?data=1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;POST&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;curl -X POST --data &quot;data=1&quot; http://localhost/form.php&amp;lt;/code&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -X POST --data &quot;data=1&quot; http://localhost/form.php
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -132,14 +126,12 @@ Accept: &lt;em&gt;/&lt;/em&gt;&lt;/p&gt;
         <title>PHP基础篇之变量常量</title>
         <description>&lt;p&gt;php中变量名都是跟在美元符号$后面,变量名由字母或者下划线开头，后面跟上任意数量的字母，数字，或者下划线。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $name = &quot;Tom&quot;;
-php &amp;gt; $NAME = &quot;Jack&quot;;
-php &amp;gt; echo $name;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Tom&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Jack&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;;
 Tom
-php &amp;gt; echo $NAME; //变量名区分大小写
-Jack&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$NAME&lt;/span&gt;; //变量名区分大小写
+Jack&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;section&quot;&gt;1. 变量的赋值&lt;/h4&gt;
 
@@ -149,14 +141,12 @@ Jack&amp;lt;/code&amp;gt;
 
 &lt;p&gt;当一个变量的值赋予另外一个变量时，改变其中一个变量的值，将不会影响到另外一个变量&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $a = 10;
-php &amp;gt; $b = $a;
-php &amp;gt; $a = 5;
-php &amp;gt; echo 'a的值为:'.$a.&quot;\n&quot;.'b的值为'.$b;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 10;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 5;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'a的值为:'&lt;/span&gt;.&lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;.&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;'b的值为'&lt;/span&gt;.&lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;;
 a的值为:5
-b的值为10&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+b的值为10&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;引用赋值&lt;/strong&gt;&lt;/li&gt;
@@ -164,16 +154,14 @@ b的值为10&amp;lt;/code&amp;gt;
 
 &lt;p&gt;改动新的变量将影响到原始变量，改变原始变量也会影响到新的变量，使用引用赋值需在变量名面前加&amp;amp;符号。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $a = 10;
-php &amp;gt; $b = $a;
-php &amp;gt; $c = &amp;amp;$a;
-php &amp;gt; $a = 5;
-php &amp;gt; echo &quot;a的值为$a\n&quot;.&quot;b的值为$b\n&quot;.&quot;c的值为$c&quot;;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 10;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &amp;amp;&lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 5;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a的值为&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;.&lt;span class=&quot;s2&quot;&gt;&quot;b的值为&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;.&lt;span class=&quot;s2&quot;&gt;&quot;c的值为&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$c&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;;
 a的值为5
 b的值为10
-c的值为5&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+c的值为5&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;2. 变量的操作&lt;/h4&gt;
 
@@ -185,13 +173,11 @@ c的值为5&amp;lt;/code&amp;gt;
 
 &lt;p&gt;如果$var存在即返回true，不存在返回false。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; var_dump(isset($sex));
-bool(false)
-php &amp;gt; $sex = &quot;man&quot;;
-php &amp;gt; var_dump(isset($sex));
-bool(true)&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;isset&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+bool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$sex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;man&quot;&lt;/span&gt;;
+php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;isset&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$sex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+bool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;是否为空&lt;/strong&gt;&lt;/li&gt;
@@ -201,12 +187,10 @@ bool(true)&amp;lt;/code&amp;gt;
 
 &lt;p&gt;如果$var是非空或者非零，返回false；” “、0、”0”、NULL、FALSE、array()，以及没有任何属性的对象都将被认为是空的，如果 var 为空，则返回 TRUE。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;bool(true)
-php &amp;gt; $name = &quot;Tom&quot;;
-php &amp;gt; var_dump(empty($name));
-bool(false)&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;bool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Tom&quot;&lt;/span&gt;;
+php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;empty&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+bool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;释放变量&lt;/strong&gt;&lt;/li&gt;
@@ -216,52 +200,47 @@ bool(false)&amp;lt;/code&amp;gt;
 
 &lt;p&gt;销毁指定变量$var。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $name = &quot;tom&quot;;
-php &amp;gt; var_dump(isset($name));
-bool(true)
-php &amp;gt; unset($name);
-php &amp;gt; var_dump(isset($name));
-bool(false)&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;tom&quot;&lt;/span&gt;;
+php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;isset&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+bool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;isset&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+bool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;section-2&quot;&gt;3. 全局变量&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;global 关键字&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;&lt;?php
-$a = 1;
-$b = 2;
-function Sum()
-{
-    global $a, $b;
-    $b = $a + $b;
-}
-Sum();
-echo $b;
-?&gt;&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;输出结果:3&amp;lt;/code&amp;gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;$GLOBALS 数组&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;&lt;?php
-$a = 1;
-$b = 2;
-function Sum()
-{
-    $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
-}
-Sum();
-echo $b;
-?&gt;&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;输出结果:3&amp;lt;/code&amp;gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;global 关键字&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;global&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;err&quot;&gt;输出结果&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;$GLOBALS 数组&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$GLOBALS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'b'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$GLOBALS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'a'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$GLOBALS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'b'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;err&quot;&gt;输出结果&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;section-3&quot;&gt;4. 静态变量&lt;/h4&gt;
 
@@ -269,23 +248,20 @@ echo $b;
 
 &lt;p&gt;静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值不丢失。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;function test()
-{
-    static $count = 0;
-    $count++;
-    echo $count;
-    if ($count &amp;lt; 10) {
-        test();
-    }
-    $count--;
-}
-test();
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 
-输出结果:12345678910&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;##&lt;/p&gt;
+    &lt;span class=&quot;err&quot;&gt;输出结果&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12345678910&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;section-4&quot;&gt;常量&lt;/h3&gt;
 
@@ -293,15 +269,13 @@ test();
 
 &lt;p&gt;&lt;strong&gt;定义常量:&lt;/strong&gt; define ( ‘标识符’ , ‘对应值’ )&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; define(&quot;NAME&quot;,'tom');
-php &amp;gt; echo NAME;
-tom&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; define&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;NAME&quot;&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'tom'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;NAME;
+tom&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;系统常量&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://www.rmogo.com/wp-content/uploads/2016/05/屏幕快照-2016-05-03-上午9.36.30.png&quot; alt=&quot;屏幕快照 2016-05-03 上午9.36.30&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://www.rmogo.com/wordpress/wp-content/uploads/2016/05/屏幕快照-2016-05-03-上午9.36.30.png&quot; alt=&quot;屏幕快照 2016-05-03 上午9.36.30&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 03 May 2016 10:00:34 +0800</pubDate>
         <link>http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/03/php-variable-constant.html</link>
@@ -320,23 +294,35 @@ tom&amp;lt;/code&amp;gt;
   &lt;li&gt;
     &lt;p&gt;array()函数声明数组&lt;/p&gt;
 
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom',1 =&amp;gt; 'Hello');
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom',1 =&amp;gt; 'Hello');
 php &amp;gt; echo $arr['name'];
 Tom
 php &amp;gt; echo $arr[1];
-Hello &lt;/code&gt;&lt;/p&gt;
+Hello
+
+
+
+php &amp;gt; $arr = array('name' =&amp;gt; 'Tom',1 =&amp;gt; 'Hello');
+php &amp;gt; echo $arr['name'];
+Tom
+php &amp;gt; echo $arr[1];
+Hello
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;直接为数组元素赋值&lt;/p&gt;
 
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr['name'] = 'Tom';
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &amp;gt; $arr['name'] = 'Tom';
 php &amp;gt; $arr[1] = 'World';
 php &amp;gt; print_r($arr);
 Array
 (
     [name] =&amp;gt; Tom
     [1] =&amp;gt; World
-)&lt;/code&gt;&lt;/p&gt;
+)
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 

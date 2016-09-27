@@ -21,34 +21,19 @@ Git地址: [https://github.com/briannesbitt/Carbon](https://github.com/briannesb
 
 #### 用法：
 
-
-
-
-
-
-    
   * 引用
 
+    {% highlight php %}
+    use Carbon\Carbon;
+    {% endhighlight %}
 
-
-
-    
-    <code>use Carbon\Carbon;</code>
-
-
-
-
-
-    
   * 基本操作
 
-
-
-
-    
-    <code class="language-none">echo (new Carbon('first day of December 2008'))->addWeeks(2);     // 2008-12-15 00:00:00
+{% highlight php %}
+<?php
+    echo (new Carbon('first day of December 2008'))->addWeeks(2);     // 2008-12-15 00:00:00
     echo Carbon::parse('first day of December 2008')->addWeeks(2);    // 2008-12-15 00:00:00
-    
+
     $now = Carbon::now();
     echo $now;                               // 2015-11-11 12:38:36
     $today = Carbon::today();
@@ -57,20 +42,13 @@ Git地址: [https://github.com/briannesbitt/Carbon](https://github.com/briannesb
     echo $tomorrow;                          // 2015-11-12 00:00:00
     $yesterday = Carbon::yesterday();
     echo $yesterday;                         // 2015-11-10 00:00:00
-    
-    echo Carbon::createFromFormat('Y-m-d H', '1975-05-21 22')->toDateTimeString(); // 1975-05-21 22:00:00</code>
 
-
-
-
-
-
+    echo Carbon::createFromFormat('Y-m-d H', '1975-05-21 22')->toDateTimeString(); // 1975-05-21 22:00:00
+{% endhighlight %}
 
 
 
 ### 2、Image类库
-
-
 
 Intervention Image 是一个PHP图片操作处理库，为图片创建、修改及压缩等处理提供了便捷方式。此外，还提供了服务提供者和门面以便集成到Laravel应用中。
 
@@ -78,33 +56,18 @@ Intervention Image 是一个PHP图片操作处理库，为图片创建、修改�
 
 Git地址: [https://github.com/Intervention/image](https://github.com/Intervention/image)
 
-
-
 #### 用法:
-
-
 
 Laravel学院: [http://laravelacademy.org/post/3585.html](http://laravelacademy.org/post/3585.html)
 
-
-
 ### 3、curl网站开发命令
-
-
 
 阮一峰网络日志 [http://www.ruanyifeng.com/blog/2011/09/curl.html](http://www.ruanyifeng.com/blog/2011/09/curl.html)
 
-
-
-
-    
   * **_curl -v_** 查看通信过程
 
-
-
-
-    
-    <code class="language-none">~ curl -v www.sina.com
+    {% highlight shell %}
+    ~ curl -v www.sina.com
     * Rebuilt URL to: www.sina.com/
     *   Trying 202.108.33.71...
     * Connected to www.sina.com (202.108.33.71) port 80 (#0)
@@ -131,34 +94,18 @@ Laravel学院: [http://laravelacademy.org/post/3585.html](http://laravelacademy.
     <hr><center>nginx</center>
     </body>
     </html>
-    * Connection #0 to host www.sina.com left intact</code>
+    * Connection #0 to host www.sina.com left intact
+    {% endhighlight %}
 
-
-
-
-
-    
   * 表单通信
 
 **GET**
 
-
-
-
+    curl -X GET http://localhost/form.php?data=1
     
-    <code>curl -X GET http://localhost/form.php?data=1</code>
-
-
-
-
-
 **POST**
 
-
-
-
-    
-    <code>curl -X POST --data "data=1" http://localhost/form.php</code>
+    curl -X POST --data "data=1" http://localhost/form.php
 
 
 
