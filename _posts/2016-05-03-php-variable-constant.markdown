@@ -170,4 +170,4 @@ tom
 
 **系统常量**
 
-![屏幕快照 2016-05-03 上午9.36.30](http://www.rmogo.com/wordpress/wp-content/uploads/2016/05/屏幕快照-2016-05-03-上午9.36.30.png)
+![常见"魔术"常量]({{ site.url }}/images/posts/php-constant.png)
