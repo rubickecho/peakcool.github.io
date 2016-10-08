@@ -73,24 +73,18 @@
         <p class="post-meta">Jan 9, 2016 • tangliangcheng</p>
     </header>
     <article class="post-content">
-        <blockquote>今天在更改wordpress固定链接后，点击文章便会出现找不到文章的404界面，在网上搜索一番后，发现是apache没有开启rewrite模块。
+        <p>今天在更改wordpress固定链接后，点击文章便会出现找不到文章的404界面，在网上搜索一番后，发现是apache没有开启rewrite模块。</p>
 
-![a](http://115.28.108.2/wordpress/wp-content/uploads/2016/01/a.png)
+<p>cd /etc/apache2/mods-enabled目录，ls -ltr 发现rewrite.load是日期最新的文件，证明rewrite是生效了，但是验证还是报404，然后网上搜索一番，并没有找到像网上说的那样</p>
 
-cd /etc/apache2/mods-enabled目录，ls -ltr 发现rewrite.load是日期最新的文件，证明rewrite是生效了，但是验证还是报404，然后网上搜索一番，并没有找到像网上说的那样
+<ul>
+  <li>方法1. 进入/etc/apache2/sites-enabled，修改000-default文件。在其中搜索AllowOverride，找到，将None改为All，保存退出。重启apache。</li>
+  <li>方法2. 进入apache的httpd.conf，在其中搜索AllowOverride，找到，将None改为All，保存退出。重启apache。</li>
+</ul>
 
-&gt; 
-&gt; 
-	
-&gt;   * 方法1. 进入/etc/apache2/sites-enabled，修改000-default文件。在其中搜索AllowOverride，找到，将None改为All，保存退出。重启apache。
-&gt; 
-	
-&gt;   * 方法2. 进入apache的httpd.conf，在其中搜索AllowOverride，找到，将None改为All，保存退出。重启apache。
-&gt; 
+<p>仔细确认之后，发现自己的apache2文件夹中根本没有以上方法中说的文件，最终确定在apache2.conf中找到了AllowOverride，此时按照网上方法将None更改为All（全部更改）</p>
 
-仔细确认之后，发现自己的apache2文件夹中根本没有以上方法中说的文件，最终确定在apache2.conf中找到了AllowOverride，此时按照网上方法将None更改为All（全部更改）</blockquote>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;&lt;Directory /&gt;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">&lt;Directory /&gt;
     Options FollowSymLinks
     AllowOverride All
     Require all denied
@@ -105,13 +99,10 @@ cd /etc/apache2/mods-enabled目录，ls -ltr 发现rewrite.load是日期最新�
         Options Indexes FollowSymLinks
         AllowOverride All
         Require all granted
-&lt;/Directory&gt;&lt;/code&gt;
-</code></pre>
-</div>
+&lt;/Directory&gt;</code></pre></figure>
 
 <p>此时打印出phpinfo，发现apache已经开启了rewrite模块，更改了固定链接之后也能正确跳转到文章。</p>
 
-<p><img src="http://115.28.108.2/wordpress/wp-content/uploads/2016/01/屏幕快照-2016-01-09-下午7.47.06.png" alt="屏幕快照 2016-01-09 下午7.47.06" /></p>
 
     </article>
     <!-- 多说评论框 start -->

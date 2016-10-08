@@ -74,336 +74,263 @@
     </header>
     <article class="post-content">
         <h3 id="canvas">1.canvas绘制</h3>
+<p><strong>步骤</strong></p>
 
-<blockquote>**步骤**
+<ul>
+  <li>添加canvas元素，定义id和范围</li>
+  <li>js里获取canvas元素</li>
+  <li>通过getContext()方法获取2D绘制环境</li>
+  <li>通过不同的函数进行图形绘制</li>
+</ul>
 
-&gt; 
-&gt; 
-	
-&gt;   * 添加canvas元素，定义id和范围
-&gt; 
-	
-&gt;   * js里获取canvas元素
-&gt; 
-	
-&gt;   * 通过getContext()方法获取2D绘制环境
-&gt; 
-	
-&gt;   * 通过不同的函数进行图形绘制
-&gt; 
+<p><strong>坐标定位</strong></p>
 
-**坐标定位**
+<ul>
+  <li>绘制的图形定位都是以canvas的左上角为(0,0)原点</li>
+</ul>
 
-&gt; 
-&gt; 
-	
-&gt;   * 绘制的图形定位都是以canvas的左上角为(0,0)原点
-&gt; 
+<p><strong>绘制直线</strong></p>
 
-**绘制直线**
+<ul>
+  <li>moveTo(): 规定起始点</li>
+  <li>lineTo(): 从起点绘制到规定坐标的直线</li>
+  <li>stroke(): 实现绘制直线的功能</li>
+  <li>fill(): 实现填充功能</li>
+</ul>
 
-&gt; 
-&gt; 
-	
-&gt;   * moveTo(): 规定起始点
-&gt; 
-	
-&gt;   * lineTo(): 从起点绘制到规定坐标的直线
-&gt; 
-	
-&gt;   * stroke(): 实现绘制直线的功能
-&gt; 
-	
-&gt;   * fill(): 实现填充功能
-&gt; 
+<p><strong>实例：绘制一个三角形</strong></p>
 
-**实例：绘制一个三角形**
+<p>html代码</p>
 
-html代码</blockquote>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"canvas"</span><span class="nt">&gt;&lt;/canvas&gt;</span>
+<span class="nt">&lt;/body&gt;</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;&lt;body&gt;
-    &lt;canvas id="canvas"&gt;&lt;/canvas&gt;
-&lt;/body&gt;&lt;/code&gt;
-</code></pre>
-</div>
+<p>js代码</p>
 
-<blockquote>js代码</blockquote>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span>  <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"canvas"</span><span class="p">);</span>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">800</span><span class="p">;</span>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">800</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">context</span>  <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'2d'</span><span class="p">);</span>
+  
+  <span class="nx">context</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">;</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">150</span><span class="p">,</span><span class="mi">50</span><span class="p">);</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+  <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+<span class="p">};</span></code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;window.onload = function(){
-  var canvas =  document.getElementById("canvas");
-  canvas.width = 800;
-  canvas.height = 800;
-  var context  = canvas.getContext('2d');
+<p><img src="http://upload-images.jianshu.io/upload_images/1429486-e1df180649622f1b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=" 1.png" /></p>
 
-  context.strokeStyle = "red";
-  context.moveTo(100, 100);
-  context.lineTo(200, 100);
-  context.lineTo(150,50);
-  context.lineTo(100,100);
-  context.stroke();
-};
+<p><strong>绘制矩形</strong></p>
 
-&lt;img src="http://115.28.108.2/wordpress/wp-content/uploads/2016/01/屏幕快照-2016-01-13-下午2.36.29.png" alt="屏幕快照 2016-01-13 下午2.36.29" height="160" class="alignnone size-full wp-image-121" width="227"&gt;&lt;/img&gt;
-&lt;/code&gt;
-</code></pre>
-</div>
+<ul>
+  <li>fillStyle():设置矩形填充颜色。</li>
+  <li>fillRect(x,y,width,height)。</li>
+  <li>strokeStyle():设置矩形轮廓颜色。</li>
+  <li>strokeRect(x,y,width,height)。</li>
+</ul>
 
-<blockquote>**绘制矩形**
+<p><strong>绘制圆形(弧形)</strong></p>
 
-&gt; 
-&gt; 
-	
-&gt;   * fillStyle():设置矩形填充颜色。
-&gt; 
-	
-&gt;   * fillRect(x,y,width,height)。
-&gt; 
-	
-&gt;   * strokeStyle():设置矩形轮廓颜色。
-&gt; 
-	
-&gt;   * strokeRect(x,y,width,height)。
-&gt; 
+<ul>
+  <li>beginPath():开始绘制路线</li>
+  <li>arc(x,y,radius,startAngle,endAngle,anticlockwise)
+设置绘制的中心点，半径，起始角度，结束角度和绘制方向。</li>
+</ul>
 
-**绘制圆形(弧形)**
+<p><strong>贝塞尔曲线</strong></p>
 
-&gt; 
-&gt; 
-	
-&gt;   * beginPath():开始绘制路线
-&gt; 
-	
-&gt;   * arc(x,y,radius,startAngle,endAngle,anticlockwise)
-设置绘制的中心点，半径，起始角度，结束角度和绘制方向。
-&gt; 
+<p>二次贝塞尔曲线</p>
 
-**贝塞尔曲线**
+<ul>
+  <li>quadraticCurveTo(cp1x,cp1y,x,y)
+cp1x,cp1y 表示一个控制点坐标;x,y代表终点坐标。</li>
+</ul>
 
-二次贝塞尔曲线
+<p>三次贝塞尔曲线</p>
 
-&gt; 
-&gt; 
-	
-&gt;   * quadraticCurveTo(cp1x,cp1y,x,y)
-cp1x,cp1y 表示一个控制点坐标;x,y代表终点坐标。
-&gt; 
-
-三次贝塞尔曲线
-
-	
-&gt;   * bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y)
+<ul>
+  <li>bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y)
 cp1x,cp1y和cp2x,cp2y分别代表
-两个控制点。
-&gt; 
+两个控制点。</li>
+</ul>
 
-**实例1：绘制一个五角星**</blockquote>
+<p><strong>实例1：绘制一个五角星</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;window.onload = function() {
-    var canvas = document.getElementById("canvas");
-    var context = canvas.getContext('2d');
-    drawStar(context, 120, 120, 80, 30, 10, "yellow", 0);
-}
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"canvas"</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'2d'</span><span class="p">);</span>
+    <span class="nx">drawStar</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
 
-function drawStar(context, x, y, R, r, width, color, rotation) {
+<span class="kd">function</span> <span class="nx">drawStar</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">R</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">width</span><span class="p">,</span> <span class="nx">color</span><span class="p">,</span> <span class="nx">rotation</span><span class="p">)</span> <span class="p">{</span>
 
-    context.beginPath();
-    for (var i = 0; i &lt; 5; i++) {
-        context.lineTo(Math.cos((18 + i * 72 - rotation) / 180 * Math.PI) * R + x, -Math.sin((18 + i * 72 - rotation) / 180 * Math.PI) * R + y);
-        context.lineTo(Math.cos((54 + i * 72 - rotation) / 180 * Math.PI) * r + x, -Math.sin((54 + i * 72 - rotation) / 180 * Math.PI) * r + y);
-    }
-    context.closePath();
-    context.lineWidth = width;
-    context.fillStyle = color;
-    context.fill();
-}
+    <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">((</span><span class="mi">18</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">72</span> <span class="o">-</span> <span class="nx">rotation</span><span class="p">)</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span> <span class="o">*</span> <span class="nx">R</span> <span class="o">+</span> <span class="nx">x</span><span class="p">,</span> <span class="o">-</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">((</span><span class="mi">18</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">72</span> <span class="o">-</span> <span class="nx">rotation</span><span class="p">)</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span> <span class="o">*</span> <span class="nx">R</span> <span class="o">+</span> <span class="nx">y</span><span class="p">);</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">lineTo</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">cos</span><span class="p">((</span><span class="mi">54</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">72</span> <span class="o">-</span> <span class="nx">rotation</span><span class="p">)</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span> <span class="o">*</span> <span class="nx">r</span> <span class="o">+</span> <span class="nx">x</span><span class="p">,</span> <span class="o">-</span><span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">((</span><span class="mi">54</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">*</span> <span class="mi">72</span> <span class="o">-</span> <span class="nx">rotation</span><span class="p">)</span> <span class="o">/</span> <span class="mi">180</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">)</span> <span class="o">*</span> <span class="nx">r</span> <span class="o">+</span> <span class="nx">y</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="nx">width</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
 
-&lt;img src="http://115.28.108.2/wordpress/wp-content/uploads/2016/01/屏幕快照-2016-01-13-下午9.16.40.png" alt="屏幕快照 2016-01-13 下午9.16.40" height="198" class="alignnone size-full wp-image-122" width="199"&gt;&lt;/img&gt;
-&lt;/code&gt;
-</code></pre>
-</div>
+<p><img src="http://upload-images.jianshu.io/upload_images/1429486-d0eaf643294c41d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.png" /></p>
 
-<blockquote>**实例2:绘制宝马标志**</blockquote>
+<p><strong>实例2:绘制宝马标志</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;window.onload = function() {
-    var canvas = document.getElementById("canvas");
-    canvas.width = 800;
-    canvas.height = 800;
-    var context = canvas.getContext('2d');
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"canvas"</span><span class="p">);</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span> <span class="o">=</span> <span class="mi">800</span><span class="p">;</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span> <span class="o">=</span> <span class="mi">800</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">context</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s1">'2d'</span><span class="p">);</span>
 
-    //圆心坐标x,y  内圆半径r  外圆半径R
-    var x = 100;
-    var y = 100;
-    var r = 100;
-    var R = r + 50;
-    var colors = Array("#87CEFA", "#FAFAFA", "#000");
+    <span class="c1">//圆心坐标x,y  内圆半径r  外圆半径R</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">R</span> <span class="o">=</span> <span class="nx">r</span> <span class="o">+</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="s2">"#87CEFA"</span><span class="p">,</span> <span class="s2">"#FAFAFA"</span><span class="p">,</span> <span class="s2">"#000"</span><span class="p">);</span>
 
-    context.beginPath();
-    context.translate(100, 100);
-    context.arc(x, y, R, 0, Math.PI * 2);
-    line_gra = context.createLinearGradient(-10, -10,20, 50);
-    line_gra.addColorStop(0, "#ddd");
-    line_gra.addColorStop(1, "#262626");
-    context.lineWidth = 3;
-    context.strokeStyle = "#000";
-    context.fillStyle = line_gra;
-    context.closePath();
-    context.stroke();
-    context.fill();
+    <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">R</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nx">line_gra</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">createLinearGradient</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+    <span class="nx">line_gra</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"#ddd"</span><span class="p">);</span>
+    <span class="nx">line_gra</span><span class="p">.</span><span class="nx">addColorStop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"#262626"</span><span class="p">);</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="s2">"#000"</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">line_gra</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+    
+    <span class="nx">drawBigRound</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="s2">"#ADD8E6"</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+    <span class="nx">drawBm</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">colors</span><span class="p">);</span>
+    <span class="nx">drawBigRound</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"#9FB6CD"</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
 
-    drawBigRound(context, x, y, r, 53, "#ADD8E6", 7);
-    drawBm(context, x, y, r, colors);
-    drawBigRound(context, x, y, r, 3, "#9FB6CD", 5);
+    <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="s2">"#fff"</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="s2">"bold 40px verdana"</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">"M"</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">);</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">6</span><span class="p">);</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">"W"</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="o">-</span><span class="mi">75</span><span class="p">);</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">));</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="s2">"B"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">35</span><span class="p">);</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
 
-    context.beginPath();
-    context.fillStyle = "#fff";
-    context.font = "bold 40px verdana";
-    context.fillText("M", 80, -10);
-    context.rotate(Math.PI / 6);
-    context.fillText("W", 125, -75);
-    context.rotate(-(Math.PI / 2));
-    context.fillText("B", 0, 35);
-    context.restore();
+<span class="p">}</span>
 
-}
+<span class="kd">function</span> <span class="nx">drawBm</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">colors</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">color</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">moveTo</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="nx">i</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">color</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">color</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">fillStyle</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">fill</span><span class="p">();</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+    <span class="p">}</span>
 
-function drawBm(context, x, y, r, colors) {
-    var color;
-    for (var i = 0; i &lt; 4; i++) {
-        context.beginPath();
-        context.moveTo(x, y);
-        context.arc(x, y, r, Math.PI * i / 2, Math.PI * (i + 1) / 2);
-        if (i == 0 || i == 2) {
-            color = colors[0];
-        } else {
-            color = colors[1];
-        }
-        context.fillStyle = color;
-        context.lineWidth = 2;
-        context.strokeStyle = colors[2];
-        context.closePath();
-        context.fill();
-        context.stroke();
-    }
+<span class="p">}</span>
 
-}
+<span class="kd">function</span> <span class="nx">drawBigRound</span><span class="p">(</span><span class="nx">context</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">addr</span><span class="p">,</span> <span class="nx">color</span><span class="p">,</span> <span class="nx">lineWidth</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">beginPath</span><span class="p">();</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">arc</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">r</span> <span class="o">+</span> <span class="nx">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">lineWidth</span> <span class="o">=</span> <span class="nx">lineWidth</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">strokeStyle</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">closePath</span><span class="p">();</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">stroke</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
 
-function drawBigRound(context, x, y, r, addr, color, lineWidth) {
-    context.beginPath();
-    context.arc(x, y, r + addr, 0, Math.PI * 2);
-    context.lineWidth = lineWidth;
-    context.strokeStyle = color;
-    context.closePath();
-    context.stroke();
-}
-
-&lt;img src="http://115.28.108.2/wordpress/wp-content/uploads/2016/01/屏幕快照-2016-01-13-下午9.18.14.png" alt="屏幕快照 2016-01-13 下午9.18.14" height="323" class="alignnone size-full wp-image-123" width="317"&gt;&lt;/img&gt;
-&lt;/code&gt;
-</code></pre>
-</div>
+<p><img src="http://upload-images.jianshu.io/upload_images/1429486-d62aee86aa095730.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="bm.png" /></p>
 
 <h3 id="css3--box-shadow">2.CSS3 阴影 box-shadow</h3>
 
-<blockquote>**box-shadow: h-shadow v-shadow blur spread color inset;**
+<p><strong>box-shadow: h-shadow v-shadow blur spread color inset;</strong></p>
 
-&gt; 
-&gt; 
-	
-&gt;   * h-shadow 必需。水平阴影的位置。允许负值。
-&gt; 
-	
-&gt;   * v-shadow 必需。垂直阴影的位置。允许负值。
-&gt; 
-	
-&gt;   * blur 可选。模糊距离。
-&gt; 
-	
-&gt;   * spread 可选。阴影的尺寸。
-&gt; 
-	
-&gt;   * color 可选。阴影的颜色。请参阅 CSS 颜色值。
-&gt; 
-	
-&gt;   * inset 可选。将外部阴影 (outset) 改为内部阴影。
-&gt; 
-
-</blockquote>
+<ul>
+  <li>h-shadow     必需。水平阴影的位置。允许负值。</li>
+  <li>v-shadow     必需。垂直阴影的位置。允许负值。</li>
+  <li>blur     可选。模糊距离。</li>
+  <li>spread   可选。阴影的尺寸。</li>
+  <li>color    可选。阴影的颜色。请参阅 CSS 颜色值。</li>
+  <li>inset    可选。将外部阴影 (outset) 改为内部阴影。</li>
+</ul>
 
 <h3 id="css3-transform">3.CSS3 transform属性</h3>
 
-<blockquote>**transform: none|transform-functions;**
+<table>
+  <tbody>
+    <tr>
+      <td>**transform: none</td>
+      <td>transform-functions;**</td>
+    </tr>
+  </tbody>
+</table>
 
-&gt; 
-&gt; 
-	
-&gt;   * transform:rotate()： 旋转,deg是度的意思
+<ul>
+  <li>
+    <p>transform:rotate()： 旋转,deg是度的意思</p>
 
-&gt;     
-&gt;     <code class="language-none">  transform: rotate(-10deg);</code>
-&gt; 
-&gt; 
+    <div class="highlighter-rouge"><pre class="highlight"><code>  transform: rotate(-10deg);
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>transform:skew()： 倾斜</p>
 
-&gt; 
-	
-&gt;   * transform:skew()： 倾斜
+    <div class="highlighter-rouge"><pre class="highlight"><code>  transform:skew(20deg);
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>transform:scale()： 缩放,x方向2倍，y方向1.5倍</p>
 
-&gt;     
-&gt;     <code class="language-none">  transform:skew(20deg);</code>
-&gt; 
-&gt; 
+    <div class="highlighter-rouge"><pre class="highlight"><code>  transform: scale(2, 1.5);
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>transform:translate()： 平移,x方向平移120px，y方向平移10px</p>
 
-&gt; 
-	
-&gt;   * transform:scale()： 缩放,x方向2倍，y方向1.5倍
-
-&gt;     
-&gt;     <code class="language-none">  transform: scale(2, 1.5);</code>
-&gt; 
-&gt; 
-
-&gt; 
-	
-&gt;   * transform:translate()： 平移,x方向平移120px，y方向平移10px
-
-&gt;     
-&gt;     <code class="language-none">  transform:translate(120px,10px);</code>
-&gt; 
-&gt; 
-
-&gt; 
-
-</blockquote>
+    <div class="highlighter-rouge"><pre class="highlight"><code>  transform:translate(120px,10px);
+</code></pre>
+    </div>
+  </li>
+</ul>
 
 <h3 id="css3-transtion">4.CSS3 transtion属性</h3>
 
-<blockquote>**transition: property duration timing-function delay;**
+<p><strong>transition: property duration timing-function delay;</strong></p>
 
-&gt; 
-&gt; 
-	
-&gt;   * transition-property 规定设置过渡效果的 CSS 属性的名称。
-&gt; 
-	
-&gt;   * transition-duration 规定完成过渡效果需要多少秒或毫秒。
-&gt; 
-	
-&gt;   * transition-timing-function 规定速度效果的速度曲线。
-&gt; 
-	
-&gt;   * transition-delay 定义过渡效果何时开始。
-&gt; 
+<ul>
+  <li>transition-property  规定设置过渡效果的 CSS 属性的名称。</li>
+  <li>transition-duration  规定完成过渡效果需要多少秒或毫秒。</li>
+  <li>transition-timing-function   规定速度效果的速度曲线。</li>
+  <li>transition-delay     定义过渡效果何时开始。</li>
+</ul>
 
-</blockquote>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;div
-{
-    width:100px;
-    transition: width 2s;
-    -moz-transition: width 2s; /* Firefox 4 */
-    -webkit-transition: width 2s; /* Safari 和 Chrome */
-    -o-transition: width 2s; /* Opera */
-}&lt;/code&gt;
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">div</span>
+<span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span><span class="m">100px</span><span class="p">;</span>
+    <span class="nl">transition</span><span class="p">:</span> <span class="n">width</span> <span class="m">2s</span><span class="p">;</span>
+    <span class="nl">-moz-transition</span><span class="p">:</span> <span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Firefox 4 */</span>
+    <span class="nl">-webkit-transition</span><span class="p">:</span> <span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Safari 和 Chrome */</span>
+    <span class="nl">-o-transition</span><span class="p">:</span> <span class="n">width</span> <span class="m">2s</span><span class="p">;</span> <span class="c">/* Opera */</span>
+<span class="p">}</span></code></pre></figure>
 
     </article>
     <!-- 多说评论框 start -->

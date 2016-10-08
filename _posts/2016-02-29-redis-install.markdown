@@ -23,41 +23,39 @@ Redis的版本选取目前的稳定版本是2.8.9。客户端选用了Redis的ja
 
 a.进入root目录，并下载redis的安装包
 
-    
-    <code>$ wget http://labfile.oss.aliyuncs.com/files0422/redis-2.8.9.tar.gz</code>
-
+{% highlight shell %}
+$ wget http://labfile.oss.aliyuncs.com/files0422/redis-2.8.9.tar.gz
+{% endhighlight %}
 
 b.在目录下，解压按照包生成的目录redis-2.8.9
 
-    
-    <code>$ tar xvfz redis-2.8.9.tar.gz   </code>
-
+{% highlight shell %}
+$ tar xvfz redis-2.8.9.tar.gz   
+{% endhighlight %}
 
 c.进入解压之后的目录进行编译
 
-    
-    <code class="language-none">$ cd redis-2.8.9
-    $ make</code>
-
+{% highlight shell %}
+$ cd redis-2.8.9
+$ make
+{% endhighlight %}
 
 d.进入src文件夹
 
-    
-    <code class="language-none">$ cp redis-server /usr/local/bin/
-    $ cp redis-cli /usr/local/bin/</code>
-
+{% highlight shell %}
+$ cp redis-server /usr/local/bin/
+$ cp redis-cli /usr/local/bin/
+{% endhighlight %}
 
 **测试redis的功能是否正常**
 
-    
-    <code>$ make test</code>
-
+{% highlight shell %}
+$ make test
+{% endhighlight %}
 
 在redis安装完成后，注意一些重要的文件。
 
 
-
-	
   * 服务端: src/redis-server
 
 	
@@ -69,15 +67,13 @@ d.进入src文件夹
 
 **启动redis-server**
 
-    
-    <code class="language-none">$ redis-server   //服务器端
-    $ redis-cli      //客户端</code>
-
+{% highlight shell %}
+$ redis-server   //服务器端
+$ redis-cli      //客户端
+{% endhighlight %}
 
 注意，启动redis-server后不要关闭终端，另外开一个终端窗口执行redis-cli。
 
-
-
-![屏幕快照 2016-02-29 上午10.01.03](http://115.28.108.2/wordpress/wp-content/uploads/2016/02/屏幕快照-2016-02-29-上午10.01.03.png)
+![reids启动服务]({{ site.url }}/images/posts/redis-serve.png)
 
 由图可知，启动的端口为缺省的6379。

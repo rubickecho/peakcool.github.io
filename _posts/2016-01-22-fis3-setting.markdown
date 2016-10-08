@@ -5,7 +5,7 @@ date: 2016-01-22 13:00:35+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/01/22/142/
 slug: fis3-setting
-title: FIS3的一些配置
+title: FIS3初学习
 excerpt: 初接触fis3，记录的一些基本配置.
 wordpress_id: 142
 categories:
@@ -20,77 +20,57 @@ categories:
 
 fis3刚开始学习的时候最感兴趣的是浏览器自动刷新，文件的压缩，下面是一些配置代码:
 
-
-
-	
   * js压缩
 
-    
-    <code class="language-none">fis.match('*.js', {
-        optimizer: fis.plugin('uglify-js')
-    });</code>
+{% highlight shell %}
+fis.match('*.js', {
+    optimizer: fis.plugin('uglify-js')
+});
+{% endhighlight %}
 
-
-
-
-	
   * css压缩
 
-    
-    <code class="language-none">fis.match('*.css', {
-        useSprite: true,
-        optimizer: fis.plugin('clean-css')
-    });</code>
+{% highlight shell %}
+fis.match('*.css', {
+    useSprite: true,
+    optimizer: fis.plugin('clean-css')
+});
+{% endhighlight %}
 
-
-
-
-	
   * png压缩
 
-    
-    <code class="language-none">fis.match('*.png', {
-        optimizer: fis.plugin('png-compressor')
-    });</code>
-
-
-
-
+{% highlight shell %}
+fis.match('*.png', {
+    optimizer: fis.plugin('png-compressor')
+});
+{% endhighlight %}
 	
   * 输出到指定目录
-
     
-    <code>fis3 release -d <path></code>
+{% highlight shell %}
+fis3 release -d <path>
+{% endhighlight %}
 
-
-
-
-	
   * 对css图片进行合并
 
-    
-    <code class="language-none">fis.match('*.css', {
-        useSprite: true
-    });</code>
+{% highlight shell %}
+fis.match('*.css', {
+    useSprite: true
+});
+{% endhighlight %}
 
-
-
-
-	
   * 浏览器自动刷新
 
-    
-    <code class="language-none">fis3 server start -p [8081]
-    fis3 release -wL</code>
+{% highlight shell %}
+fis3 server start -p [8081]
+fis3 release -wL
+{% endhighlight %}
 
 
 注:因为我自己电脑的server port是8080,所以我将fis3内置服务器port改成了8081
 
 
-[在执行命令是，需进入到项目文件夹内]
-
-![屏幕快照 2016-01-22 下午8.59.46](http://115.28.108.2/wordpress/wp-content/uploads/2016/01/屏幕快照-2016-01-22-下午8.59.46.png)
-
+***在执行命令时，需进入到项目文件夹内***
 
 
 * * *
