@@ -15,374 +15,242 @@ tags:
 
 php中的数组array就是一个有序映射，把 value（值） 关联到 key（键）。
 
-
-
-
   * array()函数声明数组
 
+{% highlight shell %}
+php > $arr = array('name' => 'Tom',1 => 'Hello');
+php > echo $arr['name'];
+Tom
+php > echo $arr[1];
+Hello
+{% endhighlight%}
 
-        php > $arr = array('name' => 'Tom',1 => 'Hello');
-        php > echo $arr['name'];
-        Tom
-        php > echo $arr[1];
-        Hello
+{% highlight shell %}
+php > $arr = array('name' => 'Tom',1 => 'Hello');
+php > echo $arr['name'];
+Tom
+php > echo $arr[1];
+Hello
+{% endhighlight%}
 
-
-    
-        php > $arr = array('name' => 'Tom',1 => 'Hello');
-        php > echo $arr['name'];
-        Tom
-        php > echo $arr[1];
-        Hello
-
-
-
-
-
-    
   * 直接为数组元素赋值
-
-
-
-
     
-        php > $arr['name'] = 'Tom';
-        php > $arr[1] = 'World';
-        php > print_r($arr);
-        Array
-        (
-            [name] => Tom
-            [1] => World
-        )
-
-
-
-
-
+{% highlight shell %}
+php > $arr['name'] = 'Tom';
+php > $arr[1] = 'World';
+php > print_r($arr);
+Array
+(
+    [name] => Tom
+    [1] => World
+)
+{% endhighlight %}
 
 
 **_Note:_**
 
-
-
-
-    
   1. 键(key)可以是一个整数(integer)或字符串(string),不能用数组和对象作为键(key)。这样做会导致一个警告：Illegal offset type。
 
-    
   2. 值(value) 可以是任意类型的值。
-
-
-
-
 
 #### 数组的简单操作
 
-
-
-
-
-
-    
   * 用方括号的语法新建／修改，即给变量名加上一对空的方括号（“[]”）
 
-    
   * 删除数组或删除数组的一个键名/值对，用unset()
 
+{% highlight shell %}
+php > $arr = array('name' => 'Tom','age' => 12);
+php > print_r($arr);
+Array
+(
+    [name] => Tom
+    [age] => 12
+)
+php > $arr['name'] = 'Jack';
+php > $arr['id'] = 999;
+php > print_r($arr);
+Array
+(
+    [name] => Jack
+    [age] => 12
+    [id] => 999
+)
+php > unset($arr);
+php > print_r($arr);
+
+Notice: Undefined variable: arr in php shell code on line 1 //未定义$arr
+{% endhighlight%}
 
 
-
-    
-    <code class="language-none">php > $arr = array('name' => 'Tom','age' => 12);
-    php > print_r($arr);
-    Array
-    (
-        [name] => Tom
-        [age] => 12
-    )
-    php > $arr['name'] = 'Jack';
-    php > $arr['id'] = 999;
-    php > print_r($arr);
-    Array
-    (
-        [name] => Jack
-        [age] => 12
-        [id] => 999
-    )
-    php > unset($arr);
-    php > print_r($arr);
-    
-    Notice: Undefined variable: arr in php shell code on line 1 //未定义$arr</code>
-
-
-
-
-
-    
   * 遍历数组foreach($array as $key => $value)
 
-
-
-
-    
-    <code class="language-none">php > $arr = array(1 => 'Tom', 2 => 'Jack', 3 => 'Lucy');
-    php > foreach($arr as $key => $value){
-            echo $key.'=>'.$value."\n";
-            }
-    1=>Tom
-    2=>Jack
-    3=>Lucy</code>
-
-
-
-
-
-
+{% highlight shell %}
+php > $arr = array(1 => 'Tom', 2 => 'Jack', 3 => 'Lucy');
+php > foreach($arr as $key => $value){
+        echo $key.'=>'.$value."\n";
+        }
+1=>Tom
+2=>Jack
+3=>Lucy
+{% endhighlight%}
 
 **_Note:_**
 
 unset()函数允许删除数组中的某个键，但要注意数组将不会重建索引。重建索引可以使用函数array_values()
 
-
-
-
-
-    
-    <code class="language-none">    php > $arr = array(1 => 'Tom', 2 => 'Jack', 3 => 'Lucy');
-        php > unset($arr[2]);
-        php > print_r($arr);
-        Array
-        (
-            [1] => Tom
-            [3] => Lucy
-        )
-        php > print_r(array_values($arr));
-        Array
-        (
-            [0] => Tom
-            [1] => Lucy
-        )</code>
-
-
-
-
-
-
-
+{% highlight shell %}
+php > $arr = array(1 => 'Tom', 2 => 'Jack', 3 => 'Lucy');
+php > unset($arr[2]);
+php > print_r($arr);
+Array
+(
+    [1] => Tom
+    [3] => Lucy
+)
+php > print_r(array_values($arr));
+Array
+(
+    [0] => Tom
+    [1] => Lucy
+)
+{% endhighlight%}
 
 #### 数组常用函数
 
-
-
-
-
-
-    
   * **array_combine** 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值array array_combine ( array $keys , array $values )
 
+{% highlight shell %}
+php > $arr = array('Tom','Jack','Lucy');
+php > $arr2 = array('football','basketball','tennis');
+php > print_r(array_combin($arr,$arr2));
+Array
+(
+    [Tom] => football
+    [Jack] => basketball
+    [Lucy] => tennis
+)
+{% endhighlight %}
 
-
-
-    
-    <code class="language-none">php > $arr = array('Tom','Jack','Lucy');
-    php > $arr2 = array('football','basketball','tennis');
-    php > print_r(array_combin($arr,$arr2));
-    Array
-    (
-        [Tom] => football
-        [Jack] => basketball
-        [Lucy] => tennis
-    )</code>
-
-
-
-
-
-    
   * **array_count_values** 统计数组中所有的值出现的次数array array_count_values ( array $input )
 
+{% highlight shell %}
+php > $arr = array('Tom','Jack','football','Jack','football');
+php > print_r(array_count_values($arr));
+Array
+(
+    [Tom] => 1
+    [Jack] => 2
+    [football] => 2
+)   
+{% endhighlight%}
 
-
-
-    
-    <code class="language-none">php > $arr = array('Tom','Jack','football','Jack','football');
-    php > print_r(array_count_values($arr));
-    Array
-    (
-        [Tom] => 1
-        [Jack] => 2
-        [football] => 2
-    )   </code>
-
-
-
-
-
-    
   * **array_diff** 计算数组的差集array array_diff ( array $array1 , array $array2 [, array $ ... ] )
 
-
-
-
-    
-    <code class="language-none">php > $arr = array('Tom','Jack','Lucy','Mark');
-    php > $arr2 = array('Jack','Tom','Mark');
-    php > print_r( array_diff($arr,$arr2));
-    Array
-    (
-        [2] => Lucy
-    )</code>
-
-
-
-
+{% highlight shell %}
+php > $arr = array('Tom','Jack','Lucy','Mark');
+php > $arr2 = array('Jack','Tom','Mark');
+php > print_r( array_diff($arr,$arr2));
+Array
+(
+    [2] => Lucy
+)
+{% endhighlight %}
 
 **_Note:_** array_diff()返回一个数组，该数组包括了所有在 $arr1 中但是不在任何其它参数数组中的值。注意键名保留不变。
 
-    
   * **array_flip** 交换数组中的键和值array array_flip ( array $trans )
 
-
-
-
-    
-    <code class="language-none">php > $arr = array('Tom' => 'football','Jack' => 'basketball','Lucy' =>         'tennis');
-    php > print_r (array_flip($arr));
-    Array
-    (
-        [football] => Tom
-        [basketball] => Jack
-        [tennis] => Lucy
-    )</code>
-
-
-
-
+{% highlight shell %}
+php > $arr = array('Tom' => 'football','Jack' => 'basketball','Lucy' =>         'tennis');
+php > print_r (array_flip($arr));
+Array
+(
+    [football] => Tom
+    [basketball] => Jack
+    [tennis] => Lucy
+)
+{% endhighlight %}
 
 **_Note:_** 如果同一个值出现多次，则最后一个键名将作为它的值，所有其它的都将丢失。
 
-    
   * **array_keys** 返回数组中所有的键名array array_keys ( array $input [, mixed $search_value [, bool $strict ]] )如果指定了可选参数 search_value，则只返回该值的键名。
 
+{% highlight shell %}
+php > $arr = array('Tom','Jack','football','Jack','football');
+php > print_r (array_keys($arr));
+Array
+(
+    [0] => 0
+    [1] => 1
+    [2] => 2
+    [3] => 3
+    [4] => 4
+)
+php > print_r (array_keys($arr,'football'));
+Array
+(
+    [0] => 2
+    [1] => 4
+)
+{% endhighlight %}
 
-
-
-    
-    <code class="language-none">php > $arr = array('Tom','Jack','football','Jack','football');
-    php > print_r (array_keys($arr));
-    Array
-    (
-        [0] => 0
-        [1] => 1
-        [2] => 2
-        [3] => 3
-        [4] => 4
-    )
-    php > print_r (array_keys($arr,'football'));
-    Array
-    (
-        [0] => 2
-        [1] => 4
-    )</code>
-
-
-
-
-
-    
   * **in_array** 检查数组中是否存在某个值bool in_array ( mixed $needle , array $haystack [, bool $strict ] )如果第三个参数 strict 的值为 TRUE 则 in_array() 函数还会检查 needle 的类型是否和 haystack 中的相同。
 
+{% highlight shell %}
+php > $arr = array('Tom','Jack','football');
+php > echo in_array('Tom',$arr);
+1 //1即表示true
+{% endhighlight %}
 
-
-
-    
-    <code class="language-none">php > $arr = array('Tom','Jack','football');
-    php > echo in_array('Tom',$arr);
-    1 //1即表示true</code>
-
-
-
-
-
-    
   * **array_merge** 合并一个或多个数组array array_merge ( array $array1 [, array $array2 [, array $... ]] )如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。
 
+{% highlight shell %}
+php > $arr = array('name' => 'Tom','age' => 12,6 => 'red');
+php > $arr2 = array('class' => 3, 6 => 'black');
+php > print_r ( array_merge($arr,$arr2));
+Array
+(
+    [name] => Tom
+    [age] => 12
+    [0] => red
+    [class] => 3
+    [1] => black
+)
+{% endhighlight %}
 
-
-
-    
-    <code class="language-none">php > $arr = array('name' => 'Tom','age' => 12,6 => 'red');
-    php > $arr2 = array('class' => 3, 6 => 'black');
-    php > print_r ( array_merge($arr,$arr2));
-    Array
-    (
-        [name] => Tom
-        [age] => 12
-        [0] => red
-        [class] => 3
-        [1] => black
-    )</code>
-
-
-
-
-
-    
   * **array_unique** 移除数组中重复的值array array_unique ( array $array )注意键名保留不变。
 
+{% highlight shell %}
+php > $arr = array('name' => 'Tom', 12,'name' => 'Jack','red','12');
+php > var_dump(array_unique($arr));
+array(3) {
+    ["name"] => string(4) "Jack"
+    [0] => int(12)
+    [1] => string(3) "red"
+}
+{% endhighlight %}
 
-
-
-    
-    <code class="language-none">php > $arr = array('name' => 'Tom', 12,'name' => 'Jack','red','12');
-    php > var_dump(array_unique($arr));
-    array(3) {
-        ["name"] => string(4) "Jack"
-        [0] => int(12)
-        [1] => string(3) "red"
-    }</code>
-
-
-
-
-
-    
   * **count** 计算数组中元素个数int count( $array )
 
+{% highlight shell %}
+php > $arr = array('Tom','Jack','Lucy');
+php > var_dump(count($arr));
+int(3)
+{% endhighlight%}
 
-
-
-    
-    <code class="language-none">php > $arr = array('Tom','Jack','Lucy');
-    php > var_dump(count($arr));
-    int(3)</code>
-
-
-
-
-
-    
   * **sort** 数组排序bool sort ( array &$array [, int $sort_flags ] )此函数将为 array 中的元素赋与新的键名。这将删除原有的键名，而不是仅仅将键名重新排序。成功返回true，失败返回false。
 
-
-
-
-    
-    <code class="language-none">$arr = array('Tom','Jack','Lucy');
-    sort($arr);
-    php > foreach($arr as $k => $v){ echo $k.' => '.$v."\n";}
-    0 => Jack
-    1 => Lucy
-    2 => Tom</code>
-
-
-
-
+{% highlight shell %}
+$arr = array('Tom','Jack','Lucy');
+sort($arr);
+php > foreach($arr as $k => $v){ echo $k.' => '.$v."\n";}
+0 => Jack
+1 => Lucy
+2 => Tom
+{% endhighlight%}
 
 **_Note:_** 对一些有混合类型的值的数组排序时要小心，sotr()会产生不可预知的效果。
-
-
-
 
 
 * * *

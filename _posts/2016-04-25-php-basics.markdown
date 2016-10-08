@@ -5,7 +5,7 @@ date: 2016-04-25 13:08:25+00:00
 layout: post
 link: http://www.rmogo.com/wordpress/2016/04/25/php%e4%b9%8b%e5%9f%ba%e7%a1%80%e7%af%871/
 slug: php-basics
-title: PHP之基础篇1
+title: PHP之基础语法
 wordpress_id: 427
 excerpt: php基础语法，数据类型，字符串常用方法整理。
 categories:
@@ -14,49 +14,20 @@ categories:
 
 ## 一. 基本语法
 
-
-
-
-
-
-    
   1. 开始结束标记: "<?php ?>"
 
-
-
-
-    
-    <code><?php echo "Hello World"?></code>
-
-
-
-
+    {% highlight php %}<?php echo "Hello World"?>{% endhighlight %}
 
 **Note：**文件末尾的 PHP 代码段结束标记"?>"可以不要，有些情况下当使用 include() 或者 require() 时省略掉会更好些。
 
-    
   2. 同java,c一样，php每个语句后需用分号 " ; " 结束。
-
-
-
-
 
 ### 二. 类型
 
-
-
-
-
 #### php支持的8种基本数据类型
-
-
 
 四种标量类型:
 
-
-
-
-    
   * boolean (布尔型)
 
     
@@ -69,133 +40,79 @@ categories:
   * float (浮点型)
 
 
-
 两种复合类型:
 
-
-    
   * array (数组型)
 
     
   * object (对象)
 
 
-
 两种特殊类型:
 
-
-    
   * resource (资源)
 
     
   * null (null)
 
-
-
 **Note：**
 
-
-
-
-    
   * var_dump() 查看表达式值和类型,is_type() 查看某个类型。
 
-    
   * 整数溢出,如果给定一个整数或运算结果得出的整数超出int范围(2^32)，将会解释会float。
-
-
-
 
 
 ### 三.字符串(string)
 
-
-
 **_声明字符串:_** 字符串通常用单引号或双引号定义。
 
 
-
-
-    
   1. 在单引号中的变量和特殊含义的字符不会被替换
 
+{% highlight shell %}
+php > $age = 12;
+php > echo "他很高\n他的年龄才$age";
+他很高
+他的年龄才12；
+php > echo '他很高\n他的年龄才$age';
+他很高\n他的年龄才$age;
+{% endhighlight %}
 
-
-
-    
-    <code class="language-none">php > $age = 12;
-    php > echo "他很高\n他的年龄才$age";
-    他很高
-    他的年龄才12；
-    php > echo '他很高\n他的年龄才$age';
-    他很高\n他的年龄才$age;</code>
-
-
-
-
-
-    
   2. 字符串可以用'.' (点) 操作符连接起来
 
+{% highlight shell %}
+php > echo "Hello,"."World";
+Hello,World
+{% endhighlight %}
 
-
-
-    
-    <code class="language-none">php > echo "Hello,"."World";
-    Hello,World</code>
-
-
-
-
-
-    
   3. 存取和修改字符串中的字符（类似于数组）
 
-
-
-
-    
-    <code class="language-none">php > $str = "Hello,World";
-    php > echo $str[1];
-    e
-    php > echo $str{0};
-    H</code>
-
-
-
-
-
-    
+{% highlight shell %}
+php > $str = "Hello,World";
+php > echo $str[1];
+e
+php > echo $str{0};
+H
+{% endhighlight %}
+ 
   4. 其他类型转换为字符串（string）
 
 在一个值前面加上(string)或者使用strval()函数来转换成字符串型。
 
-
-
-
-    
-    <code class="language-none">php > $age = 18;
-    php > var_dump($age);
-    int(18)
-    php > $str = (string)$age;
-    php > var_dump($str);
-    string(2) "18"</code>
-
-
-
-
-
-    
+{% highlight shell %}
+php > $age = 18;
+php > var_dump($age);
+int(18)
+php > $str = (string)$age;
+php > var_dump($str);
+string(2) "18"
+{% endhighlight %}
+ 
   5. 常用字符串函数
 
-
-
-
-    
   * 字符串替换
 
 str_replace ($search , $replace , $subject [, int &$count ])
-
 
 <blockquote>$search: 查找替换目标值
 
@@ -205,164 +122,106 @@ subject: 执行替换的数组或者字符串
 
 count: 控制匹配和替换的次数</blockquote>
 
-
-
-
-
-
-    
-    <code class="language-none">php > $str = "Hello,My name is Tom,what is your name?";
-    php > echo str_replace("name","nickname",$str);
-    Hello,My nickname is Tom,what is your nickname?</code>
-
-
-
-
-
-    
+{% highlight shell %}
+php > $str = "Hello,My name is Tom,what is your name?";
+php > echo str_replace("name","nickname",$str);
+Hello,My nickname is Tom,what is your nickname?
+{% endhighlight %}
+ 
   * 去掉字符串两边空格
 
 trim ($str)
 
-
 <blockquote>$str: 目标字符串</blockquote>
 
+{% highlight shell %}
+php > $str = "  Hello     ";
+php > echo trim($str);
+Hello
+{% endhighlight %}
 
-
-
-
-
-    
-    <code class="language-none">php > $str = "  Hello     ";
-    php > echo trim($str);
-    Hello</code>
-
-
-
-
-
-    
   * 去掉字符串中html和php标记
 
 strip_tags ($str)
 
-
 <blockquote>$str: 目标字符串</blockquote>
 
+{% highlight shell %}
+php > $str = "<td><p>Hello World</p></td>";
+php > echo strip_tags($str);
+Hello World
+{% endhighlight %}
 
-
-
-
-
-    
-    <code class="language-none">php > $str = "<td><p>Hello World</p></td>";
-    php > echo strip_tags($str);
-    Hello World</code>
-
-
-
-
-
-    
   * 将目标字符串重复多次
 
 str_repeat ($str,int $num)
-
 
 <blockquote>$str: 目标字符串
 
 $num: 重复次数</blockquote>
 
+{% highlight shell %}
+php > $str = "Hello World!!";
+php > echo str_repeat($str,5);
+Hello World!!Hello World!!Hello World!!Hello World!!Hello World!!
+{% endhighlight %}
 
-
-
-
-
-    
-    <code class="language-none">php > $str = "Hello World!!";
-    php > echo str_repeat($str,5);
-    Hello World!!Hello World!!Hello World!!Hello World!!Hello World!!</code>
-
-
-
-
-
-    
   * 返回字符串长度
 
 strlen ($str)
 
-
 <blockquote>$str: 目标字符串</blockquote>
 
+{% highlight shell %}
+php > $str = "Hello World";
+php > echo strlen($str);
+11
+{% endhighlight %}
 
-
-
-
-
-    
-    <code class="language-none">php > $str = "Hello World";
-    php > echo strlen($str);
-    11</code>
-
-
-
-
-
-    
   * 计算字串出现的次数
 
 substr_count (string $haystack , string $needle )
-
 
 <blockquote>$haystack: 目标字符串
 
 $needle: 查找出现次数的字符串</blockquote>
 
-
-
-
-
-
-    
-    <code class="language-none">php > $str = "Hello World,Hello China";
-    php > echo substr_count($str,"Hello");
-    2</code>
-
-
-
-
-
-    
+{% highlight shell %}
+php > $str = "Hello World,Hello China";
+php > echo substr_count($str,"Hello");
+2
+{% endhighlight %}
+ 
   * 截取字符串
 
 substr ( string $string , int $start [, int $length ] )
 
-
 <blockquote>$string: 目标字符串
 
-$start: 如果 start 是非负数，返回的字符串将从 string 的 start 位置开始，从 0 开始计算。如果 start 是负数，返回的字符串将从 string 结尾处向前数第 start 个字符开始。如果string 的长度小于或等于 start，将返回 FALSE。
+$start: 如果 start 是非负数，返回的字符串将从 string 的 start 位置开始，从 0 开始计算。
+如果 start 是负数，返回的字符串将从 string 结尾处向前数第 start 个字符开始。如果string 的长度小于或等于 start，将返回 FALSE。
 
-$length: 1.如果提供了正数的 length，返回的字符串将从 start 处开始最多包括 length 个字符（取决于 string 的长度）。2.如果提供了负数的 length，那么 string 末尾处的许多字符将会被漏掉（若 start 是负数则从字符串尾部算起）。3.如果 start 不在这段文本中，那么将返回一个空字符串。4.如果提供了值为 0，FALSE 或 NULL 的 length，那么将返回一个空字符串。5.如果没有提供 length，返回的子字符串将从 start 位置开始直到字符串结尾。</blockquote>
+$length: 
+1.如果提供了正数的 length，返回的字符串将从 start 处开始最多包括 length 个字符（取决于 string 的长度）。
 
+2.如果提供了负数的 length，那么 string 末尾处的许多字符将会被漏掉（若 start 是负数则从字符串尾部算起）。
 
+3.如果 start 不在这段文本中，那么将返回一个空字符串。
 
+4.如果提供了值为 0，FALSE 或 NULL 的 length，那么将返回一个空字符串。
 
+5.如果没有提供 length，返回的子字符串将从 start 位置开始直到字符串结尾。</blockquote>
 
-
-    
-    <code class="language-none">php > $str = "Hello,World";
-    php > echo substr($str,1);
-    ello,World
-    php > echo substr($str,1,3);
-    ell
-    php > echo substr($str,1,-3);
-    ello,Wo
-    php > echo substr($str,1,10);
-    ello,World</code>
-
-
-
-
+{% highlight shell %}
+php > $str = "Hello,World";
+php > echo substr($str,1);
+ello,World
+php > echo substr($str,1,3);
+ell
+php > echo substr($str,1,-3);
+ello,Wo
+php > echo substr($str,1,10);
+ello,World
+{% endhighlight %}
 
 

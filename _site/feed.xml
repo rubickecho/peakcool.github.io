@@ -6,8 +6,8 @@
 </description>
     <link>http://bravelife.top/</link>
     <atom:link href="http://bravelife.top/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 27 Sep 2016 17:37:27 +0800</pubDate>
-    <lastBuildDate>Tue, 27 Sep 2016 17:37:27 +0800</lastBuildDate>
+    <pubDate>Sat, 08 Oct 2016 22:29:41 +0800</pubDate>
+    <lastBuildDate>Sat, 08 Oct 2016 22:29:41 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -273,7 +273,7 @@ bool&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&
 php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;NAME;
 tom&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;&lt;strong&gt;系统常量&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;常见”魔术”常量&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://bravelife.top/images/posts/php-constant.png&quot; alt=&quot;常见&amp;quot;魔术&amp;quot;常量&quot; /&gt;&lt;/p&gt;
 </description>
@@ -291,40 +291,33 @@ tom&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         <description>&lt;p&gt;php中的数组array就是一个有序映射，把 value（值） 关联到 key（键）。&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;array()函数声明数组&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom',1 =&amp;gt; 'Hello');
-php &amp;gt; echo $arr['name'];
-Tom
-php &amp;gt; echo $arr[1];
-Hello
-
-
-
-php &amp;gt; $arr = array('name' =&amp;gt; 'Tom',1 =&amp;gt; 'Hello');
-php &amp;gt; echo $arr['name'];
-Tom
-php &amp;gt; echo $arr[1];
-Hello
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;直接为数组元素赋值&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &amp;gt; $arr['name'] = 'Tom';
-php &amp;gt; $arr[1] = 'World';
-php &amp;gt; print_r($arr);
-Array
-(
-    [name] =&amp;gt; Tom
-    [1] =&amp;gt; World
-)
-&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
+  &lt;li&gt;array()函数声明数组&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Hello'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;;
+Tom
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1];
+Hello&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Hello'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;;
+Tom
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1];
+Hello&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;直接为数组元素赋值&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'World'&lt;/span&gt;;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;name] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Tom
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; World
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
@@ -345,194 +338,194 @@ Array
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;删除数组或删除数组的一个键名/值对，用unset()&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom','age' =&amp;gt; 12);
-php &amp;gt; print_r($arr);
-Array
-(
-    [name] =&amp;gt; Tom
-    [age] =&amp;gt; 12
-)
-php &amp;gt; $arr['name'] = 'Jack';
-php &amp;gt; $arr['id'] = 999;
-php &amp;gt; print_r($arr);
-Array
-(
-    [name] =&amp;gt; Jack
-    [age] =&amp;gt; 12
-    [id] =&amp;gt; 999
-)
-php &amp;gt; unset($arr);
-php &amp;gt; print_r($arr);&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;Notice: Undefined variable: arr in php shell code on line 1 //未定义$arr&amp;lt;/code&amp;gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;遍历数组foreach($array as $key =&amp;gt; $value)&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array(1 =&amp;gt; 'Tom', 2 =&amp;gt; 'Jack', 3 =&amp;gt; 'Lucy');
-php &amp;gt; foreach($arr as $key =&amp;gt; $value){
-        echo $key.'=&amp;gt;'.$value.&quot;\n&quot;;
-        }
-1=&amp;gt;Tom
-2=&amp;gt;Jack
-3=&amp;gt;Lucy&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'age'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 12&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;name] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Tom
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;age] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 12
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 999;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;name] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Jack
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;age] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 12
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;id] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 999
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+
+Notice: Undefined variable: arr &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;php shell code on line 1 //未定义&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;遍历数组foreach($array as $key =&amp;gt; $value)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;, 2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;, 3 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Lucy'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; foreach&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; as &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;'=&amp;gt;'&lt;/span&gt;.&lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;.&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt;Tom
+&lt;span class=&quot;nv&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt;Jack
+&lt;span class=&quot;nv&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt;Lucy&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;unset()函数允许删除数组中的某个键，但要注意数组将不会重建索引。重建索引可以使用函数array_values()&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;    php &amp;gt; $arr = array(1 =&amp;gt; 'Tom', 2 =&amp;gt; 'Jack', 3 =&amp;gt; 'Lucy');
-    php &amp;gt; unset($arr[2]);
-    php &amp;gt; print_r($arr);
-    Array
-    (
-        [1] =&amp;gt; Tom
-        [3] =&amp;gt; Lucy
-    )
-    php &amp;gt; print_r(array_values($arr));
-    Array
-    (
-        [0] =&amp;gt; Tom
-        [1] =&amp;gt; Lucy
-    )&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;, 2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;, 3 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Lucy'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;unset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2]&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Tom
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;3] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Lucy
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;array_values&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;0] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Tom
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Lucy
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;数组常用函数&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;array_combine&lt;/strong&gt; 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值array array_combine ( array $keys , array $values )&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','Lucy');
-php &amp;gt; $arr2 = array('football','basketball','tennis');
-php &amp;gt; print_r(array_combin($arr,$arr2));
-Array
-(
-    [Tom] =&amp;gt; football
-    [Jack] =&amp;gt; basketball
-    [Lucy] =&amp;gt; tennis
-)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;array_count_values&lt;/strong&gt; 统计数组中所有的值出现的次数array array_count_values ( array $input )&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','football','Jack','football');
-php &amp;gt; print_r(array_count_values($arr));
-Array
-(
-    [Tom] =&amp;gt; 1
-    [Jack] =&amp;gt; 2
-    [football] =&amp;gt; 2
-)   &lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;array_diff&lt;/strong&gt; 计算数组的差集array array_diff ( array $array1 , array $array2 [, array $ … ] )&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','Lucy','Mark');
-php &amp;gt; $arr2 = array('Jack','Tom','Mark');
-php &amp;gt; print_r( array_diff($arr,$arr2));
-Array
-(
-    [2] =&amp;gt; Lucy
-)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;array_combine&lt;/strong&gt; 创建一个数组，用一个数组的值作为其键名，另一个数组的值作为其值array array_combine ( array $keys , array $values )&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Lucy'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'football'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'basketball'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'tennis'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;array_combin&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$arr2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Tom] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; football
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Jack] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; basketball
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Lucy] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; tennis
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;array_count_values&lt;/strong&gt; 统计数组中所有的值出现的次数array array_count_values ( array $input )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'football'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'football'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;array_count_values&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Tom] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 1
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Jack] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 2
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;football] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 2
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;   &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;array_diff&lt;/strong&gt; 计算数组的差集array array_diff ( array $array1 , array $array2 [, array $ … ] )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Lucy'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Mark'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Mark'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; array_diff&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$arr2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Lucy
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; array_diff()返回一个数组，该数组包括了所有在 $arr1 中但是不在任何其它参数数组中的值。注意键名保留不变。&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;array_flip&lt;/strong&gt; 交换数组中的键和值array array_flip ( array $trans )&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom' =&amp;gt; 'football','Jack' =&amp;gt; 'basketball','Lucy' =&amp;gt;         'tennis');
-php &amp;gt; print_r (array_flip($arr));
-Array
-(
-    [football] =&amp;gt; Tom
-    [basketball] =&amp;gt; Jack
-    [tennis] =&amp;gt; Lucy
-)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;array_flip&lt;/strong&gt; 交换数组中的键和值array array_flip ( array $trans )&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'football'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'basketball'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Lucy'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt;         &lt;span class=&quot;s1&quot;&gt;'tennis'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;array_flip&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;football] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Tom
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;basketball] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Jack
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;tennis] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Lucy
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; 如果同一个值出现多次，则最后一个键名将作为它的值，所有其它的都将丢失。&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;array_keys&lt;/strong&gt; 返回数组中所有的键名array array_keys ( array $input [, mixed $search_value [, bool $strict ]] )如果指定了可选参数 search_value，则只返回该值的键名。&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','football','Jack','football');
-php &amp;gt; print_r (array_keys($arr));
-Array
-(
-    [0] =&amp;gt; 0
-    [1] =&amp;gt; 1
-    [2] =&amp;gt; 2
-    [3] =&amp;gt; 3
-    [4] =&amp;gt; 4
-)
-php &amp;gt; print_r (array_keys($arr,'football'));
-Array
-(
-    [0] =&amp;gt; 2
-    [1] =&amp;gt; 4
-)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;in_array&lt;/strong&gt; 检查数组中是否存在某个值bool in_array ( mixed $needle , array $haystack [, bool $strict ] )如果第三个参数 strict 的值为 TRUE 则 in_array() 函数还会检查 needle 的类型是否和 haystack 中的相同。&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','football');
-php &amp;gt; echo in_array('Tom',$arr);
-1 //1即表示true&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;array_merge&lt;/strong&gt; 合并一个或多个数组array array_merge ( array $array1 [, array $array2 [, array $… ]] )如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom','age' =&amp;gt; 12,6 =&amp;gt; 'red');
-php &amp;gt; $arr2 = array('class' =&amp;gt; 3, 6 =&amp;gt; 'black');
-php &amp;gt; print_r ( array_merge($arr,$arr2));
-Array
-(
-    [name] =&amp;gt; Tom
-    [age] =&amp;gt; 12
-    [0] =&amp;gt; red
-    [class] =&amp;gt; 3
-    [1] =&amp;gt; black
-)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;array_unique&lt;/strong&gt; 移除数组中重复的值array array_unique ( array $array )注意键名保留不变。&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('name' =&amp;gt; 'Tom', 12,'name' =&amp;gt; 'Jack','red','12');
-php &amp;gt; var_dump(array_unique($arr));
-array(3) {
-    [&quot;name&quot;] =&amp;gt; string(4) &quot;Jack&quot;
-    [0] =&amp;gt; int(12)
-    [1] =&amp;gt; string(3) &quot;red&quot;
-}&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;count&lt;/strong&gt; 计算数组中元素个数int count( $array )&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;php &amp;gt; $arr = array('Tom','Jack','Lucy');
-php &amp;gt; var_dump(count($arr));
-int(3)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;sort&lt;/strong&gt; 数组排序bool sort ( array &amp;amp;$array [, int $sort_flags ] )此函数将为 array 中的元素赋与新的键名。这将删除原有的键名，而不是仅仅将键名重新排序。成功返回true，失败返回false。&lt;/p&gt;
-
-    &lt;p&gt;&lt;code class=&quot;language-none&quot;&gt;$arr = array('Tom','Jack','Lucy');
-sort($arr);
-php &amp;gt; foreach($arr as $k =&amp;gt; $v){ echo $k.' =&amp;gt; '.$v.&quot;\n&quot;;}
-0 =&amp;gt; Jack
-1 =&amp;gt; Lucy
-2 =&amp;gt; Tom&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;array_keys&lt;/strong&gt; 返回数组中所有的键名array array_keys ( array $input [, mixed $search_value [, bool $strict ]] )如果指定了可选参数 search_value，则只返回该值的键名。&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'football'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'football'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;array_keys&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;0] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 0
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 1
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;2] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 2
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;3] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 3
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;4] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 4
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+php &amp;gt; print_r &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;array_keys&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'football'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;0] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 2
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 4
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;in_array&lt;/strong&gt; 检查数组中是否存在某个值bool in_array ( mixed $needle , array $haystack [, bool $strict ] )如果第三个参数 strict 的值为 TRUE 则 in_array() 函数还会检查 needle 的类型是否和 haystack 中的相同。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'football'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;in_array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+1 //1即表示true&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;array_merge&lt;/strong&gt; 合并一个或多个数组array array_merge ( array $array1 [, array $array2 [, array $… ]] )如果输入的数组中有相同的字符串键名，则该键名后面的值将覆盖前一个值。然而，如果数组包含数字键名，后面的值将不会覆盖原来的值，而是附加到后面。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'age'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 12,6 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'red'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'class'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 3, 6 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'black'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; print_r &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; array_merge&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$arr2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+Array
+&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;name] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Tom
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;age] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 12
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;0] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; red
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;class] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; 3
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; black
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;array_unique&lt;/strong&gt; 移除数组中重复的值array array_unique ( array $array )注意键名保留不变。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;, 12,&lt;span class=&quot;s1&quot;&gt;'name'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'red'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'12'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;array_unique&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; string&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Jack&quot;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;0] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;12&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1] &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; string&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;red&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;count&lt;/strong&gt; 计算数组中元素个数int count( $array )&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Lucy'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;count&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;sort&lt;/strong&gt; 数组排序bool sort ( array &amp;amp;$array [, int $sort_flags ] )此函数将为 array 中的元素赋与新的键名。这将删除原有的键名，而不是仅仅将键名重新排序。成功返回true，失败返回false。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Jack'&lt;/span&gt;,&lt;span class=&quot;s1&quot;&gt;'Lucy'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+sort&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+php &amp;gt; foreach&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$arr&lt;/span&gt; as &lt;span class=&quot;nv&quot;&gt;$k&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; &lt;span class=&quot;nv&quot;&gt;$v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$k&lt;/span&gt;.&lt;span class=&quot;s1&quot;&gt;' =&amp;gt; '&lt;/span&gt;.&lt;span class=&quot;nv&quot;&gt;$v&lt;/span&gt;.&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+0 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Jack
+1 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Lucy
+2 &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt; Tom&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Note:&lt;/em&gt;&lt;/strong&gt; 对一些有混合类型的值的数组排序时要小心，sotr()会产生不可预知的效果。&lt;/p&gt;
 
@@ -671,16 +664,14 @@ php &amp;gt; foreach($arr as $k =&amp;gt; $v){ echo $k.' =&amp;gt; '.$v.&quot;\n
       </item>
     
       <item>
-        <title>PHP之基础篇1</title>
+        <title>PHP之基础语法</title>
         <description>&lt;h2 id=&quot;section&quot;&gt;一. 基本语法&lt;/h2&gt;
 
 &lt;ol&gt;
   &lt;li&gt;开始结束标记: “&lt;?php ?&gt;”&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;lt;?php echo &quot;Hello World&quot;?&amp;gt;&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;Note：&lt;/strong&gt;文件末尾的 PHP 代码段结束标记”?&amp;gt;”可以不要，有些情况下当使用 include() 或者 require() 时省略掉会更好些。&lt;/p&gt;
 
@@ -750,35 +741,29 @@ php &amp;gt; foreach($arr as $k =&amp;gt; $v){ echo $k.' =&amp;gt; '.$v.&quot;\n
   &lt;li&gt;在单引号中的变量和特殊含义的字符不会被替换&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $age = 12;
-php &amp;gt; echo &quot;他很高\n他的年龄才$age&quot;;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 12;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;他很高&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;他的年龄才&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$age&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;;
 他很高
 他的年龄才12；
-php &amp;gt; echo '他很高\n他的年龄才$age';
-他很高\n他的年龄才$age;&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'他很高\n他的年龄才$age'&lt;/span&gt;;
+他很高&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;他的年龄才&lt;span class=&quot;nv&quot;&gt;$age&lt;/span&gt;;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ol&gt;
   &lt;li&gt;字符串可以用’.’ (点) 操作符连接起来&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; echo &quot;Hello,&quot;.&quot;World&quot;;
-Hello,World&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello,&quot;&lt;/span&gt;.&lt;span class=&quot;s2&quot;&gt;&quot;World&quot;&lt;/span&gt;;
+Hello,World&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ol&gt;
   &lt;li&gt;存取和修改字符串中的字符（类似于数组）&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello,World&quot;;
-php &amp;gt; echo $str[1];
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello,World&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1];
 e
-php &amp;gt; echo $str{0};
-H&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;0&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;;
+H&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ol&gt;
   &lt;li&gt;其他类型转换为字符串（string）&lt;/li&gt;
@@ -786,14 +771,12 @@ H&amp;lt;/code&amp;gt;
 
 &lt;p&gt;在一个值前面加上(string)或者使用strval()函数来转换成字符串型。&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $age = 18;
-php &amp;gt; var_dump($age);
-int(18)
-php &amp;gt; $str = (string)$age;
-php &amp;gt; var_dump($str);
-string(2) &quot;18&quot;&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$age&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 18;
+php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$age&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+int&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;18&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;string&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$age&lt;/span&gt;;
+php &amp;gt; var_dump&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+string&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;18&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ol&gt;
   &lt;li&gt;常用字符串函数&lt;/li&gt;
@@ -813,11 +796,9 @@ subject: 执行替换的数组或者字符串
 
 count: 控制匹配和替换的次数&lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello,My name is Tom,what is your name?&quot;;
-php &amp;gt; echo str_replace(&quot;name&quot;,&quot;nickname&quot;,$str);
-Hello,My nickname is Tom,what is your nickname?&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello,My name is Tom,what is your name?&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;str_replace&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;nickname&quot;&lt;/span&gt;,&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+Hello,My nickname is Tom,what is your nickname?&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;去掉字符串两边空格&lt;/li&gt;
@@ -827,11 +808,9 @@ Hello,My nickname is Tom,what is your nickname?&amp;lt;/code&amp;gt;
 
 &lt;blockquote&gt;$str: 目标字符串&lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;  Hello     &quot;;
-php &amp;gt; echo trim($str);
-Hello&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;  Hello     &quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;trim&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+Hello&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;去掉字符串中html和php标记&lt;/li&gt;
@@ -841,11 +820,9 @@ Hello&amp;lt;/code&amp;gt;
 
 &lt;blockquote&gt;$str: 目标字符串&lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;&amp;lt;td&amp;gt;&amp;lt;p&amp;gt;Hello World&amp;lt;/p&amp;gt;&amp;lt;/td&amp;gt;&quot;;
-php &amp;gt; echo strip_tags($str);
-Hello World&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&amp;lt;td&amp;gt;&amp;lt;p&amp;gt;Hello World&amp;lt;/p&amp;gt;&amp;lt;/td&amp;gt;&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;strip_tags&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+Hello World&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;将目标字符串重复多次&lt;/li&gt;
@@ -857,11 +834,9 @@ Hello World&amp;lt;/code&amp;gt;
 
 $num: 重复次数&lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello World!!&quot;;
-php &amp;gt; echo str_repeat($str,5);
-Hello World!!Hello World!!Hello World!!Hello World!!Hello World!!&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello World!!&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;str_repeat&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;,5&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+Hello World!!Hello World!!Hello World!!Hello World!!Hello World!!&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;返回字符串长度&lt;/li&gt;
@@ -871,11 +846,9 @@ Hello World!!Hello World!!Hello World!!Hello World!!Hello World!!&amp;lt;/code&a
 
 &lt;blockquote&gt;$str: 目标字符串&lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello World&quot;;
-php &amp;gt; echo strlen($str);
-11&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;strlen&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+11&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;计算字串出现的次数&lt;/li&gt;
@@ -887,11 +860,9 @@ php &amp;gt; echo strlen($str);
 
 $needle: 查找出现次数的字符串&lt;/blockquote&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello World,Hello China&quot;;
-php &amp;gt; echo substr_count($str,&quot;Hello&quot;);
-2&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello World,Hello China&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;substr_count&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;,&lt;span class=&quot;s2&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;ul&gt;
   &lt;li&gt;截取字符串&lt;/li&gt;
@@ -901,21 +872,29 @@ php &amp;gt; echo substr_count($str,&quot;Hello&quot;);
 
 &lt;blockquote&gt;$string: 目标字符串
 
-$start: 如果 start 是非负数，返回的字符串将从 string 的 start 位置开始，从 0 开始计算。如果 start 是负数，返回的字符串将从 string 结尾处向前数第 start 个字符开始。如果string 的长度小于或等于 start，将返回 FALSE。
+$start: 如果 start 是非负数，返回的字符串将从 string 的 start 位置开始，从 0 开始计算。
+如果 start 是负数，返回的字符串将从 string 结尾处向前数第 start 个字符开始。如果string 的长度小于或等于 start，将返回 FALSE。
 
-$length: 1.如果提供了正数的 length，返回的字符串将从 start 处开始最多包括 length 个字符（取决于 string 的长度）。2.如果提供了负数的 length，那么 string 末尾处的许多字符将会被漏掉（若 start 是负数则从字符串尾部算起）。3.如果 start 不在这段文本中，那么将返回一个空字符串。4.如果提供了值为 0，FALSE 或 NULL 的 length，那么将返回一个空字符串。5.如果没有提供 length，返回的子字符串将从 start 位置开始直到字符串结尾。&lt;/blockquote&gt;
+$length: 
+1.如果提供了正数的 length，返回的字符串将从 start 处开始最多包括 length 个字符（取决于 string 的长度）。
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;php &amp;gt; $str = &quot;Hello,World&quot;;
-php &amp;gt; echo substr($str,1);
+2.如果提供了负数的 length，那么 string 末尾处的许多字符将会被漏掉（若 start 是负数则从字符串尾部算起）。
+
+3.如果 start 不在这段文本中，那么将返回一个空字符串。
+
+4.如果提供了值为 0，FALSE 或 NULL 的 length，那么将返回一个空字符串。
+
+5.如果没有提供 length，返回的子字符串将从 start 位置开始直到字符串结尾。&lt;/blockquote&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;php &amp;gt; &lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello,World&quot;&lt;/span&gt;;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;substr&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;,1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
 ello,World
-php &amp;gt; echo substr($str,1,3);
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;substr&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;,1,3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
 ell
-php &amp;gt; echo substr($str,1,-3);
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;substr&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;,1,-3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
 ello,Wo
-php &amp;gt; echo substr($str,1,10);
-ello,World&amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+php &amp;gt; &lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;substr&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$str&lt;/span&gt;,1,10&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+ello,World&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
         <pubDate>Mon, 25 Apr 2016 21:08:25 +0800</pubDate>
@@ -946,10 +925,9 @@ ello,World&amp;lt;/code&amp;gt;
     
       <item>
         <title>怎样写好一个类【转载】</title>
-        <description>&lt;p&gt;代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下：&lt;/p&gt;
+        <description>&lt;p&gt;代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;&amp;lt;?php
-class Font
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Font
 {
     public $style; // 字体样式
 
@@ -967,7 +945,7 @@ class Font
     {
         // code ..
     }
-}&amp;lt;/code&amp;gt;
+}
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -975,15 +953,17 @@ class Font
 
 &lt;p&gt;另外这个类的style属性也有问题，它的类型是public，意味着外部可以随时调用改写，然后外部代码就有了&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$font = new Font;
-$font-&amp;gt;style = 'font-size: 13px';&amp;lt;/code&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$font = new Font;
+
+$font-&amp;gt;style = 'font-size: 13px';
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;或者：&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code class=&quot;language-none&quot;&amp;gt;$font = new Font;
-$font-&amp;gt;style = 'font-weight: both';&amp;lt;/code&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$font = new Font;
+
+$font-&amp;gt;style = 'font-weight: both';
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -1001,9 +981,7 @@ $font-&amp;gt;style = 'font-weight: both';&amp;lt;/code&amp;gt;
 
 &lt;p&gt;一切理论都是虚的，实践才是让自己进步的最佳方法，Talk is cheap. Show me the code。&lt;/p&gt;
 
-&lt;p&gt;##&lt;/p&gt;
-
-&lt;p&gt;转载自：segmentfault Derek_Chan &lt;a href=&quot;https://segmentfault.com/a/1190000004968048&quot;&gt;文章链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;转载自：&lt;a href=&quot;https://segmentfault.com/a/1190000004968048&quot;&gt;segmentfault Derek_Chan 文章&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 21 Apr 2016 23:18:39 +0800</pubDate>
         <link>http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/how-write-class.html</link>
@@ -1016,9 +994,7 @@ $font-&amp;gt;style = 'font-weight: both';&amp;lt;/code&amp;gt;
     
       <item>
         <title>Mamba out</title>
-        <description>&lt;h2 id=&quot;mamba-out&quot;&gt;Mamba out&lt;/h2&gt;
-
-&lt;p&gt;当终场的哨声响起，斯台普斯球馆华彩尽放，我知道Kobe就要离开他深爱的赛场。&lt;/p&gt;
+        <description>&lt;p&gt;当终场的哨声响起，斯台普斯球馆华彩尽放，我知道Kobe就要离开他深爱的赛场。&lt;/p&gt;
 
 &lt;p&gt;这一场，他比任何人都不想下场。&lt;/p&gt;
 
@@ -1187,9 +1163,8 @@ $font-&amp;gt;style = 'font-weight: both';&amp;lt;/code&amp;gt;
 
 &lt;h4 id=&quot;section-3&quot;&gt;追随牛人，与他们一起修行&lt;/h4&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;修行之道： 关注大师的言行， 跟随大师的举动， 和大师一并修行， 领会大师的意境， 成为真正的大师。 &amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    修行之道： 关注大师的言行， 跟随大师的举动， 和大师一并修行， 领会大师的意境， 成为真正的大师。 
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;正如这首&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;禅诗&lt;/a&gt;所言，与其在墙内仰望牛人，不如直接在GitHub：&lt;/p&gt;
 
@@ -1264,9 +1239,8 @@ $font-&amp;gt;style = 'font-weight: both';&amp;lt;/code&amp;gt;
 
 &lt;p&gt;用法如下，&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;#复制GitStats项目到本地 cd ~/dev git clone git://github.com/trybeee/GitStats.git python ~/dev/gitstats/git-stats /youproject public  &amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    &lt;span class=&quot;c&quot;&gt;#复制GitStats项目到本地 cd ~/dev git clone git://github.com/trybeee/GitStats.git python ~/dev/gitstats/git-stats /youproject public  &lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;以下为生成结果示范：&lt;/p&gt;
 
@@ -1280,15 +1254,13 @@ $font-&amp;gt;style = 'font-weight: both';&amp;lt;/code&amp;gt;
 
 &lt;p&gt;如果Fork别人的项目或者多人合作项目，最好每人都拥有一个独立分支，然后由项目维护人合并。如何建立自己的分支？&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;# 分支的创建和合并 # git branch yourbranch  # git checkout yourbranch    切换到yourbranch  # 开发yourbranch分支，然后开发之后与master分支合并  # git checkout master # git merge yourbranch # git branch -d yourbranch    合并完后删除本地分支 &amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    &lt;span class=&quot;c&quot;&gt;# 分支的创建和合并 # git branch yourbranch  # git checkout yourbranch    切换到yourbranch  # 开发yourbranch分支，然后开发之后与master分支合并  # git checkout master # git merge yourbranch # git branch -d yourbranch    合并完后删除本地分支 &lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;如何将牛人的远程分支更新到自己的本地分支？&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;code&amp;gt;# 查看当前项目下远程 # git remote # 增加新的分支链接，例如 git remote add niuren giturl… # 获取牛人的远程更新 git fetch niuren # 将牛人的远程更新合并到本地分支 git merge niuren/master &amp;lt;/code&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    &lt;span class=&quot;c&quot;&gt;# 查看当前项目下远程 # git remote # 增加新的分支链接，例如 git remote add niuren giturl… # 获取牛人的远程更新 git fetch niuren # 将牛人的远程更新合并到本地分支 git merge niuren/master &lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h4 id=&quot;section-5&quot;&gt;生产力小技巧&lt;/h4&gt;
 
@@ -1535,454 +1507,37 @@ $font-&amp;gt;style = 'font-weight: both';&amp;lt;/code&amp;gt;
       </item>
     
       <item>
-        <title>PHP-redis中文文档【转载】</title>
-        <description>&lt;p&gt;Redis::__construct构造函数
-$redis = new Redis();&lt;/p&gt;
+        <title>mac下PHP安装拓展PHPRedis</title>
+        <description>&lt;h3 id=&quot;macphpphpredis&quot;&gt;一.mac自带php安装phpredis&lt;/h3&gt;
 
-&lt;p&gt;connect, open 链接redis服务
-参数_
-host_: string，服务地址_
-port_: int,端口号_
-timeout_: float,链接时长 (可选, 默认为 0 ，不限链接时间)
-注: 在redis.conf中也有时间，默认为300&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install php56-redis  &lt;span class=&quot;c&quot;&gt;#56为php版本5.6.10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;pconnect, popen 不会主动关闭的链接
-参考上面&lt;/p&gt;
+&lt;h3 id=&quot;macmampphpredis&quot;&gt;二.mac下mamp安装phpredis&lt;/h3&gt;
 
-&lt;p&gt;setOption 设置redis模式&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 进入**/Applications/MAMP/bin/php/php5.6.10/** 下载phpredis **_https://github.com/phpredis/phpredis_**
 
-&lt;p&gt;getOption 查看redis设置的模式&lt;/p&gt;
+2. 进入phpredis文件夹：
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;ping 查看连接状态&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;phpredis
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo phpize
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo ./configure --with-php-config&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Applications/MAMP/bin/php/php5.6.10/bin/php-config  &lt;span class=&quot;c&quot;&gt;#配置phpredis&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo make  &lt;span class=&quot;c&quot;&gt;#编译make&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo cp -p modules/redis.so /Applications/MAMP/bin/php/php5.6.10/lib/php/extensions/no-debug-non-zts-20131226 &lt;span class=&quot;c&quot;&gt;#将编译完成的模块，复制到MAMP 中的PHP 扩展中&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo vi /Applications/MAMP/bin/php/php5.6.10/conf/php.ini
+    &lt;span class=&quot;nv&quot;&gt;$ extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;redis.so    &lt;span class=&quot;c&quot;&gt;#修改 php.ini 文件在增加 redis.so 扩展&lt;/span&gt;
+    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;get 得到某个key的值（string值）
-如果该key不存在，return false&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3. 最后完成，重启MAMP
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;set 写入key 和 value（string值）
-如果写入成功，return ture&lt;/p&gt;
-
-&lt;p&gt;setex 带生存时间的写入值
-$redis-&amp;gt;setex(‘key’, 3600, ‘value’); // sets key → value, with 1h TTL.&lt;/p&gt;
-
-&lt;p&gt;setnx 判断是否重复的，写入值
-$redis-&amp;gt;setnx(‘key’, ‘value’);
-$redis-&amp;gt;setnx(‘key’, ‘value’);&lt;/p&gt;
-
-&lt;p&gt;delete  删除指定key的值
-返回已经删除key的个数（长整数）
-$redis-&amp;gt;delete(‘key1’, ‘key2’);
-$redis-&amp;gt;delete(array(‘key3’, ‘key4’, ‘key5’));&lt;/p&gt;
-
-&lt;p&gt;ttl
-得到一个key的生存时间&lt;/p&gt;
-
-&lt;p&gt;persist
-移除生存时间到期的key
-如果key到期 true 如果不到期 false&lt;/p&gt;
-
-&lt;p&gt;mset （redis版本1.1以上才可以用）
-同时给多个key赋值
-$redis-&amp;gt;mset(array(‘key0’ =&amp;gt; ‘value0’, ‘key1’ =&amp;gt; ‘value1’));&lt;/p&gt;
-
-&lt;p&gt;multi, exec, discard
-进入或者退出事务模式
-参数可选Redis::MULTI或Redis::PIPELINE. 默认是 Redis::MULTI
-Redis::MULTI：将多个操作当成一个事务执行
-Redis::PIPELINE:让（多条）执行命令简单的，更加快速的发送给服务器，但是没有任何原子性的保证
-discard:删除一个事务
-返回值
-multi()，返回一个redis对象，并进入multi-mode模式，一旦进入multi-mode模式，以后调用的所有方法都会返回相同的对象，只到exec(）方法被调用。&lt;/p&gt;
-
-&lt;p&gt;watch, unwatch （代码测试后，不能达到所说的效果）
-监测一个key的值是否被其它的程序更改。如果这个key在watch 和 exec （方法）间被修改，这个 MULTI/EXEC 事务的执行将失败（return false）
-unwatch  取消被这个程序监测的所有key
-参数，一对key的列表
-$redis-&amp;gt;watch(‘x’);&lt;/p&gt;
-
-&lt;p&gt;$ret = $redis-&amp;gt;multi() -&amp;gt;incr(‘x’) -&amp;gt;exec();&lt;/p&gt;
-
-&lt;p&gt;subscribe *
-方法回调。注意，该方法可能在未来里发生改变&lt;/p&gt;
-
-&lt;p&gt;publish *
-发表内容到某一个通道。注意，该方法可能在未来里发生改变&lt;/p&gt;
-
-&lt;p&gt;exists
-判断key是否存在。存在 true 不在 false&lt;/p&gt;
-
-&lt;p&gt;incr, incrBy
-key中的值进行自增1，如果填写了第二个参数，者自增第二个参数所填的值
-$redis-&amp;gt;incr(‘key1’);
-$redis-&amp;gt;incrBy(‘key1’, 10);&lt;/p&gt;
-
-&lt;p&gt;decr, decrBy
-做减法，使用方法同incr&lt;/p&gt;
-
-&lt;p&gt;getMultiple
-传参
-由key组成的数组
-返回参数
-如果key存在返回value，不存在返回false
-$redis-&amp;gt;set(‘key1’, ‘value1’); $redis-&amp;gt;set(‘key2’, ‘value2’); $redis-&amp;gt;set(‘key3’, ‘value3’); $redis-&amp;gt;getMultiple(array(‘key1’, ‘key2’, ‘key3’));
-$redis-&amp;gt;lRem(‘key1’, ‘A’, 2);
-$redis-&amp;gt;lRange(‘key1’, 0, -1);&lt;/p&gt;
-
-&lt;p&gt;list相关操作
-lPush
-$redis-&amp;gt;lPush(key, value);
-在名称为key的list左边（头）添加一个值为value的 元素&lt;/p&gt;
-
-&lt;p&gt;rPush
-$redis-&amp;gt;rPush(key, value);
-在名称为key的list右边（尾）添加一个值为value的 元素&lt;/p&gt;
-
-&lt;p&gt;lPushx/rPushx
-$redis-&amp;gt;lPushx(key, value);
-在名称为key的list左边(头)/右边（尾）添加一个值为value的元素,如果value已经存在，则不添加&lt;/p&gt;
-
-&lt;p&gt;lPop/rPop
-$redis-&amp;gt;lPop(‘key’);
-输出名称为key的list左(头)起/右（尾）起的第一个元素，删除该元素&lt;/p&gt;
-
-&lt;p&gt;blPop/brPop
-$redis-&amp;gt;blPop(‘key1’, ‘key2’, 10);
-lpop命令的block版本。即当timeout为0时，若遇到名称为key &lt;strong&gt;&lt;em&gt;i&lt;/em&gt;&lt;/strong&gt;的list不存在或该list为空，则命令结束。如果timeout&amp;gt;0，则遇到上述情况时，等待timeout秒，如果问题没有解决，则对key&lt;strong&gt;&lt;em&gt;i+1&lt;/em&gt;&lt;/strong&gt;开始的list执行pop操作&lt;/p&gt;
-
-&lt;p&gt;lSize
-$redis-&amp;gt;lSize(‘key’);
-返回名称为key的list有多少个元素&lt;/p&gt;
-
-&lt;p&gt;lIndex, lGet
-$redis-&amp;gt;lGet(‘key’, 0);
-返回名称为key的list中index位置的元素&lt;/p&gt;
-
-&lt;p&gt;lSet
-$redis-&amp;gt;lSet(‘key’, 0, ‘X’);
-给名称为key的list中index位置的元素赋值为value&lt;/p&gt;
-
-&lt;p&gt;lRange, lGetRange
-$redis-&amp;gt;lRange(‘key1’, 0, -1);
-返回名称为key的list中start至end之间的元素（end为 -1 ，返回所有）&lt;/p&gt;
-
-&lt;p&gt;lTrim, listTrim
-$redis-&amp;gt;lTrim(‘key’, start, end);
-截取名称为key的list，保留start至end之间的元素&lt;/p&gt;
-
-&lt;p&gt;lRem, lRemove
-$redis-&amp;gt;lRem(‘key’, ‘A’, 2);
-删除count个名称为key的list中值为value的元素。count为0，删除所有值为value的元素，count&amp;gt;0从头至尾删除count个值为value的元素，count&amp;lt;0从尾到头删除|count|个值为value的元素&lt;/p&gt;
-
-&lt;p&gt;lInsert
-在名称为为key的list中，找到值为_pivot_ 的value，并根据参数Redis::BEFORE | Redis::AFTER，来确定，newvalue 是放在 pivot 的前面，或者后面。如果key不存在，不会插入，如果 pivot不存在，return -1
-$redis-&amp;gt;delete(‘key1’); $redis-&amp;gt;lInsert(‘key1’, Redis::AFTER, ‘A’, ‘X’); $redis-&amp;gt;lPush(‘key1’, ‘A’); $redis-&amp;gt;lPush(‘key1’, ‘B’); $redis-&amp;gt;lPush(‘key1’, ‘C’); $redis-&amp;gt;lInsert(‘key1’, Redis::BEFORE, ‘C’, ‘X’);
-$redis-&amp;gt;lRange(‘key1’, 0, -1);
-$redis-&amp;gt;lInsert(‘key1’, Redis::AFTER, ‘C’, ‘Y’);
-$redis-&amp;gt;lRange(‘key1’, 0, -1);
-$redis-&amp;gt;lInsert(‘key1’, Redis::AFTER, ‘W’, ‘value’);&lt;/p&gt;
-
-&lt;p&gt;rpoplpush
-返回并删除名称为srckey的list的尾元素，并将该元素添加到名称为dstkey的list的头部
-$redis-&amp;gt;delete(‘x’, ‘y’);
-$redis-&amp;gt;lPush(‘x’, ‘abc’); $redis-&amp;gt;lPush(‘x’, ‘def’); $redis-&amp;gt;lPush(‘y’, ‘123’); $redis-&amp;gt;lPush(‘y’, ‘456’); // move the last of x to the front of y. var_dump($redis-&amp;gt;rpoplpush(‘x’, ‘y’));
-var_dump($redis-&amp;gt;lRange(‘x’, 0, -1));
-var_dump($redis-&amp;gt;lRange(‘y’, 0, -1));&lt;/p&gt;
-
-&lt;p&gt;string(3) “abc” 
-array(1) { [0]=&amp;gt; string(3) “def” } 
-array(3) { [0]=&amp;gt; string(3) “abc” [1]=&amp;gt; string(3) “456” [2]=&amp;gt; string(3) “123” }&lt;/p&gt;
-
-&lt;p&gt;SET操作相关
-sAdd
-向名称为key的set中添加元素value,如果value存在，不写入，return false
-$redis-&amp;gt;sAdd(key , value);&lt;/p&gt;
-
-&lt;p&gt;sRem, sRemove
-删除名称为key的set中的元素value
-$redis-&amp;gt;sAdd(‘key1’ , ‘set1’);
-$redis-&amp;gt;sAdd(‘key1’ , ‘set2’);
-$redis-&amp;gt;sAdd(‘key1’ , ‘set3’);
-$redis-&amp;gt;sRem(‘key1’, ‘set2’);&lt;/p&gt;
-
-&lt;p&gt;sMove
-将value元素从名称为srckey的集合移到名称为dstkey的集合
-$redis-&amp;gt;sMove(seckey, dstkey, value);&lt;/p&gt;
-
-&lt;p&gt;sIsMember, sContains
-名称为key的集合中查找是否有value元素，有ture 没有 false
-$redis-&amp;gt;sIsMember(key, value);&lt;/p&gt;
-
-&lt;p&gt;sCard, sSize
-返回名称为key的set的元素个数&lt;/p&gt;
-
-&lt;p&gt;sPop
-随机返回并删除名称为key的set中一个元素&lt;/p&gt;
-
-&lt;p&gt;sRandMember
-随机返回名称为key的set中一个元素，不删除&lt;/p&gt;
-
-&lt;p&gt;sInter
-求交集&lt;/p&gt;
-
-&lt;p&gt;sInterStore
-求交集并将交集保存到output的集合
-$redis-&amp;gt;sInterStore(‘output’, ‘key1’, ‘key2’, ‘key3’)&lt;/p&gt;
-
-&lt;p&gt;sUnion
-求并集
-$redis-&amp;gt;sUnion(‘s0’, ‘s1’, ‘s2’);
-s0,s1,s2 同时求并集&lt;/p&gt;
-
-&lt;p&gt;sUnionStore
-求并集并将并集保存到output的集合
-$redis-&amp;gt;sUnionStore(‘output’, ‘key1’, ‘key2’, ‘key3’)；&lt;/p&gt;
-
-&lt;p&gt;sDiff
-求差集&lt;/p&gt;
-
-&lt;p&gt;sDiffStore
-求差集并将差集保存到output的集合&lt;/p&gt;
-
-&lt;p&gt;sMembers, sGetMembers
-返回名称为key的set的所有元素&lt;/p&gt;
-
-&lt;p&gt;sort
-排序，分页等
-参数
-‘by’ =&amp;gt; ‘some_pattern__’,
-‘limit’ =&amp;gt; array(0, 1),
-‘get’ =&amp;gt; ‘some_other_pattern__’ or an array of patterns,
-‘sort’ =&amp;gt; ‘asc’ or ‘desc’,
-‘alpha’ =&amp;gt; TRUE,
-‘store’ =&amp;gt; ‘external-key’
-例子
-$redis-&amp;gt;delete(‘s’); $redis-&amp;gt;sadd(‘s’, 5); $redis-&amp;gt;sadd(‘s’, 4); $redis-&amp;gt;sadd(‘s’, 2); $redis-&amp;gt;sadd(‘s’, 1); $redis-&amp;gt;sadd(‘s’, 3);
-var_dump($redis-&amp;gt;sort(‘s’)); // 1,2,3,4,5
-var_dump($redis-&amp;gt;sort(‘s’, array(‘sort’ =&amp;gt; ‘desc’))); // 5,4,3,2,1
-var_dump($redis-&amp;gt;sort(‘s’, array(‘sort’ =&amp;gt; ‘desc’, ‘store’ =&amp;gt; ‘out’))); // (int)5&lt;/p&gt;
-
-&lt;p&gt;string命令
-getSet
-返回原来key中的值，并将value写入key
-$redis-&amp;gt;set(‘x’, ‘42’);
-$exValue = $redis-&amp;gt;getSet(‘x’, ‘lol’); // return ‘42’, replaces x by ‘lol’
-$newValue = $redis-&amp;gt;get(‘x’)’ // return ‘lol’&lt;/p&gt;
-
-&lt;p&gt;append
-string，名称为key的string的值在后面加上value
-$redis-&amp;gt;set(‘key’, ‘value1’);
-$redis-&amp;gt;append(‘key’, ‘value2’);
-$redis-&amp;gt;get(‘key’);&lt;/p&gt;
-
-&lt;p&gt;getRange （方法不存在）
-返回名称为key的string中start至end之间的字符
-$redis-&amp;gt;set(‘key’, ‘string value’);
-$redis-&amp;gt;getRange(‘key’, 0, 5);
-$redis-&amp;gt;getRange(‘key’, -5, -1);&lt;/p&gt;
-
-&lt;p&gt;setRange （方法不存在）
-改变key的string中start至end之间的字符为value
-$redis-&amp;gt;set(‘key’, ‘Hello world’);
-$redis-&amp;gt;setRange(‘key’, 6, “redis”);
-$redis-&amp;gt;get(‘key’);&lt;/p&gt;
-
-&lt;p&gt;strlen
-得到key的string的长度
-$redis-&amp;gt;strlen(‘key’);&lt;/p&gt;
-
-&lt;p&gt;getBit/setBit
-返回2进制信息&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;zset&lt;/strong&gt;&lt;strong&gt;（&lt;/strong&gt;&lt;strong&gt;sorted set&lt;/strong&gt;&lt;strong&gt;）操作相关&lt;/strong&gt;
-zAdd&lt;strong&gt;(&lt;em&gt;key, score, member&lt;/em&gt;)&lt;/strong&gt;：向名称为key的zset中添加元素member，score用于排序。如果该元素已经存在，则根据score更新该元素的顺序。
-$redis-&amp;gt;zAdd(‘key’, 1, ‘val1’);
-$redis-&amp;gt;zAdd(‘key’, 0, ‘val0’);
-$redis-&amp;gt;zAdd(‘key’, 5, ‘val5’);
-$redis-&amp;gt;zRange(‘key’, 0, -1); // array(val0, val1, val5)&lt;/p&gt;
-
-&lt;p&gt;zRange&lt;strong&gt;(&lt;em&gt;key, start, end&lt;/em&gt;,&lt;/strong&gt;&lt;em&gt;withscores&lt;/em&gt;&lt;strong&gt;)&lt;/strong&gt;：返回名称为key的zset（元素已按score从小到大排序）中的index从start到end的所有元素
-$redis-&amp;gt;zAdd(‘key1’, 0, ‘val0’);
-$redis-&amp;gt;zAdd(‘key1’, 2, ‘val2’);
-$redis-&amp;gt;zAdd(‘key1’, 10, ‘val10’);
-$redis-&amp;gt;zRange(‘key1’, 0, -1); // with scores $redis-&amp;gt;zRange(‘key1’, 0, -1, true);&lt;/p&gt;
-
-&lt;p&gt;zDelete, zRem
-zRem&lt;strong&gt;(&lt;em&gt;key, member&lt;/em&gt;)&lt;/strong&gt; ：删除名称为key的zset中的元素member
-$redis-&amp;gt;zAdd(‘key’, 0, ‘val0’);
-$redis-&amp;gt;zAdd(‘key’, 2, ‘val2’);
-$redis-&amp;gt;zAdd(‘key’, 10, ‘val10’);
-$redis-&amp;gt;zDelete(‘key’, ‘val2’);
-$redis-&amp;gt;zRange(‘key’, 0, -1);&lt;/p&gt;
-
-&lt;p&gt;zRevRange&lt;strong&gt;(&lt;em&gt;key, start, end&lt;/em&gt;,&lt;/strong&gt;&lt;em&gt;withscores&lt;/em&gt;&lt;strong&gt;)&lt;/strong&gt;：返回名称为key的zset（元素已按score从大到小排序）中的index从start到end的所有元素.&lt;em&gt;withscores&lt;/em&gt;: 是否输出socre的值，默认false，不输出
-$redis-&amp;gt;zAdd(‘key’, 0, ‘val0’);
-$redis-&amp;gt;zAdd(‘key’, 2, ‘val2’);
-$redis-&amp;gt;zAdd(‘key’, 10, ‘val10’);
-$redis-&amp;gt;zRevRange(‘key’, 0, -1); // with scores $redis-&amp;gt;zRevRange(‘key’, 0, -1, true);&lt;/p&gt;
-
-&lt;p&gt;zRangeByScore, zRevRangeByScore
-$redis-&amp;gt;zRangeByScore(key, star, end, array(withscores， limit ));
-返回名称为key的zset中score &amp;gt;= star且score &amp;lt;= end的所有元素&lt;/p&gt;
-
-&lt;p&gt;zCount
-$redis-&amp;gt;zCount(key, star, end);
-返回名称为key的zset中score &amp;gt;= star且score &amp;lt;= end的所有元素的个数&lt;/p&gt;
-
-&lt;p&gt;zRemRangeByScore, zDeleteRangeByScore
-$redis-&amp;gt;zRemRangeByScore(‘key’, star, end);
-删除名称为key的zset中score &amp;gt;= star且score &amp;lt;= end的所有元素，返回删除个数&lt;/p&gt;
-
-&lt;p&gt;zSize, zCard
-返回名称为key的zset的所有元素的个数&lt;/p&gt;
-
-&lt;p&gt;zScore
-$redis-&amp;gt;zScore(key, val2);
-返回名称为key的zset中元素val2的score&lt;/p&gt;
-
-&lt;p&gt;zRank, zRevRank
-$redis-&amp;gt;zRevRank(key, val);
-返回名称为key的zset（元素已按score从小到大排序）中val元素的rank（即index，从0开始），若没有val元素，返回“null”。zRevRank
-是从大到小排序&lt;/p&gt;
-
-&lt;p&gt;zIncrBy
-$redis-&amp;gt;zIncrBy(‘key’, increment, ‘member’);
-如果在名称为key的zset中已经存在元素member，则该元素的score增加increment；否则向集合中添加该元素，其score的值为increment&lt;/p&gt;
-
-&lt;p&gt;zUnion/zInter_
-参数
-keyOutput
-arrayZSetKeys
-arrayWeights
-aggregateFunction_ Either “SUM”, “MIN”, or “MAX”: defines the behaviour to use on duplicate entries during the zUnion.
-对N个zset求并集和交集，并将最后的集合保存在dstkeyN中。对于集合中每一个元素的score，在进行AGGREGATE运算前，都要乘以对于的WEIGHT参数。如果没有提供WEIGHT，默认为1。默认的AGGREGATE是SUM，即结果集合中元素的score是所有集合对应元素进行SUM运算的值，而MIN和MAX是指，结果集合中元素的score是所有集合对应元素中最小值和最大值。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;strong&gt;操作&lt;/strong&gt;
-hSet
-$redis-&amp;gt;hSet(‘h’, ‘key1’, ‘hello’);
-向名称为h的hash中添加元素key1—&amp;gt;hello&lt;/p&gt;
-
-&lt;p&gt;hGet
-$redis-&amp;gt;hGet(‘h’, ‘key1’);
-返回名称为h的hash中key1对应的value（hello）&lt;/p&gt;
-
-&lt;p&gt;hLen
-$redis-&amp;gt;hLen(‘h’);
-返回名称为h的hash中元素个数&lt;/p&gt;
-
-&lt;p&gt;hDel
-$redis-&amp;gt;hDel(‘h’, ‘key1’);
-删除名称为h的hash中键为key1的域&lt;/p&gt;
-
-&lt;p&gt;hKeys
-$redis-&amp;gt;hKeys(‘h’);
-返回名称为key的hash中所有键&lt;/p&gt;
-
-&lt;p&gt;hVals
-$redis-&amp;gt;hVals(‘h’)
-返回名称为h的hash中所有键对应的value&lt;/p&gt;
-
-&lt;p&gt;hGetAll
-$redis-&amp;gt;hGetAll(‘h’);
-返回名称为h的hash中所有的键（field）及其对应的value&lt;/p&gt;
-
-&lt;p&gt;hExists
-$redis-&amp;gt;hExists(‘h’, ‘a’);
-名称为h的hash中是否存在键名字为a的域&lt;/p&gt;
-
-&lt;p&gt;hIncrBy
-$redis-&amp;gt;hIncrBy(‘h’, ‘x’, 2);
-将名称为h的hash中x的value增加2&lt;/p&gt;
-
-&lt;p&gt;hMset
-$redis-&amp;gt;hMset(‘user:1’, array(‘name’ =&amp;gt; ‘Joe’, ‘salary’ =&amp;gt; 2000));
-向名称为key的hash中批量添加元素&lt;/p&gt;
-
-&lt;p&gt;hMGet
-$redis-&amp;gt;hmGet(‘h’, array(‘field1’, ‘field2’));
-返回名称为h的hash中field1,field2对应的value&lt;/p&gt;
-
-&lt;p&gt;redis 操作相关
-flushDB
-清空当前数据库&lt;/p&gt;
-
-&lt;p&gt;flushAll
-清空所有数据库&lt;/p&gt;
-
-&lt;p&gt;randomKey
-随机返回key空间的一个key
-$key = $redis-&amp;gt;randomKey();&lt;/p&gt;
-
-&lt;p&gt;select
-选择一个数据库
-move
-转移一个key到另外一个数据库
-$redis-&amp;gt;select(0); // switch to DB 0
-$redis-&amp;gt;set(‘x’, ‘42’); // write 42 to x
-$redis-&amp;gt;move(‘x’, 1); // move to DB 1
-$redis-&amp;gt;select(1); // switch to DB 1
-$redis-&amp;gt;get(‘x’); // will return 42&lt;/p&gt;
-
-&lt;p&gt;rename, renameKey
-给key重命名
-$redis-&amp;gt;set(‘x’, ‘42’);
-$redis-&amp;gt;rename(‘x’, ‘y’);
-$redis-&amp;gt;get(‘y’); // → 42
-$redis-&amp;gt;get(‘x’); // → &lt;code class=&quot;highlighter-rouge&quot;&gt;FALSE&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;renameNx
-与remane类似，但是，如果重新命名的名字已经存在，不会替换成功&lt;/p&gt;
-
-&lt;p&gt;setTimeout, expire
-设定一个key的活动时间（s）
-$redis-&amp;gt;setTimeout(‘x’, 3);&lt;/p&gt;
-
-&lt;p&gt;expireAt
-key存活到一个unix时间戳时间
-$redis-&amp;gt;expireAt(‘x’, time() + 3);&lt;/p&gt;
-
-&lt;p&gt;keys, getKeys
-返回满足给定pattern的所有key
-$keyWithUserPrefix = $redis-&amp;gt;keys(‘user*’);&lt;/p&gt;
-
-&lt;p&gt;dbSize
-查看现在数据库有多少key
-$count = $redis-&amp;gt;dbSize();&lt;/p&gt;
-
-&lt;p&gt;auth
-密码认证
-$redis-&amp;gt;auth(‘foobared’);&lt;/p&gt;
-
-&lt;p&gt;bgrewriteaof
-使用aof来进行数据库持久化
-$redis-&amp;gt;bgrewriteaof();&lt;/p&gt;
-
-&lt;p&gt;slaveof
-选择从服务器
-$redis-&amp;gt;slaveof(‘10.0.1.7’, 6379);&lt;/p&gt;
-
-&lt;p&gt;save
-将数据同步保存到磁盘&lt;/p&gt;
-
-&lt;p&gt;bgsave
-将数据异步保存到磁盘&lt;/p&gt;
-
-&lt;p&gt;lastSave
-返回上次成功将数据保存到磁盘的Unix时戳&lt;/p&gt;
-
-&lt;p&gt;info
-返回redis的版本信息等详情&lt;/p&gt;
-
-&lt;p&gt;type
-返回key的类型值
-string: Redis::REDIS_STRING
-set: Redis::REDIS_SET
-list: Redis::REDIS_LIST
-zset: Redis::REDIS_ZSET
-hash: Redis::REDIS_HASH
-other: Redis::REDIS_NOT_FOUND&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://bravelife.top/images/posts/phpredis.png&quot; alt=&quot;reids模块&quot; /&gt;&lt;/p&gt;
 </description>
-        <pubDate>Fri, 04 Mar 2016 14:21:30 +0800</pubDate>
-        <link>http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/04/php-redise-doc.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/04/php-redise-doc.html</guid>
+        <pubDate>Thu, 03 Mar 2016 21:56:11 +0800</pubDate>
+        <link>http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/03/mac-install-phpredis.html</link>
+        <guid isPermaLink="true">http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/03/mac-install-phpredis.html</guid>
         
         
         <category>技术分享</category>

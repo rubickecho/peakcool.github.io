@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width initial-scale=1">
   <meta name="baidu-site-verification" content="P6cSucnZfv" />
-  <title>mac下PHP安装拓展phpredis</title>
+  <title>mac下PHP安装拓展PHPRedis</title>
   <meta name="description" content="mac下PHP安装mamp拓展phpredis方法介绍">
 
   <link rel="stylesheet" href="/css/main.css">
@@ -69,45 +69,40 @@
         <div class="post">
     <br>
     <header class="post-header">
-        <h1 class="post-title">mac下PHP安装拓展phpredis</h1>
+        <h1 class="post-title">mac下PHP安装拓展PHPRedis</h1>
         <p class="post-meta">Mar 3, 2016 • tangliangcheng</p>
     </header>
     <article class="post-content">
         <h3 id="macphpphpredis">一.mac自带php安装phpredis</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code&gt;$ brew install php56-redis  #56为php版本5.6.10&lt;/code&gt;
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>brew install php56-redis  <span class="c">#56为php版本5.6.10</span></code></pre></figure>
 
 <h3 id="macmampphpredis">二.mac下mamp安装phpredis</h3>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>1. 进入**/Applications/MAMP/bin/php/php5.6.10/** 下载phpredis **_https://github.com/phpredis/phpredis_**
 
-
-2. 进入phpredis文件夹
-
-
-&lt;code class="language-none"&gt;$ cd phpredis
-$ sudo phpize
-$ sudo ./configure --with-php-config=/Applications/MAMP/bin/php/php5.6.10/bin/php-config  #配置phpredis
-$ sudo make  #编译make
-$ sudo cp -p modules/redis.so /Applications/MAMP/bin/php/php5.6.10/lib/php/extensions/no-debug-non-zts-20131226 #将编译完成的模块，复制到MAMP 中的PHP 扩展中
-$ sudo vi /Applications/MAMP/bin/php/php5.6.10/conf/php.ini
-$ extension=redis.so    #修改 php.ini 文件在增加 redis.so 扩展&lt;/code&gt;
-
-
-
-
-
-3. 最后完成，重启MAMP
+2. 进入phpredis文件夹：
 </code></pre>
 </div>
 
-<p><img src="http://115.28.108.2/wordpress/wp-content/uploads/2016/03/QQ20151015-0@2x.jpg" alt="QQ20151015-0@2x" /></p>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">    <span class="nv">$ </span><span class="nb">cd </span>phpredis
+    <span class="nv">$ </span>sudo phpize
+    <span class="nv">$ </span>sudo ./configure --with-php-config<span class="o">=</span>/Applications/MAMP/bin/php/php5.6.10/bin/php-config  <span class="c">#配置phpredis</span>
+    <span class="nv">$ </span>sudo make  <span class="c">#编译make</span>
+    <span class="nv">$ </span>sudo cp -p modules/redis.so /Applications/MAMP/bin/php/php5.6.10/lib/php/extensions/no-debug-non-zts-20131226 <span class="c">#将编译完成的模块，复制到MAMP 中的PHP 扩展中</span>
+    <span class="nv">$ </span>sudo vi /Applications/MAMP/bin/php/php5.6.10/conf/php.ini
+    <span class="nv">$ extension</span><span class="o">=</span>redis.so    <span class="c">#修改 php.ini 文件在增加 redis.so 扩展</span>
+    </code></pre></figure>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>3. 最后完成，重启MAMP
+</code></pre>
+</div>
+
+<p><img src="http://bravelife.top/images/posts/phpredis.png" alt="reids模块" /></p>
 
     </article>
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="156" data-title="mac下PHP安装拓展phpredis" data-url="http://www.rmogo.com/wordpress/2016/03/03/mac%e4%b8%8bphp%e5%ae%89%e8%a3%85%e6%8b%93%e5%b1%95phpreids/"></div>
+    <div class="ds-thread" data-thread-key="156" data-title="mac下PHP安装拓展PHPRedis" data-url="http://www.rmogo.com/wordpress/2016/03/03/mac%e4%b8%8bphp%e5%ae%89%e8%a3%85%e6%8b%93%e5%b1%95phpreids/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">

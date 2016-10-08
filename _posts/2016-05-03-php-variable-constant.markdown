@@ -168,6 +168,6 @@ php > echo NAME;
 tom
 {% endhighlight%}
 
-**系统常量**
+**常见"魔术"常量**
 
 ![常见"魔术"常量]({{ site.url }}/images/posts/php-constant.png)

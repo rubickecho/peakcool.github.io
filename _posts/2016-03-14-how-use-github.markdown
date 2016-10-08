@@ -211,7 +211,9 @@ GitHub59名全职员工仅有29名员工在本地工作！不仅仅是工作地�
 
 
     
-    <code>修行之道： 关注大师的言行， 跟随大师的举动， 和大师一并修行， 领会大师的意境， 成为真正的大师。 </code>
+    {% highlight shell %}
+    修行之道： 关注大师的言行， 跟随大师的举动， 和大师一并修行， 领会大师的意境， 成为真正的大师。 
+    {% endhighlight %}
 
 
 
@@ -312,7 +314,9 @@ GitHub本身建构在git之上，git成为勾搭大师们的必要工具，以�
 
 
     
-    <code>#复制GitStats项目到本地 cd ~/dev git clone git://github.com/trybeee/GitStats.git python ~/dev/gitstats/git-stats /youproject public  </code>
+    {% highlight shell %}
+    #复制GitStats项目到本地 cd ~/dev git clone git://github.com/trybeee/GitStats.git python ~/dev/gitstats/git-stats /youproject public  
+    {% endhighlight %}
 
 
 
@@ -334,7 +338,9 @@ GitHub本身建构在git之上，git成为勾搭大师们的必要工具，以�
 
 
     
-    <code># 分支的创建和合并 # git branch yourbranch  # git checkout yourbranch    切换到yourbranch  # 开发yourbranch分支，然后开发之后与master分支合并  # git checkout master # git merge yourbranch # git branch -d yourbranch    合并完后删除本地分支 </code>
+    {% highlight shell %}
+    # 分支的创建和合并 # git branch yourbranch  # git checkout yourbranch    切换到yourbranch  # 开发yourbranch分支，然后开发之后与master分支合并  # git checkout master # git merge yourbranch # git branch -d yourbranch    合并完后删除本地分支 
+    {% endhighlight %}
 
 
 
@@ -346,7 +352,9 @@ GitHub本身建构在git之上，git成为勾搭大师们的必要工具，以�
 
 
     
-    <code># 查看当前项目下远程 # git remote # 增加新的分支链接，例如 git remote add niuren giturl… # 获取牛人的远程更新 git fetch niuren # 将牛人的远程更新合并到本地分支 git merge niuren/master </code>
+    {% highlight shell %}
+    # 查看当前项目下远程 # git remote # 增加新的分支链接，例如 git remote add niuren giturl… # 获取牛人的远程更新 git fetch niuren # 将牛人的远程更新合并到本地分支 git merge niuren/master 
+    {% endhighlight %}
 
 
 

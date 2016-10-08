@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1">
   <meta name="baidu-site-verification" content="P6cSucnZfv" />
   <title>怎样写好一个类【转载】</title>
-  <meta name="description" content="代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下：">
+  <meta name="description" content="代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下:class Font{    public $style; // 字体样式">
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/pygments.css">
@@ -73,10 +73,9 @@
         <p class="post-meta">Apr 21, 2016 • tangliangcheng</p>
     </header>
     <article class="post-content">
-        <p>代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下：</p>
+        <p>代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;&lt;?php
-class Font
+<div class="highlighter-rouge"><pre class="highlight"><code>class Font
 {
     public $style; // 字体样式
 
@@ -94,7 +93,7 @@ class Font
     {
         // code ..
     }
-}&lt;/code&gt;
+}
 </code></pre>
 </div>
 
@@ -102,15 +101,17 @@ class Font
 
 <p>另外这个类的style属性也有问题，它的类型是public，意味着外部可以随时调用改写，然后外部代码就有了</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;$font = new Font;
-$font-&gt;style = 'font-size: 13px';&lt;/code&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>$font = new Font;
+
+$font-&gt;style = 'font-size: 13px';
 </code></pre>
 </div>
 
 <p>或者：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;code class="language-none"&gt;$font = new Font;
-$font-&gt;style = 'font-weight: both';&lt;/code&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code>$font = new Font;
+
+$font-&gt;style = 'font-weight: both';
 </code></pre>
 </div>
 
@@ -128,9 +129,7 @@ $font-&gt;style = 'font-weight: both';&lt;/code&gt;
 
 <p>一切理论都是虚的，实践才是让自己进步的最佳方法，Talk is cheap. Show me the code。</p>
 
-<p>##</p>
-
-<p>转载自：segmentfault Derek_Chan <a href="https://segmentfault.com/a/1190000004968048">文章链接</a></p>
+<p>转载自：<a href="https://segmentfault.com/a/1190000004968048">segmentfault Derek_Chan 文章</a></p>
 
     </article>
     <!-- 多说评论框 start -->

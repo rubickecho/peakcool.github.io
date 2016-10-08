@@ -11,70 +11,41 @@ categories:
 - 转载收藏
 ---
 
-代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下：
-
-
-
-
-
-    
-    <code class="language-none"><?php
+代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下:
+ 
     class Font
     {
         public $style; // 字体样式
-    
+
         public function getStyle()
         {
             // code ..
         }
-    
+
         public function createDiv()
         {
             // code ..
         }
-    
+
         public function insertFontToDiv()
         {
             // code ..
         }
-    }</code>
-
-
-
-
-
+    }
 
 这个类中定义了公有的属性"style"，获取Style的方法和另外一些子方法，本来创建这个类是为了围绕「字体」作文章的，但在实现过程中，临时需求的增加使得这个类中多了Div和把字体插入到Div的方法，这是很常见的情况，而这只是个开始，与类无关的代码会越来越多，就像地上本无垃圾，有人丢了第一块垃圾，人们就会跟着丢垃圾一样，最后的结果就是这个类变得不易维护，可读性减低，导致这样的原因就是与类无关的代码破坏了这个类抽象的一致性。
 
 另外这个类的style属性也有问题，它的类型是public，意味着外部可以随时调用改写，然后外部代码就有了
 
-
-
-
-
+    $font = new Font;
     
-    <code class="language-none">$font = new Font;
-    $font->style = 'font-size: 13px';</code>
-
-
-
-
-
+    $font->style = 'font-size: 13px';
 
 或者：
 
+    $font = new Font;
 
-
-
-
-    
-    <code class="language-none">$font = new Font;
-    $font->style = 'font-weight: both';</code>
-
-
-
-
-
+    $font->style = 'font-weight: both';
 
 等等等等，日积月累，某一天，产品走到你面前，微微一笑地对你说：陈工啊，麻烦给每个字体都加上个默认的14px字体大小样式；
 
@@ -91,9 +62,4 @@ categories:
 一切理论都是虚的，实践才是让自己进步的最佳方法，Talk is cheap. Show me the code。
 
 
-
-## 
-
-
-
-转载自：segmentfault Derek_Chan [文章链接](https://segmentfault.com/a/1190000004968048)
+转载自：[segmentfault Derek_Chan 文章](https://segmentfault.com/a/1190000004968048)
