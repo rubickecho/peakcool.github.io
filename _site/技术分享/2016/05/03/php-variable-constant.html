@@ -163,33 +163,33 @@ bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span
 </ul>
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-    <span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="nv">$b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="k">function</span> <span class="nf">Sum</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">global</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">;</span>
-        <span class="nv">$b</span> <span class="o">=</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">Sum</span><span class="p">();</span>
-    <span class="k">echo</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">function</span> <span class="nf">Sum</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">global</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$b</span><span class="p">;</span>
+    <span class="nv">$b</span> <span class="o">=</span> <span class="nv">$a</span> <span class="o">+</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Sum</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$b</span><span class="p">;</span>
 
-    <span class="err">输出结果</span><span class="o">:</span><span class="mi">3</span></code></pre></figure>
+<span class="err">输出结果</span><span class="o">:</span><span class="mi">3</span></code></pre></figure>
 
 <ul>
   <li><strong>$GLOBALS 数组</strong></li>
 </ul>
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-    <span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="nv">$b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-    <span class="k">function</span> <span class="nf">Sum</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'b'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span> <span class="o">+</span> <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'b'</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="nx">Sum</span><span class="p">();</span>
-    <span class="k">echo</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="k">function</span> <span class="nf">Sum</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'b'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span> <span class="o">+</span> <span class="nv">$GLOBALS</span><span class="p">[</span><span class="s1">'b'</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="nx">Sum</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$b</span><span class="p">;</span>
 
-    <span class="err">输出结果</span><span class="o">:</span><span class="mi">3</span></code></pre></figure>
+<span class="err">输出结果</span><span class="o">:</span><span class="mi">3</span></code></pre></figure>
 
 <h4 id="section-3">4. 静态变量</h4>
 
@@ -198,19 +198,19 @@ bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span
 <p>静态变量仅在局部函数域中存在，但当程序执行离开此作用域时，其值不丢失。</p>
 
 <figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-    <span class="k">function</span> <span class="nf">test</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">static</span> <span class="nv">$count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nv">$count</span><span class="o">++</span><span class="p">;</span>
-        <span class="k">echo</span> <span class="nv">$count</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$count</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">test</span><span class="p">();</span>
-        <span class="p">}</span>
-        <span class="nv">$count</span><span class="o">--</span><span class="p">;</span>
+<span class="k">function</span> <span class="nf">test</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="nv">$count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nv">$count</span><span class="o">++</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$count</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$count</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">test</span><span class="p">();</span>
     <span class="p">}</span>
-    <span class="nx">test</span><span class="p">();</span>
+    <span class="nv">$count</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">test</span><span class="p">();</span>
 
-    <span class="err">输出结果</span><span class="o">:</span><span class="mi">12345678910</span></code></pre></figure>
+<span class="err">输出结果</span><span class="o">:</span><span class="mi">12345678910</span></code></pre></figure>
 
 <h3 id="section-4">常量</h3>
 

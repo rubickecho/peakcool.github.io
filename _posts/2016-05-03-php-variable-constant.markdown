@@ -103,33 +103,33 @@ bool(false)
 
 {% highlight php %}
 <?php
-    $a = 1;
-    $b = 2;
-    function Sum()
-    {
-        global $a, $b;
-        $b = $a + $b;
-    }
-    Sum();
-    echo $b;
+$a = 1;
+$b = 2;
+function Sum()
+{
+    global $a, $b;
+    $b = $a + $b;
+}
+Sum();
+echo $b;
 
-    输出结果:3
+输出结果:3
 {% endhighlight %}
 
   * **$GLOBALS 数组**
   
 {% highlight php %}
 <?php
-    $a = 1;
-    $b = 2;
-    function Sum()
-    {
-        $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
-    }
-    Sum();
-    echo $b;
+$a = 1;
+$b = 2;
+function Sum()
+{
+    $GLOBALS['b'] = $GLOBALS['a'] + $GLOBALS['b'];
+}
+Sum();
+echo $b;
 
-    输出结果:3
+输出结果:3
 {% endhighlight %}
 
 #### 4. 静态变量
@@ -140,19 +140,19 @@ static $var
     
 {% highlight php %}
 <?php
-    function test()
-    {
-        static $count = 0;
-        $count++;
-        echo $count;
-        if ($count < 10) {
-            test();
-        }
-        $count--;
+function test()
+{
+    static $count = 0;
+    $count++;
+    echo $count;
+    if ($count < 10) {
+        test();
     }
-    test();
+    $count--;
+}
+test();
 
-    输出结果:12345678910
+输出结果:12345678910
 {% endhighlight %}
 
 

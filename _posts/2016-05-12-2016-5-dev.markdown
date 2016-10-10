@@ -23,27 +23,27 @@ Git地址: [https://github.com/briannesbitt/Carbon](https://github.com/briannesb
 
   * 引用
 
-    {% highlight php %}
-    use Carbon\Carbon;
-    {% endhighlight %}
+{% highlight php %}
+use Carbon\Carbon;
+{% endhighlight %}
 
   * 基本操作
 
 {% highlight php %}
 <?php
-    echo (new Carbon('first day of December 2008'))->addWeeks(2);     // 2008-12-15 00:00:00
-    echo Carbon::parse('first day of December 2008')->addWeeks(2);    // 2008-12-15 00:00:00
+echo (new Carbon('first day of December 2008'))->addWeeks(2);     // 2008-12-15 00:00:00
+echo Carbon::parse('first day of December 2008')->addWeeks(2);    // 2008-12-15 00:00:00
 
-    $now = Carbon::now();
-    echo $now;                               // 2015-11-11 12:38:36
-    $today = Carbon::today();
-    echo $today;                             // 2015-11-11 00:00:00
-    $tomorrow = Carbon::tomorrow('Europe/London');
-    echo $tomorrow;                          // 2015-11-12 00:00:00
-    $yesterday = Carbon::yesterday();
-    echo $yesterday;                         // 2015-11-10 00:00:00
+$now = Carbon::now();
+echo $now;                               // 2015-11-11 12:38:36
+$today = Carbon::today();
+echo $today;                             // 2015-11-11 00:00:00
+$tomorrow = Carbon::tomorrow('Europe/London');
+echo $tomorrow;                          // 2015-11-12 00:00:00
+$yesterday = Carbon::yesterday();
+echo $yesterday;                         // 2015-11-10 00:00:00
 
-    echo Carbon::createFromFormat('Y-m-d H', '1975-05-21 22')->toDateTimeString(); // 1975-05-21 22:00:00
+echo Carbon::createFromFormat('Y-m-d H', '1975-05-21 22')->toDateTimeString(); // 1975-05-21 22:00:00
 {% endhighlight %}
 
 
@@ -66,36 +66,36 @@ Laravel学院: [http://laravelacademy.org/post/3585.html](http://laravelacademy.
 
   * **_curl -v_** 查看通信过程
 
-    {% highlight shell %}
-    ~ curl -v www.sina.com
-    * Rebuilt URL to: www.sina.com/
-    *   Trying 202.108.33.71...
-    * Connected to www.sina.com (202.108.33.71) port 80 (#0)
-    > GET / HTTP/1.1
-    > Host: www.sina.com
-    > User-Agent: curl/7.43.0
-    > Accept: */*
-    >
-    < HTTP/1.1 301 Moved Permanently
-    < Server: nginx
-    < Date: Thu, 12 May 2016 11:57:45 GMT
-    < Content-Type: text/html
-    < Location: http://www.sina.com.cn/
-    < Expires: Thu, 12 May 2016 11:59:45 GMT
-    < Cache-Control: max-age=120
-    < Age: 49
-    < Content-Length: 178
-    < X-Cache: HIT from xd33-71.sina.com.cn
-    <
-    <html>
-    <head><title>301 Moved Permanently</title></head>
-    <body bgcolor="white">
-    <center><h1>301 Moved Permanently</h1></center>
-    <hr><center>nginx</center>
-    </body>
-    </html>
-    * Connection #0 to host www.sina.com left intact
-    {% endhighlight %}
+{% highlight shell %}
+~ curl -v www.sina.com
+* Rebuilt URL to: www.sina.com/
+*   Trying 202.108.33.71...
+* Connected to www.sina.com (202.108.33.71) port 80 (#0)
+> GET / HTTP/1.1
+> Host: www.sina.com
+> User-Agent: curl/7.43.0
+> Accept: */*
+>
+< HTTP/1.1 301 Moved Permanently
+< Server: nginx
+< Date: Thu, 12 May 2016 11:57:45 GMT
+< Content-Type: text/html
+< Location: http://www.sina.com.cn/
+< Expires: Thu, 12 May 2016 11:59:45 GMT
+< Cache-Control: max-age=120
+< Age: 49
+< Content-Length: 178
+< X-Cache: HIT from xd33-71.sina.com.cn
+<
+<html>
+<head><title>301 Moved Permanently</title></head>
+<body bgcolor="white">
+<center><h1>301 Moved Permanently</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+* Connection #0 to host www.sina.com left intact
+{% endhighlight %}
 
   * 表单通信
 
