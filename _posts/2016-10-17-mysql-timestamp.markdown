@@ -1,3 +1,13 @@
+---
+author: tangliangcheng
+comments: true
+date: 2016-10-17 17:39:39+00:00
+layout: post
+slug: mysql-timestamp
+title: mysql之TIMESTAMP（时间戳）用法详解
+categories:
+- 转载收藏
+---
 
 ###一、TIMESTAMP的变体
 TIMESTAMP时间戳在创建的时候可以有多重不同的特性，如：
