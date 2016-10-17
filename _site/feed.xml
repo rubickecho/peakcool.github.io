@@ -4,10 +4,10 @@
     <title>peakcool | 个人博客</title>
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </description>
-    <link>http://bravelife.top/</link>
-    <atom:link href="http://bravelife.top/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Oct 2016 21:58:56 +0800</pubDate>
-    <lastBuildDate>Mon, 10 Oct 2016 21:58:56 +0800</lastBuildDate>
+    <link>http://peakcool.cn/</link>
+    <atom:link href="http://peakcool.cn/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 17 Oct 2016 17:44:56 +0800</pubDate>
+    <lastBuildDate>Mon, 17 Oct 2016 17:44:56 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
@@ -112,8 +112,8 @@
 
 </description>
         <pubDate>Thu, 12 May 2016 20:26:39 +0800</pubDate>
-        <link>http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/12/201605-dev.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/12/201605-dev.html</guid>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/12/201605-dev.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/12/201605-dev.html</guid>
         
         
         <category>技术分享</category>
@@ -273,11 +273,11 @@ tom&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;&lt;strong&gt;常见”魔术”常量&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://bravelife.top/images/posts/php-constant.png&quot; alt=&quot;常见&amp;quot;魔术&amp;quot;常量&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://peakcool.cn/images/posts/php-constant.png&quot; alt=&quot;常见&amp;quot;魔术&amp;quot;常量&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 03 May 2016 10:00:34 +0800</pubDate>
-        <link>http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/03/php-variable-constant.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/03/php-variable-constant.html</guid>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/03/php-variable-constant.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/05/03/php-variable-constant.html</guid>
         
         
         <category>技术分享</category>
@@ -534,8 +534,8 @@ php &amp;gt; foreach&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class
 &lt;hr /&gt;
 </description>
         <pubDate>Wed, 27 Apr 2016 22:52:19 +0800</pubDate>
-        <link>http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/27/php-array.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/27/php-array.html</guid>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/27/php-array.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/27/php-array.html</guid>
         
         <category>php</category>
         
@@ -653,8 +653,8 @@ php &amp;gt; foreach&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class
 &lt;p&gt;转载自:  &lt;a href=&quot;http://blog.jobbole.com/100064/&quot;&gt;伯乐在线&lt;/a&gt;   原文出处： &lt;a href=&quot;http://blog.csdn.net/heiyeshuwu/article/details/40098043&quot;&gt;黑夜路人&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Tue, 26 Apr 2016 11:23:57 +0800</pubDate>
-        <link>http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/26/php-growup.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/26/php-growup.html</guid>
+        <link>http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/26/php-growup.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/26/php-growup.html</guid>
         
         
         <category>转载收藏</category>
@@ -896,8 +896,8 @@ ello,World&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 </description>
         <pubDate>Mon, 25 Apr 2016 21:08:25 +0800</pubDate>
-        <link>http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/25/php-basics.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/25/php-basics.html</guid>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/25/php-basics.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/04/25/php-basics.html</guid>
         
         
         <category>技术分享</category>
@@ -913,8 +913,8 @@ ello,World&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;沉睡中的开发人员于是问恰巧出现的天使：“既然如此，那么，天堂的程序员和地狱的程序员之间的区别是什么呢？”“区别在于，”这个天使回答，“天堂里的程序员能够按时完成任务。”&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 Apr 2016 10:13:21 +0800</pubDate>
-        <link>http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/25/heaven-hell.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/25/heaven-hell.html</guid>
+        <link>http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/25/heaven-hell.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/25/heaven-hell.html</guid>
         
         
         <category>转载收藏</category>
@@ -982,8 +982,8 @@ $font-&amp;gt;style = 'font-weight: both';
 &lt;p&gt;转载自：&lt;a href=&quot;https://segmentfault.com/a/1190000004968048&quot;&gt;segmentfault Derek_Chan 文章&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 21 Apr 2016 23:18:39 +0800</pubDate>
-        <link>http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/how-write-class.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/how-write-class.html</guid>
+        <link>http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/how-write-class.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/how-write-class.html</guid>
         
         
         <category>转载收藏</category>
@@ -1013,8 +1013,8 @@ $font-&amp;gt;style = 'font-weight: both';
 &lt;p&gt;愿未来岁月安好，Kobe。&lt;/p&gt;
 </description>
         <pubDate>Thu, 14 Apr 2016 14:03:36 +0800</pubDate>
-        <link>http://bravelife.top/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/2016/04/14/mamba-out.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/2016/04/14/mamba-out.html</guid>
+        <link>http://peakcool.cn/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/2016/04/14/mamba-out.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/2016/04/14/mamba-out.html</guid>
         
         
         <category>个人随笔</category>
@@ -1496,8 +1496,8 @@ $font-&amp;gt;style = 'font-weight: both';
 &lt;p&gt;注：转载自阳志平的网志&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html&quot;&gt;http://www.yangzhiping.com/tech/github.html&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 14 Mar 2016 09:13:56 +0800</pubDate>
-        <link>http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/14/how-use-github.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/14/how-use-github.html</guid>
+        <link>http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/14/how-use-github.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/14/how-use-github.html</guid>
         
         
         <category>转载收藏</category>
@@ -1531,11 +1531,11 @@ $font-&amp;gt;style = 'font-weight: both';
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://bravelife.top/images/posts/phpredis.png&quot; alt=&quot;reids模块&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://peakcool.cn/images/posts/phpredis.png&quot; alt=&quot;reids模块&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 03 Mar 2016 21:56:11 +0800</pubDate>
-        <link>http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/03/mac-install-phpredis.html</link>
-        <guid isPermaLink="true">http://bravelife.top/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/03/mac-install-phpredis.html</guid>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/03/mac-install-phpredis.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/03/mac-install-phpredis.html</guid>
         
         
         <category>技术分享</category>
