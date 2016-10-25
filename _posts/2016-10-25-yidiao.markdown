@@ -10,7 +10,7 @@ categories:
 - 技术分享
 ---
 
-##「 衣调 」阿里云部署记录
+## 「 衣调 」阿里云部署记录
 
 今天完成了「 衣调 」 公众号的项目部署，记录了一些操作，和大家分享。
 
@@ -19,7 +19,7 @@ categories:
  * 项目： 前端 Vue1.0 + 后端 Laravel
 
 
-###STEP
+### STEP
 
 * **登录阿里云服务器: ssh root@server_ip -p 22**
 * **进入到webserver文件夹后clone 阿里云code仓库中的代码**
