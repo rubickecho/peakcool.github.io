@@ -12,7 +12,7 @@ categories:
 
 Redis是基于内存的数据存储系统，数据以key=>value形式存储。value支持多种数据类型，包括string,hash,list,set,sorted set等等。
 
-####1.起步
+#### 1.起步
 
 [安装教程](http://www.redis.net.cn/tutorial/3503.html)
 
@@ -27,7 +27,8 @@ Redis是基于内存的数据存储系统，数据以key=>value形式存储。va
 	127.0.0.1:6379>
 	
 [学习教程](http://www.redis.net.cn/tutorial/3501.html)
-####2.配置文件  redis.conf
+
+#### 2.配置文件  redis.conf
 
 	CONFIG GET * //查看所有配置
 	
@@ -37,7 +38,7 @@ Redis是基于内存的数据存储系统，数据以key=>value形式存储。va
 
 * bind: 绑定ip，只接受来自绑定ip的请求，更安全 
 
-####3.redis 数据持久化
+#### 3.redis 数据持久化
 
 RDB原理:
 
@@ -54,7 +55,7 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 * 如果想达到像数据库一样的数据安全性能，应该同时使用两种
 * 若要求不是特别高，可以只使用RDB持久化
 
-####4.redis 开启启动服务
+#### 4.redis 开启启动服务
 
 1. /etc/init.d/redis 加入以下内容
 
@@ -117,7 +118,7 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 	
 4. 检查是否加入服务: service redis start
 
-####5.Redis 6种过期策略
+#### 5.Redis 6种过期策略
 
 * Volatile-lru : 只针对设置了过期时间的key
 * AllKeys-lru: 删除lru算法的key
@@ -126,7 +127,7 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 * Volatile-ttl: 删除即将过期的key
 * noeviction: 永不过期
 
-####Redis 事务
+#### Redis 事务
 
 事务是一个单独的隔离，事务中的所有命令都会序列化，按顺序地执行。事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。
 
@@ -138,6 +139,7 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 * 命令入队
 * 执行事务
 
+
 |   序号    | 命令及描述 	  |
 |   -----  |:------: |
 |1|DISCARD 取消事务，放弃执行事务块内的所有命令。|
@@ -147,7 +149,7 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 |5|WATCH key [key ...] 监视一个(或多个) key ，如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断。|
 
 
-####Redis 手册
+#### Redis 手册
 
 [Redis中文手册PHP版](http://www.cnblogs.com/ikodota/archive/2012/03/05/php_redis_cn.html)
 
@@ -155,11 +157,11 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 
 [Redis命令参考](http://doc.redisfans.com/)
 
-####Redis 精文
+#### Redis 精文
 
 [缓存更新套路--陈皓](http://coolshell.cn/articles/17416.html)
 
-[《Redis系列专题》之 20分钟快速了解Redis--手插口袋_](http://www.imooc.com/article/3585)
+[20分钟快速了解Redis--手插口袋_](http://www.imooc.com/article/3585)
 
 [Redis进阶：数据持久化，安全，在PHP中使用--atwal](http://www.imooc.com/article/11205)
 
