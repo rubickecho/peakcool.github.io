@@ -61,11 +61,13 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 
 		#!/bin/sh 
 		##chkconfig: 2345 80 90 
-		##description:auto_run PATH=/usr/local/		bin:/sbin:/usr/bin:/bin 
+		##description:auto_run 
+		PATH=/usr/local/bin:/sbin:/usr/bin:/bin 
 
 		REDISPORT=6379 
 		EXEC=/usr/local/bin/redis-server 
 		REDIS_CLI=/usr/local/bin/redis-cli 
+		
 		PIDFILE=/var/run/redis.pid 
 		CONF="/etc/redis.conf" 
 		
@@ -73,7 +75,7 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 		start)
 			if [ -f $PIDFILE ] 
 			then 
-				echo "$PIDFILE exists, process is already running or 			crashed" 
+				echo "$PIDFILE exists, process is already running or crashed" 
 			else 
 				echo "Starting Redis server..." 
 				$EXEC $CONF 
@@ -90,8 +92,8 @@ AOF持久化方式记录每次对服务器写的操作，当服务器重启的�
 				echo "$PIDFILE does not exist, process is not running" 
 			else 
 				PID=$(cat $PIDFILE) 
-				echo "Stopping ..." $
-				REDIS_CLI -p $REDISPORT SHUTDOWN 
+				echo "Stopping ..."
+				$REDIS_CLI -p $REDISPORT SHUTDOWN 
 				while [ -x ${PIDFILE} ] 
 				do 
 					echo "Waiting for Redis to shutdown ..." 
