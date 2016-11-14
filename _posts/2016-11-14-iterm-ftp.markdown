@@ -3,21 +3,21 @@ author: tangliangcheng
 comments: true
 date: 2016-11-14 02:00:34+00:00
 layout: post
-slug: Mac-iTerm-ftp
-title: Mac终端命令ftp上传文件
-excerpt: Mac终端命令ftp上传文件
+slug: mac-iTerm-ftp
+title: mac终端命令ftp上传文件
+excerpt: Mac终端使用命令登陆ftp上传文件简单操作
 categories:
 - 技术分享
 ---
 
-###1. 进入到本地上传文件目录
+#### 1.进入到本地上传文件目录
 
-###2. 执行命令 ftp ftp主机登陆地址
+#### 2. 执行命令: ftp ftp主机登陆地址
 
 ![ftp-1.png]({{ site.url }}/images/posts/ftp1.png)
 
-###3. 输入用户名，密码
+#### 3.输入用户名，密码
 
-####4. 进入htdos目录，put文件
+#### 4.进入htdos目录，put上传目标文件
 
 ![ftp-2.png]({{ site.url }}/images/posts/ftp2.png)
