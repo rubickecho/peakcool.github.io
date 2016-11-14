@@ -6,9 +6,600 @@
 </description>
     <link>http://peakcool.cn/</link>
     <atom:link href="http://peakcool.cn/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 17 Oct 2016 17:44:56 +0800</pubDate>
-    <lastBuildDate>Mon, 17 Oct 2016 17:44:56 +0800</lastBuildDate>
+    <pubDate>Mon, 14 Nov 2016 11:00:15 +0800</pubDate>
+    <lastBuildDate>Mon, 14 Nov 2016 11:00:15 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Mac终端命令ftp上传文件</title>
+        <description>&lt;p&gt;###1. 进入到本地上传文件目录&lt;/p&gt;
+
+&lt;p&gt;###2. 执行命令 ftp ftp主机登陆地址&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://peakcool.cn/images/posts/ftp1.png&quot; alt=&quot;ftp-1.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;###3. 输入用户名，密码&lt;/p&gt;
+
+&lt;p&gt;####4. 进入htdos目录，put文件&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://peakcool.cn/images/posts/ftp2.png&quot; alt=&quot;ftp-2.png&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 14 Nov 2016 10:00:34 +0800</pubDate>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/11/14/Mac-iTerm-ftp.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/11/14/Mac-iTerm-ftp.html</guid>
+        
+        
+        <category>技术分享</category>
+        
+      </item>
+    
+      <item>
+        <title>Redis学习的一些总结</title>
+        <description>&lt;p&gt;Redis是基于内存的数据存储系统，数据以key=&amp;gt;value形式存储。value支持多种数据类型，包括string,hash,list,set,sorted set等等。&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;1.起步&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.redis.net.cn/tutorial/3503.html&quot;&gt;安装教程&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;启动服务端: redis-server&lt;/p&gt;
+
+&lt;p&gt;启动客户端: redis-cli&lt;/p&gt;
+
+&lt;p&gt;验证是否成功:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;127.0.0.1:6379&amp;gt; PING
+PONG
+127.0.0.1:6379&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.redis.net.cn/tutorial/3501.html&quot;&gt;学习教程&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;redisconf&quot;&gt;2.配置文件  redis.conf&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CONFIG GET * //查看所有配置
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;daemonize: 默认为no，yes则为启动redis-server时自动是后台运行方式&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;port: 指定端口号&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;bind: 绑定ip，只接受来自绑定ip的请求，更安全&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;redis-&quot;&gt;3.redis 数据持久化&lt;/h3&gt;
+
+&lt;p&gt;RDB原理:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Redis使用fork函数复制一份当前进程(父) 的副本(子)&lt;/li&gt;
+  &lt;li&gt;父进程继续接收并处理客户端发来的命令，而子进程开始将内存中的数据写入硬盘中的临时文件&lt;/li&gt;
+  &lt;li&gt;当子进程写入完所有数据后会用该临时文件替换旧的rdb文件，到此一次快照操作完成。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;AOF原理:&lt;/p&gt;
+
+&lt;p&gt;AOF持久化方式记录每次对服务器写的操作，当服务器重启的时候会重新执行这些命令来恢复原始的数据。运作方式是不断地将命令追加到文件的末尾。&lt;/p&gt;
+
+&lt;p&gt;如何选择？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;如果想达到像数据库一样的数据安全性能，应该同时使用两种&lt;/li&gt;
+  &lt;li&gt;若要求不是特别高，可以只使用RDB持久化&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;redis--1&quot;&gt;4.redis 开启启动服务&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;/etc/init.d/redis 加入以下内容&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c&quot;&gt;#!/bin/sh &lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;##chkconfig: 2345 80 90 &lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;##description:auto_run &lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/bin:/sbin:/usr/bin:/bin 
+
+ &lt;span class=&quot;nv&quot;&gt;REDISPORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;6379 
+ &lt;span class=&quot;nv&quot;&gt;EXEC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/bin/redis-server 
+ &lt;span class=&quot;nv&quot;&gt;REDIS_CLI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/local/bin/redis-cli 
+	
+ &lt;span class=&quot;nv&quot;&gt;PIDFILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/run/redis.pid 
+ &lt;span class=&quot;nv&quot;&gt;CONF&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/etc/redis.conf&quot;&lt;/span&gt; 
+	
+ &lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in 
+ &lt;/span&gt;start&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -f &lt;span class=&quot;nv&quot;&gt;$PIDFILE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; 
+     &lt;span class=&quot;k&quot;&gt;then 
+         &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PIDFILE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; exists, process is already running or crashed&quot;&lt;/span&gt; 
+     &lt;span class=&quot;k&quot;&gt;else 
+         &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Starting Redis server...&quot;&lt;/span&gt; 
+         &lt;span class=&quot;nv&quot;&gt;$EXEC&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$CONF&lt;/span&gt; 
+     &lt;span class=&quot;k&quot;&gt;fi 
+     if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; 
+     &lt;span class=&quot;k&quot;&gt;then 
+         &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Redis is running...&quot;&lt;/span&gt; 
+         &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt; 
+         &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt; 
+     stop&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; 
+     &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; ! -f &lt;span class=&quot;nv&quot;&gt;$PIDFILE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; 
+     &lt;span class=&quot;k&quot;&gt;then 
+         &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PIDFILE&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; does not exist, process is not running&quot;&lt;/span&gt; 
+     &lt;span class=&quot;k&quot;&gt;else 
+         &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;cat &lt;span class=&quot;nv&quot;&gt;$PIDFILE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; 
+         &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Stopping ...&quot;&lt;/span&gt;
+         &lt;span class=&quot;nv&quot;&gt;$REDIS_CLI&lt;/span&gt; -p &lt;span class=&quot;nv&quot;&gt;$REDISPORT&lt;/span&gt; SHUTDOWN 
+         &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -x &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PIDFILE&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; 
+         &lt;span class=&quot;k&quot;&gt;do 
+             &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Waiting for Redis to shutdown ...&quot;&lt;/span&gt; 
+             sleep 1 
+         &lt;span class=&quot;k&quot;&gt;done 
+             &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Redis stopped&quot;&lt;/span&gt; 
+         &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt; 
+         &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt; 
+     restartforce-reload&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+         &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; stop 
+         &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; start 
+         &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt; 
+     &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+     &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Usage: /etc/init.d/redis {startstoprestartforce-reload}&quot;&lt;/span&gt; &amp;gt;&amp;amp;2 
+         &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1 
+ &lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt; 
+ &lt;span class=&quot;c&quot;&gt;#######&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;设置权限: chmod +x /etc/init.d/redis&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;加入开机启动服务&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;linux: sudo chkconfig redis on&lt;/li&gt;
+      &lt;li&gt;ubuntu: sudo sysv-rc-conf redis on&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;检查是否加入服务: service redis start&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;redis-6&quot;&gt;5.Redis 6种过期策略&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Volatile-lru : 只针对设置了过期时间的key&lt;/li&gt;
+  &lt;li&gt;AllKeys-lru: 删除lru算法的key&lt;/li&gt;
+  &lt;li&gt;Volatile-random: 随机删除即将过期的key&lt;/li&gt;
+  &lt;li&gt;Allkeys-random: 随机删除&lt;/li&gt;
+  &lt;li&gt;Volatile-ttl: 删除即将过期的key&lt;/li&gt;
+  &lt;li&gt;noeviction: 永不过期&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;redis--2&quot;&gt;Redis 事务&lt;/h3&gt;
+
+&lt;p&gt;事务是一个单独的隔离，事务中的所有命令都会序列化，按顺序地执行。事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。&lt;/p&gt;
+
+&lt;p&gt;事务是一个原子操作，事务中的命令要么全部被执行(commit)，要么全部不执行，可以回滚(rollback)。&lt;/p&gt;
+
+&lt;p&gt;一个事务从开始到执行会经历三个阶段&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;开始事务&lt;/li&gt;
+  &lt;li&gt;命令入队&lt;/li&gt;
+  &lt;li&gt;执行事务&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;序号&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;命令及描述&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;DISCARD 取消事务，放弃执行事务块内的所有命令。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;EXEC 执行所有事务块内的命令。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;MULTI 标记一个事务块的开始。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;UNWATCH 取消 WATCH 命令对所有 key 的监视。&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;WATCH key [key …] 监视一个(或多个) key ，如果在事务执行之前这个(或这些) key 被其他命令所改动，那么事务将被打断。&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;redis--3&quot;&gt;Redis 手册&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/ikodota/archive/2012/03/05/php_redis_cn.html&quot;&gt;Redis中文手册PHP版&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.redis.net.cn/order/&quot;&gt;Redis手册&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://doc.redisfans.com/&quot;&gt;Redis命令参考&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;redis--4&quot;&gt;Redis 精文&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://coolshell.cn/articles/17416.html&quot;&gt;缓存更新套路–陈皓&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.imooc.com/article/3585&quot;&gt;20分钟快速了解Redis–手插口袋_&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.imooc.com/article/11205&quot;&gt;Redis进阶：数据持久化，安全，在PHP中使用–atwal&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 07 Nov 2016 10:00:34 +0800</pubDate>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/11/07/redis-learn.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/11/07/redis-learn.html</guid>
+        
+        
+        <category>技术分享</category>
+        
+      </item>
+    
+      <item>
+        <title>「 衣调 」阿里云部署记录</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;「 衣调 」阿里云部署记录&lt;/h2&gt;
+
+&lt;p&gt;今天完成了「 衣调 」 公众号的项目部署，记录了一些操作，和大家分享。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;服务器： 阿里云ESC&lt;/li&gt;
+  &lt;li&gt;环境： Ubuntu + Apache/2.4.7 + PHP/5.5.9 + Mysql&lt;/li&gt;
+  &lt;li&gt;项目： 前端 Vue1.0 + 后端 Laravel&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;step&quot;&gt;STEP&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;登录阿里云服务器: ssh root@server_ip -p 22&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;进入到webserver文件夹后clone 阿里云code仓库中的代码&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;我在执行git clone时，报错提示没有权限，这是因为缺少ssh密钥的原因，应将自己生成的密钥添加到远程git仓库密钥管理中去，具体步骤如下：&lt;/p&gt;
+
+    &lt;p&gt;SSH key 可以让你在你的电脑和Code服务器之间建立安全的加密连接。 先执行以下语句来判断是否已经存在本地公钥：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cat ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;如果你看到一长串以 ssh-rsa或 ssh-dsa开头的字符串, 你可以跳过 ssh-keygen的步骤。
+  提示: 最好的情况是一个密码对应一个ssh key，但是那不是必须的。你完全可以跳过创建密码这个步骤。请记住设置的密码并不能被修改或获取。
+  你可以按如下命令来生成ssh key：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  ssh-keygen -t rsa -C &quot;账户&quot;
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;这个指令会要求你提供一个位置和文件名去存放键值对和密码，你可以点击Enter键去使用默认值。
+  用以下命令获取你生成的公钥：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  cat ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;复制这个公钥放到你的个人设置中的SSH/My SSH Keys下，请完整拷贝从ssh-开始直到你的用户名和主机名为止的内容。
+  如果打算拷贝你的公钥到你的粘贴板下，请参考你的操作系统使用以下的命令：&lt;/p&gt;
+
+    &lt;p&gt;Windows:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  clip &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;Mac:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  pbcopy &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;GNU/Linux (requires xclip):&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  xclip -sel clip &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;把ssh keys	添加后就可以clone下远程仓库的代码
+  &lt;strong&gt;(默认拉取master分支)&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;根据项目需求配置虚拟主机&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;当开始去操作时才发现服务器上的apache目录结构和我本地apache的目录结构并不一样，以至于浪费了比较多的时间，一直在想为什么没有httpd.conf，后来在一篇博文中找到了答案 &lt;a href=&quot;http://blog.csdn.net/veizz/article/details/7410784&quot;&gt;@博文链接&lt;/a&gt; 。&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;
+        &lt;p&gt;vi /etc/apache2/sites-available/newhosts.conf&lt;/p&gt;
+
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &amp;lt;VirtualHost *:80&amp;gt;
+ ServerName www.name.com
+ DocumentRoot &quot;/var/www/html/xxx/public/&quot;
+ &amp;lt;Directory &quot;/var/www/html/xxx/public/&quot;&amp;gt;
+ Options Indexes FollowSymLinks
+ AllowOverride All
+ Order allow,deny
+ Allow from all
+ DirectoryIndex index.html
+ RewriteEngine on
+ RewriteBase /
+ RewriteCond %{REQUEST_FILENAME} !-f
+ RewriteCond %{REQUEST_FILENAME} !-d
+ RewriteRule ^(.*) index.html
+ &amp;lt;/Directory&amp;gt;
+ &amp;lt;/VirtualHost&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;将sites_available链接到sites_enabled文件夹中&lt;/p&gt;
+
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo ln -s /etc/apache2/sites-available/newhosts.conf  /etc/apache2/sites-enabled/hosts.conf
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;重新启动apache&lt;/p&gt;
+
+        &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; sudo /etc/init.d/apache2 restart
+&lt;/code&gt;&lt;/pre&gt;
+        &lt;/div&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;相应文件夹权限赋值&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ol&gt;
+      &lt;li&gt;storage文件夹需写入权限&lt;/li&gt;
+      &lt;li&gt;bootstrap/cache文件夹需写入权限&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;导入数据库&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Tue, 25 Oct 2016 10:00:34 +0800</pubDate>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/10/25/yidiao.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/10/25/yidiao.html</guid>
+        
+        
+        <category>技术分享</category>
+        
+      </item>
+    
+      <item>
+        <title>mysql之TIMESTAMP（时间戳）用法详解</title>
+        <description>&lt;h3 id=&quot;timestamp&quot;&gt;一、TIMESTAMP的变体&lt;/h3&gt;
+&lt;p&gt;TIMESTAMP时间戳在创建的时候可以有多重不同的特性，如：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;在创建新记录和修改现有记录的时候都对这个数据列刷新：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在创建新记录的时候把这个字段设置为当前时间，但以后修改时，不再刷新它：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在创建新记录的时候把这个字段设置为0，以后修改时刷新它：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在创建新记录的时候把这个字段设置为给定值，以后修改时刷新它：&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; TIMESTAMP DEFAULT ‘yyyy-mm-dd hh:mm:ss' ON UPDATE CURRENT_TIMESTAMP
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;MySQL目前不支持列的Default 为函数的形式,如达到你某列的默认值为当前更新日期与时间的功能,你可以使用TIMESTAMP列类型,下面就详细说明TIMESTAMP列类型&lt;/p&gt;
+
+&lt;h3 id=&quot;timestamp-1&quot;&gt;二、TIMESTAMP列类型&lt;/h3&gt;
+&lt;p&gt;TIMESTAMP值可以从1970的某时的开始一直到2037年，精度为一秒，其值作为数字显示。&lt;/p&gt;
+
+&lt;p&gt;TIMESTAMP值显示尺寸的格式如下表所示：&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;+---------------+----------------+
+| 列类型　　　　| 显示格式　　　 |
+| TIMESTAMP&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; | YYYYMMDDHHMMSS |　
+| TIMESTAMP&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;12&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; | YYMMDDHHMMSS　 |
+| TIMESTAMP&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;10&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; | YYMMDDHHMM　　 |
+| TIMESTAMP&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;8&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;　| YYYYMMDD　　　 |
+| TIMESTAMP&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;6&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;　| YYMMDD　　　　 |
+| TIMESTAMP&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;4&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;　| YYMM　　　　　 |
+| TIMESTAMP&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;　| YY　　　　　　 |
++---------------+----------------+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;“完整”TIMESTAMP格式是14位，但TIMESTAMP列也可以用更短的显示尺寸，创造最常见的显示尺寸是6、8、12、和14。&lt;/p&gt;
+
+&lt;p&gt;你可以在创建表时指定一个任意的显示尺寸，但是定义列长为0或比14大均会被强制定义为列长14。&lt;/p&gt;
+
+&lt;p&gt;列长在从1～13范围的奇数值尺寸均被强制为下一个更大的偶数。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;列如：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;定义字段长度　　 强制字段长度&lt;/p&gt;
+
+&lt;p&gt;TIMESTAMP(0) -&amp;gt;　TIMESTAMP(14)&lt;/p&gt;
+
+&lt;p&gt;TIMESTAMP(15)-&amp;gt;　TIMESTAMP(14)&lt;/p&gt;
+
+&lt;p&gt;TIMESTAMP(1) -&amp;gt;　TIMESTAMP(2)&lt;/p&gt;
+
+&lt;p&gt;TIMESTAMP(5) -&amp;gt;　TIMESTAMP(6)&lt;/p&gt;
+
+&lt;p&gt;所有的TIMESTAMP列都有同样的存储大小，使用被指定的时期时间值的完整精度（14位）存储合法的值不考虑显示尺寸。不合法的日期，将会被强制为0存储&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;这有几个含意：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;虽然你建表时定义了列TIMESTAMP(8)，但在你进行数据插入与更新时TIMESTAMP列实际上保存了14位的数据（包括年月日时分秒），只不过在你进行查询时MySQL返回给你的是8位的年月日数据。如果你使用ALTER TABLE拓宽一个狭窄的TIMESTAMP列，以前被“隐蔽”的信息将被显示&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;同样，缩小一个TIMESTAMP列不会导致信息失去，除了感觉上值在显示时，较少的信息被显示出。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;尽管TIMESTAMP值被存储为完整精度，直接操作存储值的唯一函数是UNIX_TIMESTAMP()；由于MySQL返回TIMESTAMP列的列值是进过格式化后的检索的值，这意味着你可能不能使用某些函数来操作TIMESTAMP列（例如HOUR()或SECOND()），除非TIMESTAMP值的相关部分被包含在格式化的值中。例如，一个TIMESTAMP列只有被定义为TIMESTAMP(10)以上时，TIMESTAMP列的HH部分才会被显示，因此在更短的TIMESTAMP值上使用HOUR()会产生一个不可预知的结果。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;不合法TIMESTAMP值被变换到适当类型的“零”值(00000000000000)。（DATETIME,DATE亦然）&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;例如你可以使用下列语句来验证：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;CREATE TABLE &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'id'&lt;/span&gt; INT &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; UNSIGNED AUTO_INCREMENT, &lt;span class=&quot;s1&quot;&gt;'date1'&lt;/span&gt;
+TIMESTAMP &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;8&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; PRIMARY KEY&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;;
+INSERT INTO &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;SET id &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1;
+SELECT &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; FROM &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;;
++----+----------------+
+| id | date1　　　　　|
++----+----------------+
+|　1 | 20021114　　　 |
++----+----------------+
+ALTER TABLE &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;CHANGE &lt;span class=&quot;s1&quot;&gt;'date1'&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'date1'&lt;/span&gt; TIMESTAMP&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+SELECT &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; FROM &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;;
++----+----------------+
+| id | date1　　　　　|
++----+----------------+
+|　1 | 20021114093723 |
++----+----------------+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;你可以使用TIMESTAMP列类型自动地用当前的日期和时间标记INSERT或UPDATE的操作。&lt;/p&gt;
+
+&lt;p&gt;如果你有多个TIMESTAMP列，只有第一个自动更新。自动更新第一个TIMESTAMP列在下列任何条件下发生：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;列值没有明确地在一个INSERT或LOAD DATA INFILE语句中指定。&lt;/li&gt;
+  &lt;li&gt;列值没有明确地在一个UPDATE语句中指定且另外一些的列改变值。（注意一个UPDATE设置一个列为它已经有的值，这将不引起TIMESTAMP列被更新，因为如果你设置一个列为它当前的值，MySQL为了效率而忽略更改。）&lt;/li&gt;
+  &lt;li&gt;你明确地设定TIMESTAMP列为NULL.&lt;/li&gt;
+  &lt;li&gt;除第一个以外的TIMESTAMP列也可以设置到当前的日期和时间，只要将列设为NULL，或NOW()。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;CREATE TABLE &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; 
+&lt;span class=&quot;s1&quot;&gt;'id'&lt;/span&gt; INT &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;3&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; UNSIGNED AUTO_INCREMENT,
+&lt;span class=&quot;s1&quot;&gt;'date1'&lt;/span&gt; TIMESTAMP &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;,
+&lt;span class=&quot;s1&quot;&gt;'date2'&lt;/span&gt; TIMESTAMP &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;14&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;,
+PRIMARY KEY&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'id'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+INSERT INTO &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;id, date1, date2&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; VALUES &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1, NULL, NULL&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;;
+INSERT INTO &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;SET &lt;span class=&quot;nv&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2;
++----+----------------+----------------+
+| id | date1　　　　　| date2　　　　　|
++----+----------------+----------------+
+|　1 | 20021114093723 | 20021114093723 |
+|　2 | 20021114093724 | 00000000000000 |
++----+----------------+----------------+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;第一条指令因设date1、date2为NULL,所以date1、date2值均为当前时间第二条指令因没有设date1、date2列值，第一个TIMESTAMP列date1为更新为当前时间，而二个TIMESTAMP列date2因日期不合法而变为“00000000000000”&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;UPDATE &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;SET &lt;span class=&quot;nv&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 3 WHERE &lt;span class=&quot;nv&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1;
++----+----------------+----------------+
+| id | date1　　　　　| date2　　　　　|
++----+----------------+----------------+
+|　3 | 20021114094009 | 20021114093723 |
+|　2 | 20021114093724 | 00000000000000 |
++----+----------------+----------------+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;这条指令没有明确地设定date2的列值，所以第一个TIMESTAMP列date1将被更新为当前时间&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;UPDATE &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;SET &lt;span class=&quot;nv&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1,date1&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;date1,date2&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;NOW&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; WHERE &lt;span class=&quot;nv&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3; 
++----+----------------+----------------+
+| id | date1　　　　　| date2　　　　　|
++----+----------------+----------------+
+|　1 | 20021114094009 | 20021114094320 |
+|　2 | 20021114093724 | 00000000000000 |
++----+----------------+----------------+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;这条指令因设定date1=date1，所以在更新数据时date1列值并不会发生改变而因设定date2=NOW()，所以在更新数据时date2列值会被更新为当前时间此指令等效为：&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;UPDATE &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;SET &lt;span class=&quot;nv&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 1,date1&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;date1,date2&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;NULL WHERE &lt;span class=&quot;nv&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;3;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;因MySQL返回的 TIMESTAMP 列为数字显示形式，你可以用DATE_FROMAT()函数来格式化 TIMESTAMP 列，如下所示：&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;SELECT id,DATE_FORMAT&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;date1,&lt;span class=&quot;s1&quot;&gt;'%Y-%m-%d %H:%i:%s'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; As date1,
+DATE_FORMAT&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;date2,&lt;span class=&quot;s1&quot;&gt;'%Y-%m-%d %H:%i:%s'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; As date2 FROM &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;;
++----+---------------------+---------------------+
+| id | date1　　　　　　　 | date2　　　　　　　 |
++----+---------------------+---------------------+
+|　1 | 2002-11-14 09:40:09 | 2002-11-14 09:43:20 |
+|　2 | 2002-11-14 09:37:24 | 0000-00-00 00:00:00 |
++----+---------------------+---------------------+
+SELECT id,DATE_FORMAT&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;date1,&lt;span class=&quot;s1&quot;&gt;'%Y-%m-%d'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; As date1,
+DATE_FORMAT&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;date2,&lt;span class=&quot;s1&quot;&gt;'%Y-%m-%d'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; As date2 FROM &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;;
++----+-------------+-------------+
+| id | date1　　　 | date2　　　 |
++----+-------------+-------------+
+|　1 | 2002-11-14　| 2002-11-14　|
+|　2 | 2002-11-14　| 0000-00-00　|
++----+-------------+-------------+&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;在某种程度上，你可以把一种日期类型的值赋给一个不同的日期类型的对象。
+然而，而尤其注意的是：值有可能发生一些改变或信息的损失：&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;如果你将一个DATE值赋给一个DATETIME或TIMESTAMP对象，结果值的时间部分被设置为’00:00:00’，因为DATE值中不包含有时间信息。　　&lt;/li&gt;
+  &lt;li&gt;如果你将一个DATETIME或TIMESTAMP值赋给一个DATE对象，结果值的时间部分被删除，因为DATE类型不存储时间信息。&lt;/li&gt;
+  &lt;li&gt;尽管DATETIME, DATE和TIMESTAMP值全都可以用同样的格式集来指定，但所有类型不都有同样的值范围。
+例如，TIMESTAMP值不能比1970早，也不能比2037晚，这意味着，一个日期例如’1968-01-01’，当作为一个DATETIME或DATE值时它是合法的，但它不是一个正确TIMESTAMP值！并且如果将这样的一个对象赋值给TIMESTAMP列，它将被变换为0。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;三、当指定日期值时，当心某些缺陷：&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;允许作为字符串指定值的宽松格式能被欺骗。例如，因为“:”分隔符的使用，值’10:11:12’可能看起来像时间值，但是如果在一个日期中使用，上下文将作为年份被解释成’2010-11-12’。值’10:45:15’将被变换到’0000-00-00’，因为’45’不是一个合法的月份。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;以2位数字指定的年值是模糊的，因为世纪是未知的。MySQL使用下列规则解释2位年值：
+在00-69范围的年值被变换到2000-2069。 在范围70-99的年值被变换到1970-1999。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Tue, 18 Oct 2016 01:39:39 +0800</pubDate>
+        <link>http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/10/18/mysql-timestamp.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/10/18/mysql-timestamp.html</guid>
+        
+        
+        <category>转载收藏</category>
+        
+      </item>
     
       <item>
         <title>2016-5 开发总结</title>
@@ -918,627 +1509,6 @@ ello,World&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
         
         
         <category>转载收藏</category>
-        
-      </item>
-    
-      <item>
-        <title>怎样写好一个类【转载】</title>
-        <description>&lt;p&gt;代码大全」一书谈到了抽象数据模型（ADT）的概念，以PHP的角度来看，平常最常见的类就是抽象数据模型的表现形式，很多人对面向对象编程还处在懵懵懂懂的阶段，经常什么方法都塞在一个类中，举个例子，我们有个字体的类，代码如下:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class Font
-{
-    public $style; // 字体样式
-
-    public function getStyle()
-    {
-        // code ..
-    }
-
-    public function createDiv()
-    {
-        // code ..
-    }
-
-    public function insertFontToDiv()
-    {
-        // code ..
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;这个类中定义了公有的属性”style”，获取Style的方法和另外一些子方法，本来创建这个类是为了围绕「字体」作文章的，但在实现过程中，临时需求的增加使得这个类中多了Div和把字体插入到Div的方法，这是很常见的情况，而这只是个开始，与类无关的代码会越来越多，就像地上本无垃圾，有人丢了第一块垃圾，人们就会跟着丢垃圾一样，最后的结果就是这个类变得不易维护，可读性减低，导致这样的原因就是与类无关的代码破坏了这个类抽象的一致性。&lt;/p&gt;
-
-&lt;p&gt;另外这个类的style属性也有问题，它的类型是public，意味着外部可以随时调用改写，然后外部代码就有了&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$font = new Font;
-
-$font-&amp;gt;style = 'font-size: 13px';
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;或者：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$font = new Font;
-
-$font-&amp;gt;style = 'font-weight: both';
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;等等等等，日积月累，某一天，产品走到你面前，微微一笑地对你说：陈工啊，麻烦给每个字体都加上个默认的14px字体大小样式；&lt;/p&gt;
-
-&lt;p&gt;你一脸懵逼带着生无可恋的表情望着产品(他或者她或者它)：……好，请你给我半天或更长的时间来改；&lt;/p&gt;
-
-&lt;p&gt;产品：＃¥％……&amp;amp;＊（&amp;amp;……％＃¥％……&amp;amp;＊；&lt;/p&gt;
-
-&lt;p&gt;你一边查找替换着代码，一边暗骂自己为什么不在Font类中定义个函数来修改style属性，一边还总结着经验告诉自己下次绝不这么傻逼了。程序员总是在一次次的惨痛经验中进步着，但如果有那么一本好书籍或者好导师，真的会少走很多弯路。（再给代码大全打个广告）&lt;/p&gt;
-
-&lt;p&gt;第一段我们讲到抽象的概念，抽象是什么呢？面向对象中有个原则既单一原则，我理解的抽象跟这个单一原则有着千丝万缕的关系；单一原则分为类的单一和方法的单一，比如说，人有吃喝拉撒四种行为，他们即有类的单一原则（人），也有方法的单一原则（吃、喝、拉、撒），这里的「人」就是我们抽象出来的东西，如果你往里面加个飞行的行为，就破坏了类的单一原则和抽象性，来验证下，加入飞行行为之后人就有了「吃、喝、拉、撒、飞行」五个行为，这不是人应该是鸟了。&lt;/p&gt;
-
-&lt;p&gt;「高内聚、低耦合」是写好类的核心思想，抽象（单一性）能帮助我们写出低耦合的代码，那高内聚呢，内聚性会直接表现在我们的代码维护上，当我们写出内聚性很强的代码时，与之关联的维护工作也会变得简单。上面的栗子讲到这个程序员把style属性设为public并且在外部代码中直接修改导致了后面的问题产生；对这些易改变的元素我们应该通过子程序（方法）修改的方式来增强它们的维护性，把所有的变化都控制在类中来增强类的内聚性。&lt;/p&gt;
-
-&lt;p&gt;一切理论都是虚的，实践才是让自己进步的最佳方法，Talk is cheap. Show me the code。&lt;/p&gt;
-
-&lt;p&gt;转载自：&lt;a href=&quot;https://segmentfault.com/a/1190000004968048&quot;&gt;segmentfault Derek_Chan 文章&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 21 Apr 2016 23:18:39 +0800</pubDate>
-        <link>http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/how-write-class.html</link>
-        <guid isPermaLink="true">http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/04/21/how-write-class.html</guid>
-        
-        
-        <category>转载收藏</category>
-        
-      </item>
-    
-      <item>
-        <title>Mamba out</title>
-        <description>&lt;p&gt;当终场的哨声响起，斯台普斯球馆华彩尽放，我知道Kobe就要离开他深爱的赛场。&lt;/p&gt;
-
-&lt;p&gt;这一场，他比任何人都不想下场。&lt;/p&gt;
-
-&lt;p&gt;这一场，他比任何人都看得重要。&lt;/p&gt;
-
-&lt;p&gt;缓缓的，站在球场中央。&lt;/p&gt;
-
-&lt;p&gt;全场就这样，听着他的告别。&lt;/p&gt;
-
-&lt;p&gt;一言一语，一字一词。&lt;/p&gt;
-
-&lt;p&gt;不知有多少人偷偷的流下了泪。&lt;/p&gt;
-
-&lt;p&gt;不知有多少人茫然不知所措。&lt;/p&gt;
-
-&lt;p&gt;英雄落幕，Mamba out。&lt;/p&gt;
-
-&lt;p&gt;愿未来岁月安好，Kobe。&lt;/p&gt;
-</description>
-        <pubDate>Thu, 14 Apr 2016 14:03:36 +0800</pubDate>
-        <link>http://peakcool.cn/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/2016/04/14/mamba-out.html</link>
-        <guid isPermaLink="true">http://peakcool.cn/%E4%B8%AA%E4%BA%BA%E9%9A%8F%E7%AC%94/2016/04/14/mamba-out.html</guid>
-        
-        
-        <category>个人随笔</category>
-        
-      </item>
-    
-      <item>
-        <title>如何高效利用GitHub【转载】</title>
-        <description>&lt;p&gt;正是Github，让社会化编程成为现实。本文尝试谈谈GitHub的文化、技巧与影响。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q1&quot;&gt;Q1：GitHub是什么&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q2&quot;&gt;Q2：GitHub风格&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q3&quot;&gt;Q3: 在GitHub，如何跟牛人学习&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q4&quot;&gt;Q4: 享受纯粹的写作与演讲&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q5&quot;&gt;Q5: 代码帮你找工作&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q6&quot;&gt;Q6: GitHub还在影响一些什么&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html#q7&quot;&gt;Q7: 除了GitHub，还可以选择什么？&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;q1github&quot;&gt;Q1：GitHub是什么&lt;/h3&gt;
-
-&lt;h3 id=&quot;a1&quot;&gt;A1：一家公司&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253K1C-0.png&quot; alt=&quot;github&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;位于旧金山，由&lt;a href=&quot;https://github.com/defunkt&quot;&gt;Chris Wanstrath&lt;/a&gt;,&lt;a href=&quot;https://github.com/pjhyett&quot;&gt;PJ Hyett&lt;/a&gt;与&lt;a href=&quot;https://github.com/mojombo&quot;&gt;Tom Preston-Werner&lt;/a&gt;三位开发者在2008年4月创办。迄今拥有59名全职员工，主要提供基于git的版本托管服务。&lt;/p&gt;
-
-&lt;p&gt;在此之前，它是由&lt;a href=&quot;https://github.com/mojombo&quot;&gt;Tom&lt;/a&gt;与&lt;a href=&quot;https://github.com/defunkt&quot;&gt;Chris&lt;/a&gt;在本地程序员聚会中，开始的一个用于托管git的项目。正如每个伟大的传奇都开始于一场冒险，Tom在这篇文章&lt;a href=&quot;http://tom.preston-werner.com/2008/10/18/how-i-turned-down-300k.html&quot;&gt;我如何辞掉微软30万年薪邀约，创办GitHub&lt;/a&gt;中谈到：&lt;/p&gt;
-
-&lt;blockquote&gt;当我老去，回顾一生，我想说，“哇，那是一场冒险“；而不是，“哇，我真的很安稳。“&lt;/blockquote&gt;
-
-&lt;p&gt;另一位创始人&lt;a href=&quot;https://github.com/defunkt&quot;&gt;Chris&lt;/a&gt;也详细描述了&lt;a href=&quot;https://gist.github.com/67060&quot;&gt;GitHub初创的前因后果&lt;/a&gt;，他说道：&lt;/p&gt;
-
-&lt;blockquote&gt;Do whatever you want.&lt;/blockquote&gt;
-
-&lt;p&gt;于是，在2008年4月10号这一天，GitHub正式成立。&lt;/p&gt;
-
-&lt;p&gt;目前看来，GitHub这场冒险已经胜出。根据来自&lt;a href=&quot;http://zh.wikipedia.org/wiki/GitHub&quot;&gt;维基百科关于GitHub的描述&lt;/a&gt;，我们可以形象地看出GitHub的增长速度：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253L1b-1.png&quot; alt=&quot;github&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;今天，GitHub已是：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;一个拥有143万开发者的社区。其中不乏Linux发明者&lt;a href=&quot;https://github.com/torvalds&quot;&gt;Torvalds&lt;/a&gt;这样的顶级黑客，以及Rails创始人&lt;a href=&quot;https://github.com/dhh&quot;&gt;DHH&lt;/a&gt;这样的年轻极客。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;这个星球上最流行的开源托管服务。目前已托管431万git项目，不仅越来越多知名开源项目迁入GitHub，比如Ruby on Rails、jQuery、Ruby、Erlang/OTP；近三年流行的开源库往往在GitHub首发，例如：&lt;a href=&quot;https://github.com/twitter/bootstrap&quot;&gt;BootStrap&lt;/a&gt;、&lt;a href=&quot;https://github.com/joyent/node&quot;&gt;Node.js&lt;/a&gt;、&lt;a href=&quot;https://github.com/jashkenas/coffee-script&quot;&gt;CoffeScript&lt;/a&gt;等。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;alexa全球排名414的网站。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;q2github&quot;&gt;Q2：GitHub风格&lt;/h3&gt;
-
-&lt;h3 id=&quot;a2-githubgithub&quot;&gt;A2: GitHub只是GitHub&lt;/h3&gt;
-
-&lt;p&gt;强调敏捷开发与快速原型，而又的确成功的&lt;a href=&quot;http://www.kuqin.com/chuangye/&quot;&gt;创业&lt;/a&gt;团队，常具备一个重要气质：有自己的文化风格。如GitHub，又如&lt;a href=&quot;http://37signals.com/&quot;&gt;37signals&lt;/a&gt;。通过他们的快速开发，向用户证明了团队在技术上的能力，并且时常有惊喜。同时，通过强调特立独行的文化，将对半衰期过短的产品族群的信任转为对GitHub团队的信任。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://en.gravatar.com/&quot;&gt;Gravatars&lt;/a&gt;的创始人（对，就是互联网最流行的头像托管系统）、&lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt;（对，它就是我近几年用的博客系统）作者、GitHub创始人，现任CTO Tom在&lt;a href=&quot;http://tom.preston-werner.com/2011/03/29/ten-lessons-from-githubs-first-year.html&quot;&gt;GitHub第一年学到的10大教训&lt;/a&gt;、&lt;a href=&quot;http://zh-cn.justin.tv/startupschool/b/272178966&quot;&gt;创业学校演讲&lt;/a&gt;中谈到GitHub文化的方方面面。我尝试将这种风格总结为以下要点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;专注创作，高创意&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;运营良好与较高的内外满意度&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;高利润，较低的融资额或零融资&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;创业公司多半死在钱上，就让我们先从钱谈起：&lt;/p&gt;
-
-&lt;h4 id=&quot;section&quot;&gt;高利润，较低的融资额或者零融资&lt;/h4&gt;
-
-&lt;p&gt;类似于GitHub这样的公司，拿到风险投资很难吗？恰恰相反，创始人&lt;a href=&quot;https://github.com/pjhyett&quot;&gt;PJ Hyett&lt;/a&gt;在Hacker News的&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;一篇评论&lt;/a&gt;中提到，自从GitHub创办以来，已与几十个VC沟通过。但是，直到今天，GitHub的融资额还是为零，并引以为豪。让我们看看GitHub官网的自我介绍：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253KO0-2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;section-1&quot;&gt;运营良好与较高的内外满意度&lt;/h4&gt;
-
-&lt;p&gt;在Quora上有人问道，&lt;a href=&quot;http://www.quora.com/Is-GitHub-looking-to-be-acquired&quot;&gt;GitHub是否寻找被收购？&lt;/a&gt;，还是&lt;a href=&quot;https://github.com/pjhyett&quot;&gt;PJ Hyett&lt;/a&gt;，他的回答是：No。&lt;/p&gt;
-
-&lt;p&gt;GitHub从一开始就运营良好，员工拥有较高满意度，看看这些不太一样的做法：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;每一位GitHub公司的新员工，官方博客将发表文章欢迎。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;在GitHub内部，没有经理，需求内容与优先级由项目组自行决策。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;选择自己的工作时间、工作地点。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;员工来自开源社区。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;能开源的尽可能开源。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;富有激情、创意的员工使得GitHub得到了社区的广泛认同，从而拥有极高的客户满意度，并从创业一开始就盈利。一份&lt;a href=&quot;http://www.survs.com/WO/WebObjects/Survs.woa/wa/shareResults?survey=2PIMZGU0&amp;amp;rndm=678J66QRA2&quot;&gt;早期的调查&lt;/a&gt;表明，GitHub很快成为Git托管首选。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-2&quot;&gt;专注创作，高创意&lt;/h4&gt;
-
-&lt;p&gt;GitHub59名全职员工仅有29名员工在本地工作！不仅仅是工作地点的安排富有创意，GitHub员工&lt;a href=&quot;https://github.com/holman&quot;&gt;Holman&lt;/a&gt;, 详细介绍了GitHub的工作方式：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://zachholman.com/posts/how-github-works-hours/&quot;&gt;时间并不能说明什么&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://zachholman.com/posts/how-github-works-asynchronous/&quot;&gt;异步工作方式&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://zachholman.com/posts/how-github-works-creativity/&quot;&gt;创造力很重要&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;q3github&quot;&gt;Q3:在GitHub，如何跟牛人学习&lt;/h3&gt;
-
-&lt;h3 id=&quot;a3&quot;&gt;A3:在学习区刻意练习&lt;/h3&gt;
-
-&lt;h4 id=&quot;section-3&quot;&gt;追随牛人，与他们一起修行&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    修行之道： 关注大师的言行， 跟随大师的举动， 和大师一并修行， 领会大师的意境， 成为真正的大师。 
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;正如这首&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;禅诗&lt;/a&gt;所言，与其在墙内仰望牛人，不如直接在GitHub：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;watch、fork牛人们&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;对他们的项目提交pull request&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;主动给牛人们的项目写wiki或提交测试用例，或者问题&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;还可以帮他们翻译中文&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;GitHub本身建构在git之上，git成为勾搭大师们的必要工具，以下读物成为首选：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://rogerdudler.github.io/git-guide/index.zh.html&quot;&gt;git大白话入门，木有高深内容&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://zh-cn.whygitisbetterthanx.com/&quot;&gt;为什么git胜过X…&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;如果希望进一步深入，可以阅读已有中文翻译版的材料：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/progit/progit&quot;&gt;progit&lt;/a&gt;：GitHub公司传道士&lt;a href=&quot;https://github.com/schacon&quot;&gt;schacon&lt;/a&gt;所作，已翻译成多国语言，当然，有中文版。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/blynn/gitmagic&quot;&gt;Git Magic&lt;/a&gt;：已有志愿者翻译&lt;a href=&quot;https://github.com/blynn/gitmagic/tree/master/zh_cn&quot;&gt;中文版&lt;/a&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;同样，如果希望了解更多GitHub自身的知识，GitHub官方文档值得推荐：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;The GitHub Hep&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-4&quot;&gt;牛人在哪里？&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;GitHub上的代码库本身：尤其是：&lt;a href=&quot;https://github.com/explore&quot;&gt;Explore&lt;/a&gt;、&lt;a href=&quot;https://github.com/popular/watched&quot;&gt;热门关注信息库&lt;/a&gt;两个栏目&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;GitHub官方推荐：&lt;a href=&quot;https://github.com/blog&quot;&gt;GitHub自身的官方博客&lt;/a&gt;与GitHub员工们的个人博客推荐的项目与开发者&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;各类社交媒体上提到的的GitHub库：尤其是&lt;a href=&quot;http://octopart.com/&quot;&gt;Hacker News上提到的GitHub库&lt;/a&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;关于学习的心理学研究，常常会谈到一个术语：&lt;strong&gt;元认知、元学习、元知识&lt;/strong&gt;。是的，关于认知的认知、关于学习的学习、关于知识的知识，你对这些信息的偏好与熟练掌握，会让你在学习一门新东西时更加轻车熟路。&lt;strong&gt;对一手信息进行回溯&lt;/strong&gt;，比如作者、创始人、最初文献出处，总是会让你更容易理解知识。&lt;/p&gt;
-
-&lt;h4 id=&quot;gitstats&quot;&gt;在学习区刻意练习：借助GitStats进行项目统计&lt;/h4&gt;
-
-&lt;p&gt;在&lt;a href=&quot;http://www.yangzhiping.com/tech/learn-program-psychology.html&quot;&gt;如何学习一门新的编程语言？——在学习区刻意练习&lt;/a&gt;中，我已谈过：&lt;/p&gt;
-
-&lt;blockquote&gt;学习编程最好的方式是在学习区刻意练习。&lt;/blockquote&gt;
-
-&lt;p&gt;如何进行自我监督？&lt;/p&gt;
-
-&lt;p&gt;借助于&lt;a href=&quot;https://github.com/trybeee/GitStats&quot;&gt;GitStats&lt;/a&gt;，我们能很好地统计自己的每个项目的工作量，从而看到工作进展。&lt;/p&gt;
-
-&lt;p&gt;用法如下，&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    &lt;span class=&quot;c&quot;&gt;#复制GitStats项目到本地 cd ~/dev git clone git://github.com/trybeee/GitStats.git python ~/dev/gitstats/git-stats /youproject public  &lt;/span&gt;
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;以下为生成结果示范：&lt;/p&gt;
-
-&lt;p&gt;每周代码提交次数：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253JX1-3.png&quot; alt=&quot;github&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;每天代码提交行数：&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://img.kuqin.com/upimg/allimg/141007/09253GN1-4.png&quot; alt=&quot;github&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;如果Fork别人的项目或者多人合作项目，最好每人都拥有一个独立分支，然后由项目维护人合并。如何建立自己的分支？&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    &lt;span class=&quot;c&quot;&gt;# 分支的创建和合并 # git branch yourbranch  # git checkout yourbranch    切换到yourbranch  # 开发yourbranch分支，然后开发之后与master分支合并  # git checkout master # git merge yourbranch # git branch -d yourbranch    合并完后删除本地分支 &lt;/span&gt;
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;如何将牛人的远程分支更新到自己的本地分支？&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    &lt;span class=&quot;c&quot;&gt;# 查看当前项目下远程 # git remote # 增加新的分支链接，例如 git remote add niuren giturl… # 获取牛人的远程更新 git fetch niuren # 将牛人的远程更新合并到本地分支 git merge niuren/master &lt;/span&gt;
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h4 id=&quot;section-5&quot;&gt;生产力小技巧&lt;/h4&gt;
-
-&lt;h4 id=&quot;codeshelvergit&quot;&gt;codeshelver：给git库做标签&lt;/h4&gt;
-
-&lt;p&gt;观察的项目如果多了，怎么管理？用&lt;a href=&quot;https://www.codeshelver.com/&quot;&gt;codeshelver&lt;/a&gt;，安装扩展之后，可以对GitHub项目做标签。&lt;/p&gt;
-
-&lt;h4 id=&quot;gollumgitgithubwiki&quot;&gt;gollum：利用git与github做wiki&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/github/gollum&quot;&gt;gollum&lt;/a&gt;是一个基于git的轻型wiki系统。&lt;/p&gt;
-
-&lt;h4 id=&quot;githubwatcher-&quot;&gt;GitHubwatcher: 监测重点项目&lt;/h4&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/DAddYE/githubwatcher&quot;&gt;GitHubwatcher&lt;/a&gt;适用于通知不频繁的情景。&lt;/p&gt;
-
-&lt;h4 id=&quot;github&quot;&gt;GitHub官方资源&lt;/h4&gt;
-
-&lt;p&gt;GitHub官方列出了&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;一些有用的脚本与书签&lt;/a&gt;。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-6&quot;&gt;社区驱动的安装与配置文件&lt;/h4&gt;
-
-&lt;p&gt;GitHub中各类配置文件层出不穷，一些常用的：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot;&gt;osh-my-zsh&lt;/a&gt;：将终端从bash改为zsh之后，可考虑安装社区驱动的zsh配置文件，含有多个插件。可参考旧文&lt;a href=&quot;http://www.yangzhiping.com/tech/zsh-oh-my-zsh.html&quot;&gt;zsh与oh-my-zsh&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/GitHub/gitignore&quot;&gt;gitignore&lt;/a&gt;：GitHub官方出品&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/ericpaulbishop/yourchili&quot;&gt;yourchili&lt;/a&gt;:服务器各类安装shell，比如安装nginx等。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;q4-&quot;&gt;Q4: 享受纯粹的写作与演讲&lt;/h3&gt;
-
-&lt;h3 id=&quot;a4&quot;&gt;A4：回归创作的初始&lt;/h3&gt;
-
-&lt;h4 id=&quot;section-7&quot;&gt;写作&lt;/h4&gt;
-
-&lt;p&gt;早在2008年，就有技术图书作者&lt;a href=&quot;https://github.com/blog/91-not-just-code&quot;&gt;通过Git来写作&lt;/a&gt;，以下是示范：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/ManuelKiessling/NodeBeginnerBook&quot;&gt;Node.js初学者教材&lt;/a&gt;，中文版&lt;a href=&quot;http://www.nodebeginner.org/index-zh-cn.html&quot;&gt;在这里&lt;/a&gt;。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/addyosmani/backbone-fundamentals&quot;&gt;backbone基础&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;https://github.com/cschneid/sinatra-book&quot;&gt;Sinatra教程&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;你能想到的技术前沿话题，大多能在GitHub找到相应的培训材料或者开源图书。&lt;/p&gt;
-
-&lt;p&gt;个人写作照样适用。在前文&lt;a href=&quot;http://www.yangzhiping.com/tech/writing-space.html&quot;&gt;理想的写作环境：Git+GitHub+Markdown+Jekyll&lt;/a&gt;，我已经格外赞美过这些美好事物了。&lt;/p&gt;
-
-&lt;p&gt;暖色调的灯光，足够宽度的工作台，听着清脆的键盘声音，基于Git、GitHub、Markdown与Jekyll来写作，不担心写废与排版，只关注最纯粹的写作，是一种享受。我有时候会想，如果Git、Github、Markdown、Jekyll，再加上Yaml、Json的作者，让这些作者们重新来设计今天互联网基础架构偏文本的部分，会诞生一些什么？&lt;/p&gt;
-
-&lt;h4 id=&quot;section-8&quot;&gt;个人博客&lt;/h4&gt;
-
-&lt;p&gt;借助于&lt;a href=&quot;http://jekyllbootstrap.com/&quot;&gt;Jekyllbootstrap&lt;/a&gt;，可以在Github上快速搭建一个基于jekyll的博客系统。&lt;/p&gt;
-
-&lt;p&gt;除了这个简单易行的办法之外，还存在一些其他方法，例如：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Jekyll：参考&lt;a href=&quot;http://www.yangzhiping.com/tech/wordpress-to-jekyll.html&quot;&gt;告别wordpress，拥抱jekyll&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Octopress：参考&lt;a href=&quot;http://www.yangzhiping.com/tech/octopress.html&quot;&gt;Ruby开源项目介绍(1)：octopress——像黑客一样写博客&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;GitHub Pages：参考&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;GitHub Pages&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-9&quot;&gt;演讲&lt;/h4&gt;
-
-&lt;p&gt;借助于GitHub，可以享受更纯粹、更酷的演讲。GitHub 2011年收购Ordered List之后，从此可以通过&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;speakerdeck&lt;/a&gt;更好的分享ppt文档。&lt;/p&gt;
-
-&lt;p&gt;我们还可以：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;使用GitHub著名传教士、Progit作者Scott Chacon开发的&lt;a href=&quot;https://github.com/schacon/showoff&quot;&gt;showoff&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;来自开源社区的其他演讲库&lt;a href=&quot;https://github.com/bartaz/impress.js&quot;&gt;impress.js&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;q5-&quot;&gt;Q5: 代码帮你找工作&lt;/h3&gt;
-
-&lt;h3 id=&quot;a5github&quot;&gt;A5：GitHub简历很诚实&lt;/h3&gt;
-
-&lt;p&gt;NumEricR（非GitHub工作人员）基于GitHub Pages功能做了一个简历生成器，使用极其简单，登陆网站&lt;a href=&quot;http://resume.github.io/&quot;&gt;GitHub简历生成器&lt;/a&gt;，填入你的GitHub网站用户名即可。&lt;/p&gt;
-
-&lt;p&gt;fredwu是Ruby中文社区活跃份子，他的开源项目&lt;a href=&quot;https://github.com/fredwu/angel_nest&quot;&gt;angel_nest&lt;/a&gt;，一个天使投资与创业者对接的网站，适合Ruby初学者升级为Ruby中级开发者时学习，也在Hacker News上被&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;热烈讨论&lt;/a&gt;过，让我们来看看他的简历：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://resume.github.io/&quot;&gt;http://resume.GitHub.com/?fredwu&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;正是因为GitHub上的代码无法造假，也容易通过你关注的项目来了解知识面的宽度与深度。现在越来越多知名公司活跃在GitHub，发布开源库并招募各类人才，例如：&lt;a href=&quot;https://github.com/facebook&quot;&gt;Facebook&lt;/a&gt;、&lt;a href=&quot;https://github.com/twitter&quot;&gt;Twitter&lt;/a&gt;、&lt;a href=&quot;https://github.com/yahoo&quot;&gt;Yahoo&lt;/a&gt;…&lt;/p&gt;
-
-&lt;p&gt;开始有了第三方网站提供基于GitHub的人才招聘服务，例如：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://githire.com/&quot;&gt;GitHire&lt;/a&gt;:通过它，可以找出你所在地区的程序员。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.gitalytics.com/&quot;&gt;Gitalytics.com&lt;/a&gt;：通过它，能评估某位程序员在GitHub、LinkedIn、StackOverflow、hackernews等多个网站的影响力。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;q6-github&quot;&gt;Q6: GitHub还在影响一些什么&lt;/h3&gt;
-
-&lt;h3 id=&quot;a6&quot;&gt;A6：让计算机增强人类智慧&lt;/h3&gt;
-
-&lt;p&gt;很多年前，在某个名声显赫的学府中，两位先后拿过图灵奖的牛人有一段对话：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;牛人A：我们要给机器赋予智慧，让他们有自我意识！&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;牛人B：你要给机器做那么多好事？那你打算给人类做点什么呢？&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;这段对话来自《失控》。牛人A是&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E9%A9%AC%E6%96%87%C2%B7%E9%97%B5%E6%96%AF%E5%9F%BA&quot;&gt;明斯基&lt;/a&gt;，他最喜欢将人类看做有血肉的机器，他的框架理论成为认知心理学、人工智能入门基础。牛人B则是&lt;a href=&quot;http://zh.wikipedia.org/wiki/%E9%81%93%E6%A0%BC%E6%8B%89%E6%96%AF%C2%B7%E6%81%A9%E6%A0%BC%E5%B0%94%E5%B7%B4%E7%89%B9&quot;&gt;恩格尔巴特&lt;/a&gt;。当明斯基1961年发表他著名的文章&lt;a href=&quot;http://web.media.mit.edu/~minsky/papers/steps.html&quot;&gt;人工智能走向&lt;/a&gt;时，恩格尔巴特还籍籍无名。直到次年，恩格尔巴特发表宏文：&lt;a href=&quot;http://www.dougengelbart.org/pubs/augment-3906.html&quot;&gt;人类智力的增强：一种概念框架&lt;/a&gt;。提出不同于明斯基的另一条增强人类智力的道路：不要尝试发明自动打字的机器，而是尝试发明鼠标，并且他真的发明鼠标成功了！&lt;/p&gt;
-
-&lt;p&gt;从近些年的发展来看，仍然是明斯基占上风，但是，三十年河东，三十年河西，明斯基的人工智能方向又有多少年没有大突破了？相反，来自恩格尔巴特的群件、集体智慧等思想，逐步成为步入Web2.0时代之后的共识。无关对错，可以说，恩格尔巴特为增强人类智力，提供了可行的框架。与其去发明聪明的、昂贵的、功能一体化的智能机器人，还不如发明类似于鼠标这样笨笨的、廉价的、功能单一的人类智慧服务单件。明斯基的机器人很容易陷入死胡同，没有上升到哲学的高度。现在慢慢又回到恩格尔巴特这个方向来了。比如现在IBM开始&lt;a href=&quot;http://www.infoq.com/cn/news/2012/02/0301-hot-weibo&quot;&gt;宣传&lt;/a&gt;的&lt;a href=&quot;http://www.ibm.com/smarterplanet/us/en/business_analytics/article/cognitive_computing.html&quot;&gt;认知计算&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;从git与GitHub设计与解决的问题本质来看，明显加速了代码生产流程，促进了卓越智力产品的诞生。这就是一种典型的web2.0对智力生产流程的改良与人类智慧的增强。同样，某种意义上，小说写作网站也起到类似作用。但是，学术界尤其是社会科学类的智力产品生产似乎还停留在一个古老阶段。在开源领域，好想法层出不穷，极客影响极客，最终产生的是酷玩意。这些酷玩意抛弃浮华，直奔问题本质。那么，&lt;a href=&quot;http://marciovm.com/i-want-a-github-of-science/&quot;&gt;有没有科学界的GitHub？&lt;/a&gt;？&lt;/p&gt;
-
-&lt;p&gt;类似问题层出不穷，以下为其他领域产品不完全名单。&lt;/p&gt;
-
-&lt;h4 id=&quot;section-10&quot;&gt;学术研究&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;除了较早的&lt;a href=&quot;http://arxiv.org/&quot;&gt;arXiv&lt;/a&gt;、&lt;a href=&quot;http://www.plos.org/&quot;&gt;PLoS&lt;/a&gt;之外，较有气象的可以推荐&lt;a href=&quot;http://mendeley.com/&quot;&gt;mendeley&lt;/a&gt;、&lt;a href=&quot;http://doaj.org/&quot;&gt;开放期刊目录&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-11&quot;&gt;数据&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://buzzdata.com/&quot;&gt;buzzdata&lt;/a&gt;:数据分享更容易&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-12&quot;&gt;科学计算&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://opani.com/&quot;&gt;opani&lt;/a&gt;：雏形中，支持R、Python等多种。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;section-13&quot;&gt;教育&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://openstudy.com/&quot;&gt;OpenStudy&lt;/a&gt;：一个社会性学习网络，通过互助来更好地学习，主题涉及到计算机、数学、写作等。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://openhatch.org/&quot;&gt;openhatch&lt;/a&gt;: 通过练习、任务等帮助新手更好地进入开源社区&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;q7github&quot;&gt;Q7:除了GitHub，还可以选择什么？&lt;/h3&gt;
-
-&lt;h3 id=&quot;a7nil&quot;&gt;A7：nil&lt;/h3&gt;
-
-&lt;p&gt;因为进化的需要，多数&lt;a href=&quot;http://zh.wikipedia.org/zh/%E8%A3%B8%E7%8C%BF&quot;&gt;裸猿&lt;/a&gt;存在选择强迫症：哪种程序语言更好？哪个web开发框架更好？当然，最令宅男技术男们羡慕的问题是，高白瘦御姐还是青春小萝莉好？:D&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;中国山寨品是不是更好？（为什么不写他们名字，你懂的，山寨品总是善于争论谁是第一个山寨的，各自的排名先后:D）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;免费的&lt;a href=&quot;https://bitbucket.org/&quot;&gt;BitBucket&lt;/a&gt;是不是更适合Python程序员？&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;作为一名折腾族，我不自己搭建一个&lt;a href=&quot;http://www.kuqin.com/shuoit/20141007/342480.html&quot;&gt;gitlabhq&lt;/a&gt;，是不是对不起自己？&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;我们可以理解，正是因为无数条分岔路口，让人类不再受制于某种基因、特定疾病、独裁家族，从而拥有无限的可能。但是，这种选择强迫症与远古时代可怜的信息量相比较，&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;今天这个大数据时代，它还会有助于人类作为族群的整体进化与作为个体的幸福吗？&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;今天一位一线城市30岁大学毕业生经历的选择与孔子整个一生经历的选择，纯论数量，谁多谁少？&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;生命如此短暂，为什么总要将青春浪费在不断的选择之中呢？罚你，回头阅读心理学家施瓦茨（&lt;a href=&quot;http://www.swarthmore.edu/SocSci/bschwar1/&quot;&gt;Barry Schwartz&lt;/a&gt;）的TED演讲：&lt;a href=&quot;http://xingfuke.net/xingfuke766&quot;&gt;选择之困惑——为何多即是少&lt;/a&gt;，1百遍啊1百遍。请记住施瓦茨的演讲要点：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;更多的选择不代表更多的自由；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;更多的选择导致决策的延迟和降低的满意感；&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;快乐之秘诀，在于降低自己的期望值。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;section-14&quot;&gt;相关参考&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/writing-space.html&quot;&gt;理想的写作环境：Git+GitHub+Markdown+Jekyll&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/psy/flow.html&quot;&gt;如何提高创作型任务的效率？&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/octopress.html&quot;&gt;Ruby开源项目介绍(1)：Octopress——像黑客一样写博客&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/git.html&quot;&gt;Git与GitHub入门资料&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;http://www.yangzhiping.com/tech/wordpress-to-jekyll.html&quot;&gt;告别WordPress，拥抱Jekyll&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;注：转载自阳志平的网志&lt;a href=&quot;http://www.yangzhiping.com/tech/github.html&quot;&gt;http://www.yangzhiping.com/tech/github.html&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Mon, 14 Mar 2016 09:13:56 +0800</pubDate>
-        <link>http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/14/how-use-github.html</link>
-        <guid isPermaLink="true">http://peakcool.cn/%E8%BD%AC%E8%BD%BD%E6%94%B6%E8%97%8F/2016/03/14/how-use-github.html</guid>
-        
-        
-        <category>转载收藏</category>
-        
-      </item>
-    
-      <item>
-        <title>mac下PHP安装拓展PHPRedis</title>
-        <description>&lt;h3 id=&quot;macphpphpredis&quot;&gt;一.mac自带php安装phpredis&lt;/h3&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;brew install php56-redis  &lt;span class=&quot;c&quot;&gt;#56为php版本5.6.10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;macmampphpredis&quot;&gt;二.mac下mamp安装phpredis&lt;/h3&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 进入**/Applications/MAMP/bin/php/php5.6.10/** 下载phpredis **_https://github.com/phpredis/phpredis_**
-
-2. 进入phpredis文件夹：
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;phpredis
-    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo phpize
-    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo ./configure --with-php-config&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/Applications/MAMP/bin/php/php5.6.10/bin/php-config  &lt;span class=&quot;c&quot;&gt;#配置phpredis&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo make  &lt;span class=&quot;c&quot;&gt;#编译make&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo cp -p modules/redis.so /Applications/MAMP/bin/php/php5.6.10/lib/php/extensions/no-debug-non-zts-20131226 &lt;span class=&quot;c&quot;&gt;#将编译完成的模块，复制到MAMP 中的PHP 扩展中&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;sudo vi /Applications/MAMP/bin/php/php5.6.10/conf/php.ini
-    &lt;span class=&quot;nv&quot;&gt;$ extension&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;redis.so    &lt;span class=&quot;c&quot;&gt;#修改 php.ini 文件在增加 redis.so 扩展&lt;/span&gt;
-    &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3. 最后完成，重启MAMP
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://peakcool.cn/images/posts/phpredis.png&quot; alt=&quot;reids模块&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Thu, 03 Mar 2016 21:56:11 +0800</pubDate>
-        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/03/mac-install-phpredis.html</link>
-        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/03/03/mac-install-phpredis.html</guid>
-        
-        
-        <category>技术分享</category>
         
       </item>
     
