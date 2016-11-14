@@ -1,3 +1,4 @@
+---
 author: tangliangcheng
 comments: true
 date: 2016-11-14 23:00:34+00:00
@@ -7,6 +8,7 @@ title: Laravel Auth深入探究
 excerpt: 今天在写Laravel登录的时候，根据需求也不想用laravel自带的auth登录认证，便在搜索了一番，开始了auth的深入探究之旅。
 categories:
 - 技术分享
+---
 
 今天在写Laravel登录的时候，根据需求也不想用laravel自带的auth登录认证，便在搜索了一番，开始了auth的深入探究之旅。
 
