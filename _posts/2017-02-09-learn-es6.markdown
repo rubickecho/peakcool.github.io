@@ -5,7 +5,7 @@ date: 2017-02-09 12:00:34+00:00
 layout: post
 slug: learn-es6
 title: ES6初学习总结-读《阮一峰：ECMAScript 6 入门》
-excerpt: 最近学习前端的一些东西，必不可少的便是es6，便从阮一峰老师的《ECMAScript 6 入门》开始，记录了一些总结。
+excerpt: 最近学习前端的一些东西，必不可少的便是es6，便从阮一峰老师的《ECMAScript 6 入门》开始，记录了一些要点。
 categories:
 - 技术分享
 ---
