@@ -18,7 +18,7 @@ categories:
 
 ### 常用
 
-```
+{% highlight js %}
 #Unix风格换行符，作用于每个文件
 end_of_line = lf 
 insert_final_newline = true
@@ -32,7 +32,7 @@ indent_size = 4
 
 #设置换行符前面的空格
 trim_trailing_whitespace = true
-```
+{% endhighlight %}
 
 ### 支持IDE
 
