@@ -18,7 +18,7 @@ categories:
 
 ### 常用
 
-{% highlight js %}
+{% highlight shell %}
 #Unix风格换行符，作用于每个文件
 end_of_line = lf 
 insert_final_newline = true
