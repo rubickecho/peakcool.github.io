@@ -58,18 +58,10 @@ I/O观察者回调函数的行为就是取出请求对象的result属性作为�
 
 ## 流程图
 
-<div style="text-align: center">
 ![Tick流程图](http://ohg6w8k1d.bkt.clouddn.com/Tick%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
-</div>
 
-<div style="text-align: center">
 ![基于libuv的架构示意图](http://ohg6w8k1d.bkt.clouddn.com/%E5%9F%BA%E4%BA%8Elibuv%E7%9A%84%E6%9E%B6%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
-</div>
 
-<div style="text-align: center">
 ![整个异步I/O流程](http://ohg6w8k1d.bkt.clouddn.com/%E6%95%B4%E4%B8%AA%E5%BC%82%E6%AD%A5I:O%E6%B5%81%E7%A8%8B.png)
-</div>
 
-<div style="text-align: center">
 ![基于Node构建Web服务器流程图](http://ohg6w8k1d.bkt.clouddn.com/%E5%9F%BA%E4%BA%8ENode%E6%9E%84%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
-</div>
