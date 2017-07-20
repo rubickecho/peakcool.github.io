@@ -5,12 +5,10 @@ date: 2017-07-16 23:00:34+00:00
 layout: post
 slug: learn node 01 day
 title: 《深入浅出NodeJs》学习笔记 01 day
-excerpt: 包与NPM、AMD,CMD规范
+excerpt: 包与NPM、AMD,CMD规范介绍
 categories:
 - 技术分享
 ---
-
-# Node 学习笔记
 
 ## 包与NPM
 
@@ -75,7 +73,7 @@ npm publish
 * 具备良好的编码规范
 * 更多条件
 
-## 2.7 前后端公用模块
+## 前后端公用模块
 
 * AMD规范
 
