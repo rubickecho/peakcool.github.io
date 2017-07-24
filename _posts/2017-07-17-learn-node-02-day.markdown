@@ -55,13 +55,16 @@ I/O观察者回调函数的行为就是取出请求对象的result属性作为�
 
 **Node通过事件驱动的方式处理请求，无须为每一个请求创建额外的对应线程，可以省掉创建线程和销毁线程的开销，同时操作系统在调度任务时因为线程较少，上下文切换的代价很低。使得服务器能够有条不紊地处理请求，即使在大量链接的情况下，也不受线程上下文切换开销的影响，这是Node高性能的一个原因。**
 
-
 ## 流程图
 
-![Tick流程图](http://ohg6w8k1d.bkt.clouddn.com/Tick%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+![Tick流程图](https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/Tick%E6%B5%81%E7%A8%8B%E5%9B%BE.png?raw=true)
+---
 
-![基于libuv的架构示意图](http://ohg6w8k1d.bkt.clouddn.com/%E5%9F%BA%E4%BA%8Elibuv%E7%9A%84%E6%9E%B6%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
+![基于libuv的架构示意图](https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/%E5%9F%BA%E4%BA%8Elibuv%E7%9A%84%E6%9E%B6%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png?raw=true)
+---
 
-![整个异步I/O流程](http://ohg6w8k1d.bkt.clouddn.com/%E6%95%B4%E4%B8%AA%E5%BC%82%E6%AD%A5I:O%E6%B5%81%E7%A8%8B.png)
+![整个异步I/O流程](https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/%E6%95%B4%E4%B8%AA%E5%BC%82%E6%AD%A5I:O%E6%B5%81%E7%A8%8B.png?raw=true)
+---
 
-![基于Node构建Web服务器流程图](http://ohg6w8k1d.bkt.clouddn.com/%E5%9F%BA%E4%BA%8ENode%E6%9E%84%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE.png)
+![基于Node构建Web服务器流程图](https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/%E5%9F%BA%E4%BA%8ENode%E6%9E%84%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE.png?raw=true)
+---
