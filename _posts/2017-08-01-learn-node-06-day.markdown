@@ -4,7 +4,7 @@ comments: true
 date: 2017-08-01 23:37:00+00:00
 layout: post
 slug: learn node 06 day
-title: 《深入浅出NodeJs》学习笔记 05 day
+title: 《深入浅出NodeJs》学习笔记 06 day
 excerpt: Node 网络编程
 categories:
 - 技术分享
