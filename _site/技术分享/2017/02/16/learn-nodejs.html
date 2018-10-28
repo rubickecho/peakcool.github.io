@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>《7天学会NodeJs》笔（zou）记（ma）整（guan）理（hua）</title>
+  <meta name="description" content="最近阅读《7天学会NodeJs》，整理了一些知识点笔记。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/02/16/learn-nodejs.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">《7天学会NodeJs》笔（zou）记（ma）整（guan）理（hua）</h1>
+        <p class="post-meta">Feb 16, 2017 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <h2 id="第一天-认识node">第一天 (认识node)</h2>
+
+<h3 id="什么是nodejs">什么是NodeJs</h3>
+<p>js是脚本语言，脚本语言都需要一个解析器才能运行。对于写在html页面里的js，浏览器充当了解析器的角色。而对于需要独立运行的js，nodejs就是一个解析器。</p>
+
+<h3 id="模块cmd模块系统">模块(CMD模块系统)</h3>
+
+<p>将代码模块化:一般将代码合理拆分到不同的js文件中，每一个文件就是一个模块，而文件路径就是模块名</p>
+
+<p>在编写每个模块时，都有<code class="highlighter-rouge">require</code>,<code class="highlighter-rouge">exports</code>,<code class="highlighter-rouge">module</code>三个预先定义好的变量可供使用</p>
+
+<ul>
+  <li>require 加载和使用别的模块，传入一个模块名，返回一个模块导出对象(.js可省略，.json不可省略)</li>
+  <li>exports 当前模块的导出对象(方法和属性),别的模块通过require时就得到了当前模块的exports对象</li>
+  <li>module 访问当前模块的信息，最多用途是替换当前模块的导出对象</li>
+</ul>
+
+<h3 id="模块初始化">模块初始化</h3>
+
+<p>一个模块中的js代码仅在模块第一次被使用时执行一次，并在执行过程中初始化模块的导出对象。之后，缓存起来的导出对象被重复使用。</p>
+
+<hr />
+
+<h2 id="第二天-模块和包">第二天 （模块和包）</h2>
+
+<h3 id="模块路径解析规则">模块路径解析规则</h3>
+
+<ul>
+  <li>
+    <p>内置模块</p>
+
+    <p>如果传递给require函数的是nodejs内置模块名称，不做路径解析，直接返回内部模块的导出对象，例如require(‘fs’)</p>
+  </li>
+  <li>
+    <p>node_modules目录</p>
+
+    <p>nodejs定义了一个特殊的node_modules目录用于存放模块。例如执行模块的绝对路径是<code class="highlighter-rouge">/home/user/hello.js</code>，在该模块中使用<code class="highlighter-rouge">require('foo/bar')</code>方式加载模块时，node会依次尝试以下路径。</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  /home/user/node_modules/foo/bar
+  /home/node_modules/foo/bar
+  /node_modules/foo/bar
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>NODE_PATH 环境变量 自定义模块搜索路径</p>
+  </li>
+</ul>
+
+<h3 id="包-package">包 (package)</h3>
+
+<p>多个js文件 -&gt; 子模块 -&gt; 包</p>
+
+<h3 id="npm常用命令">npm常用命令</h3>
+
+<ul>
+  <li>在 <code class="highlighter-rouge">package.json</code> 所在目录下使用 <code class="highlighter-rouge">npm install . -g</code> 可先在本地安装当前命令行程序，可用于发布前的本地测试</li>
+  <li><code class="highlighter-rouge">npm update package</code> 可以把当前目录下node_modules子目录下对应模块更新至最新版本</li>
+  <li><code class="highlighter-rouge">npm cache clear</code> 可以清空npm本地缓存</li>
+</ul>
+
+<hr />
+
+<h2 id="第三天-文件操作">第三天 （文件操作）</h2>
+
+<h3 id="重要概念">重要概念</h3>
+
+<ul>
+  <li>Buffer（数据块）</li>
+  <li>Stream（数据流）  当内存中无法一次装下需要处理的数据时，或者一边读取一边处理更加高效时，就需要用到数据流</li>
+  <li>File System（文件系统）</li>
+  <li>Path（路径） NodeJS提供了path内置模块简化路径相关操作</li>
+  <li>文本编码 在读取不同编码的文本文件时，需要将文本内容转换为js使用的<code class="highlighter-rouge">utf8</code>编码字符串后才能正常使用</li>
+</ul>
+
+<h4 id="文件操作">文件操作</h4>
+
+<p>NodeJS通过fs内置模块提供对文件的操作。fs模块提供的API 可以分为以下三类:</p>
+
+<ul>
+  <li>文件属性读写 常用: <code class="highlighter-rouge">fs.stat</code>、<code class="highlighter-rouge">fs.chmod</code>、<code class="highlighter-rouge">fs.chown</code></li>
+  <li>文件内容读写 常用: <code class="highlighter-rouge">fs.readFile</code>、<code class="highlighter-rouge">fs.readdir</code>、<code class="highlighter-rouge">fs.writeFile</code>、<code class="highlighter-rouge">fs.mkdir</code></li>
+  <li>底层文件操作 常用: <code class="highlighter-rouge">fs.open</code>、<code class="highlighter-rouge">fs.read</code>、<code class="highlighter-rouge">fs.write</code>、<code class="highlighter-rouge">fs.close</code></li>
+</ul>
+
+<h4 id="路径操作">路径操作</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">path.normalize</code> 将传入的路径转换为标准路径，win下为<code class="highlighter-rouge">\</code>，*nix下为<code class="highlighter-rouge">/</code></li>
+  <li><code class="highlighter-rouge">path.join</code> 将多个路径拼接为标准路径</li>
+  <li><code class="highlighter-rouge">path.extname</code> 获取文件扩展名</li>
+</ul>
+
+<h4 id="遍历目录一般使用递归算法">遍历目录（一般使用递归算法）</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function factorial(n) {
+    if (n === 1) {
+        return 1;
+    } else {
+        return n * factorial(n - 1)
+    }
+}
+
+性能更高的方式：
+
+      A
+     / \
+    B   C
+   / \   \
+  D   E   F
+  
+这棵树的遍历顺序是A &gt; B &gt; D &gt; E &gt; C &gt; F。
+</code></pre></div></div>
+
+<h4 id="同步遍历异步遍历与同步遍历远离相同">同步遍历（异步遍历与同步遍历远离相同）</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var fs = require('fs')
+var path = require('path')
+
+var dir = process.argv.slice(1)
+
+function travel(dir, callback) {
+    fs.readdirSync(dir).forEach(function(file){
+        var pathname = path.join(dir, file)
+
+        if (fs.statSync(pathname).isDirectory()) {
+            travel(pathname, callback)
+        } else {
+            callback(pathname)
+        }
+    })
+}
+
+travel(dir[1], function(pathname){
+    console.log(pathname);
+})
+</code></pre></div></div>
+
+<p>执行命令</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>➜  fileAction node travel.js ./
+bigcopy.js
+copy.js
+database.sql
+demo.txt
+dst/databast-copy.spl
+dst/demo2.txt
+travel.js
+</code></pre></div></div>
+
+<h3 id="例1-小文件拷贝">例1: 小文件拷贝</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var fs = require('fs');
+
+//读取和写入文件
+function copy(src, dst) {
+    fs.writeFileSync(dst, fs.readFileSync(src));
+}
+
+function main(argv) {
+    copy(argv[0], argv[1]);
+}
+
+//获取命令参数(路径)
+main(process.argv.slice(2));
+</code></pre></div></div>
+
+<p>执行命令 <code class="highlighter-rouge">node copy.js ./demo.txt ./dst/demo-copy.txt</code></p>
+
+<h3 id="例2-大文件拷贝">例2: 大文件拷贝</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var fs = require('fs');
+
+function copy(src, dst) {
+    fs.writeFileSync(dst, fs.readFileSync(src));
+}
+
+function main(argv) {
+    copy(argv[0], argv[1]);
+}
+
+main(process.argv.slice(2));
+</code></pre></div></div>
+
+<p>执行命令 <code class="highlighter-rouge">node bigcopy.js ./database.sql ./dst/database-copy.sql</code></p>
+
+<h3 id="小结">小结</h3>
+
+<ul>
+  <li>学好文件编程，编写各种程序都不怕</li>
+  <li>如果不是很在意性能，<code class="highlighter-rouge">fs</code>模块的同步api能让生活更美好</li>
+  <li>需要对文件读写做到字节级别的精细控制时，请使用<code class="highlighter-rouge">fs</code>模块的文件底层操作api</li>
+  <li>不要使用拼接字符串的方式来处理路径，使用<code class="highlighter-rouge">path</code>模块</li>
+  <li>掌握好目录遍历和文件编码处理技巧，很实用</li>
+</ul>
+
+<hr />
+
+<h2 id="第四天-网络操作">第四天 （网络操作）</h2>
+
+<p>在 *nix系统下，监听1024以下的端口需要root权限，因此，如果想要监听80或443端口的话吗需要使用sudo命令启动程序。</p>
+
+<p>简单例子:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var http = require('http');
+    http.createServer(function (request, response) {
+    response.writeHead(200, { 'Content-Type': 'text-plain' });
+    response.end('Hello World\n');
+ }).listen(8124);
+</code></pre></div></div>
+
+<p>### HTTP</p>
+
+<p>‘http’模块提供两种使用方式：</p>
+
+<ol>
+  <li>作为服务端使用时，创建一个HTTP服务器，监听HTTP客户端请求并返回响应</li>
+  <li>
+    <p>作为客户端使用时，发起一个HTTP客户端请求，获取服务端响应</p>
+
+    <h4 id="服务端">服务端</h4>
+
+    <ul>
+      <li>createdServer 创建一个服务器</li>
+      <li>listen 监听端口</li>
+    </ul>
+
+    <p>HTTP请求本质上是一个数据流，由请求头(headers)和请求体(body)组成
+HTTP响应本质上是一个数据流，由响应头(headers)和响应体(body)组成</p>
+  </li>
+</ol>
+
+<h3 id="https">HTTPS</h3>
+
+<p><code class="highlighter-rouge">https</code> 模块与<code class="highlighter-rouge">http</code>模块极为类似，区别在于<code class="highlighter-rouge">https</code>模块需要额外处理SSL证书</p>
+
+<h3 id="url">URL</h3>
+
+<p>处理http请求<code class="highlighter-rouge">url</code>模块使用率超高，该模块允许解析url，生成url,以及拼接url</p>
+
+<p>url的各组成部分：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                           href
+ -----------------------------------------------------------------
+                            host              path
+                      --------------- ----------------------------
+ http: // user:pass @ host.com : 8080 /p/a/t/h ?query=string #hash
+ -----    ---------   --------   ---- -------- ------------- -----
+protocol     auth     hostname   port pathname     search     hash
+                                                ------------
+                                                   query
+</code></pre></div></div>
+
+<h4 id="常用">常用</h4>
+
+<ul>
+  <li>parse 将url字符串转换为对象</li>
+  <li>format 将url对象转换为url字符串</li>
+  <li>resolve 拼接url</li>
+  <li>querystring 模块用于实现url参数字符串与参数对象的相互转换</li>
+  <li>zlib模块提供了数据压缩和解压的功能</li>
+  <li>net模块可用于创建socket服务器或socket客户端</li>
+</ul>
+
+<h3 id="小结-1">小结</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">http</code> 和 <code class="highlighter-rouge">https</code>模块支持服务端模式和客户端模式两种使用方式</li>
+  <li><code class="highlighter-rouge">request</code> 和 <code class="highlighter-rouge">response</code> 对象除了用于读写头数据外，都可以当作数据流来操作</li>
+  <li><code class="highlighter-rouge">url.parse</code>方法加上<code class="highlighter-rouge">request.url</code>属性是处理http请求时的固定搭配</li>
+  <li>使用<code class="highlighter-rouge">zlib</code>模块可以减少使用http协议时的数据传输量</li>
+  <li>通过<code class="highlighter-rouge">net</code> 模块的socket服务器与客户端可对http协议做底层操作</li>
+</ul>
+
+<hr />
+
+<h2 id="第五天-进程管理">第五天 （进程管理）</h2>
+
+<h4 id="process">process</h4>
+
+<p>任何一个进程都有启动进程时使用的命令行参数，有标准输入和标准输出，有运行权限，有运行环境和运行状态。在nodejs中，可以通过<code class="highlighter-rouge">process</code>对象感知和控制node自身进程的方方面面。另外，<code class="highlighter-rouge">process</code>不是内置模块，而是一个全局对象，因此在任何地方都可以直接使用。</p>
+
+<ul>
+  <li>
+    <p>获取命令行参数: <code class="highlighter-rouge">process.argv</code>，node执行程序路径和主模块文件路径占据了<code class="highlighter-rouge">argv[0]</code>和<code class="highlighter-rouge">argv[1]</code>两个位置，所以第一个命令行参数从<code class="highlighter-rouge">argv[2]</code>开始。</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function main(argv) {
+      //...
+  }
+  main(process.argv.slice(2))
+</code></pre></div>    </div>
+  </li>
+  <li>退出程序: <code class="highlighter-rouge">process.exit()</code></li>
+  <li>降权：在*nix系统下，使用root权限才能监听1024以下端口，一旦完成监听后，继续上程序运行在root权限下存在安全隐患，所以需要降权。</li>
+  <li>
+    <p>创建进程 <code class="highlighter-rouge">spawn(exec, args, options) </code></p>
+
+    <ol>
+      <li>exec 执行文件路径</li>
+      <li>args 每个成员按顺序对应一个命令行参数</li>
+      <li>options 可选，配置进程的执行环境和行为</li>
+    </ol>
+  </li>
+  <li>
+    <p>访问进程</p>
+
+    <ol>
+      <li>stdout</li>
+      <li>stderr</li>
+    </ol>
+  </li>
+</ul>
+
+<h3 id="总结">总结</h3>
+
+<ul>
+  <li>使用process对象管理自身</li>
+  <li>使用child_process模块创建和管理子进程</li>
+</ul>
+
+<hr />
+
+<h2 id="第六天-异步编程">第六天 （异步编程）</h2>
+
+<h3 id="回调">回调</h3>
+
+<p>在代码中，异步编程的直接体现就是回调，异步编程依托于回调来实现，但不能说使用了回调后程序就异步化了。</p>
+
+<p>JS本身是单线程运行的，不可能在一段代码还没结束时去运行别的代码，因此不存在异步执行的概念。但是如果某一个函数做的事情就是创建一个别的线程或进程，并与js主线并行地做一些事情，并在事情结束后通知js主线程，那么情况就是异步了。</p>
+
+<p>js在执行完一段代码之前无法执行包括回调函数在内的别的代码，也就是说，即使平行线程完成工作了，通知js主线程执行回调函数了，回调函数也要等到主线程空闲时才能执行。</p>
+
+<p>把单独一个回调函数理解为同步函数，使用try catch冒泡捕获异常并抛出，这样也就解释了为什么node.js 异步函数回调函数的第一个参数都是err</p>
+
+<h3 id="小结-2">小结</h3>
+
+<ul>
+  <li>不掌握异步编程就不算学会了nodejs</li>
+  <li>异步编程依托于回调来实现，而使用回调不一定是异步编程</li>
+  <li>异步编程下的函数间数据传递、数组遍历和异常处理与同步编程有很大区别</li>
+  <li>使用<code class="highlighter-rouge">domain</code>模块简化异步代码的异常处理，并小心陷阱</li>
+</ul>
+
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="《7天学会NodeJs》笔（zou）记（ma）整（guan）理（hua）" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

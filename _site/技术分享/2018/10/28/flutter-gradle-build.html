@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>Flutter Gradle Run Build Failed</title>
+  <meta name="description" content="Could not resolve all files for configuration 'classpath'.">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/10/28/flutter-gradle-build.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">Flutter Gradle Run Build Failed</h1>
+        <p class="post-meta">Oct 28, 2018 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <!-- TOC -->
+
+<ul>
+  <li><a href="#flutter-gradle编译失败">Flutter Gradle编译失败</a>
+    <ul>
+      <li><a href="#错误日志">错误日志</a></li>
+      <li><a href="#解决办法">解决办法</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="flutter-gradle编译失败">Flutter Gradle编译失败</h2>
+
+<h3 id="错误日志">错误日志</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Launching lib/main.dart on Android SDK built for x86 in debug mode...
+Initializing gradle...
+Resolving dependencies...
+* Error running Gradle:
+Exit code 1 from: /Users/tangliangcheng/AndroidStudioProjects/flutter_app_demo01/android/gradlew app:properties:
+Starting a Gradle Daemon (subsequent builds will be faster)
+
+Project evaluation failed including an error in afterEvaluate {}. Run with --stacktrace for details of the afterEvaluate {} error.
+
+FAILURE: Build failed with an exception.
+
+* Where:
+Build file '/Users/tangliangcheng/AndroidStudioProjects/flutter_app_demo01/android/app/build.gradle' line: 25
+
+* What went wrong:
+A problem occurred evaluating project ':app'.
+&gt; Could not resolve all files for configuration 'classpath'.
+   &gt; Could not find lint-gradle-api.jar (com.android.tools.lint:lint-gradle-api:26.1.2).
+     Searched in the following locations:
+         https://jcenter.bintray.com/com/android/tools/lint/lint-gradle-api/26.1.2/lint-gradle-api-26.1.2.jar
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 10s
+
+Finished with error: Please review your Gradle project setup in the android/ folder.
+
+</code></pre></div></div>
+
+<h3 id="解决办法">解决办法</h3>
+
+<p>flutter⁩ ▸ ⁨packages⁩ ▸ ⁨flutter_tools⁩ ▸ ⁨gradle⁩</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>buildscript {
+    repositories {
+	google() //添加
+        jcenter()
+        maven {
+            url 'https://dl.google.com/dl/android/maven2'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+    }
+}
+</code></pre></div></div>
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="Flutter Gradle Run Build Failed" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

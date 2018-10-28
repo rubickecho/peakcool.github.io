@@ -120,15 +120,14 @@ require是Fatal error， 下面的代码不会执行。</p>
 
 <p>8.php提交表单后控制缓存：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code> 1．使用header头设置缓存控制头Cache-control。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 1．使用header头设置缓存控制头Cache-control。
  PHP代码
  header('Cache-control: private, must-revalidate');  //支持页面回跳
  
  2．使用session_cache_limiter方法。
  PHP代码
  session_cache_limiter('private, must-revalidate'); //要写在               session_start方法之前
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>9.POST传值和GET传值的区别：</p>
 

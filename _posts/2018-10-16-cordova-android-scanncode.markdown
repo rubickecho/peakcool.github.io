@@ -3,7 +3,7 @@ author: tangliangcheng
 comments: true
 date: 2018-10-16 22:33:00+00:00
 layout: post
-slug: learn node 08 day
+slug: cordova android scanner
 title: Cordova Android 扫码返回按钮路由返回上一级
 excerpt: Cordova Android phonegap-plugin-barcodescanner 插件扫码返回按钮路由返回上一级
 categories:

@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>ES6初学习总结-读《阮一峰：ECMAScript 6 入门》</title>
+  <meta name="description" content="最近学习前端的一些东西，必不可少的便是es6，便从阮一峰老师的《ECMAScript 6 入门》开始，记录了一些要点。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/02/09/learn-es6.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">ES6初学习总结-读《阮一峰：ECMAScript 6 入门》</h1>
+        <p class="post-meta">Feb 9, 2017 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <p>es6关键词:</p>
+
+<ul>
+  <li>块级作用域</li>
+  <li>脱离顶层对象</li>
+  <li>解构</li>
+  <li>箭头函数</li>
+  <li>Set和Map</li>
+  <li>异步编程更强大</li>
+</ul>
+
+<p>还没仔细看的:</p>
+
+<ul>
+  <li>Promise</li>
+  <li>正则</li>
+  <li>数值</li>
+  <li>Symbol</li>
+  <li>Proxy</li>
+  <li>Reflect</li>
+  <li>Iterator</li>
+</ul>
+
+<h2 id="let命令">let命令</h2>
+
+<p>let命令类似var，声名变量</p>
+
+<ul>
+  <li>
+    <p>暂时性死区</p>
+
+    <p>let命令只在它所在的代码块内有效,它声明的变量一定要在声明后才能使用(不会发生变量提升问题，即脚本运行前，变量不存在)</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  for(let i = 0 ; i &lt; 10; i++) {
+      console.log(i);
+  }
+</code></pre></div>    </div>
+
+    <p>var所在文件中有效</p>
+
+    <p>es6明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭的作用域。凡是在声明之前就使用这些变量，就会报错。</p>
+  </li>
+  <li>
+    <p>不允许重复声明,所以在函数内部也不能重新声明参数</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  //报错
+  function(){
+  	let a = 10;
+      var a = 1;
+  }
+    
+  //报错
+  function(){
+  	let a = 10;
+      let a = 1;
+  }
+ 		
+  //报错
+  	function func(name){
+  	let name;
+  }
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="const命令">const命令</h2>
+
+<p>const 声明一个只读的常量，一旦声明，常量的值就不能改变(意味着一旦声明，必须立即初始化)</p>
+
+<ul>
+  <li>
+    <p>对于声明对象，const命令只保证变量名指向的地址不变，不会保证该地址的数据不变</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  const foo = {};
+  foo.prop = 123;
+    
+  foo.prop // 123
+  foo = {} // TypeError: "foo" is read-only
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><strong>Note:</strong></p>
+
+<ul>
+  <li>var命令和function命令声明的全局变量，依旧是顶层对象的属性；另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。（顶层对象=全局变量）</li>
+</ul>
+
+<hr />
+
+<h2 id="变量的解构赋值提取json数据">变量的解构赋值（提取json数据！！！）</h2>
+
+<h3 id="数组的解构赋值">数组的解构赋值</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let [a,b,c] = [1,2,3]
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>允许指定默认值</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let [a, b = 1] = [2,3]
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="对象的解构赋值">对象的解构赋值</h3>
+
+ 		let {foo, bar} = {foo: 1, bar: 2}
+
+<ul>
+  <li>
+    <p>变量必须与属性同名</p>
+
+ 	let {foo, baa} = {foo: 1, bar: 2}
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;foo
+1
+&gt;bar
+undefined  
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>允许指定默认值</p>
+  </li>
+</ul>
+
+<h3 id="字符串的解构赋值">字符串的解构赋值</h3>
+
+<p>字符串转换类似数组的对象</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const [a,b,c,d,e] = 'hello'
+&gt;a
+'h'
+&gt;b
+'e'
+&gt;c
+'l'
+&gt;d
+'l'
+&gt;e
+'o'
+</code></pre></div></div>
+
+<h3 id="函数参数解构赋值">函数参数解构赋值</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function add([x,y]){
+	return x + y;
+}
+
+add([1,2])；//3
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="函数">函数</h2>
+
+<h3 id="基本用法">基本用法</h3>
+
+<ul>
+  <li>
+    <p>可为参数指定默认值，es5不支持</p>
+  </li>
+  <li>
+    <p>参数变量是默认声明的，不能用let和const再次声明</p>
+  </li>
+  <li>
+    <p>与解构赋值结合使用</p>
+  </li>
+</ul>
+
+<h3 id="参数默认值的位置">参数默认值的位置</h3>
+
+<p>定义了默认值的参数，是没法省略的</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function f(x=1, y){
+	return [x,y];
+}
+
+console.log(f()) //[1, undefined]
+console.log(f(2)) //[1, undefined]
+f(,1) // 报错
+console.log(f(undefined,1)) //[1, 1]
+</code></pre></div></div>
+
+<h3 id="函数的length属性">函数的length属性</h3>
+
+<p>函数的length返回没有指定默认值的参数个数，指定了默认值后，使用length将失真</p>
+
+<h3 id="作用域">作用域</h3>
+
+<ul>
+  <li>
+    <p>设置参数默认值时，会形成一个单独的作用域</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  let i = 1 
+  function f(y = i) {
+      let i = 2;
+      console.log(y);
+  }
+  f(); //1
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="应用">应用</h3>
+
+<ul>
+  <li>
+    <p>利用参数默认值，可以指定某一个参数不能省略</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  function throwIfMissing() {
+  	throw new Error('Missiong Paramter');
+  }
+
+  function foo(name = throwIfMissing()) {
+      return name;
+  }
+
+  foo();
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="name属性">name属性</h3>
+
+<p>函数的name属性，返回该函数的函数名</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function foo() {}
+
+foo.name // "foo"
+</code></pre></div></div>
+
+<h3 id="箭头函数">箭头函数</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var f = () =&gt; 5
+//等同于
+var f = function () { return 5 }
+
+var sum = (n1,n2) =&gt; n1 + n2
+//等同于
+var sum = function(n1, n2) {
+	return n1 + n2
+}
+
+//返回对象
+var f = returnObj =&gt; ({name : "Tom", age : 20})
+
+//和变量解构结合使用
+var f = ({a,b}) =&gt; a + b   
+</code></pre></div></div>
+
+<ul>
+  <li>可用于回调函数</li>
+  <li>
+    <p>函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> function foo() {
+   setTimeout(() =&gt; {
+     console.log('id:', this.id);
+   }, 100);
+ }
+
+ var id = 21; //全局对象
+
+ foo.call({ id: 42 }); //函数定义时所在对象
+ // id: 42
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>尾调用优化，每次执行时，函数调用帧只有一项，大大节省内存</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> function a() {
+ 	return b()
+ }
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="数组">数组</h2>
+
+<p>Array.from() : 将两类对象转为真正的数组</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let arrayLike = {
+'0' : 'Tom',
+'1' : 20,
+length : 2 //数组长度
+}
+
+let arr = Array.from(arrayLike)
+console.log(arr);
+</code></pre></div></div>
+
+<p>Array.of() 将一组值转换为数组</p>
+
+ 	Array.of(1,2,3) //[1,2,3]
+
+<hr />
+
+<h2 id="set和map数据结构">set和map数据结构</h2>
+
+<h3 id="1set结构">1.Set结构</h3>
+<p>Set类似于数组，但是成员值都是唯一的，没有重复。</p>
+
+ 	&gt; const s1 = new Set([1,2,3,4])
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; [...s1]
+[ 1, 2, 3, 4 ]
+&gt; const s2 = new Set([1,2,3,4,5])
+&gt; s2.size
+5
+</code></pre></div></div>
+
+<p>四个操作方法：</p>
+
+<ul>
+  <li>add(value): 添加某个值</li>
+  <li>delete(value): 删除某个值，返回布尔值</li>
+  <li>has(value): 返回布尔值</li>
+  <li>clear(): 清楚所有成员</li>
+</ul>
+
+<p>遍历操作:</p>
+
+<ul>
+  <li>keys(): 返回键名的遍历器</li>
+  <li>values(): 返回键值的遍历器</li>
+  <li>entries(): 返回键值对的遍历器</li>
+  <li>forEach(): 返回回调函数遍历每个成员</li>
+</ul>
+
+<h3 id="2map结构">2.Map结构</h3>
+
+<p>Object结构提供了”字符串-值”的对应，Map结构提供了”值-值”的对应，是一种更加完善的hash结构实现。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var map = new Map() //初始化map
+</code></pre></div></div>
+
+<h4 id="属性">属性</h4>
+
+<ul>
+  <li>size: 返回map结构的成员总数</li>
+</ul>
+
+<h4 id="方法">方法</h4>
+
+<ul>
+  <li>set: 设置key所对应的值，返回整个Map结构，如果key已有值，则会更新键值。</li>
+  <li>get: 获取key对应的键值，如果找不到key，返回undefined。</li>
+  <li>has: 返回布尔值，表示某个键是否在map中。</li>
+  <li>delete: 删除某个键，成功返回true。</li>
+  <li>clear: 清楚所有成员，无返回值。</li>
+</ul>
+
+<h4 id="遍历方法">遍历方法</h4>
+
+<ul>
+  <li>keys(): 返回键名的遍历器</li>
+  <li>values(): 返回键值的遍历器</li>
+  <li>entries(): 返回成员的遍历器</li>
+  <li>forEach(): 返回回调函数遍历每个成员</li>
+</ul>
+
+<h4 id="与其他数据结构转换">与其他数据结构转换</h4>
+
+<ol>
+  <li>Map =&gt; Array 扩展运算符 […map]</li>
+  <li>Array =&gt; Map 将数组传入map构造函数</li>
+  <li>
+    <p>Map =&gt; Object Map的键都是字符串时</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> function strMapToObj(strMap) {
+   let obj = Object.create(null);
+   for (let [k,v] of strMap) {
+     obj[k] = v;
+   }
+   return obj;
+ }
+
+ let myMap = new Map().set('yes', true).set('no', false);
+ strMapToObj(myMap)
+ // { yes: true, no: false }
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>对象转换为Map</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> function objToStrMap(obj) {
+   let strMap = new Map();
+   for (let k of Object.keys(obj)) {
+     strMap.set(k, obj[k]);
+   }
+   return strMap;
+ }
+
+ objToStrMap({yes: true, no: false})
+ // [ [ 'yes', true ], [ 'no', false ] ]
+</code></pre></div>    </div>
+  </li>
+  <li>Map与Json的转换较为复杂，见 <a href="http://es6.ruanyifeng.com/#docs/set-map">http://es6.ruanyifeng.com/#docs/set-map</a></li>
+</ol>
+
+<hr />
+
+<h2 id="promise-异步编程">Promise 异步编程</h2>
+
+<p>所谓Promise，简单说就是一个容器，里面保存着某个未来才会结束的事件(通常是一个异步操作)的结果。从语法上说，它是一个对象，从它可以获取异步操作的消息。</p>
+
+<p>特点:</p>
+
+<ul>
+  <li>对象状态不受外界影响</li>
+  <li>
+    <p>一旦状态改变，就不会再变，任何时候都可以得到这个结果</p>
+
+    <p>function timeout(ms) {
+      return new Promise((resolve, reject) =&gt; {
+          setTimeout(resolve, ms, ‘done’);
+      });
+  }</p>
+
+    <p>timeout(1000).then((value) =&gt; {
+      console.log(value);
+  });</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="class">Class</h2>
+
+<p>ES6中引入了Class(类)这个概念，作为对象的模版，通过class关键字，可以定义类。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Point {
+	constructor(x, y) {
+    	this.x = x;
+        this.y = y;
+    }
+    
+    toString() {
+    	return '(' + this.x + ',' + this.y + ')';
+    }
+}
+
+var p = new Point();
+p.toString(1,2);
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="module">Module</h2>
+
+<h3 id="export命令">export命令</h3>
+
+<p>规定模块的对外接口</p>
+
+<p>一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。希望外部获取某个变量，就必须使用exports关键字暴露该变量</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const firstName = 'Michael';
+const lastNmae = 'Jackson';
+const year = 2000;
+
+export {firstName, year};
+</code></pre></div></div>
+
+<h3 id="import命令">import命令</h3>
+
+<p>输入其他模块提供的功能</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import {firstName, lastName, year} from './profile';
+
+function setName(element) {
+  element.textContent = firstName + ' ' + lastName;
+}
+</code></pre></div></div>
+
+<h3 id="export-default-命令">export default 命令</h3>
+
+<p>为模块指定默认输出</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export default function (){
+	console.log('foo')
+}
+</code></pre></div></div>
+
+<h3 id="es6模块加载的实质">ES6模块加载的实质</h3>
+
+<p>js引擎对脚本静态分析的时候，遇到模块加载命令import, 就会生成一个只读引用，等到脚本真正执行时，再根据这个只读引用，到被加载的那个模块里面去取值。换句话说，es6的import有点像unix系统的”符号连接”,原始值变了，import加载的值也会跟着变。因此，es6模块是动态引用，不会缓存值，模块里面的变量绑定其所在的模块。</p>
+
+<hr />
+
+<h2 id="编程风格">编程风格</h2>
+
+<ul>
+  <li>let 取代 var</li>
+  <li>let 和 const 之间，优先使用const</li>
+  <li>静态字符串一律使用单引号或反引号，不使用双引号。动态字符串使用反引号</li>
+  <li>对数组成员变量赋值时，优先解构赋值</li>
+  <li>
+    <p>单行定义对象，最后一个成员不以逗号结尾；多行定义对象，最后一个成员以逗号结尾。</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  const a = { k1: v1, k2: v2 };
+  const b = {
+    k1: v1,
+    k2: v2,
+  };
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>对象尽量静态化，一旦定义，不得随意添加新的属性。如果添加属性不可避免，要使用Object.assign方法</p>
+  </li>
+  <li>
+    <p>使用扩展运算符（…）拷贝数组</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  const itemsCopt = [...items];
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>立即执行的函数可以写成箭头函数的形式</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  [1,2,3].map(x =&gt; x * x)
+</code></pre></div>    </div>
+  </li>
+  <li>只有模拟现实世界的实体对象时，使用Object,如果只需要key:value,使用map结构</li>
+  <li>用import取代require, export取代module.exports</li>
+  <li>一个模块输出一个函数，函数名首字母小写；输出对象，首字母大写。</li>
+</ul>
+
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="ES6初学习总结-读《阮一峰：ECMAScript 6 入门》" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

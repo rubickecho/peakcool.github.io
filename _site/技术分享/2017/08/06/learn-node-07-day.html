@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>《深入浅出NodeJs》学习笔记 07 day</title>
+  <meta name="description" content="Node 构建基础Web应用">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/08/06/learn-node-07-day.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">《深入浅出NodeJs》学习笔记 07 day</h1>
+        <p class="post-meta">Aug 6, 2017 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <h2 id="构建web应用">构建Web应用</h2>
+
+<p>从http模块中服务器端的<code class="highlighter-rouge">request</code>事件开始分析。<code class="highlighter-rouge">request</code>事件发生于网络连接的建立，客户端向服务器端发送报文，服务器端解析报文，发送HTTP请求的报头时.</p>
+
+<p>在具体的业务中，一般会有如下需求:</p>
+
+<ul>
+  <li>请求方法的判断</li>
+  <li>URL的路径解析</li>
+  <li>URL中查询字符串解析</li>
+  <li>Cookie的解析</li>
+  <li>Basic认证</li>
+  <li>表单数据的解析</li>
+  <li>任意格式文件的上传处理</li>
+</ul>
+
+<hr />
+
+<h3 id="cookie">Cookie</h3>
+
+<p>Cookie的处理分为如下几步:</p>
+
+<ul>
+  <li>服务器向客户端发送Cookie</li>
+  <li>浏览器将Cookie保存</li>
+  <li>之后每次刷新浏览器都会将Cookie发向服务器端</li>
+</ul>
+
+<h4 id="cookie参数">Cookie参数</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">path</code>表示这个Cookie影响到的路径，当前访问的路径不满足该匹配时，浏览器不发送这个Cookie</li>
+  <li><code class="highlighter-rouge">Expires</code>和<code class="highlighter-rouge">Max-Age</code>是用来告知浏览器这个Cookie何时过期的，如果不设置该选项，在关闭浏览器时会丢失掉这个Cookie。如果设置了过期时间，浏览器将会把Cookie内容写入到磁盘中保存，下次打开浏览器依然有效。<code class="highlighter-rouge">Expires</code>的值是一个UTC格式的时间字符串，告知浏览器此Cookie何时过期。<code class="highlighter-rouge">Max-Age</code>则告知浏览器多久后过期，当两个值同时存在时，且同时被支持时，<code class="highlighter-rouge">Max-Age</code>会覆盖<code class="highlighter-rouge">Expires</code></li>
+  <li><code class="highlighter-rouge">HttpOnly</code>告知浏览器不允许通过脚本<code class="highlighter-rouge">document.cookie</code>去更改这个Cookie值，事实上，设置<code class="highlighter-rouge">HttpOnly</code>之后，这个值在<code class="highlighter-rouge">document.cookie</code>中不可见，但是在HTTP请求的过程中，依然会发送这个Cookie到服务器端</li>
+  <li><code class="highlighter-rouge">Secure</code> 当Secure值为true时，在HTTP中是无效的，在HTTPS中才有效，很难被窃听到</li>
+</ul>
+
+<h4 id="cookie的性能影响">Cookie的性能影响</h4>
+
+<ul>
+  <li>减少Cookie的大小</li>
+  <li>为静态组件使用不同的域名</li>
+  <li>减少DNS查询</li>
+</ul>
+
+<hr />
+
+<h3 id="session">Session</h3>
+
+<h4 id="session与内存">Session与内存</h4>
+
+<p>为了解决性能问题和<code class="highlighter-rouge">Session</code>数据无法跨进程共享的问题，常用的方案是将Session集中化，将原本可能分散在多个进程里的数据，统一转移到集中的数据存储中。目前常用的工具是<code class="highlighter-rouge">redies</code>、<code class="highlighter-rouge">memcached</code>等。通过这些高效的缓存，node进程无须在内部维护数据对象，垃圾回收问题和内存限制问题都迎刃而解</p>
+
+<hr />
+
+<h4 id="session与安全">Session与安全</h4>
+
+<p>典型的<code class="highlighter-rouge">XXS</code>(跨站脚本攻击 Cross Site Scripting)拿到用户口令，实现伪造，通常都是由网站开发者决定哪些脚本可以执行在浏览器端，不过<code class="highlighter-rouge">XXS</code>漏洞会让别的脚本执行。它的主要形成原因多数是用户的输入没有被转义，而被直接执行。</p>
+
+<hr />
+
+<h3 id="缓存">缓存</h3>
+
+<h4 id="使用缓存流程图">使用缓存流程图</h4>
+
+<p><img src="https://github.com/peakcool/learn-nodejs-notes/blob/master/%E7%A4%BA%E6%84%8F%E5%9B%BE/%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80web%E5%BA%94%E7%94%A8/%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98%E7%9A%84%E6%B5%81%E7%A8%8B%E7%A4%BA%E6%84%8F%E5%9B%BE.png?raw=true" alt="使用缓存流程图" /></p>
+
+<h4 id="缓存设置">缓存设置</h4>
+
+<h4 id="清除缓存">清除缓存</h4>
+
+<p>知晓了如何设置缓存，以达到节省网络带宽的目的，但是缓存一旦设定，当服务器端意外更新内容时，却无法通知客户端更新。这使得我们在使用缓存时也要为其设定版本号，所幸浏览器根据URL进行缓存，那么一旦内容更新时，我们就让浏览器发起新的url请求，使新内容能够被客户端更新。一般的更新机制有如下两种：</p>
+
+<ul>
+  <li>每次发布，路径中跟随web应用的版本号： http://url.com/?v=20170801</li>
+  <li>每次发布，路径中跟随该文件内容的hash值： http://url.com/?hash=afadsad11sad</li>
+</ul>
+
+<p>一般来说根据文件内容的hash值进行缓存淘汰更加高效，因为文件内容不一定跟随web应用的版本而更新，而内容没有更新时，版本号的改动导致更新毫无意义，因此以文件内容形成的hash值更精确</p>
+
+<hr />
+
+<h3 id="数据上传">数据上传</h3>
+
+<p>Node的http模块只对HTTP报文的头部进行了解析，然后触发request事件。如果请求中还带有内部部分（如POST请求，它具有报头和内容），内容部分需要用户自行接收和解析。通过设置报头的<code class="highlighter-rouge">Transfer-Encoding</code>或<code class="highlighter-rouge">Content-Length</code>即可判断请求中是否带有内容。</p>
+
+<h4 id="表单数据">表单数据</h4>
+
+<p>默认的表单提交，请求头中的<code class="highlighter-rouge">Content-Type</code>字段值为<code class="highlighter-rouge">application/x-www-form-urlencoded</code></p>
+
+<h4 id="其他格式">其他格式</h4>
+
+<p>常见的提交还有JSON和XML文件等，判断和解析他们的原理都比较相似，都是依据<code class="highlighter-rouge">Content-Type</code>的值决定，其中JSON类型的值为application/json,XML的值为application/xml</p>
+
+<p>需要注意的是，在Content-Type中可能还会附带<code class="highlighter-rouge">charset=utf-8</code>的编码信息。</p>
+
+<hr />
+
+<h3 id="中间件与性能">中间件与性能</h3>
+
+<h4 id="中间件的工作模型">中间件的工作模型</h4>
+
+<p><img src="https://github.com/peakcool/learn-nodejs-notes/blob/master/%E7%A4%BA%E6%84%8F%E5%9B%BE/%E6%9E%84%E5%BB%BA%E5%9F%BA%E7%A1%80web%E5%BA%94%E7%94%A8/%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%9E%8B.png?raw=true" alt="中间件的工作模型" /></p>
+
+<p>主要能提升性能的点：</p>
+
+<ul>
+  <li>
+    <p>编写高效的中间件
+  提升单个中间件的处理速度，以尽早调用next()执行后续逻辑。需要知道的是，一旦中间件被匹配，那么每个请求都会使该中间件执行一次，哪怕它只浪费了1毫秒的执行时间都会让我们QPS显著下降，常见的优化方法有几种。</p>
+
+    <ul>
+      <li>使用高效的方法，必要时通过jsperf.com测试基准性能</li>
+      <li>缓存需要重复计算的接口</li>
+    </ul>
+  </li>
+  <li>
+    <p>合理利用路由，避免不必要的中间件执行</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="页面渲染">页面渲染</h2>
+
+<h3 id="mime">MIME</h3>
+
+<p><code class="highlighter-rouge">MIME</code>的全称是<code class="highlighter-rouge">Multipurpose Internet Mail Extensions</code>,从名字可以看出，它最早用于电子邮件，后来也应用到浏览器中。不同的文件类型具有不同的<code class="highlighter-rouge">MIME</code>值，如JSON文件的值为<code class="highlighter-rouge">application/json</code>，XML文件的值为<code class="highlighter-rouge">application/xml</code>，PDF文件的值为<code class="highlighter-rouge">application/pdf</code>。</p>
+
+<p>Node社区中<code class="highlighter-rouge">mime</code>模块可以判断文件类型。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">mime</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mime'</span><span class="p">)</span>
+
+<span class="nx">mime</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="s1">'/path/to/file.txt'</span><span class="p">)</span> <span class="c1">//=&gt; 'text/plain'</span>
+<span class="nx">mime</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="s1">'file.txt'</span><span class="p">)</span> <span class="c1">//=&gt; 'text/plain'</span>
+<span class="nx">mime</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="s1">'.TXT'</span><span class="p">)</span> <span class="c1">//=&gt; 'text/plain'</span>
+<span class="nx">mime</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="s1">'htm'</span><span class="p">)</span> <span class="c1">//=&gt; 'text/html'</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">Content-Disposition</code>: 无论响应的内容是什么样的<code class="highlighter-rouge">MIME</code>值，不要求客户端去打开它，只需弹出并下载它。</p>
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="《深入浅出NodeJs》学习笔记 07 day" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

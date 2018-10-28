@@ -83,12 +83,12 @@
         <p class="post-meta">Jan 10, 2016 • tangliangcheng</p>
     </header>
     <article class="post-content">
-        <h3 id="section">1. 关于云计算</h3>
+        <h3 id="1-关于云计算">1. 关于云计算</h3>
 <p><strong><em>定义:</em></strong> 云计算是一种IT资源的交付和使用模式。通过网络以按需，易拓展的方式获得所需的资源（硬件，平台，软件及服务等）。提供资源的网络被称为“云”。
 <strong><em>特征:</em></strong> 提供服务，可伸缩，共享，按需付费</p>
 
 <p>–</p>
-<h3 id="section-1">2. 云计算系统分层体系架构</h3>
+<h3 id="2-云计算系统分层体系架构">2. 云计算系统分层体系架构</h3>
 
 <ul>
   <li>应用软件层</li>
@@ -149,7 +149,7 @@
 </ul>
 
 <hr />
-<h3 id="section-2">3. 云系统架构与服务体系的对应关系</h3>
+<h3 id="3-云系统架构与服务体系的对应关系">3. 云系统架构与服务体系的对应关系</h3>
 
 <ul>
   <li>云应用软件—-saas</li>
@@ -159,7 +159,7 @@
 </ul>
 
 <hr />
-<h3 id="iaas">4. IaaS</h3>
+<h3 id="4-iaas">4. IaaS</h3>
 
 <p><strong>定义：</strong> 将IT基础设施能力通过互联网提供给用户使用，并根据用户对资源的实际使用量或占有量进行计费的一种服务
  <strong>提供的服务：</strong></p>
@@ -186,7 +186,7 @@
 </ul>
 
 <hr />
-<h3 id="openstack">5.什么是OpenStack</h3>
+<h3 id="5什么是openstack">5.什么是OpenStack</h3>
 <ul>
   <li>一个可以用来建立私有云和公有云的开源软件</li>
   <li>良好的框架，具有良好的拓展性</li>
@@ -195,7 +195,7 @@
 </ul>
 
 <hr />
-<h3 id="openstack-1">6.OpenStack组件</h3>
+<h3 id="6openstack组件">6.OpenStack组件</h3>
 <ul>
   <li>Dashboard(Horizon)：提供了对于所有openstack services的一个基于web的用户界面。<strong><em>提供管理和使用云平台的ui界面</em></strong></li>
   <li>Compute(Nova)：将最终用户的api请求发送到正在运行的虚拟机上。<strong><em>提供计算即服务</em></strong></li>
@@ -207,7 +207,7 @@
 </ul>
 
 <hr />
-<h3 id="nova">7. Nova</h3>
+<h3 id="7-nova">7. Nova</h3>
 <p><strong>1.Nova在openstack中的作用是：</strong></p>
 <ul>
   <li>openstack平台的结构控制器</li>
@@ -249,7 +249,7 @@
 </ul>
 
 <hr />
-<h3 id="section-3">8.同步和异步通信</h3>
+<h3 id="8同步和异步通信">8.同步和异步通信</h3>
 <p><strong>同步定义:</strong>客户端直接请求服务器端，等待服务结果返回才能继续进行</p>
 
 <p><strong>异步定义:</strong>客户端与服务器端并不直接通信，客户端将请求的消息的形式放在请求消息队列中，然后可以处理其它业务逻辑</p>
@@ -283,7 +283,7 @@
 </ul>
 
 <hr />
-<h3 id="amqp">9.AMQP实现通信</h3>
+<h3 id="9amqp实现通信">9.AMQP实现通信</h3>
 <p>因素：消息</p>
 
 <p>实体：交换器，队列</p>
@@ -291,7 +291,7 @@
 <p>机制：交换器与消息队列通过消息的绑定与转发机制实现消息通信</p>
 
 <hr />
-<h3 id="exchange">10.消息转发中交换器(exchange)</h3>
+<h3 id="10消息转发中交换器exchange">10.消息转发中交换器(exchange)</h3>
 <p>exchange有三种类型:fanout,direct,tipic</p>
 
 <ul>
@@ -301,11 +301,11 @@
 </ul>
 
 <hr />
-<h3 id="section-4">11.组件之间如何工作</h3>
+<h3 id="11组件之间如何工作">11.组件之间如何工作</h3>
 <p>交换器通过AMQP消息头(header)中的路由选择关键字(routing key)而形成的绑定规则(binding)来实现消息的转发。</p>
 
 <hr />
-<h3 id="rpccall">12.消息调用应用程序rpc.call(请求与响应)</h3>
+<h3 id="12消息调用应用程序rpccall请求与响应">12.消息调用应用程序rpc.call(请求与响应)</h3>
 <ul>
   <li>通过2次消息发送完成一次rpc</li>
   <li>任务发送者使用topic模式</li>
@@ -313,7 +313,7 @@
 </ul>
 
 <hr />
-<h3 id="rpccast">13.rpc.cast单向请求</h3>
+<h3 id="13rpccast单向请求">13.rpc.cast单向请求</h3>
 <ul>
   <li>单向消息</li>
   <li>不需要返回任务执行结果</li>
@@ -321,7 +321,7 @@
 </ul>
 
 <hr />
-<h3 id="section-5">14.关键概念</h3>
+<h3 id="14关键概念">14.关键概念</h3>
 <ul>
   <li>Exchange:消息交换机，指定消息按什么规则路由到哪个队列，三种类型</li>
   <li>Queue：消息队列载体，每个消息都会被投入到一个或多个队列</li>
@@ -330,11 +330,11 @@
 </ul>
 
 <hr />
-<h3 id="section-6">15.消息队列的工作流程</h3>
+<h3 id="15消息队列的工作流程">15.消息队列的工作流程</h3>
 <p>消息生产者创建，接受消息转发至消息队列，再存储转发交换器传来的消息到消息消费者。</p>
 
 <hr />
-<h3 id="nova-scheduler">16.Nova Scheduler主要任务</h3>
+<h3 id="16nova-scheduler主要任务">16.Nova Scheduler主要任务</h3>
 <ul>
   <li>决定往那里发送对Compute,Volume,Network的请求</li>
   <li>Compute，Volume可以使用不同的策略</li>
@@ -342,7 +342,7 @@
 </ul>
 
 <hr />
-<h3 id="fillteringweighting">17.Filltering和Weighting</h3>
+<h3 id="17filltering和weighting">17.Filltering和Weighting</h3>
 <p>Fillter作用：过滤哪些物理服务器可以考虑来响应请求</p>
 
 <p>Weighting作用：</p>
@@ -359,7 +359,7 @@
 主机剩余内存越多，优先级越高，尽量将虚拟机分散到尽可能多的节点</p>
 
 <hr />
-<h3 id="nova-network">18.Nova Network</h3>
+<h3 id="18nova-network">18.Nova Network</h3>
 <p><strong>1.网络ip地址</strong></p>
 <ul>
   <li>每个虚拟机可以有两个ip地址，fixed ip(内部ip)，floating ip(外部ip)</li>
@@ -378,7 +378,7 @@
 </ul>
 
 <hr />
-<h3 id="nova-compute">19.Nova Compute</h3>
+<h3 id="19nova-compute">19.Nova Compute</h3>
 <p><strong>1.nova compute主要任务</strong></p>
 <ul>
   <li>管理物理服务器和其上的虚拟机生命周期</li>
@@ -396,14 +396,14 @@
   <li>快照snapshot</li>
 </ul>
 
-<h3 id="glance">20.Glance</h3>
+<h3 id="20glance">20.Glance</h3>
 <ul>
   <li>glance本身不实现对镜像的存储功能</li>
   <li>glance是一个代理，镜像存储服务和nova之间的纽带</li>
   <li>支持两种镜像存储格式：简单文件存储，swift服务存储镜像机制</li>
 </ul>
 
-<h3 id="cinder">21.Cinder架构优缺点</h3>
+<h3 id="21cinder架构优缺点">21.Cinder架构优缺点</h3>
 <ul>
   <li>优点：模块之间可以灵活的相互协调，架构容易扩展</li>
   <li>缺点：rabbitmq负担重</li>

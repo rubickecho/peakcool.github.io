@@ -85,7 +85,7 @@
     <article class="post-content">
         <p>Redis是基于内存的数据存储系统，数据以key=&gt;value形式存储。value支持多种数据类型，包括string,hash,list,set,sorted set等等。</p>
 
-<h3 id="section">1.起步</h3>
+<h3 id="1起步">1.起步</h3>
 
 <p><a href="http://www.redis.net.cn/tutorial/3503.html">安装教程</a></p>
 
@@ -95,19 +95,17 @@
 
 <p>验证是否成功:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>127.0.0.1:6379&gt; PING
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1:6379&gt; PING
 PONG
 127.0.0.1:6379&gt;
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><a href="http://www.redis.net.cn/tutorial/3501.html">学习教程</a></p>
 
-<h3 id="redisconf">2.配置文件  redis.conf</h3>
+<h3 id="2配置文件--redisconf">2.配置文件  redis.conf</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>CONFIG GET * //查看所有配置
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CONFIG GET * //查看所有配置
+</code></pre></div></div>
 
 <ul>
   <li>
@@ -121,7 +119,7 @@ PONG
   </li>
 </ul>
 
-<h3 id="redis-">3.redis 数据持久化</h3>
+<h3 id="3redis-数据持久化">3.redis 数据持久化</h3>
 
 <p>RDB原理:</p>
 
@@ -142,13 +140,13 @@ PONG
   <li>若要求不是特别高，可以只使用RDB持久化</li>
 </ul>
 
-<h3 id="redis--1">4.redis 开启启动服务</h3>
+<h3 id="4redis-开启启动服务">4.redis 开启启动服务</h3>
 
 <ol>
   <li>
     <p>/etc/init.d/redis 加入以下内容</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> <span class="c">#!/bin/sh </span>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c">#!/bin/sh </span>
  <span class="c">##chkconfig: 2345 80 90 </span>
  <span class="c">##description:auto_run </span>
  <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/sbin:/usr/bin:/bin 
@@ -162,7 +160,7 @@ PONG
 	
  <span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in 
  </span>start<span class="p">)</span>
-     <span class="k">if</span> <span class="o">[</span> -f <span class="nv">$PIDFILE</span> <span class="o">]</span> 
+     <span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="nv">$PIDFILE</span> <span class="o">]</span> 
      <span class="k">then 
          </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$PIDFILE</span><span class="s2"> exists, process is already running or crashed"</span> 
      <span class="k">else 
@@ -176,17 +174,17 @@ PONG
          <span class="p">;;</span> 
      stop<span class="p">)</span> 
      <span class="k">if</span> 
-     <span class="o">[</span> ! -f <span class="nv">$PIDFILE</span> <span class="o">]</span> 
+     <span class="o">[</span> <span class="o">!</span> <span class="nt">-f</span> <span class="nv">$PIDFILE</span> <span class="o">]</span> 
      <span class="k">then 
          </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$PIDFILE</span><span class="s2"> does not exist, process is not running"</span> 
      <span class="k">else 
-         </span><span class="nv">PID</span><span class="o">=</span><span class="k">$(</span>cat <span class="nv">$PIDFILE</span><span class="k">)</span> 
+         </span><span class="nv">PID</span><span class="o">=</span><span class="k">$(</span><span class="nb">cat</span> <span class="nv">$PIDFILE</span><span class="k">)</span> 
          <span class="nb">echo</span> <span class="s2">"Stopping ..."</span>
-         <span class="nv">$REDIS_CLI</span> -p <span class="nv">$REDISPORT</span> SHUTDOWN 
-         <span class="k">while</span> <span class="o">[</span> -x <span class="k">${</span><span class="nv">PIDFILE</span><span class="k">}</span> <span class="o">]</span> 
+         <span class="nv">$REDIS_CLI</span> <span class="nt">-p</span> <span class="nv">$REDISPORT</span> SHUTDOWN 
+         <span class="k">while</span> <span class="o">[</span> <span class="nt">-x</span> <span class="k">${</span><span class="nv">PIDFILE</span><span class="k">}</span> <span class="o">]</span> 
          <span class="k">do 
              </span><span class="nb">echo</span> <span class="s2">"Waiting for Redis to shutdown ..."</span> 
-             sleep 1 
+             <span class="nb">sleep </span>1 
          <span class="k">done 
              </span><span class="nb">echo</span> <span class="s2">"Redis stopped"</span> 
          <span class="k">fi</span> 
@@ -196,12 +194,11 @@ PONG
          <span class="k">${</span><span class="nv">0</span><span class="k">}</span> start 
          <span class="p">;;</span> 
      <span class="k">*</span><span class="p">)</span> 
-     <span class="nb">echo</span> <span class="s2">"Usage: /etc/init.d/redis {startstoprestartforce-reload}"</span> &gt;&amp;2 
+     <span class="nb">echo</span> <span class="s2">"Usage: /etc/init.d/redis {startstoprestartforce-reload}"</span> <span class="o">&gt;</span>&amp;2 
          <span class="nb">exit </span>1 
  <span class="k">esac</span> 
  <span class="c">#######</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>设置权限: chmod +x /etc/init.d/redis</li>
   <li>
@@ -215,7 +212,7 @@ PONG
   <li>检查是否加入服务: service redis start</li>
 </ol>
 
-<h3 id="redis-6">5.Redis 6种过期策略</h3>
+<h3 id="5redis-6种过期策略">5.Redis 6种过期策略</h3>
 
 <ul>
   <li>Volatile-lru : 只针对设置了过期时间的key</li>
@@ -226,7 +223,7 @@ PONG
   <li>noeviction: 永不过期</li>
 </ul>
 
-<h3 id="redis--2">Redis 事务</h3>
+<h3 id="redis-事务">Redis 事务</h3>
 
 <p>事务是一个单独的隔离，事务中的所有命令都会序列化，按顺序地执行。事务在执行的过程中，不会被其他客户端发送来的命令请求所打断。</p>
 
@@ -271,7 +268,7 @@ PONG
   </tbody>
 </table>
 
-<h3 id="redis--3">Redis 手册</h3>
+<h3 id="redis-手册">Redis 手册</h3>
 
 <p><a href="http://www.cnblogs.com/ikodota/archive/2012/03/05/php_redis_cn.html">Redis中文手册PHP版</a></p>
 
@@ -279,7 +276,7 @@ PONG
 
 <p><a href="http://doc.redisfans.com/">Redis命令参考</a></p>
 
-<h3 id="redis--4">Redis 精文</h3>
+<h3 id="redis-精文">Redis 精文</h3>
 
 <p><a href="http://coolshell.cn/articles/17416.html">缓存更新套路–陈皓</a></p>
 

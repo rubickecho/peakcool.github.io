@@ -8,5 +8,7 @@ wordpress对于我这么懒的人还是难于去管理，而且对于博客还�
 
 博客访问地址: [peakcool.cn](http://peakcool.cn)
 
+2016年9月
+
 ### License
 The code follows MIT License.

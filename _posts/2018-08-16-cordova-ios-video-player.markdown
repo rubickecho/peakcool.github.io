@@ -1,29 +1,34 @@
 ---
 author: tangliangcheng
 comments: true
-date: 2018-10-16 22:33:00+00:00
+date: 2018-10-28 22:33:00+00:00
 layout: post
-slug: learn node 08 day
-title: Cordova Android 扫码返回按钮路由返回上一级
-excerpt: Cordova Android phonegap-plugin-barcodescanner 插件扫码返回按钮路由返回上一级
+slug: cordova ios video player
+title: Cordova iOS 多媒体播放器允许行内播放
+excerpt: Cordova iOS 多媒体播放器允许行内播放
 categories:
 - 技术分享
 ---
 
-## Cordova Android 扫码返回按钮路由回退
+## Cordova iOS 多媒体播放器允许行内播放
 
-最近在实现cordova 扫码需求时，用到了`phonegap-plugin-barcodescanner`库
+最近在cordova app上实现多媒体播放的功能时，遇到一个问题
 
-开启相机后，在android上，没有`取消扫码`按钮，只能点击`返回`按钮才能取消扫码
+```ios 默认不支持video行内播放```
 
-这时会有一个问题，点击返回按钮时，webview路由会`go(-1)`并且取消扫码关闭相机
+google一番，搜集了关于这个问题的信息
 
-而实际期望的是关闭相机，路由不返回上一级
+1. h5 video标签禁止全屏播放
+    ```在video标签中设置webkit-playsinline="true" playsinline="true"等值```
 
-在vue项目中解决思路是：
+2. cordova-plugin-wkwebview-engine 上README提到
 
-```
-1. vuex中创建一个值 state.unBack = false作为临时保存扫码开启状态
-2. 开启扫码时，设置 state.unBack = true
-3. 在当前页路由勾子 beforeRouteLeave 中，判断unBack是否会false, false时正常路由行为， true时next(false)阻止路由跳转
-```
+    ```The AllowInlineMediaPlayback preference will not work because of this Apple bug. This bug has been fixed in iOS 10.```
+
+
+3. Apple 为了多媒体播放更好的用户体验，默认不允许行内播放，所以需要手动自己开启
+
+    ```
+    在cordova/config.xml中，新增
+    <preference name="AllowInlineMediaPlayback" value="true" />
+    ```

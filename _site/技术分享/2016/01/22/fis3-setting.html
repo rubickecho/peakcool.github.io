@@ -95,7 +95,7 @@
 
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell">fis.match<span class="o">(</span><span class="s1">'*.js'</span>, <span class="o">{</span>
     optimizer: fis.plugin<span class="o">(</span><span class="s1">'uglify-js'</span><span class="o">)</span>
-<span class="o">})</span>;</code></pre></figure>
+<span class="o">})</span><span class="p">;</span></code></pre></figure>
 
 <ul>
   <li>css压缩</li>
@@ -104,7 +104,7 @@
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell">fis.match<span class="o">(</span><span class="s1">'*.css'</span>, <span class="o">{</span>
     useSprite: <span class="nb">true</span>,
     optimizer: fis.plugin<span class="o">(</span><span class="s1">'clean-css'</span><span class="o">)</span>
-<span class="o">})</span>;</code></pre></figure>
+<span class="o">})</span><span class="p">;</span></code></pre></figure>
 
 <ul>
   <li>png压缩</li>
@@ -112,13 +112,13 @@
 
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell">fis.match<span class="o">(</span><span class="s1">'*.png'</span>, <span class="o">{</span>
     optimizer: fis.plugin<span class="o">(</span><span class="s1">'png-compressor'</span><span class="o">)</span>
-<span class="o">})</span>;</code></pre></figure>
+<span class="o">})</span><span class="p">;</span></code></pre></figure>
 
 <ul>
   <li>输出到指定目录</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">fis3 release -d &lt;path&gt;</code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">fis3 release <span class="nt">-d</span> &lt;path&gt;</code></pre></figure>
 
 <ul>
   <li>对css图片进行合并</li>
@@ -126,14 +126,14 @@
 
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell">fis.match<span class="o">(</span><span class="s1">'*.css'</span>, <span class="o">{</span>
     useSprite: <span class="nb">true</span>
-<span class="o">})</span>;</code></pre></figure>
+<span class="o">})</span><span class="p">;</span></code></pre></figure>
 
 <ul>
   <li>浏览器自动刷新</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">fis3 server start -p <span class="o">[</span>8081]
-fis3 release -wL</code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">fis3 server start <span class="nt">-p</span> <span class="o">[</span>8081]
+fis3 release <span class="nt">-wL</span></code></pre></figure>
 
 <p>注:因为我自己电脑的server port是8080,所以我将fis3内置服务器port改成了8081</p>
 

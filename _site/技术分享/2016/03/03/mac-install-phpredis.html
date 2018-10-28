@@ -83,30 +83,28 @@
         <p class="post-meta">Mar 3, 2016 • tangliangcheng</p>
     </header>
     <article class="post-content">
-        <h3 id="macphpphpredis">一.mac自带php安装phpredis</h3>
+        <h3 id="一mac自带php安装phpredis">一.mac自带php安装phpredis</h3>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>brew install php56-redis  <span class="c">#56为php版本5.6.10</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>brew <span class="nb">install </span>php56-redis  <span class="c">#56为php版本5.6.10</span></code></pre></figure>
 
-<h3 id="macmampphpredis">二.mac下mamp安装phpredis</h3>
+<h3 id="二mac下mamp安装phpredis">二.mac下mamp安装phpredis</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>1. 进入**/Applications/MAMP/bin/php/php5.6.10/** 下载phpredis **_https://github.com/phpredis/phpredis_**
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 进入**/Applications/MAMP/bin/php/php5.6.10/** 下载phpredis **_https://github.com/phpredis/phpredis_**
 
 2. 进入phpredis文件夹：
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell">    <span class="nv">$ </span><span class="nb">cd </span>phpredis
-    <span class="nv">$ </span>sudo phpize
-    <span class="nv">$ </span>sudo ./configure --with-php-config<span class="o">=</span>/Applications/MAMP/bin/php/php5.6.10/bin/php-config  <span class="c">#配置phpredis</span>
-    <span class="nv">$ </span>sudo make  <span class="c">#编译make</span>
-    <span class="nv">$ </span>sudo cp -p modules/redis.so /Applications/MAMP/bin/php/php5.6.10/lib/php/extensions/no-debug-non-zts-20131226 <span class="c">#将编译完成的模块，复制到MAMP 中的PHP 扩展中</span>
-    <span class="nv">$ </span>sudo vi /Applications/MAMP/bin/php/php5.6.10/conf/php.ini
+    <span class="nv">$ </span><span class="nb">sudo </span>phpize
+    <span class="nv">$ </span><span class="nb">sudo</span> ./configure <span class="nt">--with-php-config</span><span class="o">=</span>/Applications/MAMP/bin/php/php5.6.10/bin/php-config  <span class="c">#配置phpredis</span>
+    <span class="nv">$ </span><span class="nb">sudo </span>make  <span class="c">#编译make</span>
+    <span class="nv">$ </span><span class="nb">sudo cp</span> <span class="nt">-p</span> modules/redis.so /Applications/MAMP/bin/php/php5.6.10/lib/php/extensions/no-debug-non-zts-20131226 <span class="c">#将编译完成的模块，复制到MAMP 中的PHP 扩展中</span>
+    <span class="nv">$ </span><span class="nb">sudo </span>vi /Applications/MAMP/bin/php/php5.6.10/conf/php.ini
     <span class="nv">$ extension</span><span class="o">=</span>redis.so    <span class="c">#修改 php.ini 文件在增加 redis.so 扩展</span>
     </code></pre></figure>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>3. 最后完成，重启MAMP
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. 最后完成，重启MAMP
+</code></pre></div></div>
 
 <p><img src="http://peakcool.cn/images/posts/phpredis.png" alt="reids模块" /></p>
 

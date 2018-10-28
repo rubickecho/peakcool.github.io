@@ -83,43 +83,39 @@
         <p class="post-meta">Oct 18, 2016 • tangliangcheng</p>
     </header>
     <article class="post-content">
-        <h3 id="timestamp">一、TIMESTAMP的变体</h3>
+        <h3 id="一timestamp的变体">一、TIMESTAMP的变体</h3>
 <p>TIMESTAMP时间戳在创建的时候可以有多重不同的特性，如：</p>
 
 <ol>
   <li>
     <p>在创建新记录和修改现有记录的时候都对这个数据列刷新：</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+</code></pre></div>    </div>
   </li>
   <li>
     <p>在创建新记录的时候把这个字段设置为当前时间，但以后修改时，不再刷新它：</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+</code></pre></div>    </div>
   </li>
   <li>
     <p>在创建新记录的时候把这个字段设置为0，以后修改时刷新它：</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+</code></pre></div>    </div>
   </li>
   <li>
     <p>在创建新记录的时候把这个字段设置为给定值，以后修改时刷新它：</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> TIMESTAMP DEFAULT ‘yyyy-mm-dd hh:mm:ss' ON UPDATE CURRENT_TIMESTAMP
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> TIMESTAMP DEFAULT ‘yyyy-mm-dd hh:mm:ss' ON UPDATE CURRENT_TIMESTAMP
+</code></pre></div>    </div>
   </li>
 </ol>
 
 <p>MySQL目前不支持列的Default 为函数的形式,如达到你某列的默认值为当前更新日期与时间的功能,你可以使用TIMESTAMP列类型,下面就详细说明TIMESTAMP列类型</p>
 
-<h3 id="timestamp-1">二、TIMESTAMP列类型</h3>
+<h3 id="二timestamp列类型">二、TIMESTAMP列类型</h3>
 <p>TIMESTAMP值可以从1970的某时的开始一直到2037年，精度为一秒，其值作为数字显示。</p>
 
 <p>TIMESTAMP值显示尺寸的格式如下表所示：</p>
@@ -175,18 +171,18 @@
 <p><strong>例如你可以使用下列语句来验证：</strong></p>
 
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell">CREATE TABLE <span class="nb">test</span> <span class="o">(</span><span class="s1">'id'</span> INT <span class="o">(</span>3<span class="o">)</span> UNSIGNED AUTO_INCREMENT, <span class="s1">'date1'</span>
-TIMESTAMP <span class="o">(</span>8<span class="o">)</span> PRIMARY KEY<span class="o">(</span><span class="s1">'id'</span><span class="o">))</span>;
-INSERT INTO <span class="nb">test </span>SET id <span class="o">=</span> 1;
-SELECT <span class="k">*</span> FROM <span class="nb">test</span>;
+TIMESTAMP <span class="o">(</span>8<span class="o">)</span> PRIMARY KEY<span class="o">(</span><span class="s1">'id'</span><span class="o">))</span><span class="p">;</span>
+INSERT INTO <span class="nb">test </span>SET <span class="nb">id</span> <span class="o">=</span> 1<span class="p">;</span>
+SELECT <span class="k">*</span> FROM <span class="nb">test</span><span class="p">;</span>
 +----+----------------+
-| id | date1　　　　　|
+| <span class="nb">id</span> | date1　　　　　|
 +----+----------------+
 |　1 | 20021114　　　 |
 +----+----------------+
-ALTER TABLE <span class="nb">test </span>CHANGE <span class="s1">'date1'</span> <span class="s1">'date1'</span> TIMESTAMP<span class="o">(</span>14<span class="o">)</span>;
-SELECT <span class="k">*</span> FROM <span class="nb">test</span>;
+ALTER TABLE <span class="nb">test </span>CHANGE <span class="s1">'date1'</span> <span class="s1">'date1'</span> TIMESTAMP<span class="o">(</span>14<span class="o">)</span><span class="p">;</span>
+SELECT <span class="k">*</span> FROM <span class="nb">test</span><span class="p">;</span>
 +----+----------------+
-| id | date1　　　　　|
+| <span class="nb">id</span> | date1　　　　　|
 +----+----------------+
 |　1 | 20021114093723 |
 +----+----------------+</code></pre></figure>
@@ -209,11 +205,11 @@ SELECT <span class="k">*</span> FROM <span class="nb">test</span>;
 <span class="s1">'date1'</span> TIMESTAMP <span class="o">(</span>14<span class="o">)</span>,
 <span class="s1">'date2'</span> TIMESTAMP <span class="o">(</span>14<span class="o">)</span>,
 PRIMARY KEY<span class="o">(</span><span class="s1">'id'</span><span class="o">)</span>
-<span class="o">)</span>;
-INSERT INTO <span class="nb">test</span> <span class="o">(</span>id, date1, date2<span class="o">)</span> VALUES <span class="o">(</span>1, NULL, NULL<span class="o">)</span>;
-INSERT INTO <span class="nb">test </span>SET <span class="nv">id</span><span class="o">=</span> 2;
+<span class="o">)</span><span class="p">;</span>
+INSERT INTO <span class="nb">test</span> <span class="o">(</span><span class="nb">id</span>, date1, date2<span class="o">)</span> VALUES <span class="o">(</span>1, NULL, NULL<span class="o">)</span><span class="p">;</span>
+INSERT INTO <span class="nb">test </span>SET <span class="nb">id</span><span class="o">=</span> 2<span class="p">;</span>
 +----+----------------+----------------+
-| id | date1　　　　　| date2　　　　　|
+| <span class="nb">id</span> | date1　　　　　| date2　　　　　|
 +----+----------------+----------------+
 |　1 | 20021114093723 | 20021114093723 |
 |　2 | 20021114093724 | 00000000000000 |
@@ -223,9 +219,9 @@ INSERT INTO <span class="nb">test </span>SET <span class="nv">id</span><span cla
 
 <hr />
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">UPDATE <span class="nb">test </span>SET <span class="nv">id</span><span class="o">=</span> 3 WHERE <span class="nv">id</span><span class="o">=</span>1;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">UPDATE <span class="nb">test </span>SET <span class="nb">id</span><span class="o">=</span> 3 WHERE <span class="nb">id</span><span class="o">=</span>1<span class="p">;</span>
 +----+----------------+----------------+
-| id | date1　　　　　| date2　　　　　|
+| <span class="nb">id</span> | date1　　　　　| date2　　　　　|
 +----+----------------+----------------+
 |　3 | 20021114094009 | 20021114093723 |
 |　2 | 20021114093724 | 00000000000000 |
@@ -235,9 +231,9 @@ INSERT INTO <span class="nb">test </span>SET <span class="nv">id</span><span cla
 
 <hr />
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">UPDATE <span class="nb">test </span>SET <span class="nv">id</span><span class="o">=</span> 1,date1<span class="o">=</span>date1,date2<span class="o">=</span>NOW<span class="o">()</span> WHERE <span class="nv">id</span><span class="o">=</span>3; 
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">UPDATE <span class="nb">test </span>SET <span class="nb">id</span><span class="o">=</span> 1,date1<span class="o">=</span>date1,date2<span class="o">=</span>NOW<span class="o">()</span> WHERE <span class="nb">id</span><span class="o">=</span>3<span class="p">;</span> 
 +----+----------------+----------------+
-| id | date1　　　　　| date2　　　　　|
+| <span class="nb">id</span> | date1　　　　　| date2　　　　　|
 +----+----------------+----------------+
 |　1 | 20021114094009 | 20021114094320 |
 |　2 | 20021114093724 | 00000000000000 |
@@ -247,24 +243,24 @@ INSERT INTO <span class="nb">test </span>SET <span class="nv">id</span><span cla
 
 <hr />
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">UPDATE <span class="nb">test </span>SET <span class="nv">id</span><span class="o">=</span> 1,date1<span class="o">=</span>date1,date2<span class="o">=</span>NULL WHERE <span class="nv">id</span><span class="o">=</span>3;</code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">UPDATE <span class="nb">test </span>SET <span class="nb">id</span><span class="o">=</span> 1,date1<span class="o">=</span>date1,date2<span class="o">=</span>NULL WHERE <span class="nb">id</span><span class="o">=</span>3<span class="p">;</span></code></pre></figure>
 
 <p>因MySQL返回的 TIMESTAMP 列为数字显示形式，你可以用DATE_FROMAT()函数来格式化 TIMESTAMP 列，如下所示：</p>
 
 <hr />
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">SELECT id,DATE_FORMAT<span class="o">(</span>date1,<span class="s1">'%Y-%m-%d %H:%i:%s'</span><span class="o">)</span> As date1,
-DATE_FORMAT<span class="o">(</span>date2,<span class="s1">'%Y-%m-%d %H:%i:%s'</span><span class="o">)</span> As date2 FROM <span class="nb">test</span>;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">SELECT <span class="nb">id</span>,DATE_FORMAT<span class="o">(</span>date1,<span class="s1">'%Y-%m-%d %H:%i:%s'</span><span class="o">)</span> As date1,
+DATE_FORMAT<span class="o">(</span>date2,<span class="s1">'%Y-%m-%d %H:%i:%s'</span><span class="o">)</span> As date2 FROM <span class="nb">test</span><span class="p">;</span>
 +----+---------------------+---------------------+
-| id | date1　　　　　　　 | date2　　　　　　　 |
+| <span class="nb">id</span> | date1　　　　　　　 | date2　　　　　　　 |
 +----+---------------------+---------------------+
 |　1 | 2002-11-14 09:40:09 | 2002-11-14 09:43:20 |
 |　2 | 2002-11-14 09:37:24 | 0000-00-00 00:00:00 |
 +----+---------------------+---------------------+
-SELECT id,DATE_FORMAT<span class="o">(</span>date1,<span class="s1">'%Y-%m-%d'</span><span class="o">)</span> As date1,
-DATE_FORMAT<span class="o">(</span>date2,<span class="s1">'%Y-%m-%d'</span><span class="o">)</span> As date2 FROM <span class="nb">test</span>;
+SELECT <span class="nb">id</span>,DATE_FORMAT<span class="o">(</span>date1,<span class="s1">'%Y-%m-%d'</span><span class="o">)</span> As date1,
+DATE_FORMAT<span class="o">(</span>date2,<span class="s1">'%Y-%m-%d'</span><span class="o">)</span> As date2 FROM <span class="nb">test</span><span class="p">;</span>
 +----+-------------+-------------+
-| id | date1　　　 | date2　　　 |
+| <span class="nb">id</span> | date1　　　 | date2　　　 |
 +----+-------------+-------------+
 |　1 | 2002-11-14　| 2002-11-14　|
 |　2 | 2002-11-14　| 0000-00-00　|
@@ -282,7 +278,7 @@ DATE_FORMAT<span class="o">(</span>date2,<span class="s1">'%Y-%m-%d'</span><span
 例如，TIMESTAMP值不能比1970早，也不能比2037晚，这意味着，一个日期例如’1968-01-01’，当作为一个DATETIME或DATE值时它是合法的，但它不是一个正确TIMESTAMP值！并且如果将这样的一个对象赋值给TIMESTAMP列，它将被变换为0。</li>
 </ol>
 
-<h3 id="section">三、当指定日期值时，当心某些缺陷：</h3>
+<h3 id="三当指定日期值时当心某些缺陷">三、当指定日期值时，当心某些缺陷：</h3>
 <ol>
   <li>
     <p>允许作为字符串指定值的宽松格式能被欺骗。例如，因为“:”分隔符的使用，值’10:11:12’可能看起来像时间值，但是如果在一个日期中使用，上下文将作为年份被解释成’2010-11-12’。值’10:45:15’将被变换到’0000-00-00’，因为’45’不是一个合法的月份。</p>

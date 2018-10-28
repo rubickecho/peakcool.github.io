@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>《JavaScript 高级程序设计》笔记整理</title>
+  <meta name="description" content="最近阅读《JavaScript 高级程序设计》，整理了一些知识点笔记。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/02/14/learn-javascript.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">《JavaScript 高级程序设计》笔记整理</h1>
+        <p class="post-meta">Feb 14, 2017 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <h2 id="数据类型">数据类型:</h2>
+
+<ul>
+  <li>
+    <p>由于保存浮点数值需要的内存空间是保存整数值的两倍，所以ECMAScript会不失时机地将浮点数值转换为整数值</p>
+  </li>
+  <li>
+    <p>浮点数值的最高精度是17位小数，但在进行算术计算时其精确度远远不如整数。例如，0.1加0.2的结果不是0.3,而是0.300000000000000004。</p>
+  </li>
+  <li>
+    <p>ECMAScript中的字符串是不可改变的，也就是说，字符串一单创建，它们的值就不能改变，要改变某个变量保存的字符串，首先要先销毁原来的字符串，然后再用另一个包含新值的字符串填充该变量</p>
+  </li>
+</ul>
+
+<h2 id="语句">语句</h2>
+
+<ul>
+  <li>do-while 语句是一种后测试循环语句，即只在循环体中的代码执行之后，才会测试出口条件。换句话说，在对条件表达式求值之前，循环体中的代码至少会被执行一次。</li>
+</ul>
+
+<h2 id="函数">函数</h2>
+
+<ul>
+  <li>
+    <p>ECMAScript 中的参数在内部是用一个数组来表示的。函数接收到的始终都是这个数组，而不关心数组中包含哪些参数(如果有参数的话)。如果这个数组中不包含任何元素，无所谓；如果包含多个元素，也没有问题。实际上，在函数体内可以通过arguments对象来访问这个参数数组，从而获取传递给函数的每一个参数。</p>
+  </li>
+  <li>
+    <p>ECMAScript 函数的一个重要特点：命名的参数只提供便利，但不是必须的。</p>
+  </li>
+</ul>
+
+<h2 id="基本类型和引用类型的值">基本类型和引用类型的值</h2>
+
+<ul>
+  <li>
+    <p>引用类型的值保存在内存中的对象。与其他语言不通，javascript不允许直接访问内存中的位置，也就是说不能直接操作对象的内存空间。在操作对象时，实际上是在操作对象的引用而不是实际的对象，为此，引用类型的值是按引用访问的。</p>
+  </li>
+  <li>
+    <p>ECMAScript 中的所有函数的参数都是按值传递的。也就是说，把函数外部的值复制给函数内部的参数，就和把值从一个变量复制到另一个变量一样。基本类型值的传递如同基本类型变量的复制一样，而引用类型值的传递，则如同引用类型变量复制一样。</p>
+  </li>
+</ul>
+
+<h2 id="执行环境及作用域">执行环境及作用域</h2>
+
+<ul>
+  <li>
+    <p>每个函数都有自己的执行环境。当执行环境进入一个函数时，函数的环境就会被推入一个环境栈中。而在函数执行之后，栈将其环境弹出，把控制权返回给之前的执行环境。</p>
+  </li>
+  <li>
+    <p>对于有块级作用域的语言来说，for语句初始化变量的表达式所定义的变量，只会存在于循环的环境之中。而对于javascript来说，由for语句创建的变量i即使在for循环执行结束后，也依旧会存在于循环外部的执行环境中。(所以es6 引入了let const 来定义块级作用域)</p>
+  </li>
+</ul>
+
+<h2 id="垃圾收集">垃圾收集</h2>
+
+<ul>
+  <li>
+    <p>javascript中最常用的垃圾收集方式是标记清除(mark-and-sweep)。当变量进入环境(例如在函数中声明一个变量)时，就将这个变量标记为“进入环境”。从逻辑上讲，永远不能释放进入环境的变量所占用的内存，因为只要执行流进入相应的环境，就可能会用它们。而当变量离开环境时，则将其标记为“离开环境”。</p>
+  </li>
+  <li>
+    <p>另一种不太常见的垃圾收集策略叫做引用计数(reference counting)。引用计数的含义是跟踪记录每一个值被引用的次数。当声明了一个变量并将一个引用类型值赋给该变量时，则这个值的引用次数就是1.如果同一个值又赋给另一个变量，该值引用次数加1.相反，如果包含对这个值引用的变量取得了另外一个值时，则这个值的引用次数减1.当引用次数变为0时，则说明没有办法再访问这个值了，所以就可以将其占用的内存空间回收。这样，当垃圾收集器下次再运行时，它就会释放哪些引用次数为0的值所占用的内存。（问题：循环引用 a调用b， b调用a，则会产生严重的错误）</p>
+  </li>
+  <li>
+    <p>确保占用最少的内存可以让页面获得更好的性能。而优化内存占用的最佳方式，就是为执行中的代码只保存必要的数据。一旦数据不再有用，最好通过将其值设置为null来释放其引用–这个做法解除引用(dereferencing)。这一做法适用于大多数全局变量和全局变量的属性。局部变量会在它们离开执行环境时自动被解除引用。</p>
+  </li>
+  <li>
+    <p>解除一个值的引用并不意味着自动回收该值所占用的内存，解除引用的真正作用是让值脱离执行环境，以便垃圾收集器下次运行时将其回收。</p>
+  </li>
+</ul>
+
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="《JavaScript 高级程序设计》笔记整理" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

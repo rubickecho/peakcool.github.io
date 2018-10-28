@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>Laravel Auth深入探究</title>
+  <meta name="description" content="今天在写Laravel登录的时候，根据需求也不想用laravel自带的auth登录认证，便在搜索了一番，开始了auth的深入探究之旅。">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2016/11/15/laravel-auth.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">Laravel Auth深入探究</h1>
+        <p class="post-meta">Nov 15, 2016 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <p>今天在写Laravel登录的时候，根据需求也不想用laravel自带的auth登录认证，便在搜索了一番，开始了auth的深入探究之旅。</p>
+
+<p>刚开始根据官方文档，<a href="https://laravel-china.org/docs/5.1/authentication">用户认证</a> 里的手动认证用户描述，实现了我的简单登录逻辑代码，如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public function login(Request $request)
+{
+    if (Auth::attempt(['name' =&gt; $request-&gt;name, 'password' =&gt; $request-&gt;password])) {
+        //认证通过
+        $rt = array('status' =&gt; 200, 'msg' =&gt; '登陆成功', 'data' =&gt; array('isLogin' =&gt; true));
+        return response()-&gt;json($rt);
+    } else {
+        $rt = array('status' =&gt; 400, 'msg' =&gt; '登陆失败', 'data' =&gt; array('isLogin' =&gt; false));
+    }
+
+    return response()-&gt;json($rt);
+}
+</code></pre></div></div>
+
+<p>然后顺着laravel Auth的逻辑，找到在 <strong><em>Illuminate\Auth\Guard.php</em></strong> 中的 <strong>attempt</strong> 方法，如下图：</p>
+
+<p><img src="http://peakcool.cn/images/posts/auth-1.png" alt="attempt" /></p>
+
+<p>根据代码的实现，最关键的点应该是以下两句代码:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$this-&gt;lastAttempted = $user = $this-&gt;provider-&gt;retrieveByCredentials($credentials);
+
+$this-&gt;hasValidCredentials($user, $credentials)
+</code></pre></div></div>
+
+<p>我们一句一句来，顺着 <strong>retrieveByCredentials</strong> 方法，这里要说明的是，因为在 <strong><em>config/auth.php</em></strong> 中我选择的是 eloquent 认证驱动，所以找到 <strong><em>Illuminate\AuthEloquentUserProvider</em></strong> 下的 <strong>retrieveByCredentials</strong>方法，如下图：</p>
+
+<p><img src="http://peakcool.cn/images/posts/auth-2.png" alt="retrieveByCredentials" /></p>
+
+<p>retrieveByCredentials 方法实现了根据用户登录输入的信息(除密码外)，查询到登录用户的信息并返回。</p>
+
+<p>然后执行 <strong>$this-&gt;hasValidCredentials($user, $credentials)</strong>, 最终定位到 <strong><em>Illuminate\AuthEloquentUserProvider</em></strong> 中的 <strong>validateCredentials</strong>方法，如下图:</p>
+
+<p><img src="http://peakcool.cn/images/posts/auth-3.png" alt="validateCredentials" /></p>
+
+<p>最终Laravel 通过 <a href="https://laravel-china.org/docs/5.1/hashing">Hash facade</a> 提供 Bcrypt 加密来验证用户密码是否一致。(注意:数据库密码字段名为 <strong>password</strong>，若不是需在模型方法中重新指定)</p>
+
+<p>看到了这里，也有了一些疑问，如果我不用hash来加密密码呢，使用md5 + “盐” 的方式，那就只有改写这个验证逻辑了。（”盐” 在数据库中字段名为 <strong>salt</strong>）</p>
+
+<p>在 Illuminate\Contracts\Auth\Authenticatable 中加入方法:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public function getAuthSalt();
+</code></pre></div></div>
+
+<p>在 Illuminate\Auth\Authenticatable 加入方法:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public function getAuthSalt()
+{
+   return $this-&gt;salt;
+}
+</code></pre></div></div>
+
+<p>改写上文提到的 <strong>retrieveByCredentials</strong> 方法</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public function validateCredentials(UserContract $user, array $credentials)
+{
+    $plain = $credentials['password'];
+    $authPassword = $user-&gt;getAuthPassword();
+    $authSalt = $user-&gt;getAuthSalt();
+    return $authPassword === md5($plain.$authSalt);
+}
+</code></pre></div></div>
+
+<p>到这里基本就结束了，需要注意的是，使用Auth认证默认是 <strong><em>App\User.php</em></strong>,我根据需求更改了 <strong><em>config/auth.php</em></strong>，改成了 <strong><em>App\Models\User.php</em></strong> 因为该文件我是执行命令 <strong><em>php artisan make:model Models/User</em></strong> 生成的，便有了一点小坑的地方，它没有 use Auth 认证的类，所以此时将 <strong><em>app/User.php</em></strong> 下的复制过来即可。</p>
+
+<hr />
+
+<p>以下是我在学习时，找到的两篇关于laravel auth 的文章,对我理解auth有很大的帮助</p>
+
+<ul>
+  <li><a href="https://my.oschina.net/cxz001/blog/347225">laravel身份验证-Auth的使用</a></li>
+  <li><a href="http://blueve.me/archives/898">Laravel框架初识：扩展Auth功能</a></li>
+</ul>
+
+<hr />
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="Laravel Auth深入探究" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

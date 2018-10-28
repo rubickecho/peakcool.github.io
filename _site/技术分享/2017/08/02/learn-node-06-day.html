@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>《深入浅出NodeJs》学习笔记 06 day</title>
+  <meta name="description" content="Node 网络编程">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/08/02/learn-node-06-day.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">《深入浅出NodeJs》学习笔记 06 day</h1>
+        <p class="post-meta">Aug 2, 2017 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <h3 id="构建tcp服务">构建TCP服务</h3>
+
+<h4 id="tcp">TCP</h4>
+
+<p>全名为传输控制协议，在OSI模型（由七层组成，分别为物理层、数据链路层、网络传输层、会话层、表示层、应用层）中属于传输层协议。</p>
+
+<p>其最显著的特征是在传输之间需要3次握手形成会话，只有会话形成之后，服务器端和客户端之间才能互相发送数据。在创建会话的过程中，服务器端和客户端分别提供一个<code class="highlighter-rouge">套接字</code>，这两个套接字共同形成一个链接。服务器端与客户端则通过套接字实现两者之间链接的操作。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">net</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'net'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">createServer</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">socket</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">socket</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s1">'Hello'</span><span class="p">)</span>
+    <span class="p">})</span>
+
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'end'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'连接断开'</span><span class="p">)</span>
+    <span class="p">})</span>
+
+    <span class="nx">socket</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">8124</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'server bound'</span><span class="p">)</span> <span class="c1">//成功</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h4 id="tcp服务的事件">TCP服务的事件</h4>
+
+<p>在上述示例中，代码分为服务器事件和连接事件。</p>
+
+<h5 id="服务器事件">服务器事件</h5>
+<p>对于通过<code class="highlighter-rouge">net.createServer()</code>创建的服务器，它是一个<code class="highlighter-rouge">EventEmitter</code>实例，它自定义事件有如下几种：</p>
+
+<ul>
+  <li>listening: 在调用<code class="highlighter-rouge">server.listen()</code>绑定端口或者Domain Socket后触发，简洁写法为<code class="highlighter-rouge">server.list(port, listeningListener)</code>，通过第二个参数传入。</li>
+  <li>connection: 每个客户端套接字连接到服务器端时触发，简洁写法为<code class="highlighter-rouge">net.createServer()</code>。</li>
+  <li>close: 当服务器关闭时触发，在调用<code class="highlighter-rouge">server.close()</code>后，服务器将停止接受新的套接字连接，但保持当前连接，等所有连接断开后会触发该事件。</li>
+  <li>error: 当服务器发生异常时。</li>
+</ul>
+
+<h5 id="连接事件">连接事件</h5>
+
+<p>服务器可以同时与多个客户端保持连接，对于每个连接而言就是典型的可写可读<code class="highlighter-rouge">Stream</code>对象。</p>
+
+<p><code class="highlighter-rouge">Stream</code>对象可以用于服务器端和客户端之间的通信，既可以通过<code class="highlighter-rouge">data</code>事件从一端读取另一端发来的数据，也可以通过<code class="highlighter-rouge">write()</code>方法从一端向另外一端发送数据。具有如下自定义事件：</p>
+
+<ul>
+  <li>data: 当一端调用<code class="highlighter-rouge">write</code>发送数据时，另一端会触发<code class="highlighter-rouge">data</code>事件，事件传递的数据即是<code class="highlighter-rouge">write()</code>发送的数据。(<strong>注意:</strong>并不是每次write都会触发一次data事件,当关闭<code class="highlighter-rouge">Nagle</code>算法后，另一端可能收到多个小数据包合并，只触发一次data事件)</li>
+  <li>end: 当连接中的任意一端发送了FIN数据时，将会触发该事件。</li>
+  <li>connect: 该事件用于客户端，当套接字与服务器端连接成功时会被触发。</li>
+  <li>drain: 当任意一端调用<code class="highlighter-rouge">write()</code>发送数据时，当前这端会触发该事件。</li>
+  <li>error: 当异常发生时，触发该事件。</li>
+  <li>close: 当套接字完全关闭时，触发该事件。</li>
+  <li>timeout: 当一定事件后连接不再活跃时，该事件将会被触发，通知用户当前连接已经被闲置了。</li>
+</ul>
+
+<p><strong>TCP套接字是可写可读的Stream对象，可以利用pip()方法巧妙实现管道操作</strong></p>
+
+<h3 id="udp">UDP</h3>
+
+<p>在UDP中，一个套接字可以与多个UDP服务通信，它虽然提供面向事务的简单不可靠信息传输服务，在网络差的情况下，存在丢包严重的问题，但是由于它无须连接，资源消耗低，处理快速灵活，所以常常应用在那种偶尔丢一两个数据包也不会产生重大影响的场景，比如：音频、视频等等。DNS服务也是基于它实现的。</p>
+
+<h4 id="创建udp套接字">创建UDP套接字</h4>
+
+<p>一旦创建，既可以作为客户端发送数据，也可以作为服务器端接受数据。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">dgram</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'dgram'</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">socket</span> <span class="o">=</span> <span class="nx">dgram</span><span class="p">.</span><span class="nx">createScoket</span><span class="p">(</span><span class="s1">'udp4'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>创建服务器端：调用<code class="highlighter-rouge">dgram.bing(port, [address])</code> 设置网卡和端口</li>
+  <li>创建客户端，调用<code class="highlighter-rouge">send()</code>发送消息到网络中</li>
+</ul>
+
+<h4 id="udp套接字事件">UDP套接字事件</h4>
+
+<p>UDP套接字事件只是一个EventEmitter的实例，具备如下自定义事件：</p>
+
+<ul>
+  <li>message: 当UDP套接字侦听网卡端口后，接受到消息时触发该事件，触发携带的数据为消息的<code class="highlighter-rouge">Buffer</code>对象和一个远程地址信息</li>
+  <li>listening: 当UDP套接字开始侦听时触发</li>
+  <li>close: 调用<code class="highlighter-rouge">close()</code>方法时触发该事件，并不再触发<code class="highlighter-rouge">message</code>事件。如需再次触发<code class="highlighter-rouge">message</code>事件，可以重新绑定</li>
+  <li>error: 当异常发生时触发</li>
+</ul>
+
+<hr />
+
+<h3 id="构建http服务">构建HTTP服务</h3>
+
+<h4 id="http">HTTP</h4>
+
+<p>从协议的角度来说，现在的应用，如浏览器，其实是一个HTTP的代理，用户的行为将会通过它转化为HTTP请求报文发送给服务器端，服务器端在处理请求后，发送响应报文给代理，代理在解析报文后，将用户需要的内容呈现在界面上。</p>
+
+<p>无论是HTTP请求报文还是HTTP响应报文，报文内容都包含两个部分：报文头和报文体。</p>
+
+<p><strong>1、TCP的3次握手</strong></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">*</span> Rebuilt URL to: www.baidu.com/
+<span class="k">*</span>   Trying 220.181.111.188...
+<span class="k">*</span> TCP_NODELAY <span class="nb">set</span>
+<span class="k">*</span> Connected to www.baidu.com <span class="o">(</span>220.181.111.188<span class="o">)</span> port 80 <span class="o">(</span><span class="c">#0)</span>
+</code></pre></div></div>
+
+<p><strong>2、客户端想服务器端发送请求报文</strong></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> GET / HTTP/1.1
+<span class="o">&gt;</span> Host: www.baidu.com
+<span class="o">&gt;</span> User-Agent: curl/7.54.0
+<span class="o">&gt;</span> Accept: <span class="k">*</span>/<span class="k">*</span>
+</code></pre></div></div>
+
+<p><strong>3、服务器端完成处理后，向客户端发送响应内容，包括响应头和响应体</strong></p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt; HTTP/1.1 200 OK
+&lt; Server: bfe/1.0.8.18
+&lt; Date: Thu, 03 Aug 2017 05:20:56 GMT
+&lt; Content-Type: text/html
+&lt; Content-Length: 2381
+&lt; Last-Modified: Mon, 23 Jan 2017 13:27:36 GMT
+&lt; Connection: Keep-Alive
+&lt; ETag: <span class="s2">"588604c8-94d"</span>
+&lt; Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform
+&lt; Pragma: no-cache
+&lt; Set-Cookie: <span class="nv">BDORZ</span><span class="o">=</span>27315<span class="p">;</span> max-age<span class="o">=</span>86400<span class="p">;</span> <span class="nv">domain</span><span class="o">=</span>.baidu.com<span class="p">;</span> <span class="nv">path</span><span class="o">=</span>/
+&lt; Accept-Ranges: bytes
+</code></pre></div></div>
+
+<p><strong>4、最后部分为结束会话的信息</strong></p>
+
+<h4 id="http模块">http模块</h4>
+
+<p><strong>http模块即是将<code class="highlighter-rouge">connection</code>到<code class="highlighter-rouge">request</code>的过程进行了封装</strong></p>
+
+<p><img src="https://github.com/peakcool/learn-nodejs-notes/blob/master/%E7%A4%BA%E6%84%8F%E5%9B%BE/%60connection%60%E5%88%B0%60request%60%E7%9A%84%E8%BF%87%E7%A8%8B%E8%BF%9B%E8%A1%8C%E5%B0%81%E8%A3%85.png?raw=true" alt="`connection`到`request`的过程进行封装" /></p>
+
+<p>除此之外，http模块将连接所用套接字的读写抽象为<code class="highlighter-rouge">ServerRequest</code>和<code class="highlighter-rouge">ServerResponse</code>对象，它们分别对应请求和响应操作。在请求产生的过程中，http模块拿到连接中传来的数据，调用二进制模块<code class="highlighter-rouge">http_parser</code>进行解析，解析完请求报文的报头后，触发<code class="highlighter-rouge">request</code>事件，调用用户业务逻辑。</p>
+
+<p><img src="https://github.com/peakcool/learn-nodejs-notes/blob/master/%E7%A4%BA%E6%84%8F%E5%9B%BE/http%E6%A8%A1%E5%9D%97%E4%BA%A7%E7%94%9F%E8%AF%B7%E6%B1%82%E7%9A%84%E6%B5%81%E7%A8%8B.png?raw=true" alt="http模块产生请求的流程" /></p>
+
+<h5 id="http请求">http请求</h5>
+
+<p>请求报文头第一行<code class="highlighter-rouge">GET/HTTP/1.1</code>解析分为如下：</p>
+
+<ul>
+  <li>req.method属性： 值为GET,是为http请求方法</li>
+  <li>req.url属性：值为/</li>
+  <li>req.httpVersion属性，值为1.1</li>
+</ul>
+
+<p>其余报头很规律的<code class="highlighter-rouge">Key: Value</code>格式，被解析后放置在<code class="highlighter-rouge">req.headers</code>属性上传递给业务逻辑调用。
+报文体部分则抽象为一个只读对象，如果业务逻辑需要读取报文体中的数据，则要在这个数据流结束后才能操作。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">buffers</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="nx">req</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">trunk</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">buffers</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">trunk</span><span class="p">)</span>
+    <span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'end'</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">Buffer</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">buffers</span><span class="p">)</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="s1">'Hello World'</span><span class="p">)</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h5 id="http响应">http响应</h5>
+
+<p>http响应封装了对底层连接的写操作，可以将其看成一个可写的流对象。它影响响应报文头部消息的API为<code class="highlighter-rouge">setHeader()</code>和<code class="highlighter-rouge">writeHead()</code>两个步骤，实际生成如下报文：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt; HTTP/1.1 200 OK
+&lt; Content-Type: text/html
+</code></pre></div></div>
+
+<p>可以调用<code class="highlighter-rouge">setHeader</code>进行多次设置，但只有调用<code class="highlighter-rouge">writeHead</code>后，报头才会被写入到连接中。
+报文体部分则是调用<code class="highlighter-rouge">res.write()</code>和<code class="highlighter-rouge">res.end()</code>方法实现，后者和前者的差别在于<code class="highlighter-rouge">res.end()</code>会先调用<code class="highlighter-rouge">write()</code>发送数据，然后发送信号告知服务器这次响应结束。</p>
+
+<h5 id="http服务的事件">http服务的事件</h5>
+
+<p>服务器也是一个<code class="highlighter-rouge">EventEmitter</code>实例：</p>
+
+<ul>
+  <li>connection事件</li>
+  <li>request事件</li>
+  <li>close事件</li>
+  <li>checkContinue事件</li>
+  <li>connect事件</li>
+  <li>upgrade事件</li>
+  <li>clientError事件</li>
+</ul>
+
+<h4 id="http客户端">http客户端</h4>
+
+<p>与http服务器基本相似，提供一个<code class="highlighter-rouge">http.request(options, connect)</code> 用于构造HTTP客户端。</p>
+
+<h5 id="options选项">options选项</h5>
+
+<ul>
+  <li>host: 服务器的域名或者IP地址, 默认为<code class="highlighter-rouge">localhost</code></li>
+  <li>hostname: 服务器名称</li>
+  <li>port: 服务器端口</li>
+  <li>localAddress: 建立网络连接的本地网卡</li>
+  <li>socketPath: Domain套接字路径</li>
+  <li>method: HTTP请求方法，默认为GET</li>
+  <li>path: 请求路径，默认为/</li>
+  <li>headers: 请求头对象</li>
+  <li>auth: <code class="highlighter-rouge">Basic</code>认证，这个值将被计算为请求头中的<code class="highlighter-rouge">Authorization</code>部分</li>
+</ul>
+
+<h5 id="http响应-1">http响应</h5>
+
+<p>HTTP客户端的响应对象与服务器相似，在<code class="highlighter-rouge">ClientRequest</code>对象中，它的事件叫做<code class="highlighter-rouge">response</code></p>
+
+<h5 id="http代理">http代理</h5>
+
+<p><strong>HTTP代理对服务器端创建的连接进行管理</strong>
+<img src="https://github.com/peakcool/learn-nodejs-notes/blob/master/%E7%A4%BA%E6%84%8F%E5%9B%BE/HTTP%E4%BB%A3%E7%90%86%E5%AF%B9%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%88%9B%E5%BB%BA%E7%9A%84%E8%BF%9E%E6%8E%A5%E8%BF%9B%E8%A1%8C%E7%AE%A1%E7%90%86.png?raw=true" alt="HTTP代理对服务器端创建的连接进行管理" /></p>
+
+<p>调用HTTP客户端同时对一个服务器发起10次HTTP请求时，其实质只有5个请求处于并发状态，后续的请求需要等待某个请求完成服务后才真正发出。这与浏览器对同一个域名下有下载连接数的限制是相同的行为。如需改变，可以在<code class="highlighter-rouge">option</code>中传递<code class="highlighter-rouge">agent</code>选项。</p>
+
+<hr />
+
+<h3 id="构建webscoket服务">构建WebScoket服务</h3>
+
+<p>WebScoket与传统HTTP有以下好处：</p>
+
+<ul>
+  <li>客户端与服务器端只建立一个TCP连接，可以使用更少的连接</li>
+  <li>WebScoket服务器端可以推送数据到客户端，这远比HTTP请求响应模式更灵活高效</li>
+  <li>有更轻量的协议头，减少数据传输</li>
+</ul>
+
+<p>WebScoket协议主要分为两个部分：<strong>握手</strong> 和 <strong>数据传输</strong></p>
+
+<h3 id="网络服务与安全">网络服务与安全</h3>
+
+<p>SSL作为一种安全协议，它在传输层提供对网络连接加密的功能。对于应用层而言，它是透明的，数据在传输到应用层之前就已经完成了加密和解密的过程。最初的SSL应用在web上，被服务器端和浏览器端同时支持，随后IETF将其标准化，称为TLS(Transport Layer Security, 安全传输层协议)。</p>
+
+<h4 id="tlsssl">TLS/SSL</h4>
+
+<p>TLS/SSL是一个公钥/私钥的结构，是一个非堆成的结构，每个服务器端和客户端都有自己的公私钥。公钥用来加密要传输的数据，私钥用来解密接受到的数据。公钥和私钥是配对的，通过公钥加密的数据，只有通过私钥才能解密，所以建立连接安全传输之前，客户端和服务器端互换公钥。客户端发送数据时要通过服务器端的公钥加密，服务器端发送数据时则需要通过客户端的公钥进行加密。</p>
+
+<p>Node底层采用的是<code class="highlighter-rouge">openssl</code>实现的TLS/SSL,为此要生成公钥和私钥可以通过<code class="highlighter-rouge">openssl</code>实现。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 服务器端私钥
+openssl genrsa <span class="nt">-out</span> server.key 1024
+
+// 客户端私钥
+openssl genrsa <span class="nt">--out</span> client.key 1024
+</code></pre></div></div>
+
+<p>但是这样网络中依然可能存在窃听情况，典型的例子是中间人攻击。为了解决这个问题，引入了<strong>数字证书</strong>。与直接公钥不同，数字证书中包含了服务器的名称和主机名，服务器的公钥、签名颁发机构的名称、来自签名颁发机构的签名。在连接建立前，会通过证书中的签名确认收到的公钥是来自目标服务器的，从而产生信任关系。</p>
+
+<h4 id="https">HTTPS</h4>
+
+<p>HTTPS服务就是工作在TLS/SSL上的HTTP。</p>
+
+<p>创建HTTPS服务如下：</p>
+
+<ul>
+  <li>准备证书</li>
+  <li>创建HTTPS服务</li>
+</ul>
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="《深入浅出NodeJs》学习笔记 06 day" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

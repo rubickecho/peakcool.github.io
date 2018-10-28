@@ -85,14 +85,14 @@
     <article class="post-content">
         <p>php中变量名都是跟在美元符号$后面,变量名由字母或者下划线开头，后面跟上任意数量的字母，数字，或者下划线。</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php &gt; <span class="nv">$name</span> <span class="o">=</span> <span class="s2">"Tom"</span>;
-php &gt; <span class="nv">$NAME</span> <span class="o">=</span> <span class="s2">"Jack"</span>;
-php &gt; <span class="nb">echo</span> <span class="nv">$name</span>;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php <span class="o">&gt;</span> <span class="nv">$name</span> <span class="o">=</span> <span class="s2">"Tom"</span><span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nv">$NAME</span> <span class="o">=</span> <span class="s2">"Jack"</span><span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nb">echo</span> <span class="nv">$name</span><span class="p">;</span>
 Tom
-php &gt; <span class="nb">echo</span> <span class="nv">$NAME</span>; //变量名区分大小写
+php <span class="o">&gt;</span> <span class="nb">echo</span> <span class="nv">$NAME</span><span class="p">;</span> //变量名区分大小写
 Jack</code></pre></figure>
 
-<h4 id="section">1. 变量的赋值</h4>
+<h4 id="1-变量的赋值">1. 变量的赋值</h4>
 
 <ul>
   <li><strong>直接赋值</strong></li>
@@ -100,10 +100,10 @@ Jack</code></pre></figure>
 
 <p>当一个变量的值赋予另外一个变量时，改变其中一个变量的值，将不会影响到另外一个变量</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php &gt; <span class="nv">$a</span> <span class="o">=</span> 10;
-php &gt; <span class="nv">$b</span> <span class="o">=</span> <span class="nv">$a</span>;
-php &gt; <span class="nv">$a</span> <span class="o">=</span> 5;
-php &gt; <span class="nb">echo</span> <span class="s1">'a的值为:'</span>.<span class="nv">$a</span>.<span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>.<span class="s1">'b的值为'</span>.<span class="nv">$b</span>;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php <span class="o">&gt;</span> <span class="nv">$a</span> <span class="o">=</span> 10<span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nv">$b</span> <span class="o">=</span> <span class="nv">$a</span><span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nv">$a</span> <span class="o">=</span> 5<span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nb">echo</span> <span class="s1">'a的值为:'</span>.<span class="nv">$a</span>.<span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>.<span class="s1">'b的值为'</span>.<span class="nv">$b</span><span class="p">;</span>
 a的值为:5
 b的值为10</code></pre></figure>
 
@@ -113,16 +113,16 @@ b的值为10</code></pre></figure>
 
 <p>改动新的变量将影响到原始变量，改变原始变量也会影响到新的变量，使用引用赋值需在变量名面前加&amp;符号。</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php &gt; <span class="nv">$a</span> <span class="o">=</span> 10;
-php &gt; <span class="nv">$b</span> <span class="o">=</span> <span class="nv">$a</span>;
-php &gt; <span class="nv">$c</span> <span class="o">=</span> &amp;<span class="nv">$a</span>;
-php &gt; <span class="nv">$a</span> <span class="o">=</span> 5;
-php &gt; <span class="nb">echo</span> <span class="s2">"a的值为</span><span class="nv">$a</span><span class="se">\n</span><span class="s2">"</span>.<span class="s2">"b的值为</span><span class="nv">$b</span><span class="se">\n</span><span class="s2">"</span>.<span class="s2">"c的值为</span><span class="nv">$c</span><span class="s2">"</span>;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php <span class="o">&gt;</span> <span class="nv">$a</span> <span class="o">=</span> 10<span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nv">$b</span> <span class="o">=</span> <span class="nv">$a</span><span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nv">$c</span> <span class="o">=</span> &amp;<span class="nv">$a</span><span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nv">$a</span> <span class="o">=</span> 5<span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nb">echo</span> <span class="s2">"a的值为</span><span class="nv">$a</span><span class="se">\n</span><span class="s2">"</span>.<span class="s2">"b的值为</span><span class="nv">$b</span><span class="se">\n</span><span class="s2">"</span>.<span class="s2">"c的值为</span><span class="nv">$c</span><span class="s2">"</span><span class="p">;</span>
 a的值为5
 b的值为10
 c的值为5</code></pre></figure>
 
-<h4 id="section-1">2. 变量的操作</h4>
+<h4 id="2-变量的操作">2. 变量的操作</h4>
 
 <ul>
   <li><strong>是否声明</strong></li>
@@ -132,10 +132,10 @@ c的值为5</code></pre></figure>
 
 <p>如果$var存在即返回true，不存在返回false。</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php &gt; var_dump<span class="o">(</span>isset<span class="o">(</span><span class="nv">$sex</span><span class="o">))</span>;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php <span class="o">&gt;</span> var_dump<span class="o">(</span>isset<span class="o">(</span><span class="nv">$sex</span><span class="o">))</span><span class="p">;</span>
 bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span>
-php &gt; <span class="nv">$sex</span> <span class="o">=</span> <span class="s2">"man"</span>;
-php &gt; var_dump<span class="o">(</span>isset<span class="o">(</span><span class="nv">$sex</span><span class="o">))</span>;
+php <span class="o">&gt;</span> <span class="nv">$sex</span> <span class="o">=</span> <span class="s2">"man"</span><span class="p">;</span>
+php <span class="o">&gt;</span> var_dump<span class="o">(</span>isset<span class="o">(</span><span class="nv">$sex</span><span class="o">))</span><span class="p">;</span>
 bool<span class="o">(</span><span class="nb">true</span><span class="o">)</span></code></pre></figure>
 
 <ul>
@@ -147,8 +147,8 @@ bool<span class="o">(</span><span class="nb">true</span><span class="o">)</span>
 <p>如果$var是非空或者非零，返回false；” “、0、”0”、NULL、FALSE、array()，以及没有任何属性的对象都将被认为是空的，如果 var 为空，则返回 TRUE。</p>
 
 <figure class="highlight"><pre><code class="language-shell" data-lang="shell">bool<span class="o">(</span><span class="nb">true</span><span class="o">)</span>
-php &gt; <span class="nv">$name</span> <span class="o">=</span> <span class="s2">"Tom"</span>;
-php &gt; var_dump<span class="o">(</span>empty<span class="o">(</span><span class="nv">$name</span><span class="o">))</span>;
+php <span class="o">&gt;</span> <span class="nv">$name</span> <span class="o">=</span> <span class="s2">"Tom"</span><span class="p">;</span>
+php <span class="o">&gt;</span> var_dump<span class="o">(</span>empty<span class="o">(</span><span class="nv">$name</span><span class="o">))</span><span class="p">;</span>
 bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span></code></pre></figure>
 
 <ul>
@@ -159,14 +159,14 @@ bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span
 
 <p>销毁指定变量$var。</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php &gt; <span class="nv">$name</span> <span class="o">=</span> <span class="s2">"tom"</span>;
-php &gt; var_dump<span class="o">(</span>isset<span class="o">(</span><span class="nv">$name</span><span class="o">))</span>;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php <span class="o">&gt;</span> <span class="nv">$name</span> <span class="o">=</span> <span class="s2">"tom"</span><span class="p">;</span>
+php <span class="o">&gt;</span> var_dump<span class="o">(</span>isset<span class="o">(</span><span class="nv">$name</span><span class="o">))</span><span class="p">;</span>
 bool<span class="o">(</span><span class="nb">true</span><span class="o">)</span>
-php &gt; <span class="nb">unset</span><span class="o">(</span><span class="nv">$name</span><span class="o">)</span>;
-php &gt; var_dump<span class="o">(</span>isset<span class="o">(</span><span class="nv">$name</span><span class="o">))</span>;
+php <span class="o">&gt;</span> <span class="nb">unset</span><span class="o">(</span><span class="nv">$name</span><span class="o">)</span><span class="p">;</span>
+php <span class="o">&gt;</span> var_dump<span class="o">(</span>isset<span class="o">(</span><span class="nv">$name</span><span class="o">))</span><span class="p">;</span>
 bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span></code></pre></figure>
 
-<h4 id="section-2">3. 全局变量</h4>
+<h4 id="3-全局变量">3. 全局变量</h4>
 
 <ul>
   <li><strong>global 关键字</strong></li>
@@ -183,7 +183,7 @@ bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span
 <span class="nx">Sum</span><span class="p">();</span>
 <span class="k">echo</span> <span class="nv">$b</span><span class="p">;</span>
 
-<span class="err">输出结果</span><span class="o">:</span><span class="mi">3</span></code></pre></figure>
+<span class="nx">输出结果</span><span class="o">:</span><span class="mi">3</span></code></pre></figure>
 
 <ul>
   <li><strong>$GLOBALS 数组</strong></li>
@@ -199,9 +199,9 @@ bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span
 <span class="nx">Sum</span><span class="p">();</span>
 <span class="k">echo</span> <span class="nv">$b</span><span class="p">;</span>
 
-<span class="err">输出结果</span><span class="o">:</span><span class="mi">3</span></code></pre></figure>
+<span class="nx">输出结果</span><span class="o">:</span><span class="mi">3</span></code></pre></figure>
 
-<h4 id="section-3">4. 静态变量</h4>
+<h4 id="4-静态变量">4. 静态变量</h4>
 
 <p>static $var</p>
 
@@ -220,16 +220,16 @@ bool<span class="o">(</span><span class="nb">false</span><span class="o">)</span
 <span class="p">}</span>
 <span class="nx">test</span><span class="p">();</span>
 
-<span class="err">输出结果</span><span class="o">:</span><span class="mi">12345678910</span></code></pre></figure>
+<span class="nx">输出结果</span><span class="o">:</span><span class="mi">12345678910</span></code></pre></figure>
 
-<h3 id="section-4">常量</h3>
+<h3 id="常量">常量</h3>
 
 <p>常量是简单值的标识符，对大小写敏感，标识符总是大写的。</p>
 
 <p><strong>定义常量:</strong> define ( ‘标识符’ , ‘对应值’ )</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php &gt; define<span class="o">(</span><span class="s2">"NAME"</span>,<span class="s1">'tom'</span><span class="o">)</span>;
-php &gt; <span class="nb">echo </span>NAME;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">php <span class="o">&gt;</span> define<span class="o">(</span><span class="s2">"NAME"</span>,<span class="s1">'tom'</span><span class="o">)</span><span class="p">;</span>
+php <span class="o">&gt;</span> <span class="nb">echo </span>NAME<span class="p">;</span>
 tom</code></pre></figure>
 
 <p><strong>常见”魔术”常量</strong></p>

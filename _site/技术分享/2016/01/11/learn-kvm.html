@@ -83,14 +83,14 @@
         <p class="post-meta">Jan 11, 2016 • tangliangcheng</p>
     </header>
     <article class="post-content">
-        <h3 id="section">1.云计算</h3>
+        <h3 id="1云计算">1.云计算</h3>
 <ul>
   <li>是一种通过因特网以服务的方式提供动态可伸缩的虚拟化的资源的计算模式</li>
   <li>是一种按使用量付费的模式</li>
   <li>主要服务模式有:SaaS,PaaS,IaaS</li>
 </ul>
 
-<h3 id="hypervisor">2.Hypervisor</h3>
+<h3 id="2hypervisor">2.Hypervisor</h3>
 <ul>
   <li>在x86平台虚拟化技术中，新引入的虚拟化层通常称为虚拟机监控器(vmm)，也叫做hypervisor。</li>
 </ul>
@@ -117,74 +117,74 @@
   </ul>
 </blockquote>
 
-<h3 id="section-1">4.准虚拟化(半虚拟化)</h3>
+<h3 id="4准虚拟化半虚拟化">4.准虚拟化(半虚拟化)</h3>
 <ul>
   <li>改动客户操作系统，使它们以为自己运行在虚拟环境下，能哦股与虚拟机监控机协同工作。</li>
 </ul>
 
-<h3 id="section-2">5.全虚拟化</h3>
+<h3 id="5全虚拟化">5.全虚拟化</h3>
 <ul>
   <li>为客户提供了完整的虚拟x86平台，包括处理器，内存和外设，支持运行理论上可在真实物理平台上运行的操作系统，为虚拟机的配置提供了最大程度上的灵活性。</li>
 </ul>
 
-<h3 id="kvm">6.kvm</h3>
+<h3 id="6kvm">6.kvm</h3>
 <ul>
   <li>是基于虚拟化扩展的x86硬件，是linux完全原生的全虚拟化解决方案。</li>
   <li>在kvm架构中，虚拟机实现为常规的linux进程，由标准的linux调度程序进行调度。</li>
   <li>kvm允许客户机过载使用物理资源，即允许为客户机分配的cpu和内存数量多于物理上存在的资源。</li>
 </ul>
 
-<h3 id="kvm-1">7.kvm的存储功能</h3>
+<h3 id="7kvm的存储功能">7.kvm的存储功能</h3>
 <ul>
   <li>kvm能够使用linux支持的任何存储来存储虚拟机镜像，包括具有IDE，SCSI和SATA的本地磁盘，网络附加存储，或者支持iscsi和光纤通道的SAN。</li>
   <li>kvm的原生磁盘格式为QCOW2，它支持快照，允许多级快照，压缩和加密。</li>
 </ul>
 
-<h3 id="section-3">8.其它虚拟化方案</h3>
+<h3 id="8其它虚拟化方案">8.其它虚拟化方案</h3>
 <ul>
   <li>VMware</li>
   <li>VirtualBox</li>
   <li>Hyper-V</li>
 </ul>
 
-<h3 id="linux">9.模块化设计的linux</h3>
+<h3 id="9模块化设计的linux">9.模块化设计的linux</h3>
 <ul>
   <li>操作系统内核设计一直分为两个阵营：微内核和单内核。</li>
   <li>linux采用了实用主义的设计，为了满足性能要求，linux内核被设计成单内核，但同时借鉴了微内核的精华:模块化设计以及动态装载内核模块的能力</li>
 </ul>
 
-<h3 id="section-4">10.虚拟化模型</h3>
+<h3 id="10虚拟化模型">10.虚拟化模型</h3>
 <ul>
   <li>虚拟机监控器的主要职能是:管理真实的物理硬件平台，并为每个虚拟客户机提供对应的虚拟硬件平台</li>
 </ul>
 
-<h3 id="kvm-2">11.kvm模块</h3>
+<h3 id="11kvm模块">11.kvm模块</h3>
 <ul>
   <li>是kvm虚拟机的核心部分，其主要功能是：初始化cpu硬件，打开虚拟化模式。然后将虚拟客户机运行在虚拟机模式下，并对虚拟客户机的运行提供一定的支持。</li>
   <li>kvm模块会为每一个创建出来的虚拟处理器生成对应的文件句柄，对虚拟处理器的文件句柄进行相应的IOCTL调用，就可以对虚拟处理器进行管理。</li>
 </ul>
 
-<h3 id="qemu">12.QEMU设备模型</h3>
+<h3 id="12qemu设备模型">12.QEMU设备模型</h3>
 <ul>
   <li>是qemu本身并不是kvm的一部分，其自身就是一个著名的开源虚拟机软件。与kvm不同，qemu虚拟机是一个纯软件的实现，所以性能低下。但是，其优点是在支持qemu本身编译运行的平台上就可以实现虚拟机的功能，甚至虚拟机可以与宿主机并不是同一个架构。</li>
   <li>qumu使用了kvm模块的虚拟化功能，为自己的虚拟机提供硬件虚拟化的加速，从而极大地提高了虚拟机的性能。</li>
   <li>qemu与kvm两者的结合是最成熟的选择</li>
 </ul>
 
-<h3 id="intel">13.intel虚拟化技术分类</h3>
+<h3 id="13intel虚拟化技术分类">13.intel虚拟化技术分类</h3>
 <ul>
   <li>第一类是处理器相关的，成为VT-X,是实现处理器虚拟化的硬件扩展，这也是硬件虚拟化的基础。</li>
   <li>第二类是芯片组相关的，成为VT-d，是从芯片组的层面为虚拟化提供必要支持，通过它，可以实现诸如直接分配物理设备给客户机的功能。</li>
   <li>第三类是输入输出设备相关的，主要目的是通过定义新的输入输出协议，使新一代的输入输出设备可以更好的支持虚拟化环境下的工作。</li>
 </ul>
 
-<h3 id="kvm-3">14.kvm必须的硬件虚拟化扩展</h3>
+<h3 id="14kvm必须的硬件虚拟化扩展">14.kvm必须的硬件虚拟化扩展</h3>
 <ul>
   <li>intel的虚拟化技术(intel vt)</li>
   <li>AMD的AMD-V技术</li>
 </ul>
 
-<h3 id="vcpu">15.vCPU的概念</h3>
+<h3 id="15vcpu的概念">15.vCPU的概念</h3>
 <ul>
   <li>quemu/kvm为客户机提供一套完整的硬件系统环境，在客户机看来其所拥有的cpu即vcpu</li>
   <li>在普通的linux系统中，进程一搬会有两种执行模式：内核模式和用户模式。而在kvm环境中，增加了第三种模式：客户模式。vcpu在三中执行模式下的不同分工为：</li>
@@ -198,7 +198,7 @@
   </ol>
 </blockquote>
 
-<h3 id="smp">16.SMP系统</h3>
+<h3 id="16smp系统">16.SMP系统</h3>
 <ul>
   <li>smp系统（对称多处理器）系统会使用多处理器，多核，超线程等技术中的一个或者多个。</li>
   <li>由于每个vcpu在宿主机中都是一个线程，并且宿主机linux系统是支持多任务处理的，因此可以通过两种操作来实现客户机的smp。</li>
@@ -211,18 +211,17 @@
   </ol>
 </blockquote>
 
-<h3 id="section-5">17.内存设置几本参数</h3>
+<h3 id="17内存设置几本参数">17.内存设置几本参数</h3>
 <ul>
   <li>
     <p>在通过qemu命令行启动客户机是设置内存大小的参数如下：</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  -m megs #设置客户机的内存为megs MB大小
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  -m megs #设置客户机的内存为megs MB大小
+</code></pre></div>    </div>
   </li>
 </ul>
 
-<h3 id="section-6">18.影子页表</h3>
+<h3 id="18影子页表">18.影子页表</h3>
 <ul>
   <li>定义：是从软件上维护了客户机虚拟地址到宿主机物理地址之间的映射。</li>
   <li>缺点：</li>
@@ -239,14 +238,14 @@
   <li>为了解决影子页表存在的问题，intel的cpu提供了ept技术，ept只需要维护一张ept页表，而不需要像影子页表那样为每个客户机进程的页表维护一张影子页表。减小了内存的开销。</li>
 </ul>
 
-<h3 id="section-7">19.三种方式实现内存的过载使用</h3>
+<h3 id="19三种方式实现内存的过载使用">19.三种方式实现内存的过载使用</h3>
 <ul>
   <li>内存交换</li>
   <li>气球</li>
   <li>页共享</li>
 </ul>
 
-<h3 id="qemu-1">20.QEMU支持的镜像文件格式</h3>
+<h3 id="20qemu支持的镜像文件格式">20.QEMU支持的镜像文件格式</h3>
 <ul>
   <li>raw</li>
   <li>host_device</li>
@@ -267,7 +266,7 @@
   </ol>
 </blockquote>
 
-<h3 id="qemu-2">21.QEMU支持的网络模式</h3>
+<h3 id="21qemu支持的网络模式">21.QEMU支持的网络模式</h3>
 <ul>
   <li>qemu-kvm主要向客户机提供了如下4种不同模式的网络：</li>
 </ul>
@@ -281,75 +280,68 @@
   </ol>
 </blockquote>
 
-<h3 id="qemu-3">22.QEMU内部的用户模式网络：</h3>
+<h3 id="22qemu内部的用户模式网络">22.QEMU内部的用户模式网络：</h3>
 <ul>
   <li>使用用户模式的网络的客户机可以连通宿主机以及外部的网络</li>
   <li>用户模式的网络是qemu-kvm的默认网络配置</li>
 </ul>
 
-<h3 id="sdlvncspice">23.图形显示(SDL,VNC,Spice)</h3>
+<h3 id="23图形显示sdlvncspice">23.图形显示(SDL,VNC,Spice)</h3>
 <ul>
   <li>SDL库被广泛应用于各种操作系统上的游戏开发，多媒体播放器，模拟器(qemu)等应用程序中。</li>
   <li>VNC是图形化的桌面分享系统，它使用rfb协议来远程控制另一台计算机系统</li>
 </ul>
 
-<h3 id="section-8">其它</h3>
+<h3 id="其它">其它</h3>
 <ul>
   <li>在QEMU/KVM的网络使用中，网桥模式可以让客户机和宿主共享一个物理网络设备连接网络。</li>
   <li>NAT（网络地址转换），属于广域网接入技术的一种，它将内网地址转化为外网的合法ip地址。</li>
   <li>
     <p>在客户机上查看cpu情况：</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  car /proc/cpuinfo
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  car /proc/cpuinfo
+</code></pre></div>    </div>
   </li>
   <li>
     <p>在宿主机中看到相应的qemu进程和线程:</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code>  ps -efL | grep qemu
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ps -efL | grep qemu
+</code></pre></div>    </div>
   </li>
 </ul>
 
-<h3 id="section-9">命令</h3>
+<h3 id="命令">命令</h3>
 <ol>
   <li>
     <p>安装qemu-kvm</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> make install | tee make-install.log
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> make install | tee make-install.log
+</code></pre></div>    </div>
   </li>
   <li>
     <p>安装bridge-utils</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> yum install bridge-utils  tunctl
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> yum install bridge-utils  tunctl
+</code></pre></div>    </div>
   </li>
   <li>
     <p>安装dnsmasq</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> yum install dnsmasq -y
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> yum install dnsmasq -y
  service dnsmasq start
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </li>
   <li>
     <p>创建一个5GB的磁盘文件</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> qemu-img create -f qcow2 ubuntu.qcow2 5G
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> qemu-img create -f qcow2 ubuntu.qcow2 5G
+</code></pre></div>    </div>
   </li>
   <li>
     <p>查看网桥状态</p>
 
-    <div class="highlighter-rouge"><pre class="highlight"><code> brctl show
-</code></pre>
-    </div>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> brctl show
+</code></pre></div>    </div>
   </li>
 </ol>
 

@@ -83,7 +83,7 @@
         <p class="post-meta">Feb 29, 2016 • tangliangcheng</p>
     </header>
     <article class="post-content">
-        <h3 id="redis">安装redis</h3>
+        <h3 id="安装redis">安装redis</h3>
 
 <p><strong>系统环境和版本说明</strong></p>
 
@@ -93,25 +93,25 @@
 
 <p>a.进入root目录，并下载redis的安装包</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>wget http://labfile.oss.aliyuncs.com/files0422/redis-2.8.9.tar.gz</code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>wget http://labfile.oss.aliyuncs.com/files0422/redis-2.8.9.tar.gz</code></pre></figure>
 
 <p>b.在目录下，解压按照包生成的目录redis-2.8.9</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>tar xvfz redis-2.8.9.tar.gz   </code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span><span class="nb">tar </span>xvfz redis-2.8.9.tar.gz   </code></pre></figure>
 
 <p>c.进入解压之后的目录进行编译</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span><span class="nb">cd </span>redis-2.8.9
-<span class="gp">$ </span>make</code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span><span class="nb">cd </span>redis-2.8.9
+<span class="nv">$ </span>make</code></pre></figure>
 
 <p>d.进入src文件夹</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>cp redis-server /usr/local/bin/
-<span class="gp">$ </span>cp redis-cli /usr/local/bin/</code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span><span class="nb">cp </span>redis-server /usr/local/bin/
+<span class="nv">$ </span><span class="nb">cp </span>redis-cli /usr/local/bin/</code></pre></figure>
 
 <p><strong>测试redis的功能是否正常</strong></p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>make <span class="nb">test</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>make <span class="nb">test</span></code></pre></figure>
 
 <p>在redis安装完成后，注意一些重要的文件。</p>
 
@@ -129,8 +129,8 @@
 
 <p><strong>启动redis-server</strong></p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="gp">$ </span>redis-server   //服务器端
-<span class="gp">$ </span>redis-cli      //客户端</code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>redis-server   //服务器端
+<span class="nv">$ </span>redis-cli      //客户端</code></pre></figure>
 
 <p>注意，启动redis-server后不要关闭终端，另外开一个终端窗口执行redis-cli。</p>
 

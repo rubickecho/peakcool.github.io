@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>《深入浅出NodeJs》学习笔记 05 day</title>
+  <meta name="description" content="Buffer是一个像Array的对象，但它主要用于操作字节">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/08/01/learn-node-05-day.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">《深入浅出NodeJs》学习笔记 05 day</h1>
+        <p class="post-meta">Aug 1, 2017 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <h2 id="理解buffer">理解Buffer</h2>
+
+<h3 id="buffer对象">Buffer对象</h3>
+
+<p>Buffer是一个像Array的对象，但它主要用于操作字节。
+Buffer所占用的内存不是通过v8分配的，属于堆外内存。</p>
+
+<p>在编码中，中文字在uft-8编码下占3各元素，字母和半角标点符号占用1个元素。</p>
+
+<h3 id="buffer内存分配">Buffer内存分配</h3>
+
+<p>为了高效地使用申请来的内存，node采用了slab分配机制。slab是一种动态内存管理机制，最早诞生于SunOS操作系统中，目前在一些*nix操作系统中有广泛应用。slab就是申请一块申请好的固定大小的内存区域。</p>
+
+<p>slab三种状态：</p>
+
+<ul>
+  <li>full: 完全分配状态</li>
+  <li>partial: 部分分配状态</li>
+  <li>empty: 没有被分配状态</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>size 小于8kb即为小对象，大于为大对象。</p>
+
+<h4 id="分配小buffer对象">分配小Buffer对象</h4>
+
+<p>同一个slab可能分配给多个Buffer对象使用，只有这些小Buffer对象在作用域释放并都可以回收时，slab的8kb空间才会被回收。尽管创建了1个字节的Buffer对象，但是如果不释放它，实际可能是9kb的内存没有释放。</p>
+
+<h4 id="分配大buffer对象">分配大Buffer对象</h4>
+
+<p>如果需要超过8kb的Buffer对象，将会直接分配一个<code class="highlighter-rouge">SlowBuffer</code>对象作为slab单元，这个slab单元将会被这个大Buffer对象独占。</p>
+
+<h3 id="buffer的转换">Buffer的转换</h3>
+
+<p>Buffer对象可以与字符串之间相互转换，目前支持类型如下：</p>
+
+<ul>
+  <li>ASCII</li>
+  <li>UTF-8</li>
+  <li>UTD-16LE/UCS-2</li>
+  <li>Base64</li>
+  <li>Binary</li>
+  <li>Hex</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Buffer</span><span class="p">.</span><span class="nx">isEncoding</span><span class="p">(</span><span class="nx">encoding</span><span class="p">)</span> <span class="c1">//判断编码是否支持</span>
+</code></pre></div></div>
+
+<h4 id="字符串转buffer">字符串转Buffer</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="p">[</span><span class="nx">encoding</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>一个Buffer对象可以存储不同的编码类型的字符串转码的值，调用<code class="highlighter-rouge">write()</code>方法可以实现。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">buf</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="p">[</span><span class="nx">offset</span><span class="p">],</span> <span class="p">[</span><span class="nx">length</span><span class="p">],</span> <span class="p">[</span><span class="nx">encoding</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><strong>由于可以不断写入内容到Buffer对象中并且每次写入可以指定编码，所以Buffer对象中可以存在多种编码转化后的内容。值得注意的是，每种编码所用的字节长度不一样，将Buffer反转回字符串时需要小心处理。</strong></p>
+
+<h4 id="buffer转字符串">Buffer转字符串</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">buf</span><span class="p">.</span><span class="nx">toString</span><span class="p">([</span><span class="nx">encoding</span><span class="p">],</span> <span class="p">[</span><span class="nx">start</span><span class="p">],</span> <span class="p">[</span><span class="nx">end</span><span class="p">])</span> <span class="c1">//encoding默认为UTF-8</span>
+</code></pre></div></div>
+
+<h3 id="buffer的拼接">Buffer的拼接</h3>
+
+<p>Buffer的使用场景通常是以一段一段的方式传输。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span> <span class="o">+=</span> <span class="nx">chunk</span>
+</code></pre></div></div>
+<p>这句代码隐藏了toString()操作，等价于:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">+</span> <span class="nx">chunk</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>这样的方式在英文环境下不错有问题，但对于宽字节的中文就会出现乱字节问题。</p>
+
+<h3 id="buffer与性能">Buffer与性能</h3>
+
+<p>Buffer在文件I/O和网络I/O中运用广泛，尤其在网络传输中。在应用中，我们通常会操作字符串，但一旦在网络中传输，都需要转换为Buffer，以二进制数据传输。</p>
+
+<p>在Node构建的Web应用中，可以选择将页面中的动态内容和静态内容分离，静态内容部分可以通过预先转换为Buffer的方式，使性能得到提升。由于文件自身是二进制数据，所以在不需要改变内容的场景下，尽量只读取Buffer，然后直接传输，不做额外的转换，避免损耗。</p>
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="《深入浅出NodeJs》学习笔记 05 day" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

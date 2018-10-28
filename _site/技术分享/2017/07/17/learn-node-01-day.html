@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>《深入浅出NodeJs》学习笔记 01 day</title>
+  <meta name="description" content="包与NPM、AMD,CMD规范介绍">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/17/learn-node-01-day.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">《深入浅出NodeJs》学习笔记 01 day</h1>
+        <p class="post-meta">Jul 17, 2017 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <h2 id="包与npm">包与NPM</h2>
+
+<h3 id="包结构">包结构</h3>
+
+<p><strong>完全符合CommonJs规范的包目录应该包含如下文件：</strong></p>
+
+<ul>
+  <li>package.json: 包描述文件</li>
+  <li>bin: 用于存放可执行二进制文件的目录</li>
+  <li>lib: 用于存放JavaScript代码的目录</li>
+  <li>doc: 用于存放文档的目录</li>
+  <li>test: 用于存放单元测试用例的代码</li>
+</ul>
+
+<p><strong>CommonJs package.json必须字段：</strong></p>
+
+<ul>
+  <li>name: 包名</li>
+  <li>description: 包简介</li>
+  <li>vsersion: 版本号，一般为<code class="highlighter-rouge">major.minor.revision</code>格式</li>
+  <li>keywords: 关键词数组</li>
+  <li>maintainers: 包维护者列表</li>
+  <li>contributors: 贡献者列表</li>
+  <li>bugs: 一个可以反馈bug的地址</li>
+  <li>licenses: 许可证列表</li>
+  <li>repositories: 托管源代码的位置列表</li>
+  <li>dependencied: 当前包所需依赖的列表</li>
+  <li>homepage: 当前包的网站地址</li>
+  <li>os: 操作系统支持列表</li>
+  <li>cpu: cpu架构支持列表</li>
+  <li>engine: 支持的javascript引擎列表</li>
+  <li>builtin: 标志当前包是否是内建在底层系统的标准组件</li>
+  <li>directores: 包目录说明</li>
+  <li>implements: 实现规范的列表</li>
+  <li>scripts: 让包安装或者卸载等过程中提供钩子机制
+<strong><em>npm 补充：</em></strong> author, bin, main, devDependencies</li>
+</ul>
+
+<h3 id="发布包">发布包</h3>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.创建文件夹 npm-package-dev
+<span class="nb">mkdir </span>npm-package-dev
+
+2.进入文件夹
+<span class="nb">cd </span>npm-package-dev
+
+3.初始化npm包
+npm init
+
+4.注册仓库账号
+npm adduser
+
+5.上传包
+npm publish
+
+6.执行 npm <span class="nb">install</span> &lt;name&gt; 安装包，其中name为npm init时填写的name字段
+</code></pre></div></div>
+
+<h3 id="如何选择好的包">如何选择好的包</h3>
+
+<ul>
+  <li>具备良好的测试</li>
+  <li>具备良好的文档</li>
+  <li>具备良好的测试覆盖率</li>
+  <li>具备良好的编码规范</li>
+  <li>更多条件</li>
+</ul>
+
+<h2 id="前后端公用模块">前后端公用模块</h2>
+
+<ul>
+  <li>AMD规范</li>
+</ul>
+
+<blockquote>
+  <p>定义： define(id?, dependencies?, factory)</p>
+</blockquote>
+
+<p>id 和 dependencies可选，factory为模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值。</p>
+
+<p>示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">exports</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="nx">exports</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Hello, World'</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">exports</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<ul>
+  <li>CMD规范</li>
+</ul>
+
+<blockquote>
+  <p>定义： define(factory)</p>
+</blockquote>
+
+<p>与AMD相比，AMD需要在声明时指定所有依赖，CMD支持动态引入</p>
+
+<p>示例：</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">define</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span> <span class="nx">require</span><span class="p">,</span> <span class="nx">exports</span><span class="p">,</span> <span class="nx">modules</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// The module code goes here</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="《深入浅出NodeJs》学习笔记 01 day" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>
