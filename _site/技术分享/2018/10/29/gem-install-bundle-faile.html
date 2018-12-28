@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>    
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+  <meta name="baidu-site-verification" content="B3cH2HbUDR" />
+  <title>gem安装依赖失败</title>
+  <meta name="description" content="gem安装依赖失败">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/pygments.css">
+  <link rel="canonical" href="http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/10/29/gem-install-bundle-faile.html">
+  <link rel="alternate" type="application/atom+xml" title="peakcool | 个人博客" href="http://peakcool.cn/feed.xml" />
+  <script src="/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/scripts/pithy.js"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?297069f7e774b747df51eb9cb1ed57b4";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+  <body>
+    <header class="header">
+	<div class="header-container">
+		<div class="nav">
+			
+				<li>
+					<a href="/index.html">首页</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/archive.html">文章</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/category.html">分类</a>
+				</li>			
+			
+			
+				<li>
+					<a href="/about.html">关于</a>
+				</li>			
+			
+		</div>
+		<div class="description"> 群山不需要齐整,参差方显气度。 </div>		
+		<ul class="social-links">
+			<li>
+				<a href="https://github.com/peakcool" title="Github">
+					<img width="19px" height="19px" src="/images/github.png"/>
+				</a>
+			</li>
+<!-- 			<li>
+				<a href="/feed.xml" title="RSS">
+					<img width="19px" height="19px" src="/images/rss.png"/>
+				</a>
+			</li> -->
+			<li>
+				<a href="http://weibo.com/2085118413/profile?topnav=1&wvr=6&is_all=1" title="Twitter">
+					<img width="19px" height="19px" src="/images/weibo.png"/>
+				</a>
+			</li>
+		</ul>		
+	</div>
+</header>
+
+    <br>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+    <br>
+    <header class="post-header">
+        <h1 class="post-title">gem安装依赖失败</h1>
+        <p class="post-meta">Oct 29, 2018 • tangliangcheng</p>
+    </header>
+    <article class="post-content">
+        <!-- TOC -->
+
+<ul>
+  <li><a href="#gem安装依赖失败">gem安装依赖失败</a></li>
+</ul>
+
+<!-- /TOC -->
+<h2 id="gem安装依赖失败">gem安装依赖失败</h2>
+
+<p>很久没有写博客了，最近也新换了电脑，重新把博客从github上拉下来。</p>
+
+<p>安装了<code class="highlighter-rouge">jekyll</code>后，满心欢喜的执行<code class="highlighter-rouge">jekyll serve</code> 终端里得来的却是无情的红色报错，心里顿时一凉，好不容易想写文章的热情也被浇灭。</p>
+
+<p>终于2天后，还是静下心来把这些问题解决。</p>
+
+<ol>
+  <li>
+    <p>run <code class="highlighter-rouge">gem install bundle</code></p>
+  </li>
+  <li>
+    <p>remove <code class="highlighter-rouge">Gemfile.lock</code></p>
+  </li>
+  <li>
+    <p>run <code class="highlighter-rouge">sudo bundle install</code></p>
+  </li>
+</ol>
+
+<p>这时再启动，发现报错</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler/runtime.rb:319:in <span class="sb">`</span>check_for_activated_spec!<span class="s1">': You have already activated i18n 1.1.1, but your Gemfile requires i18n 0.9.5. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
+	from /Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler/runtime.rb:31:in `block in setup'</span>
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/forwardable.rb:202:in <span class="sb">`</span>each<span class="s1">'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/forwardable.rb:202:in `each'</span>
+	from /Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler/runtime.rb:26:in <span class="sb">`</span>map<span class="s1">'
+	from /Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler/runtime.rb:26:in `setup'</span>
+	from /Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler.rb:107:in <span class="sb">`</span>setup<span class="s1">'
+	from /Library/Ruby/Gems/2.3.0/gems/jekyll-3.8.4/lib/jekyll/plugin_manager.rb:50:in `require_from_bundler'</span>
+	from /Library/Ruby/Gems/2.3.0/gems/jekyll-3.8.4/exe/jekyll:11:in <span class="sb">`</span>&lt;top <span class="o">(</span>required<span class="o">)&gt;</span><span class="s1">'
+	from /usr/local/bin/jekyll:22:in `load'</span>
+	from /usr/local/bin/jekyll:22:in <span class="sb">`</span>&lt;main&gt;<span class="s1">'
+</span></code></pre></div></div>
+
+<p>这时再执行 <code class="highlighter-rouge">gem unintall i18n</code>，选择移除<code class="highlighter-rouge">1.1.1</code>版本</p>
+
+<p>大功告成！</p>
+
+    </article>
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="" data-title="gem安装依赖失败" data-url=""></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "peakcool"
+    };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';
+        ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+      </div>
+    </div>
+    
+    <footer class="footer">
+  <div id="gotop">^</div>
+  <br>
+	@2016 Pithy Theme by Pawpaw.Thanks
+</footer>
+
+    
+  </body>
+
+</html>

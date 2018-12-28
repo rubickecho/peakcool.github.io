@@ -6,9 +6,140 @@
 </description>
     <link>http://peakcool.cn/</link>
     <atom:link href="http://peakcool.cn/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 28 Oct 2018 21:50:36 +0800</pubDate>
-    <lastBuildDate>Sun, 28 Oct 2018 21:50:36 +0800</lastBuildDate>
+    <pubDate>Fri, 28 Dec 2018 11:55:23 +0800</pubDate>
+    <lastBuildDate>Fri, 28 Dec 2018 11:55:23 +0800</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
+    
+      <item>
+        <title>Mac解压rar文件</title>
+        <description>&lt;h2 id=&quot;mac解压tar文件&quot;&gt;Mac解压tar文件&lt;/h2&gt;
+
+&lt;p&gt;客户呼啦一下，一言不合扔过来一堆rar压缩文件，自己现MAC上没有对应的解压软件&lt;/p&gt;
+
+&lt;p&gt;google一番，发现homebrew可以安装对应的工具命令行解压&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;unrar
+Updating Homebrew...
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Auto-updated Homebrew!
+Updated 2 taps &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;homebrew/core and homebrew/cask&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Updated Formulae
+babel                             jenkins                           jenkins-lts                       macvim                            taskell                           webpack
+
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Downloading https://homebrew.bintray.com/bottles/unrar-5.6.8.mojave.bottle.tar.gz
+&lt;span class=&quot;c&quot;&gt;######################################################################## 100.0%&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装成功后，执行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd rarFileParentPath
+
+unrar x rarFileName
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Thu, 06 Dec 2018 19:15:00 +0800</pubDate>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/12/06/Mac%E8%A7%A3%E5%8E%8Brar%E6%96%87%E4%BB%B6.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/12/06/Mac%E8%A7%A3%E5%8E%8Brar%E6%96%87%E4%BB%B6.html</guid>
+        
+        
+        <category>技术分享</category>
+        
+      </item>
+    
+      <item>
+        <title>Cordova iOS 多媒体播放器允许行内播放</title>
+        <description>&lt;h2 id=&quot;cordova-ios-多媒体播放器允许行内播放&quot;&gt;Cordova iOS 多媒体播放器允许行内播放&lt;/h2&gt;
+
+&lt;p&gt;最近在cordova app上实现多媒体播放的功能时，遇到一个问题&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ios 默认不支持video行内播放&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;google一番，搜集了关于这个问题的信息&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;h5 video标签禁止全屏播放
+ &lt;code class=&quot;highlighter-rouge&quot;&gt;在video标签中设置webkit-playsinline=&quot;true&quot; playsinline=&quot;true&quot;等值&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;cordova-plugin-wkwebview-engine 上README提到&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;The AllowInlineMediaPlayback preference will not work because of this Apple bug. This bug has been fixed in iOS 10.&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Apple 为了多媒体播放更好的用户体验，默认不允许行内播放，所以需要手动自己开启&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 在cordova/config.xml中，新增
+ &amp;lt;preference name=&quot;AllowInlineMediaPlayback&quot; value=&quot;true&quot; /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        <pubDate>Mon, 29 Oct 2018 06:33:00 +0800</pubDate>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/10/29/cordova-ios-video-player.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/10/29/cordova-ios-video-player.html</guid>
+        
+        
+        <category>技术分享</category>
+        
+      </item>
+    
+      <item>
+        <title>gem安装依赖失败</title>
+        <description>&lt;!-- TOC --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#gem安装依赖失败&quot;&gt;gem安装依赖失败&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- /TOC --&gt;
+&lt;h2 id=&quot;gem安装依赖失败&quot;&gt;gem安装依赖失败&lt;/h2&gt;
+
+&lt;p&gt;很久没有写博客了，最近也新换了电脑，重新把博客从github上拉下来。&lt;/p&gt;
+
+&lt;p&gt;安装了&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll&lt;/code&gt;后，满心欢喜的执行&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt; 终端里得来的却是无情的红色报错，心里顿时一凉，好不容易想写文章的热情也被浇灭。&lt;/p&gt;
+
+&lt;p&gt;终于2天后，还是静下心来把这些问题解决。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;gem install bundle&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;remove &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile.lock&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;run &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo bundle install&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;这时再启动，发现报错&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler/runtime.rb:319:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;check_for_activated_spec!&lt;span class=&quot;s1&quot;&gt;': You have already activated i18n 1.1.1, but your Gemfile requires i18n 0.9.5. Prepending `bundle exec` to your command may solve this. (Gem::LoadError)
+	from /Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler/runtime.rb:31:in `block in setup'&lt;/span&gt;
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/forwardable.rb:202:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;each&lt;span class=&quot;s1&quot;&gt;'
+	from /System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/forwardable.rb:202:in `each'&lt;/span&gt;
+	from /Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler/runtime.rb:26:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;map&lt;span class=&quot;s1&quot;&gt;'
+	from /Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler/runtime.rb:26:in `setup'&lt;/span&gt;
+	from /Library/Ruby/Gems/2.3.0/gems/bundler-1.17.1/lib/bundler.rb:107:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;setup&lt;span class=&quot;s1&quot;&gt;'
+	from /Library/Ruby/Gems/2.3.0/gems/jekyll-3.8.4/lib/jekyll/plugin_manager.rb:50:in `require_from_bundler'&lt;/span&gt;
+	from /Library/Ruby/Gems/2.3.0/gems/jekyll-3.8.4/exe/jekyll:11:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;top &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;required&lt;span class=&quot;o&quot;&gt;)&amp;gt;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+	from /usr/local/bin/jekyll:22:in `load'&lt;/span&gt;
+	from /usr/local/bin/jekyll:22:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;main&amp;gt;&lt;span class=&quot;s1&quot;&gt;'
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这时再执行 &lt;code class=&quot;highlighter-rouge&quot;&gt;gem unintall i18n&lt;/code&gt;，选择移除&lt;code class=&quot;highlighter-rouge&quot;&gt;1.1.1&lt;/code&gt;版本&lt;/p&gt;
+
+&lt;p&gt;大功告成！&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 Oct 2018 05:40:00 +0800</pubDate>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/10/29/gem-install-bundle-faile.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/10/29/gem-install-bundle-faile.html</guid>
+        
+        
+        <category>技术分享</category>
+        
+      </item>
     
       <item>
         <title>Flutter Gradle Run Build Failed</title>
@@ -1036,373 +1167,6 @@ Buffer所占用的内存不是通过v8分配的，属于堆外内存。&lt;/p&gt
         <pubDate>Tue, 25 Jul 2017 21:33:00 +0800</pubDate>
         <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/25/learn-node-04-day.html</link>
         <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/25/learn-node-04-day.html</guid>
-        
-        
-        <category>技术分享</category>
-        
-      </item>
-    
-      <item>
-        <title>《深入浅出NodeJs》学习笔记 03 day</title>
-        <description>&lt;h2 id=&quot;函数式编程&quot;&gt;函数式编程&lt;/h2&gt;
-
-&lt;h3 id=&quot;高阶函数&quot;&gt;高阶函数&lt;/h3&gt;
-
-&lt;p&gt;高阶函数可以把函数作为参数，或是将函数作为返回值的函数，例如：&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;偏函数&quot;&gt;偏函数&lt;/h3&gt;
-
-&lt;p&gt;通过指定部分参数来产生一个新的定制函数的形式就是偏函数&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'[object'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;']'&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'String'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isFunction&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Function'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;异步编程解决方案&quot;&gt;异步编程解决方案&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Node带来的最大特性莫过于基于事件驱动的非阻塞I/O模型，这是它的灵魂所在。&lt;/strong&gt;
-非阻塞I/O可以使CPU与I/O并不相互依赖等待，让资源得到更好的利用。对于网络应用而言，并行带来的想象空间更大，延展而开的是分布式和云。并行使得各个单点之间能够更有效地组织起来，这也是Node在云计算厂商中广受青睐的原因。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/%E5%BC%82%E6%AD%A5I:O%E8%B0%83%E7%94%A8%E7%A4%BA%E6%84%8F%E5%9B%BE.png?raw=true&quot; alt=&quot;异步I/O调用示意图&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;难点1 异常处理&lt;/p&gt;
-
-    &lt;p&gt;Node在处理一场上形成了一种约定，将异常作为回调函数的第一个实参传回，如果为空值，则表明异步调用没有异常跑出。在我们自行编写的异步方法上，也需要去遵循这样一些原则：&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;原则一：必须执行调用者传入的回调函数&lt;/li&gt;
-      &lt;li&gt;原则二：正确传递回异常供调用者判断&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;难点2 函数嵌套过深&lt;/li&gt;
-  &lt;li&gt;难点3 阻塞代码&lt;/li&gt;
-  &lt;li&gt;难点4 多线程编程&lt;/li&gt;
-  &lt;li&gt;难点5 异步转同步&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;主要解决方案如下3种&quot;&gt;主要解决方案如下3种&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;事件发布/订阅模式&lt;/li&gt;
-  &lt;li&gt;Promise/Deferred模式&lt;/li&gt;
-  &lt;li&gt;流程控制库&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;事件发布订阅模式&quot;&gt;事件发布/订阅模式&lt;/h4&gt;
-
-&lt;p&gt;事件发布/订阅模式可以实现一个事件与多个回调函数的关联，这些回调函数又称为事件侦听器。通过&lt;code class=&quot;highlighter-rouge&quot;&gt;emit()&lt;/code&gt;发布事件后，消息会立即传递给当前事件的所有侦听器执行。侦听器可以很灵活地添加和删除，使得事件和具体处理逻辑之间可以很轻松的关联和解耦。&lt;/p&gt;
-
-&lt;p&gt;事件发布/订阅模式自身并无同步和异步调用的问题，但在Node中，&lt;code class=&quot;highlighter-rouge&quot;&gt;emit()&lt;/code&gt;调用多半是伴随事件循环而异步触发的，所以我们说事件发布/订阅广泛应用于异步编程。&lt;/p&gt;
-
-&lt;p&gt;事件发布/订阅模式常常用来解耦业务逻辑，事件发布者无须关注订阅的侦听器如何实现业务逻辑，甚至不用关注有多少个侦听器存在，数据通过消息的方式可以很灵活地传递。在一些典型的场景中，可以通过事件发布/订阅模式进行组件封装，将不变的部分封装在组件内部，将容易变化，需自定义的部分通过事件暴露给外部处理，这是一种典型的逻辑分离方式。在这种事件发布/订阅式组件中，事件的设计非常重要，因为它关乎外部调用组件时是否优雅，从某种角度来说事件的设计就是组件的接口设计。&lt;/p&gt;
-
-&lt;p&gt;从另一个角度来看，事件侦听器模式也是一种&lt;code class=&quot;highlighter-rouge&quot;&gt;hook&lt;/code&gt;，利用钩子导出内部数据或者状态给外部调用者。&lt;/p&gt;
-
-&lt;h5 id=&quot;利用事件队列解决雪崩问题&quot;&gt;利用事件队列解决雪崩问题&lt;/h5&gt;
-
-&lt;p&gt;在事件订阅/发布模式中，通常也有一个&lt;code class=&quot;highlighter-rouge&quot;&gt;once()&lt;/code&gt;方法，通过它添加的侦听器只能执行一次，在执行之后就会将它与事件的关联移除。这个特性常常可以帮助我们过滤一些重复性的事件响应。&lt;/p&gt;
-
-&lt;h5 id=&quot;多异步之间的协作方案&quot;&gt;多异步之间的协作方案&lt;/h5&gt;
-
-&lt;p&gt;多个异步场景中回调函数的执行并不能保证顺序，且回调函数之间相互没有任何交集，所以需要借助一个第三方函数和第三方变量来处理异步协作的结果。通常，我们把这个用于检测次数的变量叫做哨兵变量。&lt;/p&gt;
-
-&lt;h4 id=&quot;promisedeferred模式&quot;&gt;Promise/Deferred模式&lt;/h4&gt;
-
-&lt;h5 id=&quot;promise和deferred整体关系&quot;&gt;Promise和Deferred整体关系&lt;/h5&gt;
-&lt;p&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/Promise%E5%92%8CDeferred%E6%95%B4%E4%BD%93%E5%85%B3%E7%B3%BB.png?raw=true&quot; alt=&quot;Promise和Deferred整体关系&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Promise是高级接口，事件是低级接口。低级接口可以构成更多更复杂的场景，高级接口一旦定义，不太容易变化，不再有低级接口的灵活性，但对于解决典型问题非常有效。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;思考问题：Promise主要解决的是单个异步操作中存在的问题，当我们需要处理多个异步调用时又该如何处理呢?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'foo.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'bar.txt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'utf-8'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;deferred&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Deferred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;deferred&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;p2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//TODO&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//TODO&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;通过&lt;code class=&quot;highlighter-rouge&quot;&gt;all()&lt;/code&gt;方法抽象多个异步操作，只有所有异步操作成功，这个异步操作才算成功，一旦其中一个异步操作失败，整个异步操作就失败。&lt;/p&gt;
-
-&lt;h5 id=&quot;支持序列执行的promise&quot;&gt;支持序列执行的Promise&lt;/h5&gt;
-
-&lt;p&gt;理想的编程体验应当是前一个的调用结果作为下一个调用的开始，是传说中的链式调用。&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;api1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;api2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;api3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;api4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//TODO value4&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;//TODO error from step1 through setp4&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;done&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;要让promise支持链式执行，主要通过以下两个步骤&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;将所有回调都存在队列中&lt;/li&gt;
-  &lt;li&gt;promise完成时，逐个执行回调，一旦检测到返回了新的promise对象，停止执行，然后将当前的Deferred对象的promise引用改为新的promise对象，并将队列中余下的回调转交给它。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;流程控制库&quot;&gt;流程控制库&lt;/h4&gt;
-
-&lt;h5 id=&quot;尾触发与next&quot;&gt;尾触发与next&lt;/h5&gt;
-
-&lt;p&gt;有一类需要手工调用才能持续执行后续调用，我们将此类方法叫做尾触发。常见关键词是next()。应用最多的地方是Connect的中间件。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/master/流程图/中间件通过队列形成一个处理流.png?raw=true&quot; alt=&quot;中间件通过队列形成一个处理流&quot; /&gt;&lt;/p&gt;
-
-&lt;h5 id=&quot;async&quot;&gt;async&lt;/h5&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;series 实现一组任务的串行执行，适合无依赖的异步&lt;/li&gt;
-  &lt;li&gt;parallel 并行执行异步操作&lt;/li&gt;
-  &lt;li&gt;waterfall 执行存在依赖的异步操作&lt;/li&gt;
-  &lt;li&gt;auto 自动分析依赖执行异步操作&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&quot;step&quot;&gt;step&lt;/h5&gt;
-
-&lt;p&gt;接收任意数量的任务，所有的任务都将会串行一次执行。&lt;/p&gt;
-
-&lt;h5 id=&quot;wind&quot;&gt;wind&lt;/h5&gt;
-
-&lt;h4 id=&quot;流程控制小结&quot;&gt;流程控制小结&lt;/h4&gt;
-
-&lt;p&gt;事件发布/订阅模式相对算是一种较为原始的方式，&lt;code class=&quot;highlighter-rouge&quot;&gt;Promise/Deferred&lt;/code&gt;模式贡献了一个非常不错的异步任务模型的抽象。上面几种异步流程控制方案与&lt;code class=&quot;highlighter-rouge&quot;&gt;Promise/Deferred&lt;/code&gt;模式的思路不同，Promise/Deferred的重点在于封装异步的调用部分，流程控制库则显得没有模式，将处理重点放在回调函数的注入上。从自由度上来说，&lt;code class=&quot;highlighter-rouge&quot;&gt;async&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;setp&lt;/code&gt;这类的流程控制库相对灵活得多。&lt;code class=&quot;highlighter-rouge&quot;&gt;EventProxy&lt;/code&gt;库则主要借鉴事件发布/订阅模式和流程控制库通过高阶函数生成回调函数的方式实现。&lt;/p&gt;
-
-&lt;h3 id=&quot;异步并发控制&quot;&gt;异步并发控制&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;场景：&lt;/strong&gt; 并发量过大时，下层服务器会吃不消，如果是对文件系统进行大量的并发调用，操作系统的文件描述符数量会被瞬间用光，抛出如下错误&lt;code class=&quot;highlighter-rouge&quot;&gt;Error: EMFLIE, too many open files&lt;/code&gt;。可以看出，异步I/O与同步I/O的明显差距：同步I/O因为每个I/O都彼此阻塞，在循环体中，总有一个接着一个调用，不会出现耗用文件描述符太多的情况，同时性能也是低下的；对于异步I/O，虽然并发容易实现，但是由于太容易实现依然需要控制。换言之，尽管要压榨底层系统的性能，但还是要给予一定的过载保护。&lt;/p&gt;
-
-&lt;h3 id=&quot;bagpipe&quot;&gt;bagpipe&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;通过一个队列控制并发量&lt;/li&gt;
-  &lt;li&gt;如果当前活跃（调用发起但未执行回调）的异步调用量小于限定值，从队列中取出执行&lt;/li&gt;
-  &lt;li&gt;如果活跃调用达到限定值，调用暂时存放在队列中&lt;/li&gt;
-  &lt;li&gt;每个异步调用结束时，从队列中取出新的异步调用执行&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;async-1&quot;&gt;async&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;parallelLimit 异步调用限制&lt;/li&gt;
-  &lt;li&gt;queue 动态增加并行任务&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Tue, 18 Jul 2017 07:21:00 +0800</pubDate>
-        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/18/learn-node-03-day.html</link>
-        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/18/learn-node-03-day.html</guid>
-        
-        
-        <category>技术分享</category>
-        
-      </item>
-    
-      <item>
-        <title>《深入浅出NodeJs》学习笔记 02 day</title>
-        <description>&lt;h2 id=&quot;为什么要异步io&quot;&gt;为什么要异步IO&lt;/h2&gt;
-
-&lt;h3 id=&quot;用户体验&quot;&gt;用户体验&lt;/h3&gt;
-&lt;p&gt;如果脚本执行的时间超过100毫秒，用户就会感到页面的卡顿，以为网址停止响应。通过同步的方式获取资源，那么javascript则需要等待资源完全从服务器端获取后才能继续执行，这期间UI将停顿，不响应用户的交互行为；而采用异步请求，在下载资源期间，javascript和UI的执行都不会处于等待状态，可以继续响应用户的交互行为，给用户一个鲜活的页面。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;I/O是昂贵的，分布式I/O是更昂贵的&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;资源分配&quot;&gt;资源分配&lt;/h3&gt;
-
-&lt;p&gt;问题：在计算机资源中，通常I/O与CPU计算之间是可以并行进行的，但是同步的编程模型导致的问题是，I/O的进行会让后续任务等待，这会造成资源不能被更好的利用。&lt;/p&gt;
-
-&lt;p&gt;Node给出了好的解决方案：利用单线程，远离多线程死锁、状态同步等问题；利用异步I/O，让单线程远离阻塞，以更好的利用CPU。&lt;/p&gt;
-
-&lt;p&gt;由于&lt;code class=&quot;highlighter-rouge&quot;&gt;Windows&lt;/code&gt;平台和&lt;code class=&quot;highlighter-rouge&quot;&gt;*nix&lt;/code&gt;平台的差异，Node提供了libuv作为抽象封装层，使得所有平台兼容性的判断都由这一层来完成，并保证上层的Node与下层的自定义线程池及IOCP之间各自独立。Node在编译期间会判断平台条件，选择性的编译&lt;code class=&quot;highlighter-rouge&quot;&gt;unix&lt;/code&gt;目录或者&lt;code class=&quot;highlighter-rouge&quot;&gt;win&lt;/code&gt;目录下的源文件到目标程序中。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;我们时常提到的Node是单线程的，这里的单线程仅仅只是JavaScript执行在单线程中而已。在Node中，无论是&lt;code class=&quot;highlighter-rouge&quot;&gt;*nix&lt;/code&gt;还是&lt;code class=&quot;highlighter-rouge&quot;&gt;windows&lt;/code&gt;平台，内部完成I/O任务的另有线程池。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;node的异步io&quot;&gt;Node的异步I/O&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;事件循环&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;观察者&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;请求对象&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;I/O线程池&lt;/code&gt;这四者共同构成Node模型的基本要素&lt;/p&gt;
-
-&lt;h3 id=&quot;事件循环&quot;&gt;事件循环&lt;/h3&gt;
-
-&lt;p&gt;在进程启动时，node会创建一个类似于&lt;code class=&quot;highlighter-rouge&quot;&gt;while(true)&lt;/code&gt;的循环，每执行一次循环体的过程称为&lt;code class=&quot;highlighter-rouge&quot;&gt;Tick&lt;/code&gt;。每个&lt;code class=&quot;highlighter-rouge&quot;&gt;Tick&lt;/code&gt;的过程就是查看是否有事件待处理，如果有就取出事件及其相关的回调函数。如果存在关联的回调函数，就执行它们。然后进入下个循环，如果不再有事件处理就退出进程。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;事件循环是一个典型的生产者／消费者模型&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;观察者&quot;&gt;观察者&lt;/h3&gt;
-
-&lt;p&gt;每一个事件循环中有一个或者多个观察者，而判断是否有事件要处理的过程就是向这些观察者询问是否有要处理的事件。&lt;/p&gt;
-
-&lt;h3 id=&quot;请求对象&quot;&gt;请求对象&lt;/h3&gt;
-
-&lt;p&gt;请求对象是异步I/O过程中重要的中间产物，所有的状态都保存在这个对象中，包括送入线程池等待执行以及I/O操作完毕后的回调处理。&lt;/p&gt;
-
-&lt;h3 id=&quot;执行回调io线程池&quot;&gt;执行回调（I/O线程池）&lt;/h3&gt;
-
-&lt;p&gt;每次Tick执行，检查线程池中是否有执行完的请求，如果存在，将请求对象加入到I/O观察者的队列中，然后将其当作事件处理。&lt;/p&gt;
-
-&lt;p&gt;I/O观察者回调函数的行为就是取出请求对象的result属性作为参数，取出oncomplete_sym属性作为方法，然后调用执行，这样就能达到调用javascript中传入的回调函数的目的。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;注意：除了用户代码无法并行执行外，所有的I/O（磁盘I/O和网络I/O）都是可以并行执行的&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Node通过事件驱动的方式处理请求，无须为每一个请求创建额外的对应线程，可以省掉创建线程和销毁线程的开销，同时操作系统在调度任务时因为线程较少，上下文切换的代价很低。使得服务器能够有条不紊地处理请求，即使在大量链接的情况下，也不受线程上下文切换开销的影响，这是Node高性能的一个原因。&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;流程图&quot;&gt;流程图&lt;/h2&gt;
-
-&lt;h2&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/Tick%E6%B5%81%E7%A8%8B%E5%9B%BE.png?raw=true&quot; alt=&quot;Tick流程图&quot; /&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;-1&quot;&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/%E5%9F%BA%E4%BA%8Elibuv%E7%9A%84%E6%9E%B6%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png?raw=true&quot; alt=&quot;基于libuv的架构示意图&quot; /&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;-2&quot;&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/%E6%95%B4%E4%B8%AA%E5%BC%82%E6%AD%A5I:O%E6%B5%81%E7%A8%8B.png?raw=true&quot; alt=&quot;整个异步I/O流程&quot; /&gt;&lt;/h2&gt;
-
-&lt;h2 id=&quot;-3&quot;&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/master/%E6%B5%81%E7%A8%8B%E5%9B%BE/%E5%9F%BA%E4%BA%8ENode%E6%9E%84%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E6%B5%81%E7%A8%8B%E5%9B%BE.png?raw=true&quot; alt=&quot;基于Node构建Web服务器流程图&quot; /&gt;&lt;/h2&gt;
-</description>
-        <pubDate>Tue, 18 Jul 2017 07:00:34 +0800</pubDate>
-        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/18/learn-node-02-day.html</link>
-        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/18/learn-node-02-day.html</guid>
-        
-        
-        <category>技术分享</category>
-        
-      </item>
-    
-      <item>
-        <title>《深入浅出NodeJs》学习笔记 01 day</title>
-        <description>&lt;h2 id=&quot;包与npm&quot;&gt;包与NPM&lt;/h2&gt;
-
-&lt;h3 id=&quot;包结构&quot;&gt;包结构&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;完全符合CommonJs规范的包目录应该包含如下文件：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;package.json: 包描述文件&lt;/li&gt;
-  &lt;li&gt;bin: 用于存放可执行二进制文件的目录&lt;/li&gt;
-  &lt;li&gt;lib: 用于存放JavaScript代码的目录&lt;/li&gt;
-  &lt;li&gt;doc: 用于存放文档的目录&lt;/li&gt;
-  &lt;li&gt;test: 用于存放单元测试用例的代码&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;CommonJs package.json必须字段：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;name: 包名&lt;/li&gt;
-  &lt;li&gt;description: 包简介&lt;/li&gt;
-  &lt;li&gt;vsersion: 版本号，一般为&lt;code class=&quot;highlighter-rouge&quot;&gt;major.minor.revision&lt;/code&gt;格式&lt;/li&gt;
-  &lt;li&gt;keywords: 关键词数组&lt;/li&gt;
-  &lt;li&gt;maintainers: 包维护者列表&lt;/li&gt;
-  &lt;li&gt;contributors: 贡献者列表&lt;/li&gt;
-  &lt;li&gt;bugs: 一个可以反馈bug的地址&lt;/li&gt;
-  &lt;li&gt;licenses: 许可证列表&lt;/li&gt;
-  &lt;li&gt;repositories: 托管源代码的位置列表&lt;/li&gt;
-  &lt;li&gt;dependencied: 当前包所需依赖的列表&lt;/li&gt;
-  &lt;li&gt;homepage: 当前包的网站地址&lt;/li&gt;
-  &lt;li&gt;os: 操作系统支持列表&lt;/li&gt;
-  &lt;li&gt;cpu: cpu架构支持列表&lt;/li&gt;
-  &lt;li&gt;engine: 支持的javascript引擎列表&lt;/li&gt;
-  &lt;li&gt;builtin: 标志当前包是否是内建在底层系统的标准组件&lt;/li&gt;
-  &lt;li&gt;directores: 包目录说明&lt;/li&gt;
-  &lt;li&gt;implements: 实现规范的列表&lt;/li&gt;
-  &lt;li&gt;scripts: 让包安装或者卸载等过程中提供钩子机制
-&lt;strong&gt;&lt;em&gt;npm 补充：&lt;/em&gt;&lt;/strong&gt; author, bin, main, devDependencies&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;发布包&quot;&gt;发布包&lt;/h3&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1.创建文件夹 npm-package-dev
-&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;npm-package-dev
-
-2.进入文件夹
-&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;npm-package-dev
-
-3.初始化npm包
-npm init
-
-4.注册仓库账号
-npm adduser
-
-5.上传包
-npm publish
-
-6.执行 npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &amp;lt;name&amp;gt; 安装包，其中name为npm init时填写的name字段
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;如何选择好的包&quot;&gt;如何选择好的包&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;具备良好的测试&lt;/li&gt;
-  &lt;li&gt;具备良好的文档&lt;/li&gt;
-  &lt;li&gt;具备良好的测试覆盖率&lt;/li&gt;
-  &lt;li&gt;具备良好的编码规范&lt;/li&gt;
-  &lt;li&gt;更多条件&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;前后端公用模块&quot;&gt;前后端公用模块&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;AMD规范&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;定义： define(id?, dependencies?, factory)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;id 和 dependencies可选，factory为模块初始化要执行的函数或对象。如果为函数，它应该只被执行一次。如果是对象，此对象应该为模块的输出值。&lt;/p&gt;
-
-&lt;p&gt;示例：&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sayHello&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Hello, World'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;CMD规范&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;定义： define(factory)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;与AMD相比，AMD需要在声明时指定所有依赖，CMD支持动态引入&lt;/p&gt;
-
-&lt;p&gt;示例：&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;define&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// The module code goes here&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-</description>
-        <pubDate>Mon, 17 Jul 2017 07:00:34 +0800</pubDate>
-        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/17/learn-node-01-day.html</link>
-        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/17/learn-node-01-day.html</guid>
         
         
         <category>技术分享</category>
