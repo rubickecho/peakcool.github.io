@@ -6,9 +6,55 @@
 </description>
     <link>http://peakcool.cn/</link>
     <atom:link href="http://peakcool.cn/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 28 Dec 2018 11:55:23 +0800</pubDate>
-    <lastBuildDate>Fri, 28 Dec 2018 11:55:23 +0800</lastBuildDate>
+    <pubDate>Thu, 25 Apr 2019 22:10:00 +0800</pubDate>
+    <lastBuildDate>Thu, 25 Apr 2019 22:10:00 +0800</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
+    
+      <item>
+        <title>微信网页ios兼容性调试</title>
+        <description>&lt;h2 id=&quot;微信h5网页ios兼容性测试&quot;&gt;微信h5网页ios兼容性测试&lt;/h2&gt;
+
+&lt;p&gt;微信公众号中，h5网页ios兼容性测试，主要借助&lt;code class=&quot;highlighter-rouge&quot;&gt;ios模拟器&lt;/code&gt;和&lt;code class=&quot;highlighter-rouge&quot;&gt;safari浏览器&lt;/code&gt;开发者模式。&lt;/p&gt;
+
+&lt;h4 id=&quot;step1-确认出现ui-bug-的browser信息和硬件设备系统信息&quot;&gt;step1 确认出现ui bug 的browser信息和硬件设备系统信息&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://peakcool.cn/images/posts/sentry_device_info.jpg&quot; alt=&quot;sentry平台日志监控&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;由browser可以看到，ios上微信中打开网页浏览器内核默认是用的 &lt;code class=&quot;highlighter-rouge&quot;&gt;Safari UI/WKWebView&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;那么也就是说，我们可以借助对应版本的ios模拟器，然后访问h5网页来做兼容性测试。&lt;/p&gt;
+
+&lt;h4 id=&quot;step2-安装并启动对应版本ios模拟器&quot;&gt;step2 安装并启动对应版本ios模拟器&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;打开&lt;code class=&quot;highlighter-rouge&quot;&gt;Xcode&lt;/code&gt;, 进入&lt;code class=&quot;highlighter-rouge&quot;&gt;Preferences -&amp;gt; Components&lt;/code&gt;选项，安装上步获取到的对应os版本&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://peakcool.cn/images/posts/xcode_install_os.png&quot; alt=&quot;xcode安装模拟器系统&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;打开&lt;code class=&quot;highlighter-rouge&quot;&gt;Simulator&lt;/code&gt;, 启动对应型号和系统的模拟器&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;模拟器打开Safari，访问H5界面&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;step3-mac-safari-debug&quot;&gt;step3 Mac Safari Debug&lt;/h4&gt;
+
+&lt;p&gt;MAC打开Safari, &lt;code class=&quot;highlighter-rouge&quot;&gt;开发选项 -&amp;gt; 模拟器 -&amp;gt; JSContext&lt;/code&gt; 开始调试，复现问题&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://peakcool.cn/images/posts/safari_debug.png&quot; alt=&quot;safari web debug&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 28 Dec 2018 19:17:00 +0800</pubDate>
+        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/12/28/%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5ios%E5%85%BC%E5%AE%B9%E6%80%A7%E8%B0%83%E8%AF%95.html</link>
+        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2018/12/28/%E5%BE%AE%E4%BF%A1%E7%BD%91%E9%A1%B5ios%E5%85%BC%E5%AE%B9%E6%80%A7%E8%B0%83%E8%AF%95.html</guid>
+        
+        
+        <category>技术分享</category>
+        
+      </item>
     
       <item>
         <title>Mac解压rar文件</title>
@@ -935,238 +981,6 @@ Buffer所占用的内存不是通过v8分配的，属于堆外内存。&lt;/p&gt
         <pubDate>Tue, 01 Aug 2017 07:13:00 +0800</pubDate>
         <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/08/01/learn-node-05-day.html</link>
         <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/08/01/learn-node-05-day.html</guid>
-        
-        
-        <category>技术分享</category>
-        
-      </item>
-    
-      <item>
-        <title>《深入浅出NodeJs》学习笔记 04 day</title>
-        <description>&lt;h2 id=&quot;内存控制&quot;&gt;内存控制&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;问题1：Node如何利用CPU和I/O这两个服务器资源？&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;问题2：Node如何合理高效地是用内存?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;一切都与Node的JavaScript执行引擎V8息息相关&lt;/p&gt;
-
-&lt;h3 id=&quot;v8的内存限制&quot;&gt;V8的内存限制&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;64位系统下约为1.4GB&lt;/li&gt;
-  &lt;li&gt;32位系统下约为0.7GB&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;为什么V8要限制堆的大小呢？&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;表层原因因为V8最初为浏览器而设计，不大可能遇到大量是用内存的场景。对于网页来说，V8的限制值已经足以应付。&lt;/li&gt;
-  &lt;li&gt;深层的原因是V8的垃圾回收机制的限制。按照官方的说法，以1.5GB的垃圾回收堆内存为例，V8做一次小的垃圾回收需要50毫秒以上，做一次非增量式的垃圾回收甚至需要1秒以上。这是垃圾回收中引起的JavaScript线程暂停执行的时间，在这样的时间开销下，应用的性能和响应能力会直线下降。这样的情况不仅后端服务器无法接受，前端浏览器也无法接收。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;v8的垃圾回收机制&quot;&gt;V8的垃圾回收机制&lt;/h3&gt;
-
-&lt;h4 id=&quot;内存分代回收算法&quot;&gt;内存分代回收算法&lt;/h4&gt;
-
-&lt;p&gt;在V8中，主要将内存分为新生代和老生代两代。新生代中的对象为存活时间较短的对象，老生代中的对象为存活时间较长或常驻内存的对象。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/08958d35532ad8ea5fc78a3c2411f4fcc505ffa6/%E7%A4%BA%E6%84%8F%E5%9B%BE/V8%E5%88%86%E4%BB%A3%E7%A4%BA%E6%84%8F%E5%9B%BE.png?raw=true&quot; alt=&quot;分代&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;–&lt;/p&gt;
-
-&lt;h4 id=&quot;新生代scavenge算法&quot;&gt;新生代：Scavenge算法&lt;/h4&gt;
-
-&lt;p&gt;新生代中主要通过&lt;code class=&quot;highlighter-rouge&quot;&gt;Scavenge&lt;/code&gt;算法进行垃圾回收。&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Scavenge&lt;/code&gt;算法实现中主要采用了&lt;code class=&quot;highlighter-rouge&quot;&gt;Cheney&lt;/code&gt;算法。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cheney算法是一种采用复制的方式实现的垃圾回收算法。它将堆内存一分为二，每一部分空间称为&lt;code class=&quot;highlighter-rouge&quot;&gt;semispace&lt;/code&gt;。在这两个&lt;code class=&quot;highlighter-rouge&quot;&gt;semispace&lt;/code&gt;空间中，只有一个处于使用中，另一个处于闲置状态。处于使用状态的&lt;code class=&quot;highlighter-rouge&quot;&gt;semispace&lt;/code&gt;空间称为&lt;code class=&quot;highlighter-rouge&quot;&gt;From&lt;/code&gt;空间，处于闲置状态的称为&lt;code class=&quot;highlighter-rouge&quot;&gt;To&lt;/code&gt;空间。当我们分配对象时，先是在&lt;code class=&quot;highlighter-rouge&quot;&gt;From&lt;/code&gt;空间中进行分配。当开始进行垃圾回收时，会检查&lt;code class=&quot;highlighter-rouge&quot;&gt;From&lt;/code&gt;空间中存活的对象，这些存活的对象将被复制到&lt;code class=&quot;highlighter-rouge&quot;&gt;To&lt;/code&gt;空间中，而非存活对象占用的空间将会被释放。完成复制后，&lt;code class=&quot;highlighter-rouge&quot;&gt;From&lt;/code&gt;空间和&lt;code class=&quot;highlighter-rouge&quot;&gt;To&lt;/code&gt;空间进行互换。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Scavenge&lt;/code&gt;缺点是只能使用堆内存的一般，这是由划分空间和复制机制所决定的。但是Scavenge只复制存活的对象，并且对于声明周期短的场景存活对象占很少部分，所以他在时间效率上有优异的表现，它是典型的牺牲空间换取时间的算法。所以在新生代中尤为合适。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/08958d35532ad8ea5fc78a3c2411f4fcc505ffa6/%E7%A4%BA%E6%84%8F%E5%9B%BE/V8%E5%A0%86%E5%86%85%E5%AD%98%E7%A4%BA%E6%84%8F%E5%9B%BE.png?raw=true&quot; alt=&quot;新生代堆内存&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;当一个对象经过多次复制依然存户时，它将被认为是生命周期较长的对象。较长生命周期的对象随后会被移到老生代中，采用新的算法进行管理，这一过程称为&lt;code class=&quot;highlighter-rouge&quot;&gt;晋升&lt;/code&gt;。&lt;/p&gt;
-
-&lt;p&gt;晋升条件主要有两个：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;是否经历过&lt;code class=&quot;highlighter-rouge&quot;&gt;Scavenge&lt;/code&gt;回收&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;To&lt;/code&gt;空间的内存占用比超过限制&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;老生代-mark-sweep--mark-compact算法&quot;&gt;老生代： Mark-Sweep &amp;amp; Mark-Compact算法&lt;/h4&gt;
-
-&lt;p&gt;Mark-Sweep: 标记清除算法，它分为标记和清除两个阶段。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/08958d35532ad8ea5fc78a3c2411f4fcc505ffa6/%E7%A4%BA%E6%84%8F%E5%9B%BE/Mark-Sweep%E5%9C%A8%E8%80%81%E7%94%9F%E4%BB%A3%E7%A9%BA%E9%97%B4%E4%B8%AD%E6%A0%87%E8%AE%B0%E5%90%8E%E7%A4%BA%E6%84%8F%E5%9B%BE.png?raw=true&quot; alt=&quot;Mark-Sweep&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;但是&lt;code class=&quot;highlighter-rouge&quot;&gt;Mark-Sweep&lt;/code&gt;会有一个最大的问题是在进行一次标记清除回收后，内存空间会出现不连续的状态，碎片化。这时如果分配一个大对象时可能所有的碎片空间无法完成，就会提前触发垃圾回收机制，而这次回收是不必要的。&lt;/p&gt;
-
-&lt;p&gt;所以为了解决这个问题，结合&lt;code class=&quot;highlighter-rouge&quot;&gt;Mark-Compact&lt;/code&gt;，标记整理对象标记死亡后的碎片化空间。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://github.com/peakcool/learn-nodejs-notes/blob/08958d35532ad8ea5fc78a3c2411f4fcc505ffa6/%E7%A4%BA%E6%84%8F%E5%9B%BE/Mark-Compact%E6%95%B4%E7%90%86%E7%A2%8E%E7%89%87%E7%A4%BA%E6%84%8F%E5%9B%BE.png?raw=true&quot; alt=&quot;Mark-Compact&quot; /&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h4 id=&quot;三种垃圾回收算法简单对比&quot;&gt;三种垃圾回收算法简单对比&lt;/h4&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;回收算法&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Mark-Sweep&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Mark-Compact&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Scavenge&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;速度&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;中等&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;最慢&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;最快&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;空间开销&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;少（有碎片）&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;少（有碎片）&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;双倍空间（无碎片）&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;是否移动对象&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;否&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;是&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;科目标签设置&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;查看垃圾回收日志&quot;&gt;查看垃圾回收日志&lt;/h3&gt;
-
-&lt;p&gt;启动时添加trace_gc参数，在进行垃圾回收时，将会从标准输出中打印垃圾回收日志&lt;/p&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node &lt;span class=&quot;nt&quot;&gt;--trace_gc&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;var a = []; for(var i = 0; i &amp;lt; 1000000; i++) a.push(new Array(100));&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; gc.log
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;高效使用内存&quot;&gt;高效使用内存&lt;/h3&gt;
-
-&lt;h4 id=&quot;作用域&quot;&gt;作用域&lt;/h4&gt;
-
-&lt;h5 id=&quot;1标志符查找&quot;&gt;1.标志符查找&lt;/h5&gt;
-
-&lt;p&gt;与作用域相关的即是标志符查找。所谓标志符，可以理解为变量名。&lt;/p&gt;
-
-&lt;h5 id=&quot;2作用域链&quot;&gt;2.作用域链&lt;/h5&gt;
-
-&lt;p&gt;一直沿着作用域链查找到全局作用域，最后抛出未定义错误。&lt;/p&gt;
-
-&lt;h5 id=&quot;3变量的主动释放&quot;&gt;3.变量的主动释放&lt;/h5&gt;
-
-&lt;p&gt;如果变量是全局变量（不通过&lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt;声明或定义在&lt;code class=&quot;highlighter-rouge&quot;&gt;global&lt;/code&gt;变量上），由于全局作用域需要直到进程退出才能释放，此时将导致引用的对象常驻内存（常驻在老生代中）。如果需要释放常驻内存对象，可以通过&lt;code class=&quot;highlighter-rouge&quot;&gt;delete&lt;/code&gt;操作来删除引用关系。或者将变量重新赋值，让旧的对象脱离引用关系。&lt;/p&gt;
-
-&lt;p&gt;虽然&lt;code class=&quot;highlighter-rouge&quot;&gt;delete&lt;/code&gt;操作和重新赋值具有相同的效果，但是在V8中通过&lt;code class=&quot;highlighter-rouge&quot;&gt;delete&lt;/code&gt;删除对象的属性有可能干扰V8的优化，所以通过赋值方式解除引用更好。&lt;/p&gt;
-
-&lt;h4 id=&quot;闭包&quot;&gt;闭包&lt;/h4&gt;
-
-&lt;p&gt;实现外部作用域访问内部作用域中变量的方法叫做闭包。&lt;/p&gt;
-
-&lt;p&gt;闭包是JavaScript的高级特性，在使用内存时，它的问题在于：一旦有变量引用了这个中间函数，这个中间函数将不会释放，同时也会使原始的作用域不会得到释放，作用域产生的内存占用也不会得到释放。除非不再引用，才会逐步释放。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;内存指标&quot;&gt;内存指标&lt;/h3&gt;
-
-&lt;h4 id=&quot;内存使用情况&quot;&gt;内存使用情况&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;查看进程内存占用 &lt;code class=&quot;highlighter-rouge&quot;&gt;process.memoryUsage()&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;os模块查看操作系统内存使用情况 &lt;code class=&quot;highlighter-rouge&quot;&gt;totalmem()&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;freemem()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;堆外内存&quot;&gt;堆外内存&lt;/h4&gt;
-
-&lt;p&gt;不是通过V8分配的内存称为&lt;strong&gt;堆外内存&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Node的内存构成主要通过V8进行分配的部分和Node自行分配的部分。受V8的垃圾回收限制的主要是V8的堆内存。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;内存泄露&quot;&gt;内存泄露&lt;/h3&gt;
-
-&lt;p&gt;通常造成内存泄露的原因：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;缓存&lt;/li&gt;
-  &lt;li&gt;队列消费不及时&lt;/li&gt;
-  &lt;li&gt;作用域未释放&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;JavaScript创建一个缓存对象&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// get from ohterwise&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;慎将内存做缓存&quot;&gt;慎将内存做缓存&lt;/h4&gt;
-
-&lt;p&gt;缓存限制策略：限制键值数量，大小&lt;/p&gt;
-
-&lt;p&gt;目前比较好的解决方案是采用进程外的缓存，进程本身不存储状态。外部的缓存软件有着良好的缓存过期淘汰策略以及自身的内存管理，不影响Node进程的性能。&lt;/p&gt;
-
-&lt;p&gt;在Node中主要可以解决一下问题：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;将缓存转移到外部，减少常驻内存的对象的数量，让垃圾回收更高效&lt;/li&gt;
-  &lt;li&gt;进程之间可以共享缓存&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;目前推荐: &lt;code class=&quot;highlighter-rouge&quot;&gt;Redis&lt;/code&gt;、&lt;code class=&quot;highlighter-rouge&quot;&gt;Memcached&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;关注队列状态&quot;&gt;关注队列状态&lt;/h4&gt;
-
-&lt;p&gt;例如：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;消费速度 &amp;gt; 生产速度 = 正常&lt;/li&gt;
-  &lt;li&gt;消费速度 &amp;lt; 生产速度 = 不正常&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在队列实现时，优化代码的同时也要考虑到监控队列的长度，一旦消费速度小于生产速度，堆积对象过多时，应当通过系统产生报警并通知；或者任意异步调用都应该包含超时机制，一旦在限定的时间内未完成响应，通过回调函数传递超时异常，使得任意异步调用的回调都具备可控的响应时间，给消费速度一个限定值。&lt;/p&gt;
-
-&lt;h3 id=&quot;内存排查&quot;&gt;内存排查&lt;/h3&gt;
-
-&lt;p&gt;常见工具&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;v8-profiler&lt;/li&gt;
-  &lt;li&gt;node-heapdump&lt;/li&gt;
-  &lt;li&gt;node-mtrace&lt;/li&gt;
-  &lt;li&gt;dtrace&lt;/li&gt;
-  &lt;li&gt;node-memwatch&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;一般通过对堆内存进行分析而找到泄露原因。&lt;/p&gt;
-</description>
-        <pubDate>Tue, 25 Jul 2017 21:33:00 +0800</pubDate>
-        <link>http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/25/learn-node-04-day.html</link>
-        <guid isPermaLink="true">http://peakcool.cn/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/2017/07/25/learn-node-04-day.html</guid>
         
         
         <category>技术分享</category>
