@@ -47,7 +47,7 @@ Cordova codepush 借助appcenter平台，以下是一些备忘整理。
 5. config.xml中添加
     ```xml
     <platform name="android"> 
-        <preference name="APP_SECRET" value="90a4efdb-547c-475e-92f0-4a20a1526852" />
+        <preference name="APP_SECRET" value="YOUR_APP_SECRET" />
         <preference name="CodePushDeploymentKey" value="YOUR-ANDROID-DEPLOYMENT-KEY" />
         <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     </platform>
